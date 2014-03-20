@@ -1,0 +1,14 @@
+source:      .
+destination: ./_site
+
+timezone: Asia/Calcutta
+
+url: http://localhost:4000
+port: 4000
+host: 0.0.0.0
+baseurl: /
+
+cursor:
+  Title: "Cursor : pravj"
+  Person: "Pravendra Singh"
+  Quote: "`` whenever I see them, it make me lost... ``"
