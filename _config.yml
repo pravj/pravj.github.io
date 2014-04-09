@@ -1,3 +1,5 @@
+markdown: kramdown
+
 source:      .
 destination: ./_site
 
