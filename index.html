@@ -1,0 +1,26 @@
+---
+layout: default
+title: Home
+---
+<div class="message">
+this is message
+</div>
+
+</hr>
+
+<div class="posts">
+  {% for post in site.posts %}
+  <div class="index-post">
+    <h3 class="post-title">
+      <a href="{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h3>
+
+    <span class="post-date">
+      {{ post.tag | join: ' &middot; ' }}
+    </span>
+
+  </div>
+  {% endfor %}
+</div>
