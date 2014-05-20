@@ -317,12 +317,21 @@ a.sidebar-nav-item:focus {
   margin-top: 0;
 }
 
-/* Meta data line below post title */
+/* Meta data line above post title */
 .post-date {
   display: block;
   margin-top: -.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   color: #9a9a9a;
+  font-size: 13px;
+}
+
+.post-tag {
+  display: block;
+  margin-top: -.5rem;
+  margin-bottom: 0rem;
+  color: #9a9a9a;
+  font-size: 18px;
 }
 
 /* Related posts */

@@ -6,20 +6,20 @@ title: Home
 this is message
 </div>
 
-</hr>
+<hr>
 
 <div class="posts">
   {% for post in site.posts %}
   <div class="index-post">
-    <h3 class="post-title">
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+
+    <h2 class="post-title">
       <a href="{{ post.url }}">
         {{ post.title }}
       </a>
-    </h3>
+    </h2>
 
-    <span class="post-date">
-      {{ post.tag | join: ' &middot; ' }}
-    </span>
+    <span class="post-tag">{{ post.tag | join: ' &middot; ' }}</span>
 
   </div>
   {% endfor %}
