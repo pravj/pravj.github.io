@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 <div class="message">
-this is message
+this is message :wink:
 </div>
 
 <hr>
@@ -19,8 +19,24 @@ this is message
       </a>
     </h2>
 
-    <span class="post-tag">{{ post.tag | join: ' &middot; ' }}</span>
+    {% comment %}
+      <span class="post-tag">{{ post.tag | join: ' &middot; ' }}</span>
+    {% endcomment %}
+    <span class="post-tag">
+      {% for tag in post.tag %}
+        {% if tag == post.tag.last %}
+          <a href="{{ site.baseurl }}tag/{{ tag }}">
+            {{ tag }}
+          </a>
 
+        {% else %}
+          <a href="{{ site.baseurl }}tag/{{ tag }}">
+            {{ tag }}
+          </a>
+          &middot;
+        {% endif %}
+      {% endfor %}
+    </span>
   </div>
   {% endfor %}
 </div>

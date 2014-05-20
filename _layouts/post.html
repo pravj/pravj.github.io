@@ -5,7 +5,21 @@ layout: default
 <div class="post">
   <span class="post-date">{{ page.date | date_to_string }}</span>
   <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-tag">{{ page.tag | join: ' &middot; ' }}</span>
+  <span class="post-tag">
+      {% for tag in page.tag %}
+        {% if tag == page.tag.last %}
+          <a href="{{ site.baseurl }}tag/{{ tag }}">
+            {{ tag }}
+          </a>
+
+        {% else %}
+          <a href="{{ site.baseurl }}tag/{{ tag }}">
+            {{ tag }}
+          </a>
+          &middot;
+        {% endif %}
+      {% endfor %}
+  </span>
 
   <hr>
 
