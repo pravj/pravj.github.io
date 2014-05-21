@@ -10,8 +10,8 @@ layout: default
   </span>
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-tag">
-      {% for tag in page.metadata %}
-        {% if tag == page.metadata.last %}
+      {% for tag in page.tags %}
+        {% if tag == page.tags.last %}
           <a href="{{ site.baseurl }}tag/{{ tag }}">
             {{ tag }}
           </a>
@@ -27,7 +27,7 @@ layout: default
 
   <hr>
 
-  {{ content }}
+  {{ content | harry }}
 </div>
 
 <div class="related">

@@ -1,3 +1,6 @@
+# http://tech.pro/tutorial/1299/getting-started-with-jekyll-plugins
+# I changed to use reversed data so that latest(by time) is rendered first
+
 module Jekyll
   class ArchivesGenerator < Generator
     def generate(site)

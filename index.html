@@ -24,8 +24,8 @@ title: Home
     </h2>
 
     <span class="post-tag">
-      {% for tag in post.metadata %}
-        {% if tag == post.metadata.last %}
+      {% for tag in post.tags %}
+        {% if tag == post.tags.last %}
           <a href="{{ site.baseurl }}tag/{{ tag }}">
             {{ tag }}
           </a>
