@@ -3,11 +3,15 @@ layout: default
 ---
 
 <div class="post">
-  <span class="post-date">{{ page.date | date_to_string }}</span>
+  <span class="post-date">
+    <a href="{{ site.baseurl }}timeline" class="timeline">
+      {{ page.date | date_to_string }}
+    </a>
+  </span>
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-tag">
-      {% for tag in page.tag %}
-        {% if tag == page.tag.last %}
+      {% for tag in page.metadata %}
+        {% if tag == page.metadata.last %}
           <a href="{{ site.baseurl }}tag/{{ tag }}">
             {{ tag }}
           </a>

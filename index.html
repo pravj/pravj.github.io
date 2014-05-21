@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 <div class="message">
-this is message :wink:
+  this space is filled intentionally..
 </div>
 
 <hr>
@@ -11,7 +11,11 @@ this is message :wink:
 <div class="posts">
   {% for post in site.posts %}
   <div class="index-post">
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+    <span class="post-date">
+      <a href="{{ site.baseurl }}timeline" class="timeline">
+        {{ post.date | date_to_string }}
+      </a>
+    </span>
 
     <h2 class="post-title">
       <a href="{{ post.url }}">
@@ -19,12 +23,9 @@ this is message :wink:
       </a>
     </h2>
 
-    {% comment %}
-      <span class="post-tag">{{ post.tag | join: ' &middot; ' }}</span>
-    {% endcomment %}
     <span class="post-tag">
-      {% for tag in post.tag %}
-        {% if tag == post.tag.last %}
+      {% for tag in post.metadata %}
+        {% if tag == post.metadata.last %}
           <a href="{{ site.baseurl }}tag/{{ tag }}">
             {{ tag }}
           </a>

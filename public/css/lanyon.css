@@ -334,6 +334,10 @@ a.sidebar-nav-item:focus {
   font-size: 18px;
 }
 
+.timeline {
+  color: #7e7e7e;
+}
+
 /* Related posts */
 .related {
   padding-top: 2rem;
