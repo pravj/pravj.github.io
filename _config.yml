@@ -11,7 +11,7 @@ plugins:          ./_plugins
 # Setup
 title:            Pravendra Singh
 tagline:          ': falling leaves'
-description:      'Developer : Explorer : Student'
+description:      'Developer · Explorer · Student'
 url:              http://pravj.github.io
 paginate:         1
 
