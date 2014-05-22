@@ -338,6 +338,10 @@ a.sidebar-nav-item:focus {
   color: #7e7e7e;
 }
 
+.tag-title {
+  color: #518181;
+}
+
 /* Related posts */
 .related {
   padding-top: 2rem;
