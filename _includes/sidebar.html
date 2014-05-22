@@ -9,7 +9,7 @@
   </div>
 
   <nav class="sidebar-nav">
-    <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="/">Home</a>
+    <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="/">Blog</a>
 
     {% comment %}
       The code below dynamically generates a sidebar nav of pages with
@@ -25,14 +25,20 @@
       {% endif %}
     {% endfor %}
 
-    <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
-    <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
-    <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+    <a class="sidebar-nav-item" href="https://pravj.github.io/cursor">Photos</a>
+    <a class="sidebar-nav-item" href="{{ site.github.fork }}">this blog on GitHub</a>
+
+    <span class="sidebar-nav-item">Contact</span>
+    <a class="sidebar-nav-item" href="{{ site.contact.github }}">GitHub</a>
+    <a class="sidebar-nav-item" href="{{ site.contact.twitter }}">Twitter</a>
+    <a class="sidebar-nav-item" href="{{ site.contact.gmail }}">Gmail</a>
+    <a class="sidebar-nav-item" href="{{ site.contact.quora }}">Quora</a>
+    <span class="sidebar-nav-item">Currently v 1.0</span>
   </nav>
 
   <div class="sidebar-item">
     <p>
-      &copy; {{ site.time | date: '%Y' }}. All rights reserved.
+      &copy; {{ site.time | date: '%Y' }}. Pravendra Singh.
     </p>
   </div>
 </div>

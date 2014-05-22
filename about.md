@@ -16,4 +16,4 @@ title: About
 
 ---
 
-[GitHub](https://github.com/pravj) · [Twitter](https://twitter.com/hackpravj) · [Quora](http://www.quora.com/Pravendra-Singh-Rathore) · [Gmail](<mailto:hackpravj@gmail.com>) · [about.me](https://about.me/pravj)
+[Blog]({{site.baseurl}}) · [GitHub](https://github.com/pravj) · [Twitter](https://twitter.com/hackpravj) · [Quora](http://www.quora.com/Pravendra-Singh-Rathore) · [Gmail](<mailto:hackpravj@gmail.com>) · [about.me](https://about.me/pravj)
