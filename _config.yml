@@ -34,3 +34,18 @@ contact:
   twitter:        https://twitter.com/hackpravj
   gmail:          mailto:hackpravj@gmail.com
   quora:          http://quora.com/Pravendra-Singh-Rathore
+
+source:      .
+destination: ./_site
+
+timezone: Asia/Calcutta
+
+url: http://localhost:4000
+port: 4000
+host: 0.0.0.0
+baseurl: /
+
+cursor:
+  Title: "Cursor : pravj"
+  Person: "Pravendra Singh"
+  Quote: "`` Falling Leaves... ``"
