@@ -12,12 +12,12 @@ layout: default
   <span class="post-tag">
       {% for tag in page.tags %}
         {% if tag == page.tags.last %}
-          <a href="{{ site.baseurl }}tag/{{ tag }}">
+          <a href="{{ site.baseurl }}tags/#{{tag}}">
             {{ tag }}
           </a>
 
         {% else %}
-          <a href="{{ site.baseurl }}tag/{{ tag }}">
+          <a href="{{ site.baseurl }}tags/#{{tag}}">
             {{ tag }}
           </a>
           &middot;
