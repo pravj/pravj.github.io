@@ -1,4 +1,4 @@
-# Author : Pravendra Singh (pravj)
+# Author : Pravendra Singh
 # Twitter : @hackpravj
 #
 # map tags to posts and store generated data to site.pages variable

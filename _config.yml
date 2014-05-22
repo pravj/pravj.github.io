@@ -1,0 +1,29 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+
+# custom plugins
+plugins:          ./_plugins
+
+# Setup
+title:            Pravendra Singh
+tagline:          ': falling leaves'
+description:      'Developer : Explorer : Student'
+url:              http://pravj.github.io
+paginate:         1
+
+author:
+  main:
+    name:         'Mark Otto'
+    url:          https://twitter.com/mdo
+
+  contributor:
+    name:         'Pravendra Singh'
+    url:          https://twitter.com/hackpravj
+
+github:
+  main:           https://github.com/poole/lanyon
+  fork:           https://github.com/pravj/pravj.github.io
