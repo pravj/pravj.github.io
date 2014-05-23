@@ -1,1 +1,0 @@
-this directory '/public/smiley' stores all smiley images
