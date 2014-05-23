@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Pravendra Singh</title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2014-05-23T13:12:20+05:30</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name></name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>Introducing <b>modified lanyon</b> <del>and me</del>.</title>
+   <link href="http://localhost:4000/2014/05/22/test-post/"/>
+   <updated>2014-05-22T00:00:00+05:30</updated>
+   <id>http://localhost:4000/2014/05/22/test-post</id>
+   <content type="html">&lt;p&gt;:joy: :j: :grin:&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>
