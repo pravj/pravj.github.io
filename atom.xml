@@ -4,7 +4,7 @@
  <title>Pravendra Singh</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2014-05-23T23:27:46+05:30</updated>
+ <updated>2014-05-24T01:02:16+05:30</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -30,7 +30,7 @@ when I&amp;#39;m not scrolling in sublime-text or vim, I am watching Discovery C
 
 &lt;p&gt;my choice for a setup was &lt;code&gt;Jekyll&lt;/code&gt; powered blog hosted with &lt;code&gt;Github Pages&lt;/code&gt;, so I started searching for a cool Jekyll theme.&lt;/p&gt;
 
-&lt;h3&gt;Lanyon&lt;/h3&gt;
+&lt;h3&gt;&lt;a href=&quot;https://github.com/poole/lanyon&quot;&gt;Lanyon&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;Definition according to it&amp;#39;s Developer &lt;a href=&quot;https://twitter.com/mdo&quot;&gt;@mdo&lt;/a&gt;&lt;/p&gt;
 
@@ -53,7 +53,7 @@ when I&amp;#39;m not scrolling in sublime-text or vim, I am watching Discovery C
 &lt;h3&gt;modified Lanyon&lt;/h3&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;&quot;&gt;modified Lanyon&lt;/a&gt; is the jekyll theme, I ended up while customizing original Lanyon.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/pravj/modified-lanyon&quot;&gt;modified Lanyon&lt;/a&gt; is the jekyll theme, I ended up while customizing original Lanyon.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;things I added to the original theme are :&lt;/p&gt;
@@ -110,18 +110,18 @@ when I&amp;#39;m not scrolling in sublime-text or vim, I am watching Discovery C
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;I am using &lt;code&gt;timeline.rb&lt;/code&gt; from this &lt;a href=&quot;http://tech.pro/tutorial/1299/getting-started-with-jekyll-plugins&quot;&gt;tutorial&lt;/a&gt;, I reversed the data to show latest post first in timeline. see it &lt;a href=&quot;github.com/pravj/modified-lanyon/_plugins/timeline.rb&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I am using &lt;code&gt;timeline.rb&lt;/code&gt; from this &lt;a href=&quot;http://tech.pro/tutorial/1299/getting-started-with-jekyll-plugins&quot;&gt;tutorial&lt;/a&gt;, I reversed the data to show latest post first in timeline. see it &lt;a href=&quot;https://github.com/pravj/modified-lanyon/_plugins/timeline.rb&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3&gt;Harry&lt;/h3&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;github.com/pravj/Harry&quot;&gt;Harry&lt;/a&gt; is the jekyll plugin I developed, it lets you have smiley any from &lt;a href=&quot;http://www.emoji-cheat-sheet.com/&quot;&gt;emoji-cheat-sheet&lt;/a&gt; in your blog.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/pravj/Harry&quot;&gt;Harry&lt;/a&gt; is the jekyll plugin I developed, it lets you use any smiley from &lt;a href=&quot;http://www.emoji-cheat-sheet.com/&quot;&gt;emoji-cheat-sheet&lt;/a&gt; in your blog.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;it was fun developing this, because I just love smileys. specially this :grinning:&lt;/p&gt;
 
-&lt;p&gt;it saves any valid smiley image in &lt;code&gt;public/smileys/&lt;/code&gt; from &lt;a href=&quot;http://www.emoji-cheat-sheet.com/&quot;&gt;emoji-cheat-sheet&lt;/a&gt; and serve from here. more about using Harry can be found &lt;a href=&quot;https://github.com/pravj/Harry/README.md&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;it saves any valid smiley image in &lt;code&gt;public/smileys/&lt;/code&gt; from &lt;a href=&quot;http://www.emoji-cheat-sheet.com/&quot;&gt;emoji-cheat-sheet&lt;/a&gt; and serve from here. more about using Harry can be found &lt;a href=&quot;https://github.com/pravj/Harry/blob/master/README.md&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3&gt;Problem with using Jekyll Plugins on GitHub Pages&lt;/h3&gt;
 
