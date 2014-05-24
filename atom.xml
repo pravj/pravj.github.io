@@ -4,7 +4,7 @@
  <title>Pravendra Singh</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2014-05-24T08:51:03+05:30</updated>
+ <updated>2014-05-24T18:10:29+05:30</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -97,12 +97,12 @@ when I&amp;#39;m not scrolling in sublime-text or vim, I am watching Discovery C
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
-&lt;li&gt;to change the index page rendering style, I used &lt;a href=&quot;https://github.com/Shopify/liquid&quot;&gt;Liquid&lt;/a&gt; Tags and Filters in index.html to show listing of all posts with title, date and tags. see it &lt;a href=&quot;https://github.com/pravj/modified-lanyon/index.html&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;to change the index page rendering style, I used &lt;a href=&quot;https://github.com/Shopify/liquid&quot;&gt;Liquid&lt;/a&gt; Tags and Filters in index.html to show listing of all posts with title, date and tags. see it &lt;a href=&quot;https://github.com/pravj/modified-lanyon/blob/master/index.html&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;to list all posts under a particular tag :&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;I created &lt;code&gt;tagger.rb&lt;/code&gt;, placed it in &lt;code&gt;_plugins/&lt;/code&gt;. it maps each tag in archive to related posts having that tag and let you use that mapped data via &lt;a href=&quot;http://jekyllrb.com/docs/variables/#site-variables&quot;&gt;site.pages&lt;/a&gt; variable. see it &lt;a href=&quot;https://github.com/pravj/modified-lanyon/_plugins/tagger.rb&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I created &lt;code&gt;tagger.rb&lt;/code&gt;, placed it in &lt;code&gt;_plugins/&lt;/code&gt;. it maps each tag in archive to related posts having that tag and let you use that mapped data via &lt;a href=&quot;http://jekyllrb.com/docs/variables/#site-variables&quot;&gt;site.pages&lt;/a&gt; variable. see it &lt;a href=&quot;https://github.com/pravj/modified-lanyon/blob/master/_plugins/tagger.rb&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
@@ -110,7 +110,7 @@ when I&amp;#39;m not scrolling in sublime-text or vim, I am watching Discovery C
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;I am using &lt;code&gt;timeline.rb&lt;/code&gt; from this &lt;a href=&quot;http://tech.pro/tutorial/1299/getting-started-with-jekyll-plugins&quot;&gt;tutorial&lt;/a&gt;, I reversed the data to show latest post first in timeline. see it &lt;a href=&quot;https://github.com/pravj/modified-lanyon/_plugins/timeline.rb&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I am using &lt;code&gt;timeline.rb&lt;/code&gt; from this &lt;a href=&quot;http://tech.pro/tutorial/1299/getting-started-with-jekyll-plugins&quot;&gt;tutorial&lt;/a&gt;, I reversed the data to show latest post first in timeline. see it &lt;a href=&quot;https://github.com/pravj/modified-lanyon/blob/master/_plugins/timeline.rb&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3&gt;Harry&lt;/h3&gt;
