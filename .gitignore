@@ -1,7 +1,5 @@
 public/
 cursor/
-timeline/
-tags/
 
 _plugins/
 _posts/
@@ -11,10 +9,7 @@ _data/
 
 _config.yml
 
-404.html
-index.html
 
-atom.xml
 
 LICENSE
 
