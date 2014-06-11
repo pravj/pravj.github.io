@@ -28,6 +28,10 @@ body, html {
   color: inherit;
 }
 
+.container a:hover {
+  color: silver;
+}
+
 .container ul li {
   list-style: none;
   font-family: Lato;
