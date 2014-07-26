@@ -1,141 +1,28 @@
+---
+layout: nil
+---
+
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Pravendra Singh</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2014-06-01T22:42:51+05:30</updated>
- <id>http://localhost:4000</id>
+ <title>{{ site.title }}</title>
+ <link href="{{ site.url }}/atom.xml" rel="self"/>
+ <link href="{{ site.url }}/"/>
+ <updated>{{ site.time | date_to_xmlschema }}</updated>
+ <id>{{ site.url }}</id>
  <author>
-   <name></name>
-   <email></email>
+   <name>{{ site.author.name }}</name>
+   <email>{{ site.author.email }}</email>
  </author>
 
- 
+ {% for post in site.posts %}
  <entry>
-   <title>introducing <b>modified</b> lanyon and harry and me</title>
-   <link href="http://localhost:4000/2014/05/23/introducing-modified-lanyon-and-harry/"/>
-   <updated>2014-05-23T00:00:00+05:30</updated>
-   <id>http://localhost:4000/2014/05/23/introducing-modified-lanyon-and-harry</id>
-   <content type="html">&lt;p&gt;&lt;code&gt;probably you don&amp;#39;t know me. ok, I&amp;#39;m telling you that.&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;I am Pravendra. Developer at awesome &lt;a href=&quot;https://twitter.com/sdslabs&quot;&gt;SDSLabs&lt;/a&gt; and Computer Science student at IIT Roorkee, 
-when I&amp;#39;m not scrolling in sublime-text or vim, I am watching Discovery Channel :bowtie:&lt;/p&gt;
-
-&lt;p&gt;I am a sincere reader and It&amp;#39;s always nice for me to read about other&amp;#39;s experiences in different fields. Sometimes it shows new things that you are not aware about.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code&gt;a thought of having blog always excited me after reading about nice people around me.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;my choice for a setup was &lt;code&gt;Jekyll&lt;/code&gt; powered blog hosted with &lt;code&gt;Github Pages&lt;/code&gt;, so I started searching for a cool Jekyll theme.&lt;/p&gt;
-
-&lt;h3&gt;&lt;a href=&quot;https://github.com/poole/lanyon&quot;&gt;Lanyon&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Definition according to it&amp;#39;s Developer &lt;a href=&quot;https://twitter.com/mdo&quot;&gt;@mdo&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Lanyon is an unassuming Jekyll theme that places content first by tucking away navigation in a hidden drawer. It&amp;#39;s based on Poole, the Jekyll butler.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;it&amp;#39;s really a cool theme with pretty nice design and a Toggelable sliding sidebar to provide enough space for your content.&lt;/p&gt;
-
-&lt;p&gt;themes avaiable on internet are generally meant to be used as it is or without any hesitation but I wanted something extra in the theme. I wanted to have tags for each post and post sorting according to tags.&lt;/p&gt;
-
-&lt;p&gt;one more thing was that original Lanyon theme serves fix posts on a page and provides pagination(customizable). So if you want to read first post, you have to manually visit all pages till you reach at last page.&lt;/p&gt;
-
-&lt;p&gt;then an old chat with &lt;a href=&quot;https://twitter.com/leostatic&quot;&gt;@sm&lt;/a&gt; motivated me to do something on my own , he said :&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;its never bad to develop a thing, if you are not copying something entirely.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3&gt;modified Lanyon&lt;/h3&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/pravj/modified-lanyon&quot;&gt;modified Lanyon&lt;/a&gt; is the jekyll theme, I ended up while customizing original Lanyon.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;things I added to the original theme are :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;now it shows title, date and related tags for each post on main page&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;it provides easy access to all posts&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;there is a section for all tags in posts, its lists all posts under each tag in archive.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;reader can easily visit for each post under a tag.&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;there is a timeline section showing all posts sorted according to year of post, having latest post first in timeline.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;clicking on a date of post opens the timeline section&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;I added support to have smileys in blog, for this I created a jekyll plugin &lt;a href=&quot;https://github.com/pravj/Harry&quot;&gt;Harry&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;using this you can use all emojis available on the famous www.emoji-cheat-sheet.com&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3&gt;modifying Lanyon&lt;/h3&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;each change I did was done with Jekyll Plugins&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; have cool &lt;a href=&quot;http://jekyllrb.com/docs/plugins/&quot;&gt;plugin&lt;/a&gt; support that allow you to create custom generated content specific to your site.&lt;/p&gt;
-
-&lt;p&gt;according to Jekyll documentation :&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;in your site&amp;#39;s root directory inside &lt;code&gt;_plugins/&lt;/code&gt; directory any file ending in &lt;code&gt;.rb&lt;/code&gt; will be loaded before Jekyll generates your site.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-&lt;li&gt;to change the index page rendering style, I used &lt;a href=&quot;https://github.com/Shopify/liquid&quot;&gt;Liquid&lt;/a&gt; Tags and Filters in index.html to show listing of all posts with title, date and tags. see it &lt;a href=&quot;https://github.com/pravj/modified-lanyon/blob/master/index.html&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;to list all posts under a particular tag :&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;I created &lt;code&gt;tagger.rb&lt;/code&gt;, placed it in &lt;code&gt;_plugins/&lt;/code&gt;. it maps each tag in archive to related posts having that tag and let you use that mapped data via &lt;a href=&quot;http://jekyllrb.com/docs/variables/#site-variables&quot;&gt;site.pages&lt;/a&gt; variable. see it &lt;a href=&quot;https://github.com/pravj/modified-lanyon/blob/master/_plugins/tagger.rb&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-&lt;li&gt;to create the archive timeline :&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;I am using &lt;code&gt;timeline.rb&lt;/code&gt; from this &lt;a href=&quot;http://tech.pro/tutorial/1299/getting-started-with-jekyll-plugins&quot;&gt;tutorial&lt;/a&gt;, I reversed the data to show latest post first in timeline. see it &lt;a href=&quot;https://github.com/pravj/modified-lanyon/blob/master/_plugins/timeline.rb&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3&gt;Harry&lt;/h3&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/pravj/Harry&quot;&gt;Harry&lt;/a&gt; is the jekyll plugin I developed, it lets you use any smiley from &lt;a href=&quot;http://www.emoji-cheat-sheet.com/&quot;&gt;emoji-cheat-sheet&lt;/a&gt; in your blog.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;it was fun developing this, because I just love smileys. specially this :grinning:&lt;/p&gt;
-
-&lt;p&gt;it saves any valid smiley image in &lt;code&gt;public/smileys/&lt;/code&gt; from &lt;a href=&quot;http://www.emoji-cheat-sheet.com/&quot;&gt;emoji-cheat-sheet&lt;/a&gt; and serve from here. more about using Harry can be found &lt;a href=&quot;https://github.com/pravj/Harry/blob/master/README.md&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3&gt;Problem with using Jekyll Plugins on GitHub Pages&lt;/h3&gt;
-
-&lt;p&gt;Github Pages don&amp;#39;t allow you to use plugins because of security reasons, so I am pushing only generated static files to &lt;a href=&quot;https://github.com/pravj/pravj.github.io&quot;&gt;repository&lt;/a&gt; powering this blog&lt;/p&gt;
-
-&lt;h3&gt;Source Code&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/pravj/pravj.github.io&quot;&gt;this blog&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/pravj/modified-lanyon&quot;&gt;modified-lanyon&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/pravj/Harry&quot;&gt;Harry&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
+   <title>{{ post.title }}</title>
+   <link href="{{ site.url }}{{ post.url }}"/>
+   <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <id>{{ site.url }}{{ post.id }}</id>
+   <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
- 
+ {% endfor %}
 
 </feed>
