@@ -172,12 +172,12 @@
   <blockquote>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">before I start the tell
 </code></pre></div>
-<p>you should have a look on <a href="https://github.com/pravj/termping.git">termping</a>, if you haven&#39;t yet.</p>
+<p>You should have a look on <a href="https://github.com/pravj/termping.git">termping</a>, if you haven&#39;t yet.</p>
 </blockquote>
 
-<h1>What&#39;s the fuss about</h1>
+<h1>What&#39;s the fuss about?</h1>
 
-<p>This Blog is all about Development of a game(kind of) <a href="https://github.com/pravj/termping.git">termping</a>, which is a prototype of one of the oldest video game <a href="https://en.wikipedia.org/wiki/Pong">Pong</a>.</p>
+<p>This blogpost is all about Development of a game(kind of) <a href="https://github.com/pravj/termping.git">termping</a>, which is a prototype of one of the oldest video game <a href="https://en.wikipedia.org/wiki/Pong">Pong</a>.</p>
 
 <p><strong>but this prototype runs in your system&#39;s <a href="https://en.wikipedia.org/wiki/Computer_terminal">terminal</a></strong></p>
 
@@ -188,11 +188,11 @@
 <strong>&quot;reading and understanding other people&#39;s code&quot;</strong> <em>&#35;notprasingmyself</em></p>
 </blockquote>
 
-<p>In this summer I have explored unlimited repository out there on <a href="https://github.com/pravj">GitHub</a>. some for solving any kind of issues I was facing in using them or some for just sake of learning anything new, be it any new language(Ruby) or a new field(Vim) for me.</p>
+<p>This summer I have explored unlimited repository out there on <a href="https://github.com/pravj">GitHub</a>, some for solving any kind of issues I was facing in using them and some for just sake of learning anything new, be it any new language(Ruby) or a new field(Vim) for me.</p>
 
 <p>One interesting recap is that I was working on a project for my team(<a href="https://twitter.com/sdslabs">SDSLabs</a>) and I was using a ruby library as HTTP client, <a href="https://github.com/rest-client/rest-client">Rest-Client</a>. I started facing issue(obviously) as I was new to Ruby. So I started reading code of Rest-Client just to take a look that what are the ingredients and their quantity in this library. </p>
 
-<p>finally I completed Rest-Client with a better understanding that solved all my issues with it and gave me introduction to a new field, which is :</p>
+<p>Finally I completed Rest-Client with a better understanding that solved all my issues with it and gave me introduction to a new field, which is :</p>
 
 <blockquote>
 <p>How does HTTP and REST clients works</p>
@@ -200,7 +200,7 @@
 
 <p>Also while learning about the large world of <strong><a href="https://github.com/pravj/dotfiles/tree/learning/vim">Vim</a></strong>, I started developing on a rough idea in my mind. which was to develop a Pong like game, playable in Vim editor itself. I tried it, under the name of <a href="https://github.com/pravj/vingvong">vingvong.</a>. But I was unable to complete it because Vim does not support Asynchronous subprocesses, so I stopped the development.</p>
 
-<p>May be you have any other way of implementing same or I&#39;m wrong somewhere. If so, please let <a href="https://twitter.com/hackpravj">me</a> know.</p>
+<p>May be you have another way of implementing same or I&#39;m wrong somewhere. If so, please let <a href="https://twitter.com/hackpravj">me</a> know.</p>
 
 <p>In the same mission, one day I was going through project <a href="https://github.com/visionmedia/nshell">nshell</a> of <em>one and only</em> <strong><a href="https://github.com/visionmedia">visionmedia</a></strong>. I selected this repository because I recently developed an interest in <a href="https://github.com/pravj/dotfiles">bash, shells and dotfiles management</a>.</p>
 
@@ -220,11 +220,11 @@
 
 <h1>Development</h1>
 
-<p>when I started thinking about Developing, shaping it as a <strong>Node Module</strong> was the only and right option. I knew already that writing a Node Module in <strong>CoffeeScript</strong> is both fancy(for world) and easy(for me).</p>
+<p>When I started thinking about Developing, shaping it as a <strong>Node Module</strong> was the only and right option. I knew already that writing a Node Module in <strong>CoffeeScript</strong> is both fancy(for world) and easy(for me).</p>
 
 <p>There was another reason for Choosing CoffeeScript, my experience in CoffeeScript was only limited to write <a href="https://gist.github.com/pravj/2f500607d0aa1bae26a2">some</a> hubot scripts for customizing internal communication at <a href="https://github.com/sdslabs">SDSLabs.</a></p>
 
-<p>I was a cool opportunity to learn and do more things in CoffeeScript, so finally I was like :</p>
+<p>It was a cool opportunity to learn and do more things in CoffeeScript, so finally I was like :</p>
 
 <blockquote>
 <p>OK, lets move with CoffeeScript.</p>
@@ -236,7 +236,7 @@
 
 <p>Now I&#39;ll try to explain Source Code of <strong>termping.</strong></p>
 
-<p>Here is the current file structure of the repository, once you browse it.</p>
+<p>Here is the current file structure of the repository, as you browse it.</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">.
 |__.npmignore
 |__src
@@ -256,7 +256,7 @@
 </code></pre></div>
 <p>PS : this tree structure is generated from <a href="https://github.com/pravj/dotfiles/blob/learning/bin/treegen">treegen</a>, my own attempt as the alternative of the great <code>tree</code> command.</p>
 
-<p>you can see, main things are inside <code>/src</code> directory.</p>
+<p>Main things are inside <code>/src</code> directory.</p>
 
 <h4>1. objects.coffee</h4>
 
@@ -281,7 +281,7 @@
 <h1>Learning</h1>
 
 <blockquote>
-<p>finally the thing is that, was this all worth doing ?</p>
+<p>Finally the thing is that, was this all worth doing ?</p>
 </blockquote>
 
 <p>Answer is : <strong>Obviously, Yes. It&#39;s always good to be pragmatic.</strong></p>
@@ -313,7 +313,7 @@
  
 <ul>
 <li><strong>termping</strong> is entirely developed in <strong>Vim</strong>, <strong><em>you can smell it</em></strong>.</li>
-<li><strong>Git</strong> repo in <strong>termping</strong> uses a pattern in it&#39;s <a href="https://github.com/pravj/termping/commits/mas    ter">commit messages</a>.
+<li><strong>Git</strong> repo in <strong>termping</strong> uses a pattern in it&#39;s <a href="https://github.com/pravj/termping/commits/master">commit messages</a>.
 
 <ul>
 <li><strong>Commit messages uses a Prefix with them, which is</strong></li>
@@ -323,7 +323,7 @@
 <li><strong>fix</strong> : when commit fixes something wrong with repository.</li>
 <li><strong>update</strong> : when commit updates version info about repository.</li>
 </ul></li>
-<li>Commit messages respects everything <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">suggested</a> by the     great man of <em>Vim World</em>, <a href="https://github.com/tpope">Tim Pope</a></li>
+<li>Commit messages respects everything <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">suggested</a> by the great man of <em>Vim World</em>, <a href="https://github.com/tpope">Tim Pope</a></li>
 </ul>
 
 
@@ -337,7 +337,7 @@
 <li>Feel free to open any <a href="https://github.com/pravj/termping/issues">issue</a> or <a href="https://github.com/pravj/termping/pulls">Pull requests</a> with a feature you want there.</li>
 </ul>
 
-<p>I am not directly writing any more code to it right now, because I have to get involved with some other necessary things, but I will try to helps anyone interested.</p>
+<p>I am not directly writing any more code to it right now, because I have to get involved with some other necessary things, but I will try to help if anyone is interested.</p>
 
 <p><strong>It was a great journey so far, with nice learning experience.</strong> </p>
 
