@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Pravendra Singh</title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2015-01-12T01:09:49+05:30</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name>Pravendra Singh</name>
+   <email>hackpravj@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Post-mortem of an Internet Accident</title>
+   <link href="http://localhost:4000/2015/01/11/post-mortem-of-an-internet-accident/"/>
+   <updated>2015-01-11T00:00:00+05:30</updated>
+   <id>http://localhost:4000/2015/01/11/post-mortem-of-an-internet-accident</id>
+   <content type="html">&lt;p&gt;Hi scout, thanks for visiting this edge node of the Holy Internet; Before the combination &lt;em&gt;Internet Accident&lt;/em&gt; confuse you, let me decode its meaning in the context of this post.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Encounter with something on an edge node of the Holy Internet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So this post is all about my attempt to solve a question, I saw on &lt;em&gt;Quora&lt;/em&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.quora.com/What-good-known-project-on-GitHub-uses-the-largest-number-of-programming-languages&quot;&gt;What good known projects on GitHub uses the largest number of programming languages?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And I think that my answer is 98.76% correct, respecting the &lt;em&gt;No-Zero-Redundancy&lt;/em&gt; law.&lt;/p&gt;
+
+&lt;p&gt;I saw this question while jumping between my chrome tabs when I was struggling with old drafts of my blog.
+I clicked the link to give it a separate tab; &lt;em&gt;even questions have self respect&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I stumbled upon it as I saw that the question had a topic named &lt;em&gt;GitHub&lt;/em&gt; also.&lt;/p&gt;
+
+&lt;p&gt;So, to answer this, all I had to do was to find a repository which uses highest number of programming languages in it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Wait, the question also says a &lt;em&gt;&amp;quot;good known project&amp;quot;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now that&amp;#39;s a plot twist.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;GitHub&lt;/em&gt; provides an excellent &lt;a href=&quot;https://developer.github.com/v3/&quot;&gt;REST API&lt;/a&gt;, so excellent that it powers some awesome services also, like the &lt;a href=&quot;https://gitter.im&quot;&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, to look for languages statistics of a repository you need the names of the repository and its owner. Then you can check a repo&amp;#39;s languages statistics using,&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;https://api.github.com/repos/{owner}/{repo}/languages&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;As far as a I know, there is not any way to do a reverse lookup, where you just provide number of programming languages and it gives you all the associated repositories.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;So I thought, lets give up on it and enjoy the coffee, &lt;em&gt;I had one on my desk&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I closed the question tab and started enjoying the coffee but then I opened it again because I felt that there may be a chance, if I use the &lt;em&gt;GitHub Archive&lt;/em&gt; project.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;GitHub Archive is a project to record the public GitHub timeline, archive it, and make it easily accessible for further analysis.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This shift in plan was also not enough as &lt;em&gt;GitHub Archive&lt;/em&gt; gives only the major programming language for a project.
+Now it was the time to shift to coffee &lt;em&gt;full time&lt;/em&gt; but &lt;em&gt;Nope! I had another idea&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The idea was to collect &lt;em&gt;good and known&lt;/em&gt; projects of &lt;em&gt;GitHub&lt;/em&gt; and rank them according to no. of programming languages in them. This sounds like &lt;em&gt;Brute Force&lt;/em&gt; but it was the only way left.&lt;/p&gt;
+
+&lt;p&gt;I headed towards the &lt;em&gt;GitHub API&lt;/em&gt; for it but found that they gives you the first 1000 search results only.&lt;/p&gt;
+
+&lt;p&gt;So I moved to &lt;em&gt;GitHub Archive&lt;/em&gt; finally and &lt;a href=&quot;https://github.com/pravj/Post-mortem/blob/master/bigquery.sql&quot;&gt;downloaded a .csv file&lt;/a&gt; of all the repositories with greater than equal to 500 stars. Now, I think it covers most of your &lt;em&gt;good and known projects&lt;/em&gt;, happy now?&lt;/p&gt;
+
+&lt;p&gt;I &lt;em&gt;Vimed&lt;/em&gt; the .csv file and found that some URLs were missing the owner&amp;#39;s name.
+&lt;img src=&quot;http://localhost:4000/assets/post-mortem-of-an-internet-accident/vim-screenshot.png&quot; alt=&quot;Vim-Screenshot&quot;&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;:g/https:\/\/github.com\/\//d&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I removed all the corrupted lines using this command.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If you&amp;#39;re thinking that by removing lines, we won&amp;#39;t consider these repositories then take a deep breath and don&amp;#39;t think so, we will consider them, keep reading.&lt;/p&gt;
+
+&lt;p&gt;Then I wrote a &lt;em&gt;Python module&lt;/em&gt; to interact with the &lt;em&gt;GitHub API&lt;/em&gt;, named it &lt;em&gt;postman&lt;/em&gt;.
+The &lt;em&gt;postman&lt;/em&gt; uses &lt;em&gt;Authentication Token&lt;/em&gt; from &lt;em&gt;GitHub&lt;/em&gt; to prevent the &lt;em&gt;rate-limiting&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;#39;t how much did &lt;em&gt;postman&lt;/em&gt; take in its task as I was attending my classes then.
+But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;/em&gt; was done with the task. &lt;em&gt;Wow, an obedient postman&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Right now if you search in GitHub for repositories having 500 or more stars, you will see around 7,200 results. So we have been doing this right so far as GitHub Archive &lt;a href=&quot;http://git.io/78eKDg&quot;&gt;don&amp;#39;t have&lt;/a&gt; all the data&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once all the data is available, it&amp;#39;s time to &lt;em&gt;rock &amp;#39;n&amp;#39; roll&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Plotting the stars and languages distribution over all the repositories, we get this graph.
+&lt;img src=&quot;http://localhost:4000/assets/post-mortem-of-an-internet-accident/stars-and-languages.png&quot; alt=&quot;Stars-and-Language-distribution&quot;&gt;
+You can see that most of our good and known projects are in the bottom-left corner. Almost 90% of our repositories have less than 20,000 stars and 20 languages.&lt;/p&gt;
+
+&lt;p&gt;There is only one repository with more than 40,000 stars, which is the &lt;a href=&quot;https://github.com/twbs/bootstrap&quot;&gt;twbs/bootstrap&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;OK, let&amp;#39;s come to the question again. I think ordering repositories according to their no. of programming languages will work.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Top 25 projects by their no. of programming languages&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/leachim6/hello-world&quot;&gt;leachim6/hello-world&lt;/a&gt;, languages : 82&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ajaxorg/ace&quot;&gt;ajaxorg/ace&lt;/a&gt;, languages : 58&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ajaxorg/ace-builds&quot;&gt;ajaxorg/ace-builds&lt;/a&gt;, languages : 58&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/freebsd/freebsd&quot;&gt;RMerl/asuswrt-merlin&lt;/a&gt;, languages : 57&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/freebsd/freebsd&quot;&gt;freebsd/freebsd&lt;/a&gt;, languages : 39&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/geany/geany&quot;&gt;geany/geany&lt;/a&gt;, languages : 36&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/xbmc/xbmc&quot;&gt;xbmc/xbmc&lt;/a&gt;, languages : 30&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/dspinellis/unix-history-repo&quot;&gt;dspinellis/unix-history-repo&lt;/a&gt;, languages : 30&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/TechEmpower/FrameworkBenchmarks&quot;&gt;TechEmpower/FrameworkBenchmarks&lt;/a&gt;, languages : 28&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/imatix/zguide&quot;&gt;imatix/zguide&lt;/a&gt;, languages : 28&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/apache/thrift&quot;&gt;apache/thrift&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/msysgit/msysgit&quot;&gt;msysgit/msysgit&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/kennyledet/Algorithm-Implementations&quot;&gt;kennyledet/Algorithm-Implementations&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/flycheck/flycheck&quot;&gt;flycheck/flycheck&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/aichallenge/aichallenge&quot;&gt;aichallenge/aichallenge&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/triAGENS/ArangoDB&quot;&gt;triAGENS/ArangoDB&lt;/a&gt;, languages : 26&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/offensive-security/exploit-database&quot;&gt;offensive-security/exploit-database&lt;/a&gt;, languages : 25&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/JuliaLang/julia&quot;&gt;JuliaLang/julia&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/JetBrains/intellij-community&quot;&gt;JetBrains/intellij-community&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/facebook/pfff&quot;&gt;facebook/pfff&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ornicar/lila&quot;&gt;ornicar/lila&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/WebKit/webkit&quot;&gt;WebKit/webkit&lt;/a&gt;, languages : 22&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ariya/phantomjs&quot;&gt;ariya/phantomjs&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ruby/ruby&quot;&gt;ruby/ruby&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/coolwanglu/vim.js&quot;&gt;coolwanglu/vim.js&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;So, is that all? &lt;em&gt;Not at all! We have a lot to talk about my friend.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets talk about something interesting I found in the data there.&lt;/p&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;1. There were 382 repositories without any programming language.&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Most of them are documentations, list of resources for a field.&lt;/li&gt;
+&lt;li&gt;For example &lt;a href=&quot;https://github.com/vhf/free-programming-books&quot;&gt;vhf/free-programming-books&lt;/a&gt;, List of free learning resources.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/post-mortem-of-an-internet-accident/zero-language-repository.png&quot; alt=&quot;Zero-Language-Repositories&quot;&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;subject to detection of the language by GitHub&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Along with the required dataset, I was also collecting the &lt;a href=&quot;https://github.com/pravj/Post-mortem/blob/master/log/postman.log&quot;&gt;logs&lt;/a&gt; data.
+So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;2. The log file shows &amp;#39;ERROR : status 404&amp;#39; in some lines.&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;There are 214 such lines, it means these projects have shifted their owners as it&amp;#39;s unusual to delete such popular repository.&lt;/li&gt;
+&lt;li&gt;They have evolved to much larger projects and have their own organizations now. For example the projects &lt;a href=&quot;https://github.com/homebrew/homebrew&quot;&gt;Homebrew&lt;/a&gt;, &lt;a href=&quot;https://github.com/docker/docker&quot;&gt;Docker&lt;/a&gt; and &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&lt;/a&gt;, earlier they were &lt;a href=&quot;https://github.com/mxcl/homebrew&quot;&gt;mxcl/homebrew&lt;/a&gt;, &lt;a href=&quot;https://github.com/dotcloud/docker&quot;&gt;dotcloud/docker&lt;/a&gt; and &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;mojombo/jekyll&lt;/a&gt; respectively.&lt;/li&gt;
+&lt;li&gt;The maximum-star-holder-and-ultra-awesome project &lt;a href=&quot;https://github.com/twbs/bootstrap&quot;&gt;twbs/bootstrap&lt;/a&gt; was earlier at &lt;em&gt;Twitter&lt;/em&gt; by the address, &lt;a href=&quot;https://github.com/twitter/bootstrap&quot;&gt;twitter/bootstrap&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The one-and-only TJ Holowaychuk have changed his username from &lt;a href=&quot;https://github.com/visionmedia&quot;&gt;visionmedia&lt;/a&gt; to &lt;a href=&quot;https://github.com/tj&quot;&gt;tj&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;3. The log file shows &amp;#39;ERROR : status 403&amp;#39; in some lines.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Now this is weird, as status 403 denotes the Forbidden state. But underlying secrets are much more awesome here.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;There were two repositories, disabled due to a DMCA takedown notice.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/popcorn-official/popcorn-app&quot;&gt;popcorn-official/popcorn-app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Bukkit/CraftBukkit&quot;&gt;Bukkit/CraftBukkit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;There was one repositories which is disabled by GitHub staff.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mandatoryprogrammer/Octodog_Invasion&quot;&gt;mandatoryprogrammer/Octodog_Invasion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;There was one repository which is deleted.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NULLPointerDz/test&quot;&gt;NULLPointerDz/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Don&amp;#39;t know how but this repository had more than 500 stars once.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The code for this report is on GitHub, &lt;a href=&quot;https://github.com/pravj/Post-mortem&quot;&gt;pravj/Post-mortem&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you feel that you can do more after going through this post-mortem report, you are welcome to show your medical skills.&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>geo_pattern &#58; going on the Go path</title>
+   <link href="http://localhost:4000/2014/11/01/going-on-the-go-path/"/>
+   <updated>2014-11-01T00:00:00+05:30</updated>
+   <id>http://localhost:4000/2014/11/01/going-on-the-go-path</id>
+   <content type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Before I start the tell&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You should have a look at &lt;a href=&quot;https://github.com/pravj/geo_pattern.git&quot;&gt;geo_pattern&lt;/a&gt;, if you haven&amp;#39;t yet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1&gt;What&amp;#39;s the buzz all about?&lt;/h1&gt;
+
+&lt;p&gt;This blog post is about development of &lt;em&gt;geo_pattern&lt;/em&gt; library in &lt;em&gt;golang&lt;/em&gt;.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;What do you think about this my favorite colored &lt;em&gt;concentric circle&lt;/em&gt; pattern?
+&lt;img src=&quot;http://localhost:4000/assets/going-on-the-go-path/concentric-circle.png&quot; alt=&quot;Concentric-Circle&quot;&gt;&lt;/p&gt;
+
+&lt;h1&gt;geo_pattern. What?&lt;/h1&gt;
+
+&lt;p&gt;Umm, actually I don&amp;#39;t know exactly why the name is &lt;em&gt;geo_pattern&lt;/em&gt; but I know what it is.&lt;/p&gt;
+
+&lt;p&gt;It is a &lt;em&gt;golang&lt;/em&gt; library that generates pretty image patterns. It comes with awesome pattern types like nested squares, tessellation, concentric circles and &lt;a href=&quot;https://github.com/pravj/geo_pattern#available-pattern&quot;&gt;13 more&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now if you are thinking, why I don&amp;#39;t know the reason behind its naming. It&amp;#39;s because &lt;em&gt;geo_pattern&lt;/em&gt; is actually the golang port of &lt;em&gt;my friend and GitHubber&lt;/em&gt; &lt;a href=&quot;https://github.com/jasonlong&quot;&gt;Jason Long&lt;/a&gt;&amp;#39;s &lt;a href=&quot;https://github.com/jasonlong&quot;&gt;GeoPattern&lt;/a&gt; Ruby library.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Jason&lt;/em&gt; created the original Ruby library to power GitHub&amp;#39;s &lt;a href=&quot;https://guides.github.com/&quot;&gt;Guides&lt;/a&gt; and &lt;a href=&quot;https://github.com/explore&quot;&gt;Explore&lt;/a&gt; sections.&lt;/p&gt;
+
+&lt;h1&gt;another geo_pattern. Why?&lt;/h1&gt;
+
+&lt;p&gt;As you can see original &lt;em&gt;geo_pattern&lt;/em&gt; is being used at GitHub itself. &lt;em&gt;What else you want, huh?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;So there are many other &lt;a href=&quot;https://github.com/jasonlong/geo_pattern#ports&quot;&gt;implemetations&lt;/a&gt; in different programming languages, trying to help users of each language choice.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;But this was not the real force for me to develop one more in golang.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Before the &lt;em&gt;geo_pattern&lt;/em&gt;, last thing I worked on was &lt;a href=&quot;https://github.com/pravj/Doga&quot;&gt;Doga: HTTP log monitoring console for Humans&lt;/a&gt;. I really loved developing it and still I love to just watch it working.&lt;/p&gt;
+
+&lt;p&gt;The reason behind this special attraction is that :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;It helped me landing a summer internship at &lt;a href=&quot;https://www.datadoghq.com/&quot;&gt;Datadog&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;It is written in Python. &lt;strong&gt;&amp;lt;3&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then I started writing blog for an old project &lt;a href=&quot;https://github.com/pravj/teamwork&quot;&gt;teamwork&lt;/a&gt;, just for the sake of adding an entry to my archives but it&amp;#39;s still in drafts.&lt;/p&gt;
+
+&lt;p&gt;I tried many things to kill my time :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;watched too much movies, more than too much &lt;em&gt;Animation movies&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;tried to read one seventh of the entire internet; I just missed it, though.&lt;/li&gt;
+&lt;li&gt;collected some best music and shaped it in a playlist named &lt;em&gt;confusion&lt;/em&gt; on Muzi, so was I.&lt;/li&gt;
+&lt;li&gt;managed to complete reading one entire research paper, &lt;em&gt;first time \o/.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;attempted watching Coursera content for two courses.&lt;/li&gt;
+&lt;li&gt;tried to work on something new but got stuck somewhere and paused the work.&lt;/li&gt;
+&lt;li&gt;managed to contribute to term2048, &lt;em&gt;only one right thing.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In short I was doing everything but there was no sign of satisfaction; &lt;em&gt;getting philosophical, lol.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That&amp;#39;s why I decided to write something. And here comes the &lt;em&gt;geo_pattern.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1&gt;Golang. Why?&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Please don&amp;#39;t kill me, if you use &amp;#39;go&amp;#39; more than &amp;#39;golang&amp;#39;. I&amp;#39;m just being formal.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Since this summer I was collecting talks, blogs and other sources etc. about use of different programming languages in the wild. I hope someday I&amp;#39;ll be able to convert that all in something readable.&lt;/p&gt;
+
+&lt;p&gt;Golang was on my list ever since.&lt;/p&gt;
+
+&lt;p&gt;I have seen many awesome products shifting their infrastructure from &lt;a href=&quot;https://www.spacemonkey.com/blog/posts/go-space-monkey&quot;&gt;Python&lt;/a&gt;, &lt;a href=&quot;http://www.quora.com/Why-did-Koding-switch-from-Node-js-to-Go&quot;&gt;Node.js&lt;/a&gt; to &lt;em&gt;golang&lt;/em&gt;. Even Dropbox &lt;a href=&quot;https://tech.dropbox.com/2014/07/open-sourcing-our-go-libraries/&quot;&gt;migrated&lt;/a&gt; part of their code stack to golang from Python. Also I have read the &lt;em&gt;TJ holowaychuk&lt;/em&gt; &lt;a href=&quot;https://medium.com/code-adventures/farewell-node-js-4ba9e7f3e52b&quot;&gt;praising&lt;/a&gt; golang.&lt;/p&gt;
+
+&lt;p&gt;All this made me to take a walk in the &lt;em&gt;golang&lt;/em&gt; land.&lt;/p&gt;
+
+&lt;h1&gt;Learning Golang. Developing geo_pattern.&lt;/h1&gt;
+
+&lt;p&gt;In starting I spend two evenings reading about formal language convention stuff on the &lt;a href=&quot;http://www.golang-book.com/&quot;&gt;Golang-Book&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After playing for a while in my &lt;em&gt;~/projects/learn.go/&lt;/em&gt; directory, I started working on &lt;em&gt;geo_pattern&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I love to read source code of every readable thing in any language except assembly, &lt;em&gt;as far as I can understand it&lt;/em&gt;. So I started reading source code of original &lt;em&gt;library&lt;/em&gt; and it was fun. The most helpful thing was Jason&amp;#39;s blog &lt;a href=&quot;https://medium.com/@jasonlong/generating-visual-designs-with-code-62e59c4881ca&quot;&gt;Generating visual designs with code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In starting I was having problems that I even googled &lt;em&gt;go sucks&lt;/em&gt;. Because I found that &lt;em&gt;golang&lt;/em&gt; is a bit more verbose language. It doesn&amp;#39;t have some generic things so you have to write some work around like absense of optional arguments in functions and a better way to manage classes and stay object oriented.&lt;/p&gt;
+
+&lt;p&gt;But the more I worked with it I found that I&amp;#39;m more aware about what I&amp;#39;m writing, debugging is hell lot easy and what not.&lt;/p&gt;
+
+&lt;p&gt;Things that helped me from not giving up, are :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://gobyexample.com/&quot;&gt;Go by Example&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jordanorelli.com/post/32665860244/how-to-use-interfaces-in-go&quot;&gt;How to use interfaces in Go&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.golang.org/godoc-documenting-go-code&quot;&gt;Godoc: documenting Go code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;And the &lt;em&gt;Holy Internet&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I mailed Jason asking permission to port it and some other stuff related to licensing. His reply was positive. &lt;em&gt;That&amp;#39;s the ideal way you port something.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Then I called an astrologer for the right time to post about &lt;em&gt;geo_pattern&lt;/em&gt; on &lt;a href=&quot;https://news.ycombinator.com/item?id=8520961&quot;&gt;Hacker News&lt;/a&gt; and Holy, mother of bull!, He was perfect. It went to 2nd rank on the front page. #ThanksHN \o/.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;All this happened a bit fast. In a week or so.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1&gt;Now What?&lt;/h1&gt;
+
+&lt;p&gt;I hated and then loved working with &lt;em&gt;golang; still loving&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;As you can see, people are using &lt;em&gt;golang&lt;/em&gt; to speed up their projects and scale them upto higher levels. So now I wish to understand more about it. I haven&amp;#39;t smoked &lt;em&gt;golang&amp;#39;s concurrency primitives - Go routines and Channels yet&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;It was awesome to see &lt;em&gt;geo_pattern&lt;/em&gt; &lt;a href=&quot;https://twitter.com/jasonlong/status/527465160253132803&quot;&gt;leading&lt;/a&gt; GitHub&amp;#39;s trending repositories.&lt;/p&gt;
+
+&lt;p&gt;I have noticed that I&amp;#39;m not good in managing my past works like some inspiring people do in the GitHub community. It&amp;#39;s mainly because I move myself to some other stuff &lt;em&gt;totally&lt;/em&gt; and don&amp;#39;t pay much attention to older ones.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ll try to work on this and learn more things about &lt;em&gt;golang&lt;/em&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;So if you still wants to answer the question I asked in the start, you can use &lt;em&gt;Internet of things&lt;/em&gt; to catch me. \o/.&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>termping &#58; &#9829; &#43; Node.js &#43; Streams &#43; CoffeeScript</title>
+   <link href="http://localhost:4000/2014/07/27/introducing-termping/"/>
+   <updated>2014-07-27T00:00:00+05:30</updated>
+   <id>http://localhost:4000/2014/07/27/introducing-termping</id>
+   <content type="html">&lt;blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;before I start the tell
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;you should have a look on &lt;a href=&quot;https://github.com/pravj/termping.git&quot;&gt;termping&lt;/a&gt;, if you haven&amp;#39;t yet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1&gt;What&amp;#39;s the fuss about&lt;/h1&gt;
+
+&lt;p&gt;This Blog is all about Development of a game(kind of) &lt;a href=&quot;https://github.com/pravj/termping.git&quot;&gt;termping&lt;/a&gt;, which is a prototype of one of the oldest video game &lt;a href=&quot;https://en.wikipedia.org/wiki/Pong&quot;&gt;Pong&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;but this prototype runs in your system&amp;#39;s &lt;a href=&quot;https://en.wikipedia.org/wiki/Computer_terminal&quot;&gt;terminal&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1&gt;Emergence&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;One thing that I just feel, I am getting good at is
+&lt;strong&gt;&amp;quot;reading and understanding other people&amp;#39;s code&amp;quot;&lt;/strong&gt; &lt;em&gt;&amp;#35;notprasingmyself&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In this summer I have explored unlimited repository out there on &lt;a href=&quot;https://github.com/pravj&quot;&gt;GitHub&lt;/a&gt;. some for solving any kind of issues I was facing in using them or some for just sake of learning anything new, be it any new language(Ruby) or a new field(Vim) for me.&lt;/p&gt;
+
+&lt;p&gt;One interesting recap is that I was working on a project for my team(&lt;a href=&quot;https://twitter.com/sdslabs&quot;&gt;SDSLabs&lt;/a&gt;) and I was using a ruby library as HTTP client, &lt;a href=&quot;https://github.com/rest-client/rest-client&quot;&gt;Rest-Client&lt;/a&gt;. I started facing issue(obviously) as I was new to Ruby. So I started reading code of Rest-Client just to take a look that what are the ingredients and their quantity in this library. &lt;/p&gt;
+
+&lt;p&gt;finally I completed Rest-Client with a better understanding that solved all my issues with it and gave me introduction to a new field, which is :&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;How does HTTP and REST clients works&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Also while learning about the large world of &lt;strong&gt;&lt;a href=&quot;https://github.com/pravj/dotfiles/tree/learning/vim&quot;&gt;Vim&lt;/a&gt;&lt;/strong&gt;, I started developing on a rough idea in my mind. which was to develop a Pong like game, playable in Vim editor itself. I tried it, under the name of &lt;a href=&quot;https://github.com/pravj/vingvong&quot;&gt;vingvong.&lt;/a&gt;. But I was unable to complete it because Vim does not support Asynchronous subprocesses, so I stopped the development.&lt;/p&gt;
+
+&lt;p&gt;May be you have any other way of implementing same or I&amp;#39;m wrong somewhere. If so, please let &lt;a href=&quot;https://twitter.com/hackpravj&quot;&gt;me&lt;/a&gt; know.&lt;/p&gt;
+
+&lt;p&gt;In the same mission, one day I was going through project &lt;a href=&quot;https://github.com/visionmedia/nshell&quot;&gt;nshell&lt;/a&gt; of &lt;em&gt;one and only&lt;/em&gt; &lt;strong&gt;&lt;a href=&quot;https://github.com/visionmedia&quot;&gt;visionmedia&lt;/a&gt;&lt;/strong&gt;. I selected this repository because I recently developed an interest in &lt;a href=&quot;https://github.com/pravj/dotfiles&quot;&gt;bash, shells and dotfiles management&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I saw, he was using &lt;a href=&quot;http://nodejs.org/docs/latest/api/stream.html#stream_stream&quot;&gt;Stream&lt;/a&gt; in nshell development. I googled about streams and found many resources, this includes &lt;a href=&quot;http://nodejs.org/docs/latest/api/stream.html&quot;&gt;official stream docs&lt;/a&gt; and &lt;a href=&quot;https://github.com/substack/stream-handbook&quot;&gt;stream-handbook&lt;/a&gt; and many others.&lt;/p&gt;
+
+&lt;p&gt;Before that day, I have seen many people starring the &lt;em&gt;stream-handbook&lt;/em&gt; in my GitHub feed. But I was like &lt;em&gt;this thing does not belongs to me, right now&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;But that day I opened &lt;em&gt;stream-handbook&lt;/em&gt; with a motive to learn something. I started reading it and found that &lt;em&gt;Streams&lt;/em&gt; is a nice topic to learn.&lt;/p&gt;
+
+&lt;p&gt;Suddenly my mind searched something from it&amp;#39;s index and showed me result in form of an idea. It was :&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Why don&amp;#39;t you just restart that Pingpong thing with this Stream ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;that&amp;#39;s all I wanted.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1&gt;Development&lt;/h1&gt;
+
+&lt;p&gt;when I started thinking about Developing, shaping it as a &lt;strong&gt;Node Module&lt;/strong&gt; was the only and right option. I knew already that writing a Node Module in &lt;strong&gt;CoffeeScript&lt;/strong&gt; is both fancy(for world) and easy(for me).&lt;/p&gt;
+
+&lt;p&gt;There was another reason for Choosing CoffeeScript, my experience in CoffeeScript was only limited to write &lt;a href=&quot;https://gist.github.com/pravj/2f500607d0aa1bae26a2&quot;&gt;some&lt;/a&gt; hubot scripts for customizing internal communication at &lt;a href=&quot;https://github.com/sdslabs&quot;&gt;SDSLabs.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I was a cool opportunity to learn and do more things in CoffeeScript, so finally I was like :&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;OK, lets move with CoffeeScript.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;One coolest thing is that for CoffeeScript, I have only used &lt;a href=&quot;http://arcturo.github.io/library/coffeescript/&quot;&gt;The Little Book on CoffeeScript&lt;/a&gt;, no StackOverflow here.&lt;/p&gt;
+
+&lt;p&gt;The current version of &lt;strong&gt;termping&lt;/strong&gt; is open-sourced at &lt;a href=&quot;https://github.com/pravj/termping&quot;&gt;GitHub&lt;/a&gt;, feel free to contribute to it.&lt;/p&gt;
+
+&lt;p&gt;Now I&amp;#39;ll try to explain Source Code of &lt;strong&gt;termping.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is the current file structure of the repository, once you browse it.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;.
+|__.npmignore
+|__src
+| |__objects.coffee
+| |__game.coffee
+| |__movement.coffee
+| |__status.coffee
+| |__source.coffee
+|__Cakefile
+|__bin
+| |__termping
+|__package.json
+|__.gitignore
+|__README.md
+|__docs
+| |__termping.gif
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;PS : this tree structure is generated from &lt;a href=&quot;https://github.com/pravj/dotfiles/blob/learning/bin/treegen&quot;&gt;treegen&lt;/a&gt;, my own attempt as the alternative of the great &lt;code&gt;tree&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;you can see, main things are inside &lt;code&gt;/src&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;h4&gt;1. objects.coffee&lt;/h4&gt;
+
+&lt;p&gt;Object class keeps the game objects, including &lt;em&gt;ball&lt;/em&gt;, &lt;em&gt;paddle&lt;/em&gt; and &lt;em&gt;data&lt;/em&gt; to be rendered on screen. It also helps to populate the data initially according to terminal size.&lt;/p&gt;
+
+&lt;h4&gt;2. game.coffee&lt;/h4&gt;
+
+&lt;p&gt;Game class combines all available things at one place and makes it possible to play the game. It also invoke things in other classes on some particular events like &lt;em&gt;left&lt;/em&gt;/&lt;em&gt;right&lt;/em&gt; or &lt;em&gt;SpaceBar&lt;/em&gt; key press, that enable pause/resume or movement of paddle.&lt;/p&gt;
+
+&lt;h4&gt;3. movement.coffee&lt;/h4&gt;
+
+&lt;p&gt;Movement class handles all movement related things. Ex. moving of user&amp;#39;s paddle, movement of ball, movement of computer&amp;#39;s paddle and one most useful thing &lt;em&gt;Collision Detection&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h4&gt;4. status.coffee&lt;/h4&gt;
+
+&lt;p&gt;status.coffee carries all variable and their values that different classes use throughout the game. which includes, velocity of ball, paddle positions, ball positions, state of game etc.&lt;/p&gt;
+
+&lt;h4&gt;5. source.coffee&lt;/h4&gt;
+
+&lt;p&gt;Source class is leading character in the movie. This is the place where all that Stream thing shows the magic. What it does is to &lt;strong&gt;pipe&lt;/strong&gt; the data to the &lt;strong&gt;stdout&lt;/strong&gt; that is to be rendered on screen. That&amp;#39;s why I named it as Source. Other classes just work together and periodically update the data.&lt;/p&gt;
+
+&lt;h1&gt;Learning&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;finally the thing is that, was this all worth doing ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Answer is : &lt;strong&gt;Obviously, Yes. It&amp;#39;s always good to be pragmatic.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Now I feel as good with &lt;strong&gt;CoffeeScript&lt;/strong&gt; as I feel with my love, &lt;strong&gt;Python&lt;/strong&gt;.
+
+&lt;ul&gt;
+&lt;li&gt;as the Book says, CoffeeScript is a little language, but it&amp;#39;s pretty cool one.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Finally I have a &lt;a href=&quot;https://www.npmjs.org/package/termping&quot;&gt;NPM Module&lt;/a&gt; under my name \m/.
+
+&lt;ul&gt;
+&lt;li&gt;I have completed things in form of NPM modules 2-3 times but never published them, because I developed them for internal/local use only.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;I continued working on it, because I just wanted to complete that un-complete &lt;a href=&quot;https://github.com/pravj/vingvong&quot;&gt;vingvong&lt;/a&gt; thing.
+
+&lt;ul&gt;
+&lt;li&gt;Finally now, the revenge has been taken, &lt;strong&gt;Yo&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;It was the motive to complete it, that&amp;#39;s why I have added that ♥ in starting, instead of adding it in last.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;Extra Learning&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Extra learning just means, things that I explored while developing it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;termping&lt;/strong&gt; is entirely developed in &lt;strong&gt;Vim&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;you can smell it&lt;/em&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Git&lt;/strong&gt; repo in &lt;strong&gt;termping&lt;/strong&gt; uses a pattern in it&amp;#39;s &lt;a href=&quot;https://github.com/pravj/termping/commits/master&quot;&gt;commit messages&lt;/a&gt;.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Commit messages uses a Prefix with them, which is&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;add&lt;/strong&gt; : when your commit is adding something new to the repository.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;change&lt;/strong&gt; : when your commit is changing something that already exists.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;remove&lt;/strong&gt; : when your commit is removing things from the repository.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;fix&lt;/strong&gt; : when commit fixes something wrong with repository.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;update&lt;/strong&gt; : when commit updates version info about repository.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Commit messages respects everything &lt;a href=&quot;http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html&quot;&gt;suggested&lt;/a&gt; by the great man of &lt;em&gt;Vim World&lt;/em&gt;, &lt;a href=&quot;https://github.com/tpope&quot;&gt;Tim Pope&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;Contribution&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;termping&lt;/strong&gt; is still not complete, what you can contribute is :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A scoring thing, that counts score and decide winner when one player reach at score limit.&lt;/li&gt;
+&lt;li&gt;A level thing, that divides the game in parts depending on level of difficulty.&lt;/li&gt;
+&lt;li&gt;Feel free to open any &lt;a href=&quot;https://github.com/pravj/termping/issues&quot;&gt;issue&lt;/a&gt; or &lt;a href=&quot;https://github.com/pravj/termping/pulls&quot;&gt;Pull requests&lt;/a&gt; with a feature you want there.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I am not directly writing any more code to it right now, because I have to get involved with some other necessary things, but I will try to helps anyone interested.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;It was a great journey so far, with nice learning experience.&lt;/strong&gt; &lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>introducing <b>modified</b> lanyon and harry and me</title>
+   <link href="http://localhost:4000/2014/05/23/introducing-modified-lanyon-and-harry/"/>
+   <updated>2014-05-23T00:00:00+05:30</updated>
+   <id>http://localhost:4000/2014/05/23/introducing-modified-lanyon-and-harry</id>
+   <content type="html">&lt;p&gt;&lt;code&gt;probably you don&amp;#39;t know me. ok, I&amp;#39;m telling you that.&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I am Pravendra. Developer at awesome &lt;a href=&quot;https://twitter.com/sdslabs&quot;&gt;SDSLabs&lt;/a&gt; and Computer Science student at IIT Roorkee, 
+when I&amp;#39;m not scrolling in sublime-text or vim, I am watching Discovery Channel :bowtie:&lt;/p&gt;
+
+&lt;p&gt;I am a sincere reader and It&amp;#39;s always nice for me to read about other&amp;#39;s experiences in different fields. Sometimes it shows new things that you are not aware about.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;a thought of having blog always excited me after reading about nice people around me.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;my choice for a setup was &lt;code&gt;Jekyll&lt;/code&gt; powered blog hosted with &lt;code&gt;Github Pages&lt;/code&gt;, so I started searching for a cool Jekyll theme.&lt;/p&gt;
+
+&lt;h3&gt;&lt;a href=&quot;https://github.com/poole/lanyon&quot;&gt;Lanyon&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Definition according to it&amp;#39;s Developer &lt;a href=&quot;https://twitter.com/mdo&quot;&gt;@mdo&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Lanyon is an unassuming Jekyll theme that places content first by tucking away navigation in a hidden drawer. It&amp;#39;s based on Poole, the Jekyll butler.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;it&amp;#39;s really a cool theme with pretty nice design and a Toggelable sliding sidebar to provide enough space for your content.&lt;/p&gt;
+
+&lt;p&gt;themes avaiable on internet are generally meant to be used as it is or without any hesitation but I wanted something extra in the theme. I wanted to have tags for each post and post sorting according to tags.&lt;/p&gt;
+
+&lt;p&gt;one more thing was that original Lanyon theme serves fix posts on a page and provides pagination(customizable). So if you want to read first post, you have to manually visit all pages till you reach at last page.&lt;/p&gt;
+
+&lt;p&gt;then an old chat with &lt;a href=&quot;https://twitter.com/leostatic&quot;&gt;@sm&lt;/a&gt; motivated me to do something on my own , he said :&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;its never bad to develop a thing, if you are not copying something entirely.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;modified Lanyon&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/pravj/modified-lanyon&quot;&gt;modified Lanyon&lt;/a&gt; is the jekyll theme, I ended up while customizing original Lanyon.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;things I added to the original theme are :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;now it shows title, date and related tags for each post on main page&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;it provides easy access to all posts&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;there is a section for all tags in posts, its lists all posts under each tag in archive.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;reader can easily visit for each post under a tag.&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;there is a timeline section showing all posts sorted according to year of post, having latest post first in timeline.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;clicking on a date of post opens the timeline section&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I added support to have smileys in blog, for this I created a jekyll plugin &lt;a href=&quot;https://github.com/pravj/Harry&quot;&gt;Harry&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;using this you can use all emojis available on the famous www.emoji-cheat-sheet.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;modifying Lanyon&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;each change I did was done with Jekyll Plugins&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; have cool &lt;a href=&quot;http://jekyllrb.com/docs/plugins/&quot;&gt;plugin&lt;/a&gt; support that allow you to create custom generated content specific to your site.&lt;/p&gt;
+
+&lt;p&gt;according to Jekyll documentation :&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;in your site&amp;#39;s root directory inside &lt;code&gt;_plugins/&lt;/code&gt; directory any file ending in &lt;code&gt;.rb&lt;/code&gt; will be loaded before Jekyll generates your site.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;to change the index page rendering style, I used &lt;a href=&quot;https://github.com/Shopify/liquid&quot;&gt;Liquid&lt;/a&gt; Tags and Filters in index.html to show listing of all posts with title, date and tags. see it &lt;a href=&quot;https://github.com/pravj/modified-lanyon/blob/master/index.html&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;to list all posts under a particular tag :&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I created &lt;code&gt;tagger.rb&lt;/code&gt;, placed it in &lt;code&gt;_plugins/&lt;/code&gt;. it maps each tag in archive to related posts having that tag and let you use that mapped data via &lt;a href=&quot;http://jekyllrb.com/docs/variables/#site-variables&quot;&gt;site.pages&lt;/a&gt; variable. see it &lt;a href=&quot;https://github.com/pravj/modified-lanyon/blob/master/_plugins/tagger.rb&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;to create the archive timeline :&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I am using &lt;code&gt;timeline.rb&lt;/code&gt; from this &lt;a href=&quot;http://tech.pro/tutorial/1299/getting-started-with-jekyll-plugins&quot;&gt;tutorial&lt;/a&gt;, I reversed the data to show latest post first in timeline. see it &lt;a href=&quot;https://github.com/pravj/modified-lanyon/blob/master/_plugins/timeline.rb&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;Harry&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/pravj/Harry&quot;&gt;Harry&lt;/a&gt; is the jekyll plugin I developed, it lets you use any smiley from &lt;a href=&quot;http://www.emoji-cheat-sheet.com/&quot;&gt;emoji-cheat-sheet&lt;/a&gt; in your blog.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;it was fun developing this, because I just love smileys. specially this :grinning:&lt;/p&gt;
+
+&lt;p&gt;it saves any valid smiley image in &lt;code&gt;public/smileys/&lt;/code&gt; from &lt;a href=&quot;http://www.emoji-cheat-sheet.com/&quot;&gt;emoji-cheat-sheet&lt;/a&gt; and serve from here. more about using Harry can be found &lt;a href=&quot;https://github.com/pravj/Harry/blob/master/README.md&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;Problem with using Jekyll Plugins on GitHub Pages&lt;/h3&gt;
+
+&lt;p&gt;Github Pages don&amp;#39;t allow you to use plugins because of security reasons, so I am pushing only generated static files to &lt;a href=&quot;https://github.com/pravj/pravj.github.io&quot;&gt;repository&lt;/a&gt; powering this blog&lt;/p&gt;
+
+&lt;h3&gt;Source Code&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pravj/pravj.github.io&quot;&gt;this blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pravj/modified-lanyon&quot;&gt;modified-lanyon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pravj/Harry&quot;&gt;Harry&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+
+</feed>
