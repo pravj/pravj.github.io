@@ -1,5 +1,4 @@
-> My Jekyll powered real-estate in webspace.
-============================================
+####My Jekyll powered real-estate in webspace.
 
 > This repository contains the static dump of my [real-estate](https://pravj.github.io)
 >
