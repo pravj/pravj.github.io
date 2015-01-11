@@ -4,7 +4,7 @@
  <title>Pravendra Singh</title>
  <link href="http://pravj.github.io/atom.xml" rel="self"/>
  <link href="http://pravj.github.io/"/>
- <updated>2015-01-12T01:20:22+05:30</updated>
+ <updated>2015-01-12T01:44:18+05:30</updated>
  <id>http://pravj.github.io</id>
  <author>
    <name>Pravendra Singh</name>
@@ -82,15 +82,15 @@ Now it was the time to shift to coffee &lt;em&gt;full time&lt;/em&gt; but &lt;em
 
 &lt;p&gt;If you&amp;#39;re thinking that by removing lines, we won&amp;#39;t consider these repositories then take a deep breath and don&amp;#39;t think so, we will consider them, keep reading.&lt;/p&gt;
 
-&lt;p&gt;Then I wrote a &lt;em&gt;Python module&lt;/em&gt; to interact with the &lt;em&gt;GitHub API&lt;/em&gt;, named it &lt;em&gt;postman&lt;/em&gt;.
+&lt;p&gt;Then I wrote a &lt;em&gt;Python module&lt;/em&gt; to interact with the &lt;em&gt;GitHub API&lt;/em&gt;, named it &lt;em&gt;&lt;a href=&quot;https://github.com/pravj/Post-mortem/blob/master/postman.py&quot;&gt;postman&lt;/a&gt;&lt;/em&gt;.
 The &lt;em&gt;postman&lt;/em&gt; uses &lt;em&gt;Authentication Token&lt;/em&gt; from &lt;em&gt;GitHub&lt;/em&gt; to prevent the &lt;em&gt;rate-limiting&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;I don&amp;#39;t how much did &lt;em&gt;postman&lt;/em&gt; take in its task as I was attending my classes then.
+&lt;p&gt;I don&amp;#39;t know how much did &lt;em&gt;postman&lt;/em&gt; take in its task as I was attending my classes then.
 But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;/em&gt; was done with the task. &lt;em&gt;Wow, an obedient postman&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Right now if you search in GitHub for repositories having 500 or more stars, you will see around 7,200 results. So we have been doing this right so far as GitHub Archive &lt;a href=&quot;http://git.io/78eKDg&quot;&gt;don&amp;#39;t have&lt;/a&gt; all the data&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Once all the data is available, it&amp;#39;s time to &lt;em&gt;rock &amp;#39;n&amp;#39; roll&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Once all the data is available, it&amp;#39;s time to &lt;em&gt;rock &amp;#39;n&amp;#39; roll&lt;/em&gt;. &lt;a href=&quot;rstudio.com&quot;&gt;Rstudio&lt;/a&gt; is always there to help us.&lt;/p&gt;
 
 &lt;p&gt;Plotting the stars and languages distribution over all the repositories, we get this graph.
 &lt;img src=&quot;http://pravj.github.io/assets/post-mortem-of-an-internet-accident/stars-and-languages.png&quot; alt=&quot;Stars-and-Language-distribution&quot;&gt;
