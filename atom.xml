@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Pravendra Singh</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2015-01-12T01:09:49+05:30</updated>
- <id>http://localhost:4000</id>
+ <link href="http://pravj.github.io/atom.xml" rel="self"/>
+ <link href="http://pravj.github.io/"/>
+ <updated>2015-01-12T01:20:22+05:30</updated>
+ <id>http://pravj.github.io</id>
  <author>
    <name>Pravendra Singh</name>
    <email>hackpravj@gmail.com</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Post-mortem of an Internet Accident</title>
-   <link href="http://localhost:4000/2015/01/11/post-mortem-of-an-internet-accident/"/>
+   <link href="http://pravj.github.io/2015/01/11/post-mortem-of-an-internet-accident/"/>
    <updated>2015-01-11T00:00:00+05:30</updated>
-   <id>http://localhost:4000/2015/01/11/post-mortem-of-an-internet-accident</id>
+   <id>http://pravj.github.io/2015/01/11/post-mortem-of-an-internet-accident</id>
    <content type="html">&lt;p&gt;Hi scout, thanks for visiting this edge node of the Holy Internet; Before the combination &lt;em&gt;Internet Accident&lt;/em&gt; confuse you, let me decode its meaning in the context of this post.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -72,7 +72,7 @@ Now it was the time to shift to coffee &lt;em&gt;full time&lt;/em&gt; but &lt;em
 &lt;p&gt;So I moved to &lt;em&gt;GitHub Archive&lt;/em&gt; finally and &lt;a href=&quot;https://github.com/pravj/Post-mortem/blob/master/bigquery.sql&quot;&gt;downloaded a .csv file&lt;/a&gt; of all the repositories with greater than equal to 500 stars. Now, I think it covers most of your &lt;em&gt;good and known projects&lt;/em&gt;, happy now?&lt;/p&gt;
 
 &lt;p&gt;I &lt;em&gt;Vimed&lt;/em&gt; the .csv file and found that some URLs were missing the owner&amp;#39;s name.
-&lt;img src=&quot;http://localhost:4000/assets/post-mortem-of-an-internet-accident/vim-screenshot.png&quot; alt=&quot;Vim-Screenshot&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;http://pravj.github.io/assets/post-mortem-of-an-internet-accident/vim-screenshot.png&quot; alt=&quot;Vim-Screenshot&quot;&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;:g/https:\/\/github.com\/\//d&lt;/strong&gt;&lt;/p&gt;
@@ -93,7 +93,7 @@ But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;
 &lt;p&gt;Once all the data is available, it&amp;#39;s time to &lt;em&gt;rock &amp;#39;n&amp;#39; roll&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Plotting the stars and languages distribution over all the repositories, we get this graph.
-&lt;img src=&quot;http://localhost:4000/assets/post-mortem-of-an-internet-accident/stars-and-languages.png&quot; alt=&quot;Stars-and-Language-distribution&quot;&gt;
+&lt;img src=&quot;http://pravj.github.io/assets/post-mortem-of-an-internet-accident/stars-and-languages.png&quot; alt=&quot;Stars-and-Language-distribution&quot;&gt;
 You can see that most of our good and known projects are in the bottom-left corner. Almost 90% of our repositories have less than 20,000 stars and 20 languages.&lt;/p&gt;
 
 &lt;p&gt;There is only one repository with more than 40,000 stars, which is the &lt;a href=&quot;https://github.com/twbs/bootstrap&quot;&gt;twbs/bootstrap&lt;/a&gt;.&lt;/p&gt;
@@ -147,7 +147,7 @@ You can see that most of our good and known projects are in the bottom-left corn
 &lt;li&gt;For example &lt;a href=&quot;https://github.com/vhf/free-programming-books&quot;&gt;vhf/free-programming-books&lt;/a&gt;, List of free learning resources.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/post-mortem-of-an-internet-accident/zero-language-repository.png&quot; alt=&quot;Zero-Language-Repositories&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://pravj.github.io/assets/post-mortem-of-an-internet-accident/zero-language-repository.png&quot; alt=&quot;Zero-Language-Repositories&quot;&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;subject to detection of the language by GitHub&lt;/em&gt;&lt;/p&gt;
@@ -201,9 +201,9 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
  
  <entry>
    <title>geo_pattern &#58; going on the Go path</title>
-   <link href="http://localhost:4000/2014/11/01/going-on-the-go-path/"/>
+   <link href="http://pravj.github.io/2014/11/01/going-on-the-go-path/"/>
    <updated>2014-11-01T00:00:00+05:30</updated>
-   <id>http://localhost:4000/2014/11/01/going-on-the-go-path</id>
+   <id>http://pravj.github.io/2014/11/01/going-on-the-go-path</id>
    <content type="html">&lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;Before I start the tell&lt;/code&gt;&lt;/p&gt;
 
@@ -217,7 +217,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;p&gt;What do you think about this my favorite colored &lt;em&gt;concentric circle&lt;/em&gt; pattern?
-&lt;img src=&quot;http://localhost:4000/assets/going-on-the-go-path/concentric-circle.png&quot; alt=&quot;Concentric-Circle&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;http://pravj.github.io/assets/going-on-the-go-path/concentric-circle.png&quot; alt=&quot;Concentric-Circle&quot;&gt;&lt;/p&gt;
 
 &lt;h1&gt;geo_pattern. What?&lt;/h1&gt;
 
@@ -331,9 +331,9 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
  
  <entry>
    <title>termping &#58; &#9829; &#43; Node.js &#43; Streams &#43; CoffeeScript</title>
-   <link href="http://localhost:4000/2014/07/27/introducing-termping/"/>
+   <link href="http://pravj.github.io/2014/07/27/introducing-termping/"/>
    <updated>2014-07-27T00:00:00+05:30</updated>
-   <id>http://localhost:4000/2014/07/27/introducing-termping</id>
+   <id>http://pravj.github.io/2014/07/27/introducing-termping</id>
    <content type="html">&lt;blockquote&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;before I start the tell
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -509,9 +509,9 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
  
  <entry>
    <title>introducing <b>modified</b> lanyon and harry and me</title>
-   <link href="http://localhost:4000/2014/05/23/introducing-modified-lanyon-and-harry/"/>
+   <link href="http://pravj.github.io/2014/05/23/introducing-modified-lanyon-and-harry/"/>
    <updated>2014-05-23T00:00:00+05:30</updated>
-   <id>http://localhost:4000/2014/05/23/introducing-modified-lanyon-and-harry</id>
+   <id>http://pravj.github.io/2014/05/23/introducing-modified-lanyon-and-harry</id>
    <content type="html">&lt;p&gt;&lt;code&gt;probably you don&amp;#39;t know me. ok, I&amp;#39;m telling you that.&lt;/code&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
