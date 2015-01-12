@@ -4,7 +4,7 @@
  <title>Pravendra Singh</title>
  <link href="http://pravj.github.io/atom.xml" rel="self"/>
  <link href="http://pravj.github.io/"/>
- <updated>2015-01-12T01:44:18+05:30</updated>
+ <updated>2015-01-12T13:02:05+05:30</updated>
  <id>http://pravj.github.io</id>
  <author>
    <name>Pravendra Singh</name>
@@ -90,7 +90,7 @@ But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;
 
 &lt;p&gt;&lt;em&gt;Right now if you search in GitHub for repositories having 500 or more stars, you will see around 7,200 results. So we have been doing this right so far as GitHub Archive &lt;a href=&quot;http://git.io/78eKDg&quot;&gt;don&amp;#39;t have&lt;/a&gt; all the data&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Once all the data is available, it&amp;#39;s time to &lt;em&gt;rock &amp;#39;n&amp;#39; roll&lt;/em&gt;. &lt;a href=&quot;rstudio.com&quot;&gt;Rstudio&lt;/a&gt; is always there to help us.&lt;/p&gt;
+&lt;p&gt;Once all the data is available, it&amp;#39;s time to &lt;em&gt;rock &amp;#39;n&amp;#39; roll&lt;/em&gt;. &lt;a href=&quot;http://www.rstudio.com&quot;&gt;Rstudio&lt;/a&gt; is always there to help us.&lt;/p&gt;
 
 &lt;p&gt;Plotting the stars and languages distribution over all the repositories, we get this graph.
 &lt;img src=&quot;http://pravj.github.io/assets/post-mortem-of-an-internet-accident/stars-and-languages.png&quot; alt=&quot;Stars-and-Language-distribution&quot;&gt;
