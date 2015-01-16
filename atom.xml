@@ -4,7 +4,7 @@
  <title>Pravendra Singh</title>
  <link href="//pravj.github.io/atom.xml" rel="self"/>
  <link href="//pravj.github.io/"/>
- <updated>2015-01-15T15:14:25+05:30</updated>
+ <updated>2015-01-16T22:41:31+05:30</updated>
  <id>//pravj.github.io</id>
  <author>
    <name>Pravendra Singh</name>
@@ -256,7 +256,7 @@ Maybe if we compare the &amp;quot;diff&amp;quot;erences between this file and th
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Yeah! I do remember that the file &lt;em&gt;remember&lt;/em&gt; was there in the branch &lt;em&gt;bug&lt;/em&gt; as I wasted 10 minutes on it.&lt;/p&gt;
 
-&lt;p&gt;I did &lt;code&gt;git diff mouse tree -- remember&lt;/code&gt; to see the difference between these two files accross branches and the difference in the files was this one line :&lt;/p&gt;
+&lt;p&gt;I did &lt;code&gt;git diff mouse bug -- remember&lt;/code&gt; to see the difference between these two files accross branches and the difference in the files was this one line :&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;-Sn The next clue is: YtrydjKsYqebDoI3h bTINUeV6 pTVY8jnK2re HRwwNy25Ps6 u0YChCo5Jtw N3xkH3G nx aGo6yQTW RVZMsf3xk tBL0sG9GAR HQbyGYdqs i6dx1fyIPGJVci
 +Sn In a branch named: Henry YtrydjKsYqebDoI3h bTINUeV6 pTVY8jnK2re HRwwNy25Ps6 u0YChCo5Jtw N3xkH3G nx aGo6yQTW RVZMsf3xk tBL0sG9GAR HQbyGYdqs i6dx1fy
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
