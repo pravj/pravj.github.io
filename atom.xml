@@ -4,7 +4,7 @@
  <title>Pravendra Singh</title>
  <link href="//pravj.github.io/atom.xml" rel="self"/>
  <link href="//pravj.github.io/"/>
- <updated>2015-01-17T20:42:18+05:30</updated>
+ <updated>2015-01-18T16:47:02+05:30</updated>
  <id>//pravj.github.io</id>
  <author>
    <name>Pravendra Singh</name>
@@ -31,7 +31,7 @@
 
 &lt;h2&gt;Motive&lt;/h2&gt;
 
-&lt;p&gt;I think it was almost mid of the December last year when I saw the &lt;a href=&quot;http://yourstory.com/2014/12/techie-tuesdays-amod-malviya-cto-flipkart/&quot;&gt;interview&lt;/a&gt; of Flipkart&amp;#39;s CTO &lt;em&gt;Amod Malviya&lt;/em&gt; in a YourStory article. I started reading that and I kept reading till the end. At the end my reaction was, &lt;em&gt;wow! this man is awesome&lt;/em&gt; and he is indeed. I have seen many of his talks after reading that interview.&lt;/p&gt;
+&lt;p&gt;I think it was almost mid of the December last year when I saw the &lt;a href=&quot;http://yourstory.com/2014/12/techie-tuesdays-amod-malviya-cto-flipkart/&quot;&gt;interview&lt;/a&gt; of Flipkart&amp;#39;s CTO &lt;em&gt;Amod Malviya&lt;/em&gt; in a YourStory article. I started reading that and kept reading till the end. At the end my reaction was, &lt;em&gt;wow! this man is awesome&lt;/em&gt; and he is indeed. I have seen many of his talks after reading that interview.&lt;/p&gt;
 
 &lt;p&gt;That interview made a different impression on me. I liked his words where he was talking about building a top class internet infrastructure in India. I don&amp;#39;t know what you people think of Flipkart, Myntra etc. but what I think is that they are evolving continuously, at least in the technical aspect. That&amp;#39;s why they are in the marathon and Amazon itself is in the race with them. &lt;/p&gt;
 
@@ -96,10 +96,10 @@
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
-&lt;li&gt;I didn&amp;#39;t knew that Myntra was founded a bit earlier than Flipkart, who &lt;a href=&quot;http://timesofindia.indiatimes.com/tech/tech-news/Flipkart-acquires-Myntra/articleshow/35472797.cms&quot;&gt;aquired&lt;/a&gt; the older player recently.&lt;/li&gt;
+&lt;li&gt;I didn&amp;#39;t know that Myntra was founded a bit earlier than Flipkart, who &lt;a href=&quot;http://timesofindia.indiatimes.com/tech/tech-news/Flipkart-acquires-Myntra/articleshow/35472797.cms&quot;&gt;aquired&lt;/a&gt; the older player recently.&lt;/li&gt;
 &lt;li&gt;Myntra and Flipkart came in existance before the GitHub itself.&lt;/li&gt;
 &lt;li&gt;We can see a large gap between apperance on these two portals for Flipkart, Myntra and Zomato, Myntra being the slowest one to join.&lt;/li&gt;
-&lt;li&gt;Some organizations like Instamojo, HackerEarth and HasGeek felt the time and took no significant time in this.&lt;/li&gt;
+&lt;li&gt;Some organizations like Instamojo, HackerEarth and HasGeek felt the need of time and took no significant time in this.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Well! in case if you&amp;#39;re thinking that this information is all chatter, let me present something interesting.&lt;/p&gt;
@@ -110,7 +110,7 @@
 
 &lt;p&gt;I can&amp;#39;t say for Cucumbertown now but I can present a supporting theory to prove this for the HasGeek.&lt;/p&gt;
 
-&lt;p&gt;Do you guys remeber what was the first event that HasGeek organised? It was &lt;a href=&quot;http://wiki.hasgeek.in/DocType_HTML5&quot;&gt;DocType HTML5&lt;/a&gt;, you silly. The event was held on October, 2010 and HasGeek was pubilcally launched in December, 2010. You can fly to their GitHub account and check that they were developing &lt;a href=&quot;https://github.com/hasgeek/doctypehtml5&quot;&gt;hasgeek/doctypehtml5&lt;/a&gt; since then.&lt;/p&gt;
+&lt;p&gt;Do you guys remeber what was the first event that HasGeek organised? It was &lt;a href=&quot;http://wiki.hasgeek.in/DocType_HTML5&quot;&gt;DocType HTML5&lt;/a&gt;, you silly. The event was held on October, 2010 and HasGeek was pubilcally launched in December, 2010. You can fly to their GitHub account and check that they are developing &lt;a href=&quot;https://github.com/hasgeek/doctypehtml5&quot;&gt;hasgeek/doctypehtml5&lt;/a&gt; since then.&lt;/p&gt;
 
 &lt;p&gt;Maybe organising this event was the inspiration behind launching the HasGeek, I need to hear HasGeek founder &lt;a href=&quot;https://twitter.com/jackerhack&quot;&gt;Kiran&lt;/a&gt;&amp;#39;s words on it, though.&lt;/p&gt;
 
@@ -203,7 +203,7 @@
 
 &lt;p&gt;You can see a relatively more development activity in the start of the year.&lt;/p&gt;
 
-&lt;p&gt;Flipkart development team &lt;a href=&quot;https://github.com/Flipkart/linux&quot;&gt;keeps&lt;/a&gt; a &lt;em&gt;fork&lt;/em&gt; of the &lt;em&gt;linux&lt;/em&gt;, it&amp;#39;s not a &lt;em&gt;forked repo&lt;/em&gt; though. I removed its activities because this was maing the plot even more cluttered. You can check &lt;a href=&quot;//pravj.github.io/assets/ospi/commit-activity.png&quot;&gt;that plot&lt;/a&gt; also, though.&lt;/p&gt;
+&lt;p&gt;Flipkart development team &lt;a href=&quot;https://github.com/Flipkart/linux&quot;&gt;keeps&lt;/a&gt; a &lt;em&gt;fork&lt;/em&gt; of the &lt;em&gt;linux&lt;/em&gt;, it&amp;#39;s not a &lt;em&gt;forked repo&lt;/em&gt; though. I removed its activities because this was making the plot even more cluttered. You can check &lt;a href=&quot;//pravj.github.io/assets/ospi/commit-activity.png&quot;&gt;that plot&lt;/a&gt; also, though.&lt;/p&gt;
 
 &lt;h2&gt;4. Technology Stack&lt;/h2&gt;
 
@@ -214,14 +214,14 @@
 &lt;p&gt;This section deals with use of different programming languages in the involved organizations&amp;#39;s infrastructure.
 &lt;img src=&quot;//pravj.github.io/assets/ospi/language-uses.png&quot; alt=&quot;Language-Use&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;This plot uses colours from GitHub&amp;#39;s &lt;a href=&quot;https://github.com/linguist&quot;&gt;linguist&lt;/a&gt; for different programming languages.&lt;/p&gt;
+&lt;p&gt;This plot uses colors from GitHub&amp;#39;s &lt;a href=&quot;https://github.com/linguist&quot;&gt;linguist&lt;/a&gt; for different programming languages.&lt;/p&gt;
 
 &lt;p&gt;This helps us understanding tech-stack of all the organizations.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Flipkart uses Java, HasGeek uses Python, Practo uses PHP and Freshdesk uses Ruby as their major programming language.&lt;/li&gt;
 &lt;li&gt;Organizations have started using &lt;em&gt;non-traditional&lt;/em&gt; languages like Lua, Erlang and Scala etc.&lt;/li&gt;
-&lt;li&gt;ShepHertz uses maximum no. of programming languages(14), in their quest to all &lt;em&gt;in-demand&lt;/em&gt; programming language in their service.&lt;/li&gt;
+&lt;li&gt;ShepHertz uses maximum no. of programming languages(14), in their quest to serve all &lt;em&gt;in-demand&lt;/em&gt; programming language in their service.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3&gt;4.2. Field of work&lt;/h3&gt;
@@ -233,7 +233,7 @@ Actually I wanted to have relative sharing in fields of working of all the organ
 
 &lt;p&gt;So, initially, my plan was to use &lt;a href=&quot;http://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&quot;&gt;Latent Dirichlet Allocation&lt;/a&gt; on the &lt;em&gt;repository-description-text&lt;/em&gt; corpus for &lt;em&gt;Topic Modeling&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Where I had use &lt;em&gt;concatenated repository descriptions&lt;/em&gt; of organizations as a document but then I droped this idea because of asymmetrical repository distribution. It was resulting in a corpus of 14 documents only (Zomato excluded).&lt;/p&gt;
+&lt;p&gt;Where I had use &lt;em&gt;concatenated repository descriptions&lt;/em&gt; of organizations as a &lt;em&gt;document&lt;/em&gt; but then I droped this idea because of asymmetrical repository distribution. It was resulting in a corpus of 14 documents only (Zomato excluded).&lt;/p&gt;
 
 &lt;p&gt;You can have a brief knowledge about LDA, &lt;a href=&quot;http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
