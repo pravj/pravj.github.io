@@ -4,13 +4,115 @@
  <title>Pravendra Singh</title>
  <link href="//pravj.github.io/atom.xml" rel="self"/>
  <link href="//pravj.github.io/"/>
- <updated>2015-01-18T16:47:02+05:30</updated>
+ <updated>2015-02-08T01:28:17+05:30</updated>
  <id>//pravj.github.io</id>
  <author>
    <name>Pravendra Singh</name>
    <email>hackpravj@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Introducing Penticons &#58; The Hash Game</title>
+   <link href="//pravj.github.io/blog/penticons-the-hash-game/"/>
+   <updated>2015-02-07T00:00:00+05:30</updated>
+   <id>//pravj.github.io/blog/penticons-the-hash-game</id>
+   <content type="html">&lt;p&gt;Jennifer Lawrence fan, huh? It was &lt;em&gt;The Hash Game&lt;/em&gt; by the way. Still in? Kewl.&lt;/p&gt;
+
+&lt;h1&gt;What&amp;#39;s the buzz all about?&lt;/h1&gt;
+
+&lt;p&gt;Unfortunately, there is no buzz. This post is about development of &lt;a href=&quot;https://github.com/penticons&quot;&gt;Penticons&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Penticons. What?&lt;/h1&gt;
+
+&lt;p&gt;Remember those &lt;a href=&quot;http://a0.twimg.com/sticky/default_profile_images/default_profile_6_normal.png&quot;&gt;egg shaped profile pictures&lt;/a&gt; on Twitter? They are automaticaly linked to your profile, when you forget to upload your custom profile picture.&lt;/p&gt;
+
+&lt;p&gt;Different services uses different default profile pictures. For example, Quora uses &lt;a href=&quot;http://qph.is.quoracdn.net/main-qimg-caf2e843c5e4c9dfec11bf60f9e82ccb?convert_to_webp=true&quot;&gt;this image&lt;/a&gt; of their co-founder Charlie Cheever.&lt;/p&gt;
+
+&lt;p&gt;In Internet&amp;#39;s language, these profile pictures are called &lt;em&gt;Avatars&lt;/em&gt;. They represents a particular user or object on the Internet.&lt;/p&gt;
+
+&lt;p&gt;As we have seen, Quora provides a single image as the default avatar. What if, you want to distinguish between users on the basis of their &lt;em&gt;avatars&lt;/em&gt;?&lt;/p&gt;
+
+&lt;p&gt;This particular problem to recognize users or objects according to their &lt;em&gt;avatar&lt;/em&gt; images was the main force behind the invention of &lt;a href=&quot;http://en.wikipedia.org/wiki/Identicon&quot;&gt;Identicons&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;An Identicon is a visual representation of a &lt;strong&gt;hash value&lt;/strong&gt;, uniquely* mapped to any object on the internet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Penticons&lt;/em&gt; are just another implementation of identicons. But it tries to solve a key problem with available identicons. Let&amp;#39;s see how.&lt;/p&gt;
+
+&lt;h1&gt;Hash value. What?&lt;/h1&gt;
+
+&lt;p&gt;Let&amp;#39;s put this identicon thingy in the left and talk on something interesting.&lt;/p&gt;
+
+&lt;p&gt;Do you know, How do they store your password in the Facebook? Obviously you do, but in case you don&amp;#39;t, let me confess something.&lt;/p&gt;
+
+&lt;p&gt;They have some guys sitting there, they remember all your passwords and match it to your input whenever you log in to the service. That simple it is.&lt;/p&gt;
+
+&lt;p&gt;Facebook also keeps a &lt;em&gt;hashed&lt;/em&gt; version of your passwords, in case all those smart guys are on leave, they just &lt;em&gt;hash&lt;/em&gt; your input again to match with their stored value. They log you in, if both of the values are same.&lt;/p&gt;
+
+&lt;p&gt;In case you are thinking, why do they &lt;em&gt;hash&lt;/em&gt; your passwords? They do it to make sure that nobody really knows your passwords except those &lt;em&gt;smart and loyal&lt;/em&gt; guys.&lt;/p&gt;
+
+&lt;h1&gt;Hash.. Hash.. What the Hash?&lt;/h1&gt;
+
+&lt;p&gt;Let&amp;#39;s fly back to the junior mathematics class and consider this tiny function. &lt;img src=&quot;//pravj.github.io/assets/penticons/function.png&quot; alt=&quot;function&quot;&gt;
+Now, if I ask, what is the value of x when the value of function is 0? You can answer this easily by solving this simple quadratic equation. The values will be 2 and 1.&lt;/p&gt;
+
+&lt;p&gt;What if I change the function to a bit more horrible one. For example, take this. &lt;img src=&quot;//pravj.github.io/assets/penticons/hard-function.png&quot; alt=&quot;hard-function&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Feeling cold, huh? Well! you can still find the roots but with a bit more effort. One simple effort you can do is to &lt;em&gt;google&lt;/em&gt; this equation and you&amp;#39;ll find it on the very first result page.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;Hash Function&lt;/em&gt; we were talking about is one similar function that takes a value and returns the mapped value.&lt;/p&gt;
+
+&lt;p&gt;But in case of the &lt;em&gt;Cryptographic Hash Functions&lt;/em&gt;, it&amp;#39;s pretty hard to get back the &lt;em&gt;pre-image&lt;/em&gt; of a function value, somewhat like the second function above.&lt;/p&gt;
+
+&lt;p&gt;Additionally, these &lt;em&gt;Hash Functions&lt;/em&gt; are supposed to be &lt;em&gt;injective&lt;/em&gt; in nature. Unlike the first function above, which has two roots 2 and 1. In reality they are not totally injetive, though. &lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/MD5&quot;&gt;MD5&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/SHA-1&quot;&gt;SHA-1&lt;/a&gt; are two such &lt;em&gt;Cryptographic Hash Functions&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Any wrong with these Hash Functions?&lt;/h1&gt;
+
+&lt;p&gt;Yeah! Let&amp;#39;s consider the MD5 hash function.&lt;/p&gt;
+
+&lt;p&gt;It generates a 128 bit hash-value for any argument. In the text format, it&amp;#39;s written as a 32 digit hexadecimal number.&lt;/p&gt;
+
+&lt;p&gt;For example, the word &amp;quot;alpha&amp;quot; results in, &lt;em&gt;2c1743a391305fbf367df8e4f069f9f9&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Can you guess, what is the maximum possible hash count MD5 can generate?
+&lt;img src=&quot;//pravj.github.io/assets/penticons/md5-count.png&quot; alt=&quot;md5-count&quot;&gt; So if you have more elements than this count to hash, MD5 would be producing similar hashes for all the extra elements.&lt;/p&gt;
+
+&lt;p&gt;This is the case when MD5 is pure as hell, but it&amp;#39;s not actually.&lt;/p&gt;
+
+&lt;p&gt;There are many reports showing cryptographic weakness of MD5. For example, consider &lt;a href=&quot;http://www.mathstat.dal.ca/%7Eselinger/md5collision/&quot;&gt;this report&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Why Penticons?&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Penticons tries to solve one key problem with available identicons.&lt;/em&gt; Let me explain.&lt;/p&gt;
+
+&lt;p&gt;They are developed on top of the identicons that &lt;a href=&quot;https://github.com/blog/1586-identicons&quot;&gt;GitHub provides&lt;/a&gt;. There are &lt;a href=&quot;https://github.com/search?utf8=%E2%9C%93&amp;amp;q=identicon&quot;&gt;many other&lt;/a&gt; similar identicon implementations available on GitHub.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#39;s take an inside on How these identicons works.&lt;/p&gt;
+
+&lt;p&gt;They generates a 5x5 pixel sprites, where they choose to color some of the pixel and left rest pixels as blank, according to the hash of user&amp;#39;s handle. They also have a vertical axis of symmetry, so the identicon is similar from left to right. Finally they color non-blank pixels with a color.&lt;/p&gt;
+
+&lt;p&gt;Now, what is the maximum number of identicons generated this way?&lt;/p&gt;
+
+&lt;p&gt;Suppose they are using 20 colors to fill in the non-blank pixels, they are &lt;a href=&quot;https://github.com/cupcake/sigil/blob/6bf9722f2ae82f58a0c7d48daeb40ec844b78eae/server.go#L20-L29&quot;&gt;not using&lt;/a&gt; this much colors, though. Then total possible identicon count will be :
+&lt;img src=&quot;//pravj.github.io/assets/penticons/total-identicon.png&quot; alt=&quot;total-identicons&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;On the other hand, &lt;em&gt;Penticons&lt;/em&gt; uses &lt;a href=&quot;https://github.com/penticons/penticons.go/blob/master/utils/utils.go#L21-L25&quot;&gt;5 colors&lt;/a&gt; only, from GitHub&amp;#39;s contribution calendar. They also have a vertical axis of symmetry.&lt;/p&gt;
+
+&lt;p&gt;But instead of using a fix color to fill in, it uses any one of the 5, according to the hash value. This way, total number of identicons will be :&lt;img src=&quot;//pravj.github.io/assets/penticons/total-penticons.png&quot; alt=&quot;total-penticons&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Which is way more than other implementations, so the rate of collision is also less here.&lt;/p&gt;
+
+&lt;h1&gt;Now what?&lt;/h1&gt;
+
+&lt;p&gt;I made an organization for &lt;a href=&quot;https://github.com/penticons&quot;&gt;Penticons&lt;/a&gt;; just to look cool, though. I think so.&lt;/p&gt;
+
+&lt;p&gt;Last night, I wrote the &lt;a href=&quot;https://github.com/penticons/penticons.go&quot;&gt;golang implementation&lt;/a&gt; for &lt;em&gt;Penticons&lt;/em&gt;. My friend &lt;a href=&quot;https://github.com/nkman&quot;&gt;Nairitya&lt;/a&gt; will be writing some more very soon, at-least he promised me. Let&amp;#39;s see.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Open Source Presence Infographic of Indian Startups</title>
