@@ -191,7 +191,7 @@
 
 <p>This post is about development of a sliding-puzzle game I made recently, named <em>puzzl</em>. I refer it as an <em>intelligent version</em> of the classical sliding puzzle game, and I&#39;ll explain the reason behind this. Stay awake.</p>
 
-<p><img src="http://localhost:4000/assets/development-story-of-puzzl/puzzl.gif" alt="puzzl-game" title="Puzzl Game"></p>
+<p><img src="//pravj.github.io/assets/development-story-of-puzzl/puzzl.gif" alt="puzzl-game" title="Puzzl Game"></p>
 
 <h1>For What Joy?</h1>
 
@@ -243,7 +243,7 @@
 
 <p>All you have to do is, arrange all tiles in a particular order. Lets say, in increasing order with the blank tile being the last one.</p>
 
-<p><img src="http://localhost:4000/assets/development-story-of-puzzl/states.jpg" alt="Game States" title="8-puzzle game states"></p>
+<p><img src="//pravj.github.io/assets/development-story-of-puzzl/states.jpg" alt="Game States" title="8-puzzle game states"></p>
 
 <p>This sounds a little easy, taking user inputs, moving the tiles accordingly and checking that whether we are done with the game or not. So, I decided to enhance both the development and playing processes.</p>
 
@@ -287,7 +287,7 @@
 
 <p>Using the <em>Mathematical Induction</em> on what it was there in the paper, I have a sample game for you. You can spend rest of your life solving this, if you want to.</p>
 
-<p><img src="http://localhost:4000/assets/development-story-of-puzzl/unsolvable-game.jpg" alt="Unsolvable-Game" title="Unsolvable sliding-puzzle"></p>
+<p><img src="//pravj.github.io/assets/development-story-of-puzzl/unsolvable-game.jpg" alt="Unsolvable-Game" title="Unsolvable sliding-puzzle"></p>
 
 <p>Then I added a package named <a href="https://github.com/pravj/puzzl/blob/master/scanner/scanner.go">scanner</a> in the game, with the help of &quot;<em>Analysis of the Sixteen Puzzle</em>&quot;. It makes sure that any game configuration we are using, is really solvable. It uses another for the game, if one is not actually solvable.</p>
 
@@ -315,7 +315,7 @@
 
 <p>There are two <em>goroutines</em>, one for <a href="https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417">handling the notification events</a> and another for <a href="https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417">solving the game in background</a>, both are non-blocking in nature to other routines like <em>user inputs</em>, <em>game display</em> etc. A <em>channel</em> named <a href="https://github.com/pravj/puzzl/blob/master/notification/notification.go#L19">Tunnel</a> was the messenger for these <em>goroutines</em>.</p>
 
-<p><img src="http://localhost:4000/assets/development-story-of-puzzl/architecture.jpg" alt="Goroutines" title="Asynchronous Goroutines Architecture"></p>
+<p><img src="//pravj.github.io/assets/development-story-of-puzzl/architecture.jpg" alt="Goroutines" title="Asynchronous Goroutines Architecture"></p>
 
 <p>This is like feeding each other. Best friends forever.</p>
 

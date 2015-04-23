@@ -4,7 +4,7 @@
  <title>Pravendra Singh</title>
  <link href="//pravj.github.io/atom.xml" rel="self"/>
  <link href="//pravj.github.io/"/>
- <updated>2015-04-23T13:12:07+05:30</updated>
+ <updated>2015-04-23T13:16:25+05:30</updated>
  <id>//pravj.github.io</id>
  <author>
    <name>Pravendra Singh</name>
@@ -29,7 +29,7 @@
 
 &lt;p&gt;This post is about development of a sliding-puzzle game I made recently, named &lt;em&gt;puzzl&lt;/em&gt;. I refer it as an &lt;em&gt;intelligent version&lt;/em&gt; of the classical sliding puzzle game, and I&amp;#39;ll explain the reason behind this. Stay awake.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/development-story-of-puzzl/puzzl.gif&quot; alt=&quot;puzzl-game&quot; title=&quot;Puzzl Game&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//pravj.github.io/assets/development-story-of-puzzl/puzzl.gif&quot; alt=&quot;puzzl-game&quot; title=&quot;Puzzl Game&quot;&gt;&lt;/p&gt;
 
 &lt;h1&gt;For What Joy?&lt;/h1&gt;
 
@@ -81,7 +81,7 @@
 
 &lt;p&gt;All you have to do is, arrange all tiles in a particular order. Lets say, in increasing order with the blank tile being the last one.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/development-story-of-puzzl/states.jpg&quot; alt=&quot;Game States&quot; title=&quot;8-puzzle game states&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//pravj.github.io/assets/development-story-of-puzzl/states.jpg&quot; alt=&quot;Game States&quot; title=&quot;8-puzzle game states&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;This sounds a little easy, taking user inputs, moving the tiles accordingly and checking that whether we are done with the game or not. So, I decided to enhance both the development and playing processes.&lt;/p&gt;
 
@@ -125,7 +125,7 @@
 
 &lt;p&gt;Using the &lt;em&gt;Mathematical Induction&lt;/em&gt; on what it was there in the paper, I have a sample game for you. You can spend rest of your life solving this, if you want to.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/development-story-of-puzzl/unsolvable-game.jpg&quot; alt=&quot;Unsolvable-Game&quot; title=&quot;Unsolvable sliding-puzzle&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//pravj.github.io/assets/development-story-of-puzzl/unsolvable-game.jpg&quot; alt=&quot;Unsolvable-Game&quot; title=&quot;Unsolvable sliding-puzzle&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;Then I added a package named &lt;a href=&quot;https://github.com/pravj/puzzl/blob/master/scanner/scanner.go&quot;&gt;scanner&lt;/a&gt; in the game, with the help of &amp;quot;&lt;em&gt;Analysis of the Sixteen Puzzle&lt;/em&gt;&amp;quot;. It makes sure that any game configuration we are using, is really solvable. It uses another for the game, if one is not actually solvable.&lt;/p&gt;
 
@@ -153,7 +153,7 @@
 
 &lt;p&gt;There are two &lt;em&gt;goroutines&lt;/em&gt;, one for &lt;a href=&quot;https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417&quot;&gt;handling the notification events&lt;/a&gt; and another for &lt;a href=&quot;https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417&quot;&gt;solving the game in background&lt;/a&gt;, both are non-blocking in nature to other routines like &lt;em&gt;user inputs&lt;/em&gt;, &lt;em&gt;game display&lt;/em&gt; etc. A &lt;em&gt;channel&lt;/em&gt; named &lt;a href=&quot;https://github.com/pravj/puzzl/blob/master/notification/notification.go#L19&quot;&gt;Tunnel&lt;/a&gt; was the messenger for these &lt;em&gt;goroutines&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/development-story-of-puzzl/architecture.jpg&quot; alt=&quot;Goroutines&quot; title=&quot;Asynchronous Goroutines Architecture&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//pravj.github.io/assets/development-story-of-puzzl/architecture.jpg&quot; alt=&quot;Goroutines&quot; title=&quot;Asynchronous Goroutines Architecture&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;This is like feeding each other. Best friends forever.&lt;/p&gt;
 
