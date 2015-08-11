@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Pravendra Singh</title>
+ <title></title>
  <link href="//pravj.github.io/atom.xml" rel="self"/>
  <link href="//pravj.github.io/"/>
- <updated>2015-04-23T14:42:15+05:30</updated>
+ <updated>2015-08-11T16:35:59+05:30</updated>
  <id>//pravj.github.io</id>
  <author>
-   <name>Pravendra Singh</name>
-   <email>hackpravj@gmail.com</email>
+   <name></name>
+   <email></email>
  </author>
 
  
@@ -25,13 +25,13 @@
 &lt;p&gt;You should have a look at &lt;a href=&quot;https://github.com/pravj/puzzl&quot;&gt;puzzl&lt;/a&gt;, if you haven&amp;#39;t yet.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h1&gt;What this is all about?&lt;/h1&gt;
+&lt;h3&gt;What this is all about?&lt;/h3&gt;
 
 &lt;p&gt;This post is about development of a sliding-puzzle game I made recently, named &lt;em&gt;puzzl&lt;/em&gt;. I refer it as an &lt;em&gt;intelligent version&lt;/em&gt; of the classical sliding puzzle game, and I&amp;#39;ll explain the reason behind this. Stay awake.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;//pravj.github.io/assets/development-story-of-puzzl/puzzl.gif&quot; alt=&quot;puzzl-game&quot; title=&quot;Puzzl Game&quot;&gt;&lt;/p&gt;
 
-&lt;h1&gt;For What Joy?&lt;/h1&gt;
+&lt;h3&gt;For What Joy?&lt;/h3&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Yes, that&amp;#39;s the best question. Why did I do that?&lt;/p&gt;
@@ -47,7 +47,7 @@
 
 &lt;p&gt;Specially, when you are supposed to study for your exams. Tested, &lt;em&gt;rule of thumb&lt;/em&gt;.&lt;/p&gt;
 
-&lt;h1&gt;Exam-time bamboozlement&lt;/h1&gt;
+&lt;h3&gt;Exam-time bamboozlement&lt;/h3&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;The &lt;em&gt;session&lt;/em&gt; when your mind&amp;#39;s &lt;em&gt;stream&lt;/em&gt; is &lt;em&gt;grep&lt;/em&gt;ing too many &lt;em&gt;event&lt;/em&gt;s.&lt;/p&gt;
@@ -75,7 +75,7 @@
 
 &lt;p&gt;That&amp;#39;s it. I was done with further preparation. I even spent the entire exam time divising the &lt;em&gt;scoring mechanism&lt;/em&gt; and &lt;em&gt;logo&lt;/em&gt; for the game. The last page of the solution paper and my low score is the proof.&lt;/p&gt;
 
-&lt;h1&gt;The problem statement&lt;/h1&gt;
+&lt;h3&gt;The problem statement&lt;/h3&gt;
 
 &lt;p&gt;&lt;em&gt;Sliding-puzzle&lt;/em&gt; games have many variants. I decided to move ahead with the one having a 3x3 board, the &lt;em&gt;8-puzzle&lt;/em&gt;. 8 out of 9 tiles have some numbers on them, one tile is blank.&lt;/p&gt;
 
@@ -87,7 +87,7 @@
 
 &lt;p&gt;To solve the game in background and track user moves accordingly or give them hints. Poor humans.&lt;/p&gt;
 
-&lt;h1&gt;The solution&lt;/h1&gt;
+&lt;h3&gt;The solution&lt;/h3&gt;
 
 &lt;p&gt;The solution is pretty simple actually. There is a blank tile in the game board and you can reach to a different configuration by moving that blank tile in atmost 4 directions, according to its current position.&lt;/p&gt;
 
@@ -105,13 +105,13 @@
 &lt;p&gt;But there were some other interesting challenges.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h1&gt;Primary Language&lt;/h1&gt;
+&lt;h3&gt;Primary Language&lt;/h3&gt;
 
 &lt;p&gt;I opted for Golang as the primary language of &lt;em&gt;puzzl&lt;/em&gt;, just because &lt;em&gt;I&amp;#39;m loving it&lt;/em&gt; and I wanted it to takeoff comparatively faster than other solutions, let&amp;#39;s say Python.&lt;/p&gt;
 
 &lt;p&gt;After some work, I started getting ideas of other features and I was happy with my language choice, as Go is the best solution I can think of for them. I&amp;#39;ll talk about those features in a while.&lt;/p&gt;
 
-&lt;h1&gt;Solvability of the problem&lt;/h1&gt;
+&lt;h3&gt;Solvability of the problem&lt;/h3&gt;
 
 &lt;p&gt;This is one of those interesting parts I faced while making it.&lt;/p&gt;
 
@@ -129,7 +129,7 @@
 
 &lt;p&gt;Then I added a package named &lt;a href=&quot;https://github.com/pravj/puzzl/blob/master/scanner/scanner.go&quot;&gt;scanner&lt;/a&gt; in the game, with the help of &amp;quot;&lt;em&gt;Analysis of the Sixteen Puzzle&lt;/em&gt;&amp;quot;. It makes sure that any game configuration we are using, is really solvable. It uses another for the game, if one is not actually solvable.&lt;/p&gt;
 
-&lt;h1&gt;Notification System&lt;/h1&gt;
+&lt;h3&gt;Notification System&lt;/h3&gt;
 
 &lt;p&gt;And this was the most interesting part. Developing a &lt;em&gt;Real time Notification System&lt;/em&gt; according to the game state.&lt;/p&gt;
 
@@ -157,19 +157,19 @@
 
 &lt;p&gt;This is like feeding each other. Best friends forever.&lt;/p&gt;
 
-&lt;h1&gt;Game Interface&lt;/h1&gt;
+&lt;h3&gt;Game Interface&lt;/h3&gt;
 
 &lt;p&gt;Thanks to &lt;a href=&quot;http://en.wikipedia.org/wiki/Box-drawing_character&quot;&gt;Box-drawing characters&lt;/a&gt;, the best old way to develop text based user interfaces. And thanks to &lt;a href=&quot;https://github.com/nsf/termbox-go&quot;&gt;termbox-go&lt;/a&gt;, an awesome library for such interface development in Golang.&lt;/p&gt;
 
-&lt;h1&gt;arXiv submission&lt;/h1&gt;
+&lt;h3&gt;arXiv submission&lt;/h3&gt;
 
-&lt;p&gt;I loved working on it so much that I even framed its development in shape of a research paper, sort of. It&amp;#39;s available on the arXiv digiral library, here &lt;a href=&quot;http://arxiv.org/abs/1503.08345&quot;&gt;arxiv-1503.08345&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I loved working on it so much that I even framed its development in shape of a research paper, sort of. It&amp;#39;s available on the arXiv digital library, here &lt;a href=&quot;http://arxiv.org/abs/1503.08345&quot;&gt;arxiv-1503.08345&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Implementing an intelligent version of the classical sliding-puzzle game for unix terminals using Golang&amp;#39;s concurrency primitives.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;It&amp;#39;s not in LaTeX, so the arXiv stamp is absent in PDF format there. They replied that they don&amp;#39;t have any technique yet to stamp other formats. I&amp;#39;ll probably port it in LaTeX one day.&lt;/p&gt;
 
-&lt;h1&gt;Reference&lt;/h1&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.jstor.org/stable/pdf/2369492.pdf?acceptTC=true&quot;&gt;Notes on the 15 puzzle&lt;/a&gt;&lt;/li&gt;
@@ -178,7 +178,7 @@
 &lt;li&gt;&lt;a href=&quot;https://captnemo.in/&quot;&gt;Abhay Rana&lt;/a&gt; for teaching me what &lt;em&gt;For What Joy&lt;/em&gt; is. #FWJ?&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1&gt;Behind the scene&lt;/h1&gt;
+&lt;h3&gt;Behind the scene&lt;/h3&gt;
 
 &lt;p&gt;I framed all this story for you, the truth is something else.&lt;/p&gt;
 
@@ -290,11 +290,11 @@
    <id>//pravj.github.io/blog/penticons-the-hash-game</id>
    <content type="html">&lt;p&gt;Jennifer Lawrence fan, huh? It was &lt;em&gt;The Hash Game&lt;/em&gt; by the way. Still in? Kewl.&lt;/p&gt;
 
-&lt;h1&gt;What&amp;#39;s the buzz all about?&lt;/h1&gt;
+&lt;h3&gt;What&amp;#39;s the buzz all about?&lt;/h3&gt;
 
 &lt;p&gt;Unfortunately, there is no buzz. This post is about development of &lt;a href=&quot;https://github.com/penticons&quot;&gt;Penticons&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h1&gt;Penticons. What?&lt;/h1&gt;
+&lt;h3&gt;Penticons. What?&lt;/h3&gt;
 
 &lt;p&gt;Remember those &lt;a href=&quot;http://a0.twimg.com/sticky/default_profile_images/default_profile_6_normal.png&quot;&gt;egg shaped profile pictures&lt;/a&gt; on Twitter? They are automaticaly linked to your profile, when you forget to upload your custom profile picture.&lt;/p&gt;
 
@@ -312,7 +312,7 @@
 
 &lt;p&gt;&lt;em&gt;Penticons&lt;/em&gt; are just another implementation of identicons. But it tries to solve a key problem with available identicons. Let&amp;#39;s see how.&lt;/p&gt;
 
-&lt;h1&gt;Hash value. What?&lt;/h1&gt;
+&lt;h3&gt;Hash value. What?&lt;/h3&gt;
 
 &lt;p&gt;Let&amp;#39;s put this identicon thingy in the left and talk on something interesting.&lt;/p&gt;
 
@@ -324,7 +324,7 @@
 
 &lt;p&gt;In case you are thinking, why do they &lt;em&gt;hash&lt;/em&gt; your passwords? They do it to make sure that nobody really knows your passwords except those &lt;em&gt;smart and loyal&lt;/em&gt; guys.&lt;/p&gt;
 
-&lt;h1&gt;Hash.. Hash.. What the Hash?&lt;/h1&gt;
+&lt;h3&gt;Hash.. Hash.. What the Hash?&lt;/h3&gt;
 
 &lt;p&gt;Let&amp;#39;s fly back to the junior mathematics class and consider this tiny function. &lt;img src=&quot;//pravj.github.io/assets/penticons/function.png&quot; alt=&quot;function&quot;&gt;
 Now, if I ask, what is the value of x when the value of function is 0? You can answer this easily by solving this simple quadratic equation. The values will be 2 and 1.&lt;/p&gt;
@@ -337,11 +337,11 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
 
 &lt;p&gt;But in case of the &lt;em&gt;Cryptographic Hash Functions&lt;/em&gt;, it&amp;#39;s pretty hard to get back the &lt;em&gt;pre-image&lt;/em&gt; of a function value, somewhat like the second function above.&lt;/p&gt;
 
-&lt;p&gt;Additionally, these &lt;em&gt;Hash Functions&lt;/em&gt; are supposed to be &lt;em&gt;injective&lt;/em&gt; in nature. Unlike the first function above, which has two roots 2 and 1. In reality they are not totally injetive, though. &lt;/p&gt;
+&lt;p&gt;Additionally, these &lt;em&gt;Hash Functions&lt;/em&gt; are supposed to be &lt;em&gt;injective&lt;/em&gt; in nature. Unlike the first function above, which has two roots 2 and 1. In reality they are not totally injetive, though.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/MD5&quot;&gt;MD5&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/SHA-1&quot;&gt;SHA-1&lt;/a&gt; are two such &lt;em&gt;Cryptographic Hash Functions&lt;/em&gt;.&lt;/p&gt;
 
-&lt;h1&gt;Any wrong with these Hash Functions?&lt;/h1&gt;
+&lt;h3&gt;Any wrong with these Hash Functions?&lt;/h3&gt;
 
 &lt;p&gt;Yeah! Let&amp;#39;s consider the MD5 hash function.&lt;/p&gt;
 
@@ -356,7 +356,7 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
 
 &lt;p&gt;There are many reports showing cryptographic weakness of MD5. For example, consider &lt;a href=&quot;http://www.mathstat.dal.ca/%7Eselinger/md5collision/&quot;&gt;this report&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h1&gt;Why Penticons?&lt;/h1&gt;
+&lt;h3&gt;Why Penticons?&lt;/h3&gt;
 
 &lt;p&gt;&lt;em&gt;Penticons tries to solve one key problem with available identicons.&lt;/em&gt; Let me explain.&lt;/p&gt;
 
@@ -377,7 +377,7 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
 
 &lt;p&gt;Which is way more than other implementations, so the rate of collision is also less here.&lt;/p&gt;
 
-&lt;h1&gt;Now what?&lt;/h1&gt;
+&lt;h3&gt;Now what?&lt;/h3&gt;
 
 &lt;p&gt;I made an organization for &lt;a href=&quot;https://github.com/penticons&quot;&gt;Penticons&lt;/a&gt;; just to look cool, though. I think so.&lt;/p&gt;
 
@@ -395,7 +395,7 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
    <id>//pravj.github.io/blog/open-source-presence-infographic</id>
    <content type="html">&lt;p&gt;Technically speaking, organizations used in this report are no more only a &lt;em&gt;startup&lt;/em&gt; now, but I hope you people won&amp;#39;t mind this and aren&amp;#39;t gonna launch a drone on me.&lt;/p&gt;
 
-&lt;h2&gt;Abstract&lt;/h2&gt;
+&lt;h3&gt;Abstract&lt;/h3&gt;
 
 &lt;p&gt;I think, &lt;em&gt;something&lt;/em&gt; is clear from the name itself, is it? Well! it should.&lt;/p&gt;
 
@@ -405,15 +405,15 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
 
 &lt;p&gt;&lt;em&gt;This report doesn&amp;#39;t measure the success of involved organizations; it simply can&amp;#39;t. They all are doing good in their fields, that&amp;#39;s why they are here.&lt;/em&gt; :tophat:&lt;/p&gt;
 
-&lt;h2&gt;Motive&lt;/h2&gt;
+&lt;h3&gt;Motive&lt;/h3&gt;
 
 &lt;p&gt;I think it was almost mid of the December last year when I saw the &lt;a href=&quot;http://yourstory.com/2014/12/techie-tuesdays-amod-malviya-cto-flipkart/&quot;&gt;interview&lt;/a&gt; of Flipkart&amp;#39;s CTO &lt;em&gt;Amod Malviya&lt;/em&gt; in a YourStory article. I started reading that and kept reading till the end. At the end my reaction was, &lt;em&gt;wow! this man is awesome&lt;/em&gt; and he is indeed. I have seen many of his talks after reading that interview.&lt;/p&gt;
 
-&lt;p&gt;That interview made a different impression on me. I liked his words where he was talking about building a top class internet infrastructure in India. I don&amp;#39;t know what you people think of Flipkart, Myntra etc. but what I think is that they are evolving continuously, at least in the technical aspect. That&amp;#39;s why they are in the marathon and Amazon itself is in the race with them. &lt;/p&gt;
+&lt;p&gt;That interview made a different impression on me. I liked his words where he was talking about building a top class internet infrastructure in India. I don&amp;#39;t know what you people think of Flipkart, Myntra etc. but what I think is that they are evolving continuously, at least in the technical aspect. That&amp;#39;s why they are in the marathon and Amazon itself is in the race with them.&lt;/p&gt;
 
 &lt;p&gt;So, after a while I found myself on the GitHub organization of Flipkart and I was scrolling through their projects there. Then the idea of this report popped-up in my mind and here I&amp;#39;m, struggling with it.&lt;/p&gt;
 
-&lt;h2&gt;For What Joy? Is there a need?&lt;/h2&gt;
+&lt;h3&gt;For What Joy? Is there a need?&lt;/h3&gt;
 
 &lt;p&gt;The earth will keep rotating without this report but it&amp;#39;s kinda necessary for technical organizations to be a part of current Open-Source era. I mean as they say in the &lt;em&gt;Group Dynamics&lt;/em&gt;, If you&amp;#39;re part of a group then you learn for other members and they learn from you.&lt;/p&gt;
 
@@ -423,7 +423,7 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
 
 &lt;p&gt;So, the thing is &lt;em&gt;don&amp;#39;t wait for santa and build cool things that matters&lt;/em&gt;. Big organizations are already doing it, be it &lt;a href=&quot;https://github.com/facebook/hhvm&quot;&gt;hhvm&lt;/a&gt;, &lt;a href=&quot;https://github.com/facebook/react&quot;&gt;react&lt;/a&gt; by Facebook or &lt;a href=&quot;https://github.com/twitter/typeahead.js&quot;&gt;typeahead.js&lt;/a&gt; by Twitter or &lt;a href=&quot;https://github.com/google/web-starter-kit&quot;&gt;web-starter-kit&lt;/a&gt; by Google and many more by others.&lt;/p&gt;
 
-&lt;h2&gt;Involved Organizations&lt;/h2&gt;
+&lt;h3&gt;Involved Organizations&lt;/h3&gt;
 
 &lt;p&gt;I do believe that the organization selection part was a bit biased as I wanted to have my favorite organizations first on the list, like HackerEarth, Hasgeek, Housing, Flipkart, Wingify and Zomato etc.&lt;/p&gt;
 
@@ -459,7 +459,7 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
 
 &lt;hr&gt;
 
-&lt;h2&gt;1. Appearance Timeline of Organizations&lt;/h2&gt;
+&lt;h4&gt;1. Appearance Timeline of Organizations&lt;/h4&gt;
 
 &lt;p&gt;Do you know, when all of these organizations were found? Not sure?&lt;/p&gt;
 
@@ -490,11 +490,11 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
 
 &lt;p&gt;Maybe organising this event was the inspiration behind launching the HasGeek, I need to hear HasGeek founder &lt;a href=&quot;https://twitter.com/jackerhack&quot;&gt;Kiran&lt;/a&gt;&amp;#39;s words on it, though.&lt;/p&gt;
 
-&lt;h2&gt;2. Repository Status&lt;/h2&gt;
+&lt;h4&gt;2. Repository Status&lt;/h4&gt;
 
 &lt;p&gt;As we all know, repository is an important component of GitHub&amp;#39;s ecosystem.&lt;/p&gt;
 
-&lt;h3&gt;2.1. Public Repository Status&lt;/h3&gt;
+&lt;h5&gt;2.1. Public Repository Status&lt;/h5&gt;
 
 &lt;p&gt;This section deals with no. of public repositories for each involved organization.
 &lt;img src=&quot;//pravj.github.io/assets/ospi/repository-status.png&quot; alt=&quot;Public-Repository-Count&quot;&gt;&lt;/p&gt;
@@ -503,7 +503,7 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
 
 &lt;p&gt;No. of repositories on GitHub is not the right thing to measure about, though.&lt;/p&gt;
 
-&lt;h3&gt;2.2. Stars Distribution&lt;/h3&gt;
+&lt;h5&gt;2.2. Stars Distribution&lt;/h5&gt;
 
 &lt;p&gt;As I said, having more number of repositories doesn&amp;#39;t explicitly show your popularity. It&amp;#39;s not an old wars between states where king with more elephants was supposed to be the winner.&lt;/p&gt;
 
@@ -531,7 +531,7 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
 
 &lt;p&gt;You can see Wingify, Flipkart and HasGeek are ruling the leader-board here.&lt;/p&gt;
 
-&lt;h3&gt;2.3. Relative Repository Attributes&lt;/h3&gt;
+&lt;h5&gt;2.3. Relative Repository Attributes&lt;/h5&gt;
 
 &lt;p&gt;GitHub provides a feature named &lt;em&gt;fork&lt;/em&gt;, using that you can contribute to awesome projects of others like it was your own project.&lt;/p&gt;
 
@@ -544,11 +544,11 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
 
 &lt;p&gt;We can see that HasGeek is doing fairly good here, having more share of &lt;em&gt;source&lt;/em&gt; repositories than &lt;em&gt;forked&lt;/em&gt;. A large portion of Flipkart and Freshdesk&amp;#39;s repositories are &lt;em&gt;inactive-forked&lt;/em&gt;.&lt;/p&gt;
 
-&lt;h2&gt;3. Development Activity&lt;/h2&gt;
+&lt;h4&gt;3. Development Activity&lt;/h4&gt;
 
 &lt;p&gt;All the involved organizations have somewhat for the community; projects born as solutions of some problems, projects born in some hackathons and so on. They&amp;#39;re gradually building things to enhance their infrastucture and market position.&lt;/p&gt;
 
-&lt;h3&gt;3.1. Repository Creation&lt;/h3&gt;
+&lt;h5&gt;3.1. Repository Creation&lt;/h5&gt;
 
 &lt;p&gt;This section deals with creation of repositories of all the organizations.
 &lt;img src=&quot;//pravj.github.io/assets/ospi/repository-creation.png&quot; alt=&quot;Repository-Creation&quot;&gt;&lt;/p&gt;
@@ -570,7 +570,7 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
 
 &lt;p&gt;That&amp;#39;s why this repository&amp;#39;s creation date is before creation of their organization. Well! again, I need &lt;a href=&quot;https://github.com/vivekp&quot;&gt;Vivek&lt;/a&gt;&amp;#39;s approval on this.&lt;/p&gt;
 
-&lt;h3&gt;3.2. Commit Activity&lt;/h3&gt;
+&lt;h5&gt;3.2. Commit Activity&lt;/h5&gt;
 
 &lt;p&gt;This section deals with the commit activity of all the organizations.
 &lt;img src=&quot;//pravj.github.io/assets/ospi/commit-activity-zoom.png&quot; alt=&quot;Commit-Activity&quot;&gt;&lt;/p&gt;
@@ -581,11 +581,11 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
 
 &lt;p&gt;Flipkart development team &lt;a href=&quot;https://github.com/Flipkart/linux&quot;&gt;keeps&lt;/a&gt; a &lt;em&gt;fork&lt;/em&gt; of the &lt;em&gt;linux&lt;/em&gt;, it&amp;#39;s not a &lt;em&gt;forked repo&lt;/em&gt; though. I removed its activities because this was making the plot even more cluttered. You can check &lt;a href=&quot;//pravj.github.io/assets/ospi/commit-activity.png&quot;&gt;that plot&lt;/a&gt; also, though.&lt;/p&gt;
 
-&lt;h2&gt;4. Technology Stack&lt;/h2&gt;
+&lt;h4&gt;4. Technology Stack&lt;/h4&gt;
 
 &lt;p&gt;Different organization are working in different fields of the technology; be it medical services, developer events, online shopping, food, cloud services, online payments etc., so they&amp;#39;re encountering different problems in the path and managing it accordingly.&lt;/p&gt;
 
-&lt;h3&gt;4.1. Programming Languages in Production&lt;/h3&gt;
+&lt;h5&gt;4.1. Programming Languages in Production&lt;/h5&gt;
 
 &lt;p&gt;This section deals with use of different programming languages in the involved organizations&amp;#39;s infrastructure.
 &lt;img src=&quot;//pravj.github.io/assets/ospi/language-uses.png&quot; alt=&quot;Language-Use&quot;&gt;&lt;/p&gt;
@@ -600,7 +600,7 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
 &lt;li&gt;ShepHertz uses maximum no. of programming languages(14), in their quest to serve all &lt;em&gt;in-demand&lt;/em&gt; programming language in their service.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3&gt;4.2. Field of work&lt;/h3&gt;
+&lt;h5&gt;4.2. Field of work&lt;/h5&gt;
 
 &lt;p&gt;This section deals with the fields, different organization are working in.&lt;/p&gt;
 
@@ -714,9 +714,9 @@ Hello World!
 It looks like you have some knowledge about traversing commits!
 Well, let&amp;#39;s get this party started!
 
-We want to get to a branch whose name is the answer to this riddle: 
-I am a creature that is smaller than man, but many times more in number. 
-In code, my appearance can be subtle and no matter where I am found, I am unwanted. 
+We want to get to a branch whose name is the answer to this riddle:
+I am a creature that is smaller than man, but many times more in number.
+In code, my appearance can be subtle and no matter where I am found, I am unwanted.
 
 What am I?
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -730,8 +730,8 @@ Congratulations, it looks like you found the &amp;quot;bug.&amp;quot;
 When you work with other programmers on the same project, bugs are bound to appear.
 One way to create bugs is by changing code that you did not write without understanding what the code is doing.
 
-Sometimes we like to blame others for introducing bugs in our code. 
-Think you can find out who introduced a bug into our file cool.cpp? 
+Sometimes we like to blame others for introducing bugs in our code.
+Think you can find out who introduced a bug into our file cool.cpp?
 We think he had something to do with the development of git.
 And from what we hear he also made a branch under his name.
 Checkout to that branch after you find out who the culprit is.
@@ -750,7 +750,7 @@ int main()
    cout &amp;lt;&amp;lt; &amp;quot;Loops are fun!&amp;quot; &amp;lt;&amp;lt; endl;
    while(1);
    string reply = &amp;quot;Well, &amp;quot; + input + &amp;quot;, we hope you are having fun with our git-game!&amp;quot;;
-   cout &amp;lt;&amp;lt; reply &amp;lt;&amp;lt; endl; 
+   cout &amp;lt;&amp;lt; reply &amp;lt;&amp;lt; endl;
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Yeah! there is one; the &lt;em&gt;while loop&lt;/em&gt; will refuse the program from terminating.&lt;/p&gt;
@@ -793,23 +793,23 @@ The next clue you are looking for --
 &lt;p&gt;Guess what? there was a file named &lt;em&gt;.gitignore&lt;/em&gt; and it said :&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# welcome to the ignore file!!
 
-# This file is hidden by default, 
+# This file is hidden by default,
 # but did you know you have some branches that aren&amp;#39;t shown to you,
 # when you check the list of branches?
 #
 # For your next clue...
-# Which abstract data type tends to implement sets and maps?? 
+# Which abstract data type tends to implement sets and maps??
 # The answer is the same answer to this riddle:
 #
 #   I am both mother and father.
 #   I am seldom still
 #   yet I never wander.
 #   I never birth nor nurse.
-#   
+#
 #   What am I?
 #
 # Afterwards... well, you
-# know, checkout to the answer. 
+# know, checkout to the answer.
 
 *.rem
 a.out
@@ -820,8 +820,8 @@ a.out
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git-game
 ========
 
-Welcome to the &amp;quot;tree&amp;quot; branch. 
-Looks like good ol&amp;#39; Linus modified the &amp;quot;nextclue_input.cpp&amp;quot; file. 
+Welcome to the &amp;quot;tree&amp;quot; branch.
+Looks like good ol&amp;#39; Linus modified the &amp;quot;nextclue_input.cpp&amp;quot; file.
 Normally, when ran with the shell script &amp;quot;outputclue.sh&amp;quot;, the &amp;quot;nextclue_input.cpp&amp;quot; file would give us the next hint.
 
 Maybe, you should try running the shell script with the &amp;quot;nextclue_input.cpp&amp;quot; file and see what happens...
@@ -841,7 +841,7 @@ Good Luck!!!
 &lt;p&gt;The file &lt;em&gt;outputclue.sh&lt;/em&gt; is a &lt;em&gt;bash&lt;/em&gt; source file and matches the &lt;em&gt;md5sum&lt;/em&gt; of each word in the &lt;em&gt;nextclue_input.cpp&lt;/em&gt; to a local &lt;em&gt;checksum&lt;/em&gt; variable named &lt;em&gt;bug&lt;/em&gt;.
 It keeps asking to fix &lt;em&gt;merge conflicts&lt;/em&gt; until the word matching that checksum is present in the file.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#!/bin/bash
-if [ -z $1 ]; then 
+if [ -z $1 ]; then
   echo &amp;quot;well, someone didn&amp;#39;t want to run the script with a file...&amp;quot;;
   exit;
 fi
@@ -855,22 +855,22 @@ if [ $(echo &amp;quot;$OSTYPE&amp;quot; | grep darwin) ];then
     csum=&amp;quot;md5&amp;quot;
 fi
 
-if [ &amp;quot;$file&amp;quot; = &amp;quot;nextclue_input.cpp&amp;quot; ];then 
-  if [ ${merges} ]; then 
-    while read p; do 
-      for w in $p;do 
-        if [ `echo $w | $csum | awk &amp;#39;{print $1}&amp;#39;` = $bug ];then 
-          echo -e $mesg; 
-          exit; 
-        fi; 
+if [ &amp;quot;$file&amp;quot; = &amp;quot;nextclue_input.cpp&amp;quot; ];then
+  if [ ${merges} ]; then
+    while read p; do
+      for w in $p;do
+        if [ `echo $w | $csum | awk &amp;#39;{print $1}&amp;#39;` = $bug ];then
+          echo -e $mesg;
+          exit;
+        fi;
       done;
     done &amp;lt; $file ;
     echo -e &amp;quot;Well, congratulations!! You fixed my conflict!!\nIf you would like to continue, then you should checkout to the $(echo 90mP8ouQHsNe | tr -d &amp;#39;0-9A-Z&amp;#39;) branch!!\n&amp;quot; ;
-   else 
-     echo -e $mesg; 
+   else
+     echo -e $mesg;
      exit;
-   fi; 
-else 
+   fi;
+else
   echo &amp;quot;Looks like you passed in the wrong file&amp;quot;;
 fi
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -895,11 +895,11 @@ Now the README.md file in branch &lt;em&gt;mouse&lt;/em&gt; said :&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git-game
 ========
 
-Looks like you resolved your conflict and found our branch, congrats!! 
+Looks like you resolved your conflict and found our branch, congrats!!
 
-Hmm...it seems this branch has a file that was seen before in another branch. 
+Hmm...it seems this branch has a file that was seen before in another branch.
 Do you &amp;quot;remember&amp;quot; what it is?
-I think this file has something to do with the next clue, but it seems to be very ugly looking. 
+I think this file has something to do with the next clue, but it seems to be very ugly looking.
 Maybe if we compare the &amp;quot;diff&amp;quot;erences between this file and the file from before we&amp;#39;ll know where to go next...
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Yeah! I do remember that the file &lt;em&gt;remember&lt;/em&gt; was there in the branch &lt;em&gt;bug&lt;/em&gt; as I wasted 10 minutes on it.&lt;/p&gt;
@@ -914,11 +914,11 @@ Maybe if we compare the &amp;quot;diff&amp;quot;erences between this file and th
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git-game
 ========
 
-Welcome to my Tag!!! 
+Welcome to my Tag!!!
 
 If you&amp;#39;re looking for my branch then you have gone the wrong way!!
 
-How do you checkout to a branch that has the same name as a tag??? 
+How do you checkout to a branch that has the same name as a tag???
 Deal with the tag first!!
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The problem was that there was a &lt;em&gt;branch&lt;/em&gt; with exactly same name as a tag, &lt;em&gt;Henry&lt;/em&gt;.
@@ -965,7 +965,7 @@ You completed our Git Game!
 
 &lt;hr&gt;
 
-&lt;h4&gt;Behind the scene :&lt;/h4&gt;
+&lt;h3&gt;Behind the scene :&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Each level was somewhat harder than the previous one but overall it wasn&amp;#39;t.&lt;/li&gt;
@@ -1104,7 +1104,7 @@ You can see that most of our good and known projects are in the bottom-left corn
 
 &lt;p&gt;&lt;/br&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;1. There were 382 repositories without any programming language.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;1. There were 382 repositories without any programming language.&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Most of them are documentations, list of resources for a field.&lt;/li&gt;
@@ -1120,7 +1120,7 @@ You can see that most of our good and known projects are in the bottom-left corn
 &lt;p&gt;&lt;em&gt;Along with the required dataset, I was also collecting the &lt;a href=&quot;https://github.com/pravj/Post-mortem/blob/master/log/postman.log&quot;&gt;logs&lt;/a&gt; data.
 So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;2. The log file shows &amp;#39;ERROR : status 404&amp;#39; in some lines.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;2. The log file shows &amp;#39;ERROR : status 404&amp;#39; in some lines.&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;There are 214 such lines, it means these projects have shifted their owners as it&amp;#39;s unusual to delete such popular repository.&lt;/li&gt;
@@ -1129,7 +1129,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 &lt;li&gt;The one-and-only TJ Holowaychuk have changed his username from &lt;a href=&quot;https://github.com/visionmedia&quot;&gt;visionmedia&lt;/a&gt; to &lt;a href=&quot;https://github.com/tj&quot;&gt;tj&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;em&gt;3. The log file shows &amp;#39;ERROR : status 403&amp;#39; in some lines.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;3. The log file shows &amp;#39;ERROR : status 403&amp;#39; in some lines.&lt;/h3&gt;
 
 &lt;p&gt;Now this is weird, as status 403 denotes the Forbidden state. But underlying secrets are much more awesome here.&lt;/p&gt;
 
@@ -1164,7 +1164,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>geo_pattern &#58; going on the Go path</title>
+   <title>geopattern &#58; going on the Go path</title>
    <link href="//pravj.github.io/blog/going-on-the-go-path/"/>
    <updated>2014-11-01T00:00:00+05:30</updated>
    <id>//pravj.github.io/blog/going-on-the-go-path</id>
@@ -1174,7 +1174,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;You should have a look at &lt;a href=&quot;https://github.com/pravj/geo_pattern.git&quot;&gt;geo_pattern&lt;/a&gt;, if you haven&amp;#39;t yet.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h1&gt;What&amp;#39;s the buzz all about?&lt;/h1&gt;
+&lt;h3&gt;What&amp;#39;s the buzz all about?&lt;/h3&gt;
 
 &lt;p&gt;This blog post is about development of &lt;em&gt;geo_pattern&lt;/em&gt; library in &lt;em&gt;golang&lt;/em&gt;.&lt;/p&gt;
 
@@ -1183,7 +1183,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;What do you think about this my favorite colored &lt;em&gt;concentric circle&lt;/em&gt; pattern?
 &lt;img src=&quot;//pravj.github.io/assets/going-on-the-go-path/concentric-circle.png&quot; alt=&quot;Concentric-Circle&quot;&gt;&lt;/p&gt;
 
-&lt;h1&gt;geo_pattern. What?&lt;/h1&gt;
+&lt;h3&gt;geo_pattern. What?&lt;/h3&gt;
 
 &lt;p&gt;Umm, actually I don&amp;#39;t know exactly why the name is &lt;em&gt;geo_pattern&lt;/em&gt; but I know what it is.&lt;/p&gt;
 
@@ -1193,7 +1193,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Jason&lt;/em&gt; created the original Ruby library to power GitHub&amp;#39;s &lt;a href=&quot;https://guides.github.com/&quot;&gt;Guides&lt;/a&gt; and &lt;a href=&quot;https://github.com/explore&quot;&gt;Explore&lt;/a&gt; sections.&lt;/p&gt;
 
-&lt;h1&gt;another geo_pattern. Why?&lt;/h1&gt;
+&lt;h3&gt;another geo_pattern. Why?&lt;/h3&gt;
 
 &lt;p&gt;As you can see original &lt;em&gt;geo_pattern&lt;/em&gt; is being used at GitHub itself. &lt;em&gt;What else you want, huh?&lt;/em&gt;&lt;/p&gt;
 
@@ -1232,7 +1232,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;That&amp;#39;s why I decided to write something. And here comes the &lt;em&gt;geo_pattern.&lt;/em&gt;&lt;/p&gt;
 
-&lt;h1&gt;Golang. Why?&lt;/h1&gt;
+&lt;h3&gt;Golang. Why?&lt;/h3&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Please don&amp;#39;t kill me, if you use &amp;#39;go&amp;#39; more than &amp;#39;golang&amp;#39;. I&amp;#39;m just being formal.&lt;/p&gt;
@@ -1246,7 +1246,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;All this made me to take a walk in the &lt;em&gt;golang&lt;/em&gt; land.&lt;/p&gt;
 
-&lt;h1&gt;Learning Golang. Developing geo_pattern.&lt;/h1&gt;
+&lt;h3&gt;Learning Golang. Developing geo_pattern.&lt;/h3&gt;
 
 &lt;p&gt;In starting I spend two evenings reading about formal language convention stuff on the &lt;a href=&quot;http://www.golang-book.com/&quot;&gt;Golang-Book&lt;/a&gt;.&lt;/p&gt;
 
@@ -1275,7 +1275,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;All this happened a bit fast. In a week or so.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h1&gt;Now What?&lt;/h1&gt;
+&lt;h3&gt;Now What?&lt;/h3&gt;
 
 &lt;p&gt;I hated and then loved working with &lt;em&gt;golang; still loving&lt;/em&gt;.&lt;/p&gt;
 
@@ -1304,13 +1304,13 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;you should have a look on &lt;a href=&quot;https://github.com/pravj/termping.git&quot;&gt;termping&lt;/a&gt;, if you haven&amp;#39;t yet.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h1&gt;What&amp;#39;s the fuss about&lt;/h1&gt;
+&lt;h3&gt;What&amp;#39;s the fuss about&lt;/h3&gt;
 
 &lt;p&gt;This Blog is all about Development of a game(kind of) &lt;a href=&quot;https://github.com/pravj/termping.git&quot;&gt;termping&lt;/a&gt;, which is a prototype of one of the oldest video game &lt;a href=&quot;https://en.wikipedia.org/wiki/Pong&quot;&gt;Pong&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;but this prototype runs in your system&amp;#39;s &lt;a href=&quot;https://en.wikipedia.org/wiki/Computer_terminal&quot;&gt;terminal&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h1&gt;Emergence&lt;/h1&gt;
+&lt;h3&gt;Emergence&lt;/h3&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;One thing that I just feel, I am getting good at is
@@ -1319,7 +1319,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;In this summer I have explored unlimited repository out there on &lt;a href=&quot;https://github.com/pravj&quot;&gt;GitHub&lt;/a&gt;. some for solving any kind of issues I was facing in using them or some for just sake of learning anything new, be it any new language(Ruby) or a new field(Vim) for me.&lt;/p&gt;
 
-&lt;p&gt;One interesting recap is that I was working on a project for my team(&lt;a href=&quot;https://twitter.com/sdslabs&quot;&gt;SDSLabs&lt;/a&gt;) and I was using a ruby library as HTTP client, &lt;a href=&quot;https://github.com/rest-client/rest-client&quot;&gt;Rest-Client&lt;/a&gt;. I started facing issue(obviously) as I was new to Ruby. So I started reading code of Rest-Client just to take a look that what are the ingredients and their quantity in this library. &lt;/p&gt;
+&lt;p&gt;One interesting recap is that I was working on a project for my team(&lt;a href=&quot;https://twitter.com/sdslabs&quot;&gt;SDSLabs&lt;/a&gt;) and I was using a ruby library as HTTP client, &lt;a href=&quot;https://github.com/rest-client/rest-client&quot;&gt;Rest-Client&lt;/a&gt;. I started facing issue(obviously) as I was new to Ruby. So I started reading code of Rest-Client just to take a look that what are the ingredients and their quantity in this library.&lt;/p&gt;
 
 &lt;p&gt;finally I completed Rest-Client with a better understanding that solved all my issues with it and gave me introduction to a new field, which is :&lt;/p&gt;
 
@@ -1347,7 +1347,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;that&amp;#39;s all I wanted.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h1&gt;Development&lt;/h1&gt;
+&lt;h3&gt;Development&lt;/h3&gt;
 
 &lt;p&gt;when I started thinking about Developing, shaping it as a &lt;strong&gt;Node Module&lt;/strong&gt; was the only and right option. I knew already that writing a Node Module in &lt;strong&gt;CoffeeScript&lt;/strong&gt; is both fancy(for world) and easy(for me).&lt;/p&gt;
 
@@ -1407,7 +1407,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Source class is leading character in the movie. This is the place where all that Stream thing shows the magic. What it does is to &lt;strong&gt;pipe&lt;/strong&gt; the data to the &lt;strong&gt;stdout&lt;/strong&gt; that is to be rendered on screen. That&amp;#39;s why I named it as Source. Other classes just work together and periodically update the data.&lt;/p&gt;
 
-&lt;h1&gt;Learning&lt;/h1&gt;
+&lt;h3&gt;Learning&lt;/h3&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;finally the thing is that, was this all worth doing ?&lt;/p&gt;
@@ -1434,7 +1434,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1&gt;Extra Learning&lt;/h1&gt;
+&lt;h3&gt;Extra Learning&lt;/h3&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Extra learning just means, things that I explored while developing it.&lt;/p&gt;
@@ -1455,7 +1455,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 &lt;li&gt;Commit messages respects everything &lt;a href=&quot;http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html&quot;&gt;suggested&lt;/a&gt; by the great man of &lt;em&gt;Vim World&lt;/em&gt;, &lt;a href=&quot;https://github.com/tpope&quot;&gt;Tim Pope&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1&gt;Contribution&lt;/h1&gt;
+&lt;h3&gt;Contribution&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;termping&lt;/strong&gt; is still not complete, what you can contribute is :&lt;/p&gt;
 
@@ -1467,27 +1467,32 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;I am not directly writing any more code to it right now, because I have to get involved with some other necessary things, but I will try to helps anyone interested.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;It was a great journey so far, with nice learning experience.&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It was a great journey so far, with nice learning experience.&lt;/strong&gt;&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
-   <title>introducing <b>modified</b> lanyon and harry and me</title>
+   <title>Introducing modified-lanyon, Harry and me</title>
    <link href="//pravj.github.io/blog/introducing-modified-lanyon-and-harry-and-me/"/>
    <updated>2014-05-23T00:00:00+05:30</updated>
    <id>//pravj.github.io/blog/introducing-modified-lanyon-and-harry</id>
-   <content type="html">&lt;p&gt;&lt;code&gt;probably you don&amp;#39;t know me. ok, I&amp;#39;m telling you that.&lt;/code&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;code&gt;Yes, you don&amp;#39;t know me. Cool, I&amp;#39;m telling you that.&lt;/code&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;I am Pravendra. Developer at awesome &lt;a href=&quot;https://twitter.com/sdslabs&quot;&gt;SDSLabs&lt;/a&gt; and Computer Science student at IIT Roorkee, 
-when I&amp;#39;m not scrolling in sublime-text or vim, I am watching Discovery Channel :bowtie:&lt;/p&gt;
+&lt;p&gt;I am Pravendra. Developer at awesome &lt;a href=&quot;https://twitter.com/sdslabs&quot;&gt;SDSLabs&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;I am a sincere reader and It&amp;#39;s always nice for me to read about other&amp;#39;s experiences in different fields. Sometimes it shows new things that you are not aware about.&lt;/p&gt;
+&lt;p&gt;Also a Computer Science undergraduate student at IIT Roorkee.&lt;/p&gt;
+
+&lt;p&gt;When I&amp;#39;m not scrolling in sublime-text or vim, I am watching Discovery Channel :bowtie:&lt;/p&gt;
+
+&lt;p&gt;I am a sincere reader and It feels nice to read about other&amp;#39;s experiences in different fields.&lt;/p&gt;
+
+&lt;p&gt;Sometimes it shows new things that you are not aware about.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;code&gt;a thought of having blog always excited me after reading about nice people around me.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;A thought of owning a blog have always excited me.&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;my choice for a setup was &lt;code&gt;Jekyll&lt;/code&gt; powered blog hosted with &lt;code&gt;Github Pages&lt;/code&gt;, so I started searching for a cool Jekyll theme.&lt;/p&gt;
+&lt;p&gt;My choice for a setup was &lt;code&gt;Jekyll&lt;/code&gt; powered blog hosted with &lt;code&gt;Github Pages&lt;/code&gt;, so I started searching for a cool Jekyll theme.&lt;/p&gt;
 
 &lt;h3&gt;&lt;a href=&quot;https://github.com/poole/lanyon&quot;&gt;Lanyon&lt;/a&gt;&lt;/h3&gt;
 
@@ -1497,13 +1502,13 @@ when I&amp;#39;m not scrolling in sublime-text or vim, I am watching Discovery C
 &lt;p&gt;Lanyon is an unassuming Jekyll theme that places content first by tucking away navigation in a hidden drawer. It&amp;#39;s based on Poole, the Jekyll butler.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;it&amp;#39;s really a cool theme with pretty nice design and a Toggelable sliding sidebar to provide enough space for your content.&lt;/p&gt;
+&lt;p&gt;It&amp;#39;s really a cool theme with pretty nice design and a Toggelable sliding sidebar to provide enough space for your content.&lt;/p&gt;
 
-&lt;p&gt;themes avaiable on internet are generally meant to be used as it is or without any hesitation but I wanted something extra in the theme. I wanted to have tags for each post and post sorting according to tags.&lt;/p&gt;
+&lt;p&gt;Themes avaiable on internet are generally meant to be used as it is or without any hesitation but I wanted something extra in the theme. I wanted to have tags for each post and post sorting according to tags.&lt;/p&gt;
 
-&lt;p&gt;one more thing was that original Lanyon theme serves fix posts on a page and provides pagination(customizable). So if you want to read first post, you have to manually visit all pages till you reach at last page.&lt;/p&gt;
+&lt;p&gt;One more thing was that original Lanyon theme serves fix posts on a page and provides pagination(customizable). So if you want to read first post, you have to manually visit all pages till you reach at last page.&lt;/p&gt;
 
-&lt;p&gt;then an old chat with &lt;a href=&quot;https://twitter.com/leostatic&quot;&gt;@sm&lt;/a&gt; motivated me to do something on my own , he said :&lt;/p&gt;
+&lt;p&gt;Then an old chat with &lt;a href=&quot;https://twitter.com/leostatic&quot;&gt;@sm&lt;/a&gt; motivated me to do something on my own , he said :&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;its never bad to develop a thing, if you are not copying something entirely.&lt;/p&gt;
@@ -1515,31 +1520,31 @@ when I&amp;#39;m not scrolling in sublime-text or vim, I am watching Discovery C
 &lt;p&gt;&lt;a href=&quot;https://github.com/pravj/modified-lanyon&quot;&gt;modified Lanyon&lt;/a&gt; is the jekyll theme, I ended up while customizing original Lanyon.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;things I added to the original theme are :&lt;/p&gt;
+&lt;p&gt;Things I added to the original theme are :&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;now it shows title, date and related tags for each post on main page&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;code&gt;it provides easy access to all posts&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;It provides easy access to all posts&lt;/code&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;there is a section for all tags in posts, its lists all posts under each tag in archive.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;code&gt;reader can easily visit for each post under a tag.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Reader can easily visit for each post under a tag.&lt;/code&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;there is a timeline section showing all posts sorted according to year of post, having latest post first in timeline.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;code&gt;clicking on a date of post opens the timeline section&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Clicking on a date of post opens the timeline section&lt;/code&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;I added support to have smileys in blog, for this I created a jekyll plugin &lt;a href=&quot;https://github.com/pravj/Harry&quot;&gt;Harry&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;code&gt;using this you can use all emojis available on the famous www.emoji-cheat-sheet.com&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Using it, you can use all emojis available on the famous www.emoji-cheat-sheet.com&lt;/code&gt;&lt;/p&gt;
 
 &lt;h3&gt;modifying Lanyon&lt;/h3&gt;
 
@@ -1578,13 +1583,13 @@ when I&amp;#39;m not scrolling in sublime-text or vim, I am watching Discovery C
 &lt;p&gt;&lt;a href=&quot;https://github.com/pravj/Harry&quot;&gt;Harry&lt;/a&gt; is the jekyll plugin I developed, it lets you use any smiley from &lt;a href=&quot;http://www.emoji-cheat-sheet.com/&quot;&gt;emoji-cheat-sheet&lt;/a&gt; in your blog.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;it was fun developing this, because I just love smileys. specially this :grinning:&lt;/p&gt;
+&lt;p&gt;It was fun developing this, because I just love smileys. specially this :grinning:&lt;/p&gt;
 
-&lt;p&gt;it saves any valid smiley image in &lt;code&gt;public/smileys/&lt;/code&gt; from &lt;a href=&quot;http://www.emoji-cheat-sheet.com/&quot;&gt;emoji-cheat-sheet&lt;/a&gt; and serve from here. more about using Harry can be found &lt;a href=&quot;https://github.com/pravj/Harry/blob/master/README.md&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It saves any valid smiley image in &lt;code&gt;public/smileys/&lt;/code&gt; from &lt;a href=&quot;http://www.emoji-cheat-sheet.com/&quot;&gt;emoji-cheat-sheet&lt;/a&gt; and serve from here. more about using Harry can be found &lt;a href=&quot;https://github.com/pravj/Harry/blob/master/README.md&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3&gt;Problem with using Jekyll Plugins on GitHub Pages&lt;/h3&gt;
 
-&lt;p&gt;Github Pages don&amp;#39;t allow you to use plugins because of security reasons, so I am pushing only generated static files to &lt;a href=&quot;https://github.com/pravj/pravj.github.io&quot;&gt;repository&lt;/a&gt; powering this blog&lt;/p&gt;
+&lt;p&gt;Github Pages don&amp;#39;t allow you to use plugins because of security reasons, so I am pushing only generated static files to &lt;a href=&quot;https://github.com/pravj/pravj.github.io&quot;&gt;repository&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3&gt;Source Code&lt;/h3&gt;
 
@@ -1593,6 +1598,12 @@ when I&amp;#39;m not scrolling in sublime-text or vim, I am watching Discovery C
 &lt;li&gt;&lt;a href=&quot;https://github.com/pravj/modified-lanyon&quot;&gt;modified-lanyon&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/pravj/Harry&quot;&gt;Harry&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3&gt;Depreciation&lt;/h3&gt;
+
+&lt;p&gt;By the way, the theme that you are seeing right now, isn&amp;#39;t the &lt;em&gt;modified-lanyon&lt;/em&gt; theme.&lt;/p&gt;
+
+&lt;p&gt;You can read about the current theme&amp;#39;s development, here. &lt;a href=&quot;http://pravj.github.io&quot;&gt;A little paint over my webspace&amp;#39;s design&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
  

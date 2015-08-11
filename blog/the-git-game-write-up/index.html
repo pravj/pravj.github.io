@@ -1,178 +1,126 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-
+<html lang="en">
   <head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="keywords" content="pravj, pravendra singh, iit roorkee, hackpravj, python, github">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Enable responsiveness on mobile devices-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="description" content="Pravendra Singh">
 
-  <title>
-    
-      The git-game Write-up &middot; Pravendra Singh
-    
-  </title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/lanyon.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
-
-  <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <!-- icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/public/apple-touch-icon-precomposed.png">
   <link rel="shortcut icon" href="/public/favicon.ico">
 
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <!-- Open Graph Protocol metadata starts -->
+  
+  <meta property="og:title" content="The git-game Write-up">
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="Solving a game layered on top of Git">
+  <meta property="article:published_time" content="2015-01-15">
+  <meta property="article:author" content="Pravendra Singh">
+  <meta property="article:section" content="Technology">
 
-  </head>
+  
+  <meta property="article:tag" content="Git">
+  
+  <meta property="article:tag" content="Game">
+  
+  <meta property="article:tag" content="Writeup">
+  
+  <meta property="article:tag" content="GitHub">
+  
+
+  
+
+
+  <meta property="og:image" content="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11358226_664361487027156_125876068_n.jpg">
+  <meta property="og:url" content="/blog/the-git-game-write-up/">
+  <meta property="og:site_name" content="Pravendra Singh · @hackpravj">
+  <!-- Open Graph Protocol metadata ends -->
+
+  <!-- Twitter cards metadata starts -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@hackpravj">
+  <meta name="twitter:creator" content="@hackpravj">
+  
+  <meta name="twitter:title" content="The git-game Write-up">
+  <meta name="twitter:description" content="Solving a game layered on top of Git">
+  
+  <meta name="twitter:image" content="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11358226_664361487027156_125876068_n.jpg">
+  <!-- Twitter cards metadata ends -->
+
+  <link type="text/css" rel="stylesheet" href="/public/css/materialize.min.css"  media="screen,projection"/>
+  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/public/css/custom/site.css"  media="screen,projection"/>
+  <link href='http://fonts.googleapis.com/css?family=Catamaran|Raleway' rel='stylesheet' type='text/css'>
+
+  <title>Pravendra Singh</title>
+
+  <!-- feed -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
 
 
   <body>
+    <div class="container">
+  <div class="row zero-bottom-margin">
+    <div class="col s12 m6 l6 center-align">
+      <h5><a class="navigation" href="/">Pravendra Singh</a></h5>
+    </div>
 
-    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-item">
-    <p>Developer · Explorer · Student</p>
-  </div>
-
-  <nav class="sidebar-nav">
-    <a class="sidebar-nav-item" href="/">Blog</a>
-
-    
-
-    
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/about/">About</a>
-        
-      
-    
-      
-    
-      
-        
-      
-    
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    <a class="sidebar-nav-item" href="">Source</a>
-
-    <span class="sidebar-nav-item">Contact</span>
-    <a class="sidebar-nav-item" href="https://github.com/pravj">GitHub</a>
-    <a class="sidebar-nav-item" href="https://twitter.com/hackpravj">Twitter</a>
-    <a class="sidebar-nav-item" href="mailto:hackpravj@gmail.com">Gmail</a>
-    <a class="sidebar-nav-item" href="http://quora.com/Pravendra-Singh-Rathore">Quora</a>
-  </nav>
-
-  <div class="sidebar-item">
-    <p>
-      &copy; 2015. Pravendra Singh.
-    </p>
+    <div class="col s12 m6 l6 center-align">
+      <div class="row">
+        <div class="col s12">
+          <ul>
+            <li class="tab col s3"><span><a class="navigation" href="/about" title="About me, writing this takes most of the time."><span class="ion-person icon-black"></span></a></span></li>
+            <li class="tab col s3"><span><a class="navigation" href="/blog" title="Atricles, right from my untold drafts."><span class="ion-ios-paper icon-black"></span></a></span></li>
+            <li class="tab col s3"><span><a class="navigation" href="/projects" title="Projects, out of thin air."><span class="ion-social-github icon-black"></span></a></span></li>
+            <li class="tab col s3"><span><a class="navigation" href="/quotes" title="Sayings, that can inspire you."><span class="ion-quote icon-black"></span></a></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="/blog" title="Home">Pravendra Singh</a>
-            <small>: falling leaves</small>
-          </h3>
+    <div class="divider"></div>
+
+    <div class="valign-wrapper" style="background:#7b9fd3;padding-top:10px;padding-bottom:10px;">
+      <div class="valign container">
+        <div class="row">
+          <div class="col s12 article-date" style="color:#30343f;">
+            15 Jan 2015
+          </div>
+
+          <div class="col s12">
+            <h2 style="color:#fafaff;">The git-game Write-up</h2>
+          </div>
+
+          <div class="col s12 section-heading">
+            <h6 style="color:#434a79;"><span><b>Solving a game layered on top of Git</b></span></h6>
+          </div>
+
+          <div class="col s12 article-tags section-description">
+            <ul>
+              
+              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#git"><b>&nbsp;Git</b></a></li>
+              
+              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#game"><b>&nbsp;Game</b></a></li>
+              
+              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#writeup"><b>&nbsp;Writeup</b></a></li>
+              
+              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#github"><b>&nbsp;GitHub</b></a></li>
+              
+            </ul>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="container content">
-        <div class="post">
-  <span class="post-date">
-    <a href="/timeline" class="timeline">
-      15 Jan 2015
-    </a>
-  </span>
-  <h1 class="post-title">The git-game Write-up</h1>
-  <span class="post-tag">
-      
-        
-          <a href="/tags/#Git">
-            Git
-          </a>
-          &middot;
-        
-      
-        
-          <a href="/tags/#game">
-            game
-          </a>
-          &middot;
-        
-      
-        
-          <a href="/tags/#writeup">
-            writeup
-          </a>
-          &middot;
-        
-      
-        
-          <a href="/tags/#github">
-            github
-          </a>
+    <div class="divider"></div>
 
-        
-      
-  </span>
-
-  <hr>
-
-  <blockquote>
+    <div class="container post-content" style="font-family: 'Catamaran', sans-serif;">
+      <blockquote>
 <p><code>Spoiler Alert</code></p>
 
 <p>You should go first and check this out, <a href="https://github.com/hgarc014/git-game">git-game</a>.</p>
@@ -195,7 +143,7 @@ Your first task is to checkout the commit whose commit message is the answer to 
 
 When a programmer is born, what is the first thing he/she learns to say?
 </code></pre></div>
-<p>Well! a programmer is also a boy/girl, so first thing they do is <em>cry</em> but in the current context that thing will be <em>Hello, World!</em> <img src="/public/smileys/grinning.png" title=":grinning:" height="20px" width="20px" style="display:inline;margin:0;vertical-align:middle"/></p>
+<p>Well! a programmer is also a boy/girl, so first thing they do is <em>cry</em> but in the current context that thing will be <em>Hello, World!</em> :grinning:</p>
 
 <p>Now I had to find the commit whose commit message was <em>Hello World</em>, so the command <code>git log --graph --online</code> resulted this commit history.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">* 25bfa08 added information for people that don&#39;t know git
@@ -221,9 +169,9 @@ Hello World!
 It looks like you have some knowledge about traversing commits!
 Well, let&#39;s get this party started!
 
-We want to get to a branch whose name is the answer to this riddle: 
-I am a creature that is smaller than man, but many times more in number. 
-In code, my appearance can be subtle and no matter where I am found, I am unwanted. 
+We want to get to a branch whose name is the answer to this riddle:
+I am a creature that is smaller than man, but many times more in number.
+In code, my appearance can be subtle and no matter where I am found, I am unwanted.
 
 What am I?
 </code></pre></div>
@@ -237,8 +185,8 @@ Congratulations, it looks like you found the &quot;bug.&quot;
 When you work with other programmers on the same project, bugs are bound to appear.
 One way to create bugs is by changing code that you did not write without understanding what the code is doing.
 
-Sometimes we like to blame others for introducing bugs in our code. 
-Think you can find out who introduced a bug into our file cool.cpp? 
+Sometimes we like to blame others for introducing bugs in our code.
+Think you can find out who introduced a bug into our file cool.cpp?
 We think he had something to do with the development of git.
 And from what we hear he also made a branch under his name.
 Checkout to that branch after you find out who the culprit is.
@@ -257,7 +205,7 @@ int main()
    cout &lt;&lt; &quot;Loops are fun!&quot; &lt;&lt; endl;
    while(1);
    string reply = &quot;Well, &quot; + input + &quot;, we hope you are having fun with our git-game!&quot;;
-   cout &lt;&lt; reply &lt;&lt; endl; 
+   cout &lt;&lt; reply &lt;&lt; endl;
 }
 </code></pre></div>
 <p>Yeah! there is one; the <em>while loop</em> will refuse the program from terminating.</p>
@@ -271,10 +219,10 @@ int main()
 </blockquote>
 
 <p><code>git blame cool.cpp</code> is here for our rescue. It says that :</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">ce59bbfd (Henry Garcia      2014-12-08 18<img src="/public/smileys/22.png" title=":22:" height="20px" width="20px" style="display:inline;margin:0;vertical-align:middle"/>35 -0800 10)    cin &gt;&gt; input;
-3922a6d8 (LinusTorvalds2014 2014-12-09 12<img src="/public/smileys/37.png" title=":37:" height="20px" width="20px" style="display:inline;margin:0;vertical-align:middle"/>10 -0800 11)    cout &lt;&lt; &quot;Loops are fun!&quot; &lt;&lt; endl;
-3922a6d8 (LinusTorvalds2014 2014-12-09 12<img src="/public/smileys/37.png" title=":37:" height="20px" width="20px" style="display:inline;margin:0;vertical-align:middle"/>10 -0800 12)    while(1);
-ce59bbfd (Henry Garcia      2014-12-08 18<img src="/public/smileys/22.png" title=":22:" height="20px" width="20px" style="display:inline;margin:0;vertical-align:middle"/>35 -0800 13)    string reply = &quot;Well, &quot; + input + &quot;, ...
+<div class="highlight"><pre><code class="language-text" data-lang="text">ce59bbfd (Henry Garcia      2014-12-08 18:22:35 -0800 10)    cin &gt;&gt; input;
+3922a6d8 (LinusTorvalds2014 2014-12-09 12:37:10 -0800 11)    cout &lt;&lt; &quot;Loops are fun!&quot; &lt;&lt; endl;
+3922a6d8 (LinusTorvalds2014 2014-12-09 12:37:10 -0800 12)    while(1);
+ce59bbfd (Henry Garcia      2014-12-08 18:22:35 -0800 13)    string reply = &quot;Well, &quot; + input + &quot;, ...
 </code></pre></div>
 <p>Damn! someone with a similar name to the great <em>Linus Torvalds</em> is the culprit, he wrote that buggy line in the file. OK, lets move to his <em>branch</em> as the README says, using <code>git checkout LinusTorvalds2014</code> command.</p>
 
@@ -300,35 +248,35 @@ The next clue you are looking for --
 <p>Guess what? there was a file named <em>.gitignore</em> and it said :</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text"># welcome to the ignore file!!
 
-# This file is hidden by default, 
+# This file is hidden by default,
 # but did you know you have some branches that aren&#39;t shown to you,
 # when you check the list of branches?
 #
 # For your next clue...
-# Which abstract data type tends to implement sets and maps?? 
+# Which abstract data type tends to implement sets and maps??
 # The answer is the same answer to this riddle:
 #
 #   I am both mother and father.
 #   I am seldom still
 #   yet I never wander.
 #   I never birth nor nurse.
-#   
+#
 #   What am I?
 #
 # Afterwards... well, you
-# know, checkout to the answer. 
+# know, checkout to the answer.
 
 *.rem
 a.out
 </code></pre></div>
-<p>This time the answer of riddle is <em>Tree</em>, simple. Don&#39;t you know? You can <em>google</em> it any time, I did the same. <img src="/public/smileys/wink.png" title=":wink:" height="20px" width="20px" style="display:inline;margin:0;vertical-align:middle"/></p>
+<p>This time the answer of riddle is <em>Tree</em>, simple. Don&#39;t you know? You can <em>google</em> it any time, I did the same. :wink:</p>
 
 <p>So the next thing to do was, <code>git checkout tree</code> and the README.md file there said :</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">git-game
 ========
 
-Welcome to the &quot;tree&quot; branch. 
-Looks like good ol&#39; Linus modified the &quot;nextclue_input.cpp&quot; file. 
+Welcome to the &quot;tree&quot; branch.
+Looks like good ol&#39; Linus modified the &quot;nextclue_input.cpp&quot; file.
 Normally, when ran with the shell script &quot;outputclue.sh&quot;, the &quot;nextclue_input.cpp&quot; file would give us the next hint.
 
 Maybe, you should try running the shell script with the &quot;nextclue_input.cpp&quot; file and see what happens...
@@ -348,7 +296,7 @@ Good Luck!!!
 <p>The file <em>outputclue.sh</em> is a <em>bash</em> source file and matches the <em>md5sum</em> of each word in the <em>nextclue_input.cpp</em> to a local <em>checksum</em> variable named <em>bug</em>.
 It keeps asking to fix <em>merge conflicts</em> until the word matching that checksum is present in the file.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">#!/bin/bash
-if [ -z $1 ]; then 
+if [ -z $1 ]; then
   echo &quot;well, someone didn&#39;t want to run the script with a file...&quot;;
   exit;
 fi
@@ -362,22 +310,22 @@ if [ $(echo &quot;$OSTYPE&quot; | grep darwin) ];then
     csum=&quot;md5&quot;
 fi
 
-if [ &quot;$file&quot; = &quot;nextclue_input.cpp&quot; ];then 
-  if [ ${merges} ]; then 
-    while read p; do 
-      for w in $p;do 
-        if [ `echo $w | $csum | awk &#39;{print $1}&#39;` = $bug ];then 
-          echo -e $mesg; 
-          exit; 
-        fi; 
+if [ &quot;$file&quot; = &quot;nextclue_input.cpp&quot; ];then
+  if [ ${merges} ]; then
+    while read p; do
+      for w in $p;do
+        if [ `echo $w | $csum | awk &#39;{print $1}&#39;` = $bug ];then
+          echo -e $mesg;
+          exit;
+        fi;
       done;
     done &lt; $file ;
     echo -e &quot;Well, congratulations!! You fixed my conflict!!\nIf you would like to continue, then you should checkout to the $(echo 90mP8ouQHsNe | tr -d &#39;0-9A-Z&#39;) branch!!\n&quot; ;
-   else 
-     echo -e $mesg; 
+   else
+     echo -e $mesg;
      exit;
-   fi; 
-else 
+   fi;
+else
   echo &quot;Looks like you passed in the wrong file&quot;;
 fi
 </code></pre></div>
@@ -402,11 +350,11 @@ Now the README.md file in branch <em>mouse</em> said :</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">git-game
 ========
 
-Looks like you resolved your conflict and found our branch, congrats!! 
+Looks like you resolved your conflict and found our branch, congrats!!
 
-Hmm...it seems this branch has a file that was seen before in another branch. 
+Hmm...it seems this branch has a file that was seen before in another branch.
 Do you &quot;remember&quot; what it is?
-I think this file has something to do with the next clue, but it seems to be very ugly looking. 
+I think this file has something to do with the next clue, but it seems to be very ugly looking.
 Maybe if we compare the &quot;diff&quot;erences between this file and the file from before we&#39;ll know where to go next...
 </code></pre></div>
 <p>Yeah! I do remember that the file <em>remember</em> was there in the branch <em>bug</em> as I wasted 10 minutes on it.</p>
@@ -421,11 +369,11 @@ Maybe if we compare the &quot;diff&quot;erences between this file and the file f
 <div class="highlight"><pre><code class="language-text" data-lang="text">git-game
 ========
 
-Welcome to my Tag!!! 
+Welcome to my Tag!!!
 
 If you&#39;re looking for my branch then you have gone the wrong way!!
 
-How do you checkout to a branch that has the same name as a tag??? 
+How do you checkout to a branch that has the same name as a tag???
 Deal with the tag first!!
 </code></pre></div>
 <p>The problem was that there was a <em>branch</em> with exactly same name as a tag, <em>Henry</em>.
@@ -472,119 +420,86 @@ You completed our Git Game!
 
 <hr>
 
-<h4>Behind the scene :</h4>
+<h3>Behind the scene :</h3>
 
 <ul>
 <li>Each level was somewhat harder than the previous one but overall it wasn&#39;t.</li>
 <li>Yeah! I completed all tasks <em>twice</em>, the extra one while writing this Write-up.</li>
 <li>It took me almost 30 minutes to complete all tasks but 2 hours to write this.</li>
-<li>Today, it&#39;s an awesome sunny, winter day here. <img src="/public/smileys/sunny.png" title=":sunny:" height="20px" width="20px" style="display:inline;margin:0;vertical-align:middle"/></li>
+<li>Today, it&#39;s an awesome sunny, winter day here. :sunny:</li>
 </ul>
 
-</div>
+    </div>
 
-<div class="social">
+    <div class="divider"></div>
+
+    <div class="container section">
   <span>
     <iframe src="http://ghbtns.com/github-btn.html?user=pravj&type=follow&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20">
     </iframe>
   </span>
 
-  <span class="tweet">
+  <span style="margin-right:20px;">
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="hackpravj">
       Tweet
     </a>
     <script>
-    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
     </script>
   </span>
 
-  <span class="fb-like" data-href=//pravj.github.io/blog/the-git-game-write-up/ data-action="like" data-layout="button_count" data-show-faces="false" data-share="false" style="display: inline-flex;">
+  <span style="margin-right:20px;display:inline-flex;" class="fb-like" data-href=//pravj.github.io/blog/the-git-game-write-up/ data-action="like" data-layout="button_count" data-show-faces="false" data-share="false" style="display: inline-flex;">
   </span>
 </div>
 
 
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/blog/development-story-of-puzzl/">
-            Development story of puzzl
-            <small>23 Apr 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/blog/painting-a-virtual-wall/">
-            Holy Aesthete &#58; painting a virtual wall
-            <small>06 Mar 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/blog/penticons-the-hash-game/">
-            Introducing Penticons &#58; The Hash Game
-            <small>08 Feb 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
-</div>
-
-<div class="disqus">
-  <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'pravj'; // required: replace example with your forum shortname
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>
-      Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-    </noscript>
-    <a href="http://disqus.com" class="dsq-brlink">
-      comments powered by <span class="logo-disqus">Disqus</span>
-    </a> 
-</div>
-
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-      </div>
-    </div>
-
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-
-    <!-- Google Analytics -->
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-48537986-1', 'pravj.github.io');
-  ga('send', 'pageview');
-
+    <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 </script>
 
+
+    <div class="container">
+      <div class="related">
+        <h5>Recent Posts</h4>
+        <ul class="related-posts">
+          
+            <li>
+              <h6>
+                <a href="/blog/development-story-of-puzzl/">
+                  Development story of puzzl
+                  <small>23 Apr 2015</small>
+                </a>
+              </h6>
+            </li>
+          
+            <li>
+              <h6>
+                <a href="/blog/painting-a-virtual-wall/">
+                  Holy Aesthete &#58; painting a virtual wall
+                  <small>06 Mar 2015</small>
+                </a>
+              </h6>
+            </li>
+          
+            <li>
+              <h6>
+                <a href="/blog/penticons-the-hash-game/">
+                  Introducing Penticons &#58; The Hash Game
+                  <small>08 Feb 2015</small>
+                </a>
+              </h6>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
 
   </body>
 </html>
