@@ -28,6 +28,13 @@
 	src: url('../../font/custom/Raleway-Thin.ttf');
 }
 
+/*
+body {
+  width: 100%;
+  height: 100%;
+}
+*/
+
 html {
   background: #FEFEFE;
 }
@@ -46,6 +53,10 @@ h3 {
 
 h2 {
   font-size: 3rem;
+}
+
+h1 {
+  font-size: 5rem;
 }
 
 code {
@@ -73,8 +84,47 @@ code {
   list-style-type: circle;
 }
 
+.front-content {
+  height: 100%;
+  width: 100%;
+  background: #FCFCFC;
+  position: absolute;
+}
+
+.front-content .row .col {
+  padding: 0px;
+}
+
+.front-content-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #DDDDDD;
+}
+
+.front-content-middle {
+  color: #FAFAFF;
+  position: relative;
+  top: 20%;
+}
+
+.front-content-middle .card .card-title {
+  color: red;
+}
+
+.card {
+  background-color:f4f2ff;
+}
+
+.front-content-middle .card-action {
+  padding-top: 10px;
+}
+
+.indicator {
+  display: none;
+}
+
 .front-header {
-  height: 200px;
   width: 100%;
   position: relative;
   background-color: #7B9FD3;
@@ -87,6 +137,10 @@ code {
   -webkit-box-shadow: 0px 1px 1px 0px rgba(221,221,221,1);
   -moz-box-shadow: 0px 1px 1px 0px rgba(221,221,221,1);
   box-shadow: 0px 1px 1px 0px rgba(221,221,221,1);
+}
+
+.front-content-material {
+  position: relative;
 }
 
 .tabs .tab a {
@@ -208,6 +262,16 @@ img {
 .social-presence-icons ul li {
   float: left;
   margin-right: 20px;
+}
+
+.front-social-presence-icons {
+  font-size: 32px;
+}
+
+.front-social-presence-icons a {
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #C9D0D0;
 }
 
 .social-presence-icons ul li a {
