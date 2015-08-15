@@ -314,3 +314,21 @@ img {
 .tag-group {
   margin-top: 20px;
 }
+
+.ad-text-a {
+  color: #87C0CD;
+}
+
+.ad-text-b {
+  color: #89AFBB;
+}
+
+.ad-subtext span {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.ad-text-bottom {
+  position: relative;
+  top: 30px;
+}
