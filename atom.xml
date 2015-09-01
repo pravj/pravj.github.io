@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title></title>
- <link href="//pravj.github.io/atom.xml" rel="self"/>
- <link href="//pravj.github.io/"/>
- <updated>2015-08-15T12:06:29+05:30</updated>
+ <link href="//pravj.github.io//atom.xml" rel="self"/>
+ <link href="//pravj.github.io//"/>
+ <updated>2015-09-01T13:30:33+05:30</updated>
  <id>//pravj.github.io</id>
  <author>
    <name></name>
@@ -13,10 +13,492 @@
 
  
  <entry>
+   <title>Jump in to ride all the Bangalore taxis, at once</title>
+   <link href="//pravj.github.io/blog/bangalore-taxis/"/>
+   <updated>2015-09-01T00:00:00+05:30</updated>
+   <id>//pravj.github.io//blog/bangalore-taxis</id>
+   <content type="html">&lt;p&gt;All right, just imagine that you have popcorn with you, because I know that you don&amp;#39;t have.&lt;/p&gt;
+
+&lt;p&gt;I decided to do this report when I was in Bangalore this summer, &lt;em&gt;Sillicon Valley of India&lt;/em&gt;. You can observe a gob of information flowing through in such metropolitan population. People ordering/delivering meal, groceries or literally everything by online orders, people booking a vehicle and riding in no time, people booking a seat for dinner/movie and many more thing to generate the logs. Which is fascinating.&lt;/p&gt;
+
+&lt;p&gt;One day while riding a cab, I got this plan to go into the rectangle map the app was showing, and run around. Just like what &lt;a href=&quot;https://www.youtube.com/watch?v=oKCIMX2dsEc&quot;&gt;Joey did in an episode of Friends&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To execute this all, I had to collect the relavent information and work on the possible outcomes of the collected information.&lt;/p&gt;
+
+&lt;p&gt;Here in this post I have written the procedure I followed, things I have feared of, interesting results I saw and count of tea cups I have sipped.&lt;/p&gt;
+
+&lt;h3&gt;The brick wall&lt;/h3&gt;
+
+&lt;p&gt;A little more theory and then we will get right to the practicals.&lt;/p&gt;
+
+&lt;p&gt;While setting up the collection infrastucture, I realised that I might be under the &lt;em&gt;terms and services&lt;/em&gt; monster. This suspicion helped me lading in the depression zone where I wasn&amp;#39;t sure if the work I have done so far was worth doing or not.&lt;/p&gt;
+
+&lt;p&gt;I thought about asking the respective organization for a permission but I was too afraid to hear a negative reply. So I went ahead and ignored this. Because this report does not publicize any private property like vehicle numbers, mobile numbers and all. Even I wasn&amp;#39;t able to access such private properties.&lt;/p&gt;
+
+&lt;p&gt;The major reason was, I have already bunked too many classes for this, so terminating the work wasn&amp;#39;t an option.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m aware that it&amp;#39;s a wrong act but I couldn&amp;#39;t stop the &lt;em&gt;David McCandless&lt;/em&gt; inside me from doing this. I hope I&amp;#39;m not getting sued for this.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This report is based on the data from a particular taxi service in a single day&amp;#39;s time span, so it may be a little baised.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;Information Retrieval&lt;/h3&gt;
+
+&lt;p&gt;Collecting the right information was the foundation for the whole game. Possibility of getting blocked was also there, once you come under the &lt;em&gt;Night&amp;#39;s watch&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The task reduces to finding &lt;em&gt;how many taxis are there in the city&lt;/em&gt; (at a time), &lt;em&gt;where they are&lt;/em&gt; and then keep doing this all the day &lt;em&gt;without getting caught&lt;/em&gt;. Easy Peasy?&lt;/p&gt;
+
+&lt;p&gt;I came up with the solution to find places in the city which are equally seperated and then drawing circles on those points would cover the entire city. A fake &lt;em&gt;cab search request&lt;/em&gt; would return us the status of cabs around that place.&lt;/p&gt;
+
+&lt;p&gt;For that I planned to start from the center of the city, iterate this on adjacent places using a &lt;a href=&quot;https://en.wikipedia.org/wiki/Finite-state_machine&quot;&gt;Finite State Machine&lt;/a&gt; to stay aware of the ending state (when we are done with all such place-combinations) and state changes (when we are out of the city&amp;#39;s boundary in a particular direction).&lt;/p&gt;
+
+&lt;p&gt;While writing the FSM, I found an efficient alternative to iterate over all the equally separated places which comes under the &lt;a href=&quot;https://en.wikipedia.org/wiki/Minimum_bounding_rectangle&quot;&gt;Minimum Bounding Rectangle&lt;/a&gt; of Bangalore, and check if the cab service is available in that area or not.&lt;/p&gt;
+
+&lt;p&gt;Equally spacing those spots minimizes the total number of requests made, which descreases the chances of getting blocked, &lt;em&gt;if there is such service on the other side&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/bangalore-taxis/point-net.png&quot; alt=&quot;point-net&quot; title=&quot;Equally separated places&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Once all those places were spotted, I made a &lt;em&gt;cab search request&lt;/em&gt; on all those spots every 15 minutes. I think it&amp;#39;s a bit more time than the &lt;em&gt;average trip duration&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Later I realised a mistake that I have forgot to count the time making requests to all the places, so the separation went up to almost 19 minutes.&lt;/p&gt;
+
+&lt;p&gt;I continuously pumped all those responses to a &lt;a href=&quot;http://www.iron.io/mq/&quot;&gt;IronMQ&lt;/a&gt; powered message queue and then imported all the data into a local &lt;a href=&quot;http://rethinkdb.com/&quot;&gt;RethinkDB&lt;/a&gt; instance.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;One should try not to hit the source at a constant timeperiod (like 15 minutes in this case), because that&amp;#39;s the basic heuristic for smart &lt;em&gt;bot detection&lt;/em&gt; systems. I had to do that because it was needed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;Service Availability&lt;/h3&gt;
+
+&lt;p&gt;In the &lt;em&gt;Minimum Bounding Rectangle&lt;/em&gt;, I found a total of 272 spots but only 96 of them have the cab service available. The distance between adjacent places is 2 Mile (3.2186 KM.), which is almost same as the equivalent area we see while booking a cab on mobile applications (on default zoom level).&lt;/p&gt;
+
+&lt;div id='availability-map' style=&quot;height:400px;&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;Although this is biased because it represent only a single day of activity but it gives us a little overview of the situation. I&amp;#39;m not that familier with the places in the bangalore but I found an interesting thing, maybe a native resident can confirm this.&lt;/p&gt;
+
+&lt;p&gt;See those two circles at the top of the rectangle, they are too far from the main localities but we have the service there. Those circles contains places like &lt;em&gt;Rajanukunte&lt;/em&gt;, &lt;em&gt;Doddajala&lt;/em&gt;, &lt;em&gt;Chikkajala&lt;/em&gt; etc. On googling their name, you will get comparatively more listings about property/real-estate business compared to other areas in the city.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s like the scenario we had with &lt;em&gt;Delhi - Gurgaon&lt;/em&gt; some time back, those places are under &lt;em&gt;Industrialization&lt;/em&gt;. Which makes it a good reason to have the taxi services availability, no matter some famous places around the city doesn&amp;#39;t have this cab service, like the &lt;em&gt;Bannerghatta National Park&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Guardians (Vehicles)&lt;/h3&gt;
+
+&lt;p&gt;During the day, the system spotted a total of 897 different cabs, with 4 different types.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;RethinkDB query&lt;/em&gt; to count different type of cabs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;r.db(&amp;#39;taxis&amp;#39;).table(&amp;#39;datacenter&amp;#39;)
+    .filter({available: true})
+    .pluck(&amp;#39;type&amp;#39;, &amp;#39;cab_id&amp;#39;)
+    .distinct()
+    .group(&amp;#39;type&amp;#39;)
+    .count()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col s12 m6 l3 center-align&quot; style=&quot;color:#DDD;background:#00648C;&quot;&gt;
+      &lt;h4&gt;#Hatchback 525&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col s12 m6 l3 center-align&quot; style=&quot;color:#DDD;background:#10698C;&quot;&gt;
+      &lt;h4&gt;#Sedan 324&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col s12 m6 l3 center-align&quot; style=&quot;color:#DDD;background:#4F7B8C;&quot;&gt;
+      &lt;h4&gt;#Nano 46&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col s12 m6 l3 center-align&quot; style=&quot;color:#DDD;background:#7497A5;&quot;&gt;
+      &lt;h4&gt;#SUV 2&lt;/h4&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Cab Availability (according to time)&lt;/h3&gt;
+
+&lt;p&gt;What do you think about the number of cabs available at 8:30 AM and 8:30 PM? You will see that the number is more in the morning.&lt;/p&gt;
+
+&lt;p&gt;There is a theory, &lt;em&gt;Utilitarianism&lt;/em&gt;. Which states that everyone wants to maximize their utility. Take the example of E-commerce. Between so many brands, sellers and customers, everyone wants to increase their benefits. For e-sellers, scheduling an online sell is just like a game of chess. Each team want to win it. (Quoted by a good person)&lt;/p&gt;
+
+&lt;p&gt;Here is how the cab availability distribution over time looks like.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/bangalore-taxis/distribution.png&quot; alt=&quot;cab-availability-distribution&quot; title=&quot;Cab availability distribution over time&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;I think it goes like, the probability of a taxi being hired is high during the morning when people are going to the office/college, then it decreases during the noon-time, increases again during the 4 PM - 6 PM window when people are going back home or going out for their evening gig, and decreses in the night.&lt;/p&gt;
+
+&lt;p&gt;This is how drivers play their part as per &lt;em&gt;Utilitarianism&lt;/em&gt;, which reflects in the number of available taxis.&lt;/p&gt;
+
+&lt;h3&gt;Rise of the Guardians (Vehicles)&lt;/h3&gt;
+
+&lt;p&gt;In the responses I got for the cab search requests, there was a field representing a timestamp, constant for a particular cab. Initially when I saw that, I thought it&amp;#39;s the last time a cab was booked but it wasn&amp;#39;t.&lt;/p&gt;
+
+&lt;p&gt;5 out of the 897 total cabs have that field equal to 1, which translates to January 1, 1970. This indicates that initially the field wasn&amp;#39;t part of their architecture, but later they adopted it.&lt;/p&gt;
+
+&lt;p&gt;The uniqueness and time range of all those fields strongly supports that it was the time when a cab got associated with the organization. &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/bangalore-taxis/timeline.png&quot; alt=&quot;cab-timeline&quot; title=&quot;Cab timeline&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Horizontal scale for this graph is cropped because almost 85+ % events belongs to the year 2015 itself. Which seems a bit weird, but it&amp;#39;s what it&amp;#39;s.&lt;/p&gt;
+
+&lt;h3&gt;Cabs around the city throughout the day&lt;/h3&gt;
+
+&lt;div id='map' style=&quot;height:400px;&quot;&gt;
+    &lt;span id='info' class='info' style='padding:10px;background:#fff;position:relative;top:17px;right:-50px;z-index:100;'&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This particular map represents the geographic view of the &lt;em&gt;cab availability&lt;/em&gt; (according to time) diagram. Where total cabs at a time are distributed accross the city according to their actual positions.&lt;/p&gt;
+
+&lt;p&gt;Now if you are thinking about the places where most of the cabs are, I have created another map for that, scroll down.  &lt;/p&gt;
+
+&lt;h3&gt;Cab Availability Index&lt;/h3&gt;
+
+&lt;p&gt;This map is somewhat inspired from the Housing&amp;#39;s &lt;a href=&quot;https://housing.com/blog/2013/11/14/launching-child-friendliness-index-heat-maps/&quot;&gt;Child Friendly Index&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It uses those equally seperated circles to count total cabs in them throughout the day, and uses the relative percentage as the opacity of each circle.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;RethinkDB query&lt;/em&gt; that counts the cabs which are in a 2 mile circle centered at &amp;#39;centerPoint&amp;#39;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;taxis&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;datacenter&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;available&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pluck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_lat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_lng&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;distinct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;centerPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;unit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;mi&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_lat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_lat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div id='dmap' style='height:400px;'&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Neighbourhoods having maximum availability index are mostly in the &lt;em&gt;northern-western&lt;/em&gt; and a little &lt;em&gt;central&lt;/em&gt; part of the bangalore. Which consists of some big educational institutes as &lt;em&gt;Indian Institute of Science&lt;/em&gt;, &lt;em&gt;Bangalore University&lt;/em&gt;, &lt;em&gt;R.V. College of Engineering&lt;/em&gt;, some famous tourist spots as &lt;em&gt;Lalbagh Botanical Garden&lt;/em&gt; to contribute to the higher availability density.&lt;/p&gt;
+
+&lt;p&gt;Along with that, reports shows that &lt;em&gt;northern-western&lt;/em&gt; bangalore has maximum population density in the city. Check out these images (&lt;a href=&quot;http://wgbis.ces.iisc.ernet.in/biodiversity/pubs/ETR/ETR55/Population%20Density.jpg&quot;&gt;latest&lt;/a&gt; and &lt;a href=&quot;http://wgbis.ces.iisc.ernet.in/biodiversity/pubs/ces_tr/TR118_SPoonancha/Index1_clip_image002_0000.jpg&quot;&gt;old&lt;/a&gt;) from &lt;em&gt;Centre for Ecological Sciences, IISc&lt;/em&gt; for the reference.&lt;/p&gt;
+
+&lt;h3&gt;Cab that travelled the most&lt;/h3&gt;
+
+&lt;p&gt;As I have told you that initially I&amp;#39;d misread a timestamp field as the time when a cab was last hired. Writing a precise (almost) algorithm to find the path travelled by cab using current/past location and the last booking time would have been easy that way.&lt;/p&gt;
+
+&lt;p&gt;In the currecnt implementation, I have used the locations between adjacent appearances of a cab to find the approximate distance travelled by the vehicle. It assumes that the cab travelled from position A to position B despite being sufficient time difference between both appearances.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;RethinkDB query&lt;/em&gt; that collects the chronological appearances of each taxi.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;taxis&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;datacenter&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;available&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;without&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;place_lat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;place_lng&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;duration&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;distance&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pluck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_lat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_lng&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;index&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;timestamp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;orderBy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;index&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To watch the jounrney &lt;em&gt;time-lapse&lt;/em&gt; of the cab who travelled the most, press the &lt;em&gt;play button&lt;/em&gt; below.&lt;/p&gt;
+
+&lt;div id='cmap' style='height:400px;'&gt;
+&lt;/div&gt;
+
+&lt;div style='width:60px;margin: 0 auto;'&gt;
+    &lt;h2 id=&quot;replay-btn&quot; style='position:relative;top:-100px;padding-left:15px;color:#343434;background-color:rgba(255, 255, 255, 0.8);width:60px;height:50px;cursor:pointer;'&gt;
+        &lt;span class='ion-play'&gt;&lt;/span&gt;
+    &lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Is this all fake, just like Uber?&lt;/h3&gt;
+
+&lt;p&gt;Do you remember those &lt;em&gt;phantom car&lt;/em&gt; stories of Uber?&lt;/p&gt;
+
+&lt;p&gt;There was a research which revealed that Uber shows a mirage of tiny black cabs moving around you, when you do a cab search. Just to convince you that a cab is there for you. Study concluded that the cab network you see around, is not real-time.&lt;/p&gt;
+
+&lt;p&gt;I wanted to analyse the &lt;em&gt;traffic status&lt;/em&gt; using the response data I had. My objective was to find the regression in the &lt;em&gt;cab response time&lt;/em&gt; (time taken by a cab to reach you) and &lt;em&gt;time of the day&lt;/em&gt;. Because the sixth sense says that the &lt;em&gt;cab response time&lt;/em&gt; should be high when there is &lt;em&gt;high traffic&lt;/em&gt; in some areas of the city, likely in those peek hours (morning and evening time).&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;cab response time&lt;/em&gt; seems to be dependant on the distance only, which looks like a &lt;em&gt;step function&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/bangalore-taxis/restime.png&quot; alt=&quot;cab-response-time&quot; title=&quot;Cab Response Time&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;I realised that there wasn&amp;#39;t any fluctuation in the &lt;em&gt;response time&lt;/em&gt;, it was same for a particular distance between the cab and the user (simulated), all the day.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Which implies that similar to Uber, this cab network isn&amp;#39;t real-time.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A nice explanation of the &lt;em&gt;phantom cars&lt;/em&gt; is available &lt;a href=&quot;http://motherboard.vice.com/read/Ubers-phantom-cabs?update&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;You solve a problem, when you get one&lt;/h3&gt;
+
+&lt;p&gt;Let me insert a story here.&lt;/p&gt;
+
+&lt;p&gt;It was my first day of the recent intern. I was sitting along at my place, waiting for someone to join me or at least talk to me. Then I started reading Myntra&amp;#39;s engineering blog to kill my time. The very first post was from the React fame &lt;em&gt;Sunil Pai&lt;/em&gt;, &lt;a href=&quot;http://myntra.github.io/2015/05/17/personal-thoughts-on-the-shutdown-of-the-myntra-website/&quot;&gt;Personal thoughts on the shutdown of the myntra.com website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There was this phrase that caught my attention.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Imagine being DDOSed by every mobile device on the planet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Voila, I got my work. I designed a &lt;em&gt;reverse proxy&lt;/em&gt; based layer to detect the DDoS. I&amp;#39;m still not sure that if it would have worked or not, but doing that was exciting.&lt;/p&gt;
+
+&lt;p&gt;And then I showed the solution to my manager. He ignored it, right on my face, without even listening to me.&lt;/p&gt;
+
+&lt;p&gt;Maybe because he wasn&amp;#39;t really facing such problem (DDoS) that time, it wasn&amp;#39;t in the roadmap there. But they will have to work on it when they will face an attack.&lt;/p&gt;
+
+&lt;p&gt;Similarly, this simulated user interaction is wrong to the system. Can be easily converted into a &lt;em&gt;service denial&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;In my case, I was changing the user(simulated) location frequently, so fast that a human can&amp;#39;t reach there in a fraction of second (traversing whole Bangalore in 3 minutes).&lt;/p&gt;
+
+&lt;p&gt;If the service allows a user to book a cab for someone else (who is far away from where the real user is), the monitoring system should take care of the conversion rates. Someone trying to book a cab for someone else this fast, then not booking a single cab, and then repeating this every 15 minute all the day is a plain pattern to detect. Which should be detected. I hope somebody will fix this.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;That&amp;#39;s it, get out of the cab now.&lt;/p&gt;
+
+&lt;p&gt;I have decided not to release the collected data and code for the data retrieval. Everything else including the data processing part can be found at &lt;a href=&quot;https://github.com/pravj&quot;&gt;pravj/bangalore-taxis&lt;/a&gt; repository. Thanks to &lt;em&gt;RethinkDB&lt;/em&gt; and &lt;em&gt;Mapbox&lt;/em&gt;, you guys are really amazing.&lt;/p&gt;
+
+&lt;script src='/public/lib/taxis.js'&gt;&lt;/script&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Jump in to ride all the Bangalore taxis, at once</title>
+   <link href="//pravj.github.io/blog/bangalore-taxis/"/>
+   <updated>2015-08-29T00:00:00+05:30</updated>
+   <id>//pravj.github.io//blog/bangalore-taxis</id>
+   <content type="html">&lt;p&gt;All right, just imagine that you have popcorn with you, because I know that you don&amp;#39;t have.&lt;/p&gt;
+
+&lt;p&gt;I decided to do this report when I was in Bangalore this summer, &lt;em&gt;Sillicon Valley of India&lt;/em&gt;. You can observe a gob of information flowing through in such metropolitan population. People ordering/delivering meal, groceries or literally everything by online orders, people booking a vehicle and riding in no time, people booking a seat for dinner/movie and many more thing to generate the logs. Which is fascinating.&lt;/p&gt;
+
+&lt;p&gt;One day while riding a cab, I got this plan to go into the rectangle map the app was showing, and run around. Just like what &lt;a href=&quot;https://www.youtube.com/watch?v=oKCIMX2dsEc&quot;&gt;Joey did in an episode of Friends&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To execute this all, I had to collect the relavent information and work on the possible outcomes of the collected information.&lt;/p&gt;
+
+&lt;p&gt;Here in this post I have written the procedure I followed, things I have feared of, interesting results I saw and count of tea cups I have sipped.&lt;/p&gt;
+
+&lt;h3&gt;The brick wall&lt;/h3&gt;
+
+&lt;p&gt;A little more theory and then we will get right to the practicals.&lt;/p&gt;
+
+&lt;p&gt;While setting up the collection infrastucture, I realised that I might be under the &lt;em&gt;terms and services&lt;/em&gt; monster. This suspicion helped me lading in the depression zone where I wasn&amp;#39;t sure if the work I have done so far was worth doing or not.&lt;/p&gt;
+
+&lt;p&gt;I thought about asking the respective organization for a permission but I was too afraid to hear a negative reply. So I went ahead and ignored this. Because this report does not publicize any private property like vehicle numbers, mobile numbers and all. Even I wasn&amp;#39;t able to access such private properties.&lt;/p&gt;
+
+&lt;p&gt;The major reason was, I have already bunked too many classes for this, so terminating the work wasn&amp;#39;t an option.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m aware that it&amp;#39;s a wrong act but I couldn&amp;#39;t stop the &lt;em&gt;David McCandless&lt;/em&gt; inside me from doing this. I hope I&amp;#39;m not getting sued for this.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This report is based on the data from a particular taxi service in a single day&amp;#39;s time span, so it may be a little baised.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;Information Retrieval&lt;/h3&gt;
+
+&lt;p&gt;Collecting the right information was the foundation for the whole game. Possibility of getting blocked was also there, once you come under the &lt;em&gt;Night&amp;#39;s watch&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The task reduces to finding &lt;em&gt;how many taxis are there in the city&lt;/em&gt; (at a time), &lt;em&gt;where they are&lt;/em&gt; and then keep doing this all the day &lt;em&gt;without getting caught&lt;/em&gt;. Easy Peasy?&lt;/p&gt;
+
+&lt;p&gt;I came up with the solution to find places in the city which are equally seperated and then drawing circles on those points would cover the entire city. A fake &lt;em&gt;cab search request&lt;/em&gt; would return us the status of cabs around that place.&lt;/p&gt;
+
+&lt;p&gt;For that I planned to start from the center of the city, iterate this on adjacent places using a &lt;a href=&quot;https://en.wikipedia.org/wiki/Finite-state_machine&quot;&gt;Finite State Machine&lt;/a&gt; to stay aware of the ending state (when we are done with all such place-combinations) and state changes (when we are out of the city&amp;#39;s boundary in a particular direction).&lt;/p&gt;
+
+&lt;p&gt;While writing the FSM, I found an efficient alternative to iterate over all the equally separated places which comes under the &lt;a href=&quot;https://en.wikipedia.org/wiki/Minimum_bounding_rectangle&quot;&gt;Minimum Bounding Rectangle&lt;/a&gt; of Bangalore, and check if the cab service is available in that area or not.&lt;/p&gt;
+
+&lt;p&gt;Equally spacing those spots minimizes the total number of requests made, which descreases the chances of getting blocked, &lt;em&gt;if there is such service on the other side&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/bangalore-taxis/point-net.png&quot; alt=&quot;point-net&quot; title=&quot;Equally separated places&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Once all those places were spotted, I made a &lt;em&gt;cab search request&lt;/em&gt; on all those spots every 15 minutes. I think it&amp;#39;s a bit more time than the &lt;em&gt;average trip duration&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Later I realised a mistake that I have forgot to count the time making requests to all the places, so the separation went up to almost 19 minutes.&lt;/p&gt;
+
+&lt;p&gt;I continuously pumped all those responses to a &lt;a href=&quot;http://www.iron.io/mq/&quot;&gt;IronMQ&lt;/a&gt; powered message queue and then imported all the data into a local &lt;a href=&quot;http://rethinkdb.com/&quot;&gt;RethinkDB&lt;/a&gt; instance.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;One should try not to hit the source at a constant timeperiod (like 15 minutes in this case), because that&amp;#39;s the basic heuristic for smart &lt;em&gt;bot detection&lt;/em&gt; systems. I had to do that because it was needed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;Service Availability&lt;/h3&gt;
+
+&lt;p&gt;In the &lt;em&gt;Minimum Bounding Rectangle&lt;/em&gt;, I found a total of 272 spots but only 96 of them have the cab service available. The distance between adjacent places is 2 Mile (3.2186 KM.), which is almost same as the equivalent area we see while booking a cab on mobile applications (on default zoom level).&lt;/p&gt;
+
+&lt;div id='availability-map' style=&quot;height:400px;&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;Although this is biased because it represent only a single day of activity but it gives us a little overview of the situation. I&amp;#39;m not that familier with the places in the bangalore but I found an interesting thing, maybe a native resident can confirm this.&lt;/p&gt;
+
+&lt;p&gt;See those two circles at the top of the rectangle, they are too far from the main localities but we have the service there. Those circles contains places like &lt;em&gt;Rajanukunte&lt;/em&gt;, &lt;em&gt;Doddajala&lt;/em&gt;, &lt;em&gt;Chikkajala&lt;/em&gt; etc. On googling their name, you will get comparatively more listings about property/real-estate business compared to other areas in the city.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s like the scenario we had with &lt;em&gt;Delhi - Gurgaon&lt;/em&gt; some time back, those places are under &lt;em&gt;Industrialization&lt;/em&gt;. Which makes it a good reason to have the taxi services availability, no matter some famous places around the city doesn&amp;#39;t have this cab service, like the &lt;em&gt;Bannerghatta National Park&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Guardians (Vehicles)&lt;/h3&gt;
+
+&lt;p&gt;During the day, the system spotted a total of 897 different cabs, with 4 different types.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;RethinkDB query&lt;/em&gt; to count different type of cabs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;r.db(&amp;#39;taxis&amp;#39;).table(&amp;#39;datacenter&amp;#39;)
+    .filter({available: true})
+    .pluck(&amp;#39;type&amp;#39;, &amp;#39;cab_id&amp;#39;)
+    .distinct()
+    .group(&amp;#39;type&amp;#39;)
+    .count()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col s12 m6 l3 center-align&quot; style=&quot;color:#DDD;background:#00648C;&quot;&gt;
+      &lt;h4&gt;#Hatchback 525&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col s12 m6 l3 center-align&quot; style=&quot;color:#DDD;background:#10698C;&quot;&gt;
+      &lt;h4&gt;#Sedan 324&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col s12 m6 l3 center-align&quot; style=&quot;color:#DDD;background:#4F7B8C;&quot;&gt;
+      &lt;h4&gt;#Nano 46&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col s12 m6 l3 center-align&quot; style=&quot;color:#DDD;background:#7497A5;&quot;&gt;
+      &lt;h4&gt;#SUV 2&lt;/h4&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Cab Availability (according to time)&lt;/h3&gt;
+
+&lt;p&gt;What do you think about the number of cabs available at 8:30 AM and 8:30 PM? You will see that the number is more in the morning.&lt;/p&gt;
+
+&lt;p&gt;There is a theory, &lt;em&gt;Utilitarianism&lt;/em&gt;. Which states that everyone wants to maximize their utility. Take the example of E-commerce. Between so many brands, sellers and customers, everyone wants to increase their benefits. For e-sellers, scheduling an online sell is just like a game of chess. Each team want to win it. (Quoted by a good person)&lt;/p&gt;
+
+&lt;p&gt;Here is how the cab availability distribution over time looks like.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/bangalore-taxis/distribution.png&quot; alt=&quot;cab-availability-distribution&quot; title=&quot;Cab availability distribution over time&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;I think it goes like, the probability of a taxi being hired is high during the morning when people are going to the office/college, then it decreases during the noon-time, increases again during the 4 PM - 6 PM window when people are going back home or going out for their evening gig, and decreses in the night.&lt;/p&gt;
+
+&lt;p&gt;This is how drivers play their part as per &lt;em&gt;Utilitarianism&lt;/em&gt;, which reflects in the number of available taxis.&lt;/p&gt;
+
+&lt;h3&gt;Rise of the Guardians (Vehicles)&lt;/h3&gt;
+
+&lt;p&gt;In the responses I got for the cab search requests, there was a field representing a timestamp, constant for a particular cab. Initially when I saw that, I thought it&amp;#39;s the last time a cab was booked but it wasn&amp;#39;t.&lt;/p&gt;
+
+&lt;p&gt;5 out of the 897 total cabs have that field equal to 1, which translates to January 1, 1970. This indicates that initially the field wasn&amp;#39;t part of their architecture, but later they adopted it.&lt;/p&gt;
+
+&lt;p&gt;The uniqueness and time range of all those fields strongly supports that it was the time when a cab got associated with the organization. &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/bangalore-taxis/timeline.png&quot; alt=&quot;cab-timeline&quot; title=&quot;Cab timeline&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Horizontal scale for this graph is cropped because almost 85+ % events belongs to the year 2015 itself. Which seems a bit weird, but it&amp;#39;s what it&amp;#39;s.&lt;/p&gt;
+
+&lt;h3&gt;Cabs around the city throughout the day&lt;/h3&gt;
+
+&lt;div id='map' style=&quot;height:400px;&quot;&gt;
+    &lt;span id='info' class='info' style='padding:10px;background:#fff;position:relative;top:17px;right:-50px;z-index:100;'&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This particular map represents the geographic view of the &lt;em&gt;cab availability&lt;/em&gt; (according to time) diagram. Where total cabs at a time are distributed accross the city according to their actual positions.&lt;/p&gt;
+
+&lt;p&gt;Now if you are thinking about the places where most of the cabs are, I have created another map for that, scroll down.  &lt;/p&gt;
+
+&lt;h3&gt;Cab Availability Index&lt;/h3&gt;
+
+&lt;p&gt;This map is somewhat inspired from the Housing&amp;#39;s &lt;a href=&quot;https://housing.com/blog/2013/11/14/launching-child-friendliness-index-heat-maps/&quot;&gt;Child Friendly Index&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It uses those equally seperated circles to count total cabs in them throughout the day, and uses the relative percentage as the opacity of each circle.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;RethinkDB query&lt;/em&gt; that counts the cabs which are in a 2 mile circle centered at &amp;#39;centerPoint&amp;#39;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;taxis&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;datacenter&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;available&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pluck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_lat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_lng&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;distinct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;centerPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;unit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;mi&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_lat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_lat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div id='dmap' style='height:400px;'&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Neighbourhoods having maximum availability index are mostly in the &lt;em&gt;northern-western&lt;/em&gt; and a little &lt;em&gt;central&lt;/em&gt; part of the bangalore. Which consists of some big educational institutes as &lt;em&gt;Indian Institute of Science&lt;/em&gt;, &lt;em&gt;Bangalore University&lt;/em&gt;, &lt;em&gt;R.V. College of Engineering&lt;/em&gt;, some famous tourist spots as &lt;em&gt;Lalbagh Botanical Garden&lt;/em&gt; to contribute to the higher availability density.&lt;/p&gt;
+
+&lt;p&gt;Along with that, reports shows that &lt;em&gt;northern-western&lt;/em&gt; bangalore has maximum population density in the city. Check out these images (&lt;a href=&quot;http://wgbis.ces.iisc.ernet.in/biodiversity/pubs/ETR/ETR55/Population%20Density.jpg&quot;&gt;latest&lt;/a&gt; and &lt;a href=&quot;http://wgbis.ces.iisc.ernet.in/biodiversity/pubs/ces_tr/TR118_SPoonancha/Index1_clip_image002_0000.jpg&quot;&gt;old&lt;/a&gt;) from &lt;em&gt;Centre for Ecological Sciences, IISc&lt;/em&gt; for the reference.&lt;/p&gt;
+
+&lt;h3&gt;Cab that travelled the most&lt;/h3&gt;
+
+&lt;p&gt;As I have told you that initially I&amp;#39;d misread a timestamp field as the time when a cab was last hired. Writing a precise (almost) algorithm to find the path travelled by cab using current/past location and the last booking time would have been easy that way.&lt;/p&gt;
+
+&lt;p&gt;In the currecnt implementation, I have used the locations between adjacent appearances of a cab to find the approximate distance travelled by the vehicle. It assumes that the cab travelled from position A to position B despite being sufficient time difference between both appearances.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;RethinkDB query&lt;/em&gt; that collects the chronological appearances of each taxi.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;taxis&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;datacenter&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;available&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;without&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;place_lat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;place_lng&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;duration&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;distance&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pluck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_lat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;cab_lng&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;index&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;timestamp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;orderBy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;index&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To watch the jounrney &lt;em&gt;time-lapse&lt;/em&gt; of the cab who travelled the most, press the &lt;em&gt;play button&lt;/em&gt; below.&lt;/p&gt;
+
+&lt;div id='cmap' style='height:400px;'&gt;
+&lt;/div&gt;
+
+&lt;div style='width:60px;margin: 0 auto;'&gt;
+    &lt;h2 id=&quot;replay-btn&quot; style='position:relative;top:-100px;padding-left:15px;color:#343434;background-color:rgba(255, 255, 255, 0.8);width:60px;height:50px;cursor:pointer;'&gt;
+        &lt;span class='ion-play'&gt;&lt;/span&gt;
+    &lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Is this all fake, just like Uber?&lt;/h3&gt;
+
+&lt;p&gt;Do you remember those &lt;em&gt;phantom car&lt;/em&gt; stories of Uber?&lt;/p&gt;
+
+&lt;p&gt;There was a research which revealed that Uber shows a mirage of tiny black cabs moving around you, when you do a cab search. Just to convince you that a cab is there for you. Study concluded that the cab network you see around, is not real-time.&lt;/p&gt;
+
+&lt;p&gt;I wanted to analyse the &lt;em&gt;traffic status&lt;/em&gt; using the response data I had. My objective was to find the regression in the &lt;em&gt;cab response time&lt;/em&gt; (time taken by a cab to reach you) and &lt;em&gt;time of the day&lt;/em&gt;. Because the sixth sense says that the &lt;em&gt;cab response time&lt;/em&gt; should be high when there is &lt;em&gt;high traffic&lt;/em&gt; in some areas of the city, likely in those peek hours (morning and evening time).&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;cab response time&lt;/em&gt; seems to be dependant on the distance only, which looks like a &lt;em&gt;step function&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/bangalore-taxis/restime.png&quot; alt=&quot;cab-response-time&quot; title=&quot;Cab Response Time&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;I realised that there wasn&amp;#39;t any fluctuation in the &lt;em&gt;response time&lt;/em&gt;, it was same for a particular distance between the cab and the user (simulated), all the day.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Which implies that similar to Uber, this cab network isn&amp;#39;t real-time.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A nice explanation of the &lt;em&gt;phantom cars&lt;/em&gt; is available &lt;a href=&quot;http://motherboard.vice.com/read/Ubers-phantom-cabs?update&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;You solve a problem, when you get one&lt;/h3&gt;
+
+&lt;p&gt;Let me insert a story here.&lt;/p&gt;
+
+&lt;p&gt;It was my first day of the recent intern. I was sitting along at my place, waiting for someone to join me or at least talk to me. Then I started reading Myntra&amp;#39;s engineering blog to kill my time. The very first post was from the React fame &lt;em&gt;Sunil Pai&lt;/em&gt;, &lt;a href=&quot;http://myntra.github.io/2015/05/17/personal-thoughts-on-the-shutdown-of-the-myntra-website/&quot;&gt;Personal thoughts on the shutdown of the myntra.com website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There was this phrase that caught my attention.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Imagine being DDOSed by every mobile device on the planet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Voila, I got my work. I designed a &lt;em&gt;reverse proxy&lt;/em&gt; based layer to detect the DDoS. I&amp;#39;m still not sure that if it would have worked or not, but doing that was exciting.&lt;/p&gt;
+
+&lt;p&gt;And then I showed the solution to my manager. He ignored it, right on my face, without even listening to me.&lt;/p&gt;
+
+&lt;p&gt;Maybe because he wasn&amp;#39;t really facing such problem (DDoS) that time, it wasn&amp;#39;t in the roadmap there. But they will have to work on it when they will face an attack.&lt;/p&gt;
+
+&lt;p&gt;Similarly, this simulated user interaction is wrong to the system. Can be easily converted into a &lt;em&gt;service denial&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;In my case, I was changing the user(simulated) location frequently, so fast that a human can&amp;#39;t reach there in a fraction of second (traversing whole Bangalore in 3 minutes).&lt;/p&gt;
+
+&lt;p&gt;If the service allows a user to book a cab for someone else (who is far away from where the real user is), the monitoring system should take care of the conversion rates. Someone trying to book a cab for someone else this fast, then not booking a single cab, and then repeating this every 15 minute all the day is a plain pattern to detect. Which should be detected. I hope somebody will fix this.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;That&amp;#39;s it, get out of the cab now.&lt;/p&gt;
+
+&lt;p&gt;I have decided not to release the collected data and code for the data retrieval. Everything else including the data processing part can be found at &lt;a href=&quot;https://github.com/pravj/Bangalore-taxis&quot;&gt;pravj/bangalore-taxis&lt;/a&gt; repository. Thanks to &lt;em&gt;RethinkDB&lt;/em&gt; and &lt;em&gt;Mapbox&lt;/em&gt;, you guys are really amazing.&lt;/p&gt;
+
+&lt;script src='/public/lib/taxis.js'&gt;&lt;/script&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Development story of puzzl</title>
    <link href="//pravj.github.io/blog/development-story-of-puzzl/"/>
    <updated>2015-04-23T00:00:00+05:30</updated>
-   <id>//pravj.github.io/blog/development-story-of-puzzl</id>
+   <id>//pravj.github.io//blog/development-story-of-puzzl</id>
    <content type="html">&lt;p&gt;Lets start with that old promotion rant I use all the time.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -194,7 +676,7 @@
    <title>Holy Aesthete &#58; painting a virtual wall</title>
    <link href="//pravj.github.io/blog/painting-a-virtual-wall/"/>
    <updated>2015-03-06T00:00:00+05:30</updated>
-   <id>//pravj.github.io/blog/painting-a-virtual-wall</id>
+   <id>//pravj.github.io//blog/painting-a-virtual-wall</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;//pravj.github.io/assets/painting-a-virtual-wall/wall.jpg&quot; alt=&quot;Virtual-Wall&quot; title=&quot;Virtual Wall&quot;&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -287,7 +769,7 @@
    <title>Introducing Penticons &#58; The Hash Game</title>
    <link href="//pravj.github.io/blog/penticons-the-hash-game/"/>
    <updated>2015-02-08T00:00:00+05:30</updated>
-   <id>//pravj.github.io/blog/penticons-the-hash-game</id>
+   <id>//pravj.github.io//blog/penticons-the-hash-game</id>
    <content type="html">&lt;p&gt;Jennifer Lawrence fan, huh? It was &lt;em&gt;The Hash Game&lt;/em&gt; by the way. Still in? Kewl.&lt;/p&gt;
 
 &lt;h3&gt;What&amp;#39;s the buzz all about?&lt;/h3&gt;
@@ -392,7 +874,7 @@ Now, if I ask, what is the value of x when the value of function is 0? You can a
    <title>Open Source Presence Infographic of Indian Startups</title>
    <link href="//pravj.github.io/blog/open-source-presence-infographic/"/>
    <updated>2015-01-17T00:00:00+05:30</updated>
-   <id>//pravj.github.io/blog/open-source-presence-infographic</id>
+   <id>//pravj.github.io//blog/open-source-presence-infographic</id>
    <content type="html">&lt;p&gt;Technically speaking, organizations used in this report are no more only a &lt;em&gt;startup&lt;/em&gt; now, but I hope you people won&amp;#39;t mind this and aren&amp;#39;t gonna launch a drone on me.&lt;/p&gt;
 
 &lt;h3&gt;Abstract&lt;/h3&gt;
@@ -664,7 +1146,7 @@ I was all alone everytime, thinking about it, collecting the data, managing R so
    <title>The git-game Write-up</title>
    <link href="//pravj.github.io/blog/the-git-game-write-up/"/>
    <updated>2015-01-15T00:00:00+05:30</updated>
-   <id>//pravj.github.io/blog/the-git-game-writeup</id>
+   <id>//pravj.github.io//blog/the-git-game-writeup</id>
    <content type="html">&lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;Spoiler Alert&lt;/code&gt;&lt;/p&gt;
 
@@ -980,7 +1462,7 @@ You completed our Git Game!
    <title>Post-mortem of an Internet Accident</title>
    <link href="//pravj.github.io/blog/post-mortem-of-an-internet-accident/"/>
    <updated>2015-01-11T00:00:00+05:30</updated>
-   <id>//pravj.github.io/blog/post-mortem-of-an-internet-accident</id>
+   <id>//pravj.github.io//blog/post-mortem-of-an-internet-accident</id>
    <content type="html">&lt;p&gt;Hi scout, thanks for visiting this edge node of the Holy Internet; Before the combination &lt;em&gt;Internet Accident&lt;/em&gt; confuse you, let me decode its meaning in the context of this post.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -1167,7 +1649,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
    <title>geopattern &#58; going on the Go path</title>
    <link href="//pravj.github.io/blog/going-on-the-go-path/"/>
    <updated>2014-11-01T00:00:00+05:30</updated>
-   <id>//pravj.github.io/blog/going-on-the-go-path</id>
+   <id>//pravj.github.io//blog/going-on-the-go-path</id>
    <content type="html">&lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;Before I start the tell&lt;/code&gt;&lt;/p&gt;
 
@@ -1297,7 +1779,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
    <title>termping &#58; &#9829; &#43; Node.js &#43; Streams &#43; CoffeeScript</title>
    <link href="//pravj.github.io/blog/introducing-termping/"/>
    <updated>2014-07-27T00:00:00+05:30</updated>
-   <id>//pravj.github.io/blog/introducing-termping</id>
+   <id>//pravj.github.io//blog/introducing-termping</id>
    <content type="html">&lt;blockquote&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;before I start the tell
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -1475,7 +1957,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
    <title>Introducing modified-lanyon, Harry and me</title>
    <link href="//pravj.github.io/blog/introducing-modified-lanyon-and-harry-and-me/"/>
    <updated>2014-05-23T00:00:00+05:30</updated>
-   <id>//pravj.github.io/blog/introducing-modified-lanyon-and-harry</id>
+   <id>//pravj.github.io//blog/introducing-modified-lanyon-and-harry</id>
    <content type="html">&lt;p&gt;&lt;code&gt;Yes, you don&amp;#39;t know me. Cool, I&amp;#39;m telling you that.&lt;/code&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
