@@ -4,7 +4,7 @@
  <title></title>
  <link href="//pravj.github.io//atom.xml" rel="self"/>
  <link href="//pravj.github.io//"/>
- <updated>2015-12-13T15:12:53+05:30</updated>
+ <updated>2015-12-13T20:10:39+05:30</updated>
  <id>//pravj.github.io</id>
  <author>
    <name></name>
@@ -53,7 +53,7 @@
 
 &lt;p&gt;&lt;em&gt;Engine&lt;/em&gt; is the one who takes care of the identifier generation and distribution. It uses a little &lt;em&gt;group theory&lt;/em&gt; and &lt;em&gt;anagram properties&lt;/em&gt; to generate &lt;em&gt;non-sequential unique identifiers of fixed length&lt;/em&gt;. It generates them in advance and serve you &lt;em&gt;on demand&lt;/em&gt; while taking care of the stock by generating in the background when you start approaching the bottom of the vessel. To know more about &lt;em&gt;Engine&lt;/em&gt;, you can stalk its &lt;a href=&quot;https://github.com/pravj/engine&quot;&gt;repository&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Station&lt;/em&gt; is a Node.js package(&lt;em&gt;private obviously&lt;/em&gt;) running a &lt;em&gt;Nightmare&lt;/em&gt; instance for &lt;em&gt;headless browsing&lt;/em&gt;. From &lt;em&gt;station&lt;/em&gt;, it collects the next set of identifiers to fetch and then assemble all the necessary information beforing shipping it to the storage.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Station&lt;/em&gt; is a Node.js package(&lt;em&gt;private obviously&lt;/em&gt;) running a &lt;em&gt;Nightmare&lt;/em&gt; instance for &lt;em&gt;headless browsing&lt;/em&gt;. From &lt;em&gt;Engine&lt;/em&gt;, it collects the next set of identifiers to fetch and then assemble all the necessary information before shipping it to the storage.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;//pravj.github.io/assets/indian-ecommerce/crawler-infra.png&quot; alt=&quot;crawler-infra&quot; title=&quot;Crawler Infrastructure&quot;&gt;&lt;/p&gt;
 
