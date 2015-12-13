@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+
+  <meta name="description" content="Pravendra Singh">
+
+  <!-- icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="192x192" href="//pravj.github.io/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="//pravj.github.io/public/favicon.ico">
+
+  <!-- Open Graph Protocol metadata starts -->
+  
+  <meta property="og:title" content="Breaking into the Indian E-commerce">
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="Lets find out how India shops and how big is Myntra.">
+  <meta property="article:published_time" content="2015-12-11">
+  <meta property="article:author" content="Pravendra Singh">
+  <meta property="article:section" content="Technology">
+
+  
+  <meta property="article:tag" content="Data">
+  
+  <meta property="article:tag" content="Python">
+  
+  <meta property="article:tag" content="RethinkDB">
+  
+
+  
+
+
+  <meta property="og:image" content="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11358226_664361487027156_125876068_n.jpg">
+  <meta property="og:url" content="http://pravj.github.io/blog/indian-ecommerce/">
+  <meta property="og:site_name" content="Pravendra Singh · @hackpravj">
+  <!-- Open Graph Protocol metadata ends -->
+
+  <!-- Twitter cards metadata starts -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@hackpravj">
+  <meta name="twitter:creator" content="@hackpravj">
+  
+  <meta name="twitter:title" content="Breaking into the Indian E-commerce">
+  <meta name="twitter:description" content="Lets find out how India shops and how big is Myntra.">
+  
+  <meta name="twitter:image" content="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11358226_664361487027156_125876068_n.jpg">
+  <!-- Twitter cards metadata ends -->
+
+  <!-- FB insights -->
+  <meta property="fb:admins" content="100003909612219" />
+
+  <link type="text/css" rel="stylesheet" href="/public/css/materialize.min.css"  media="screen,projection"/>
+  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/public/css/custom/site.css"  media="screen,projection"/>
+  <link href='http://fonts.googleapis.com/css?family=Catamaran|Raleway' rel='stylesheet' type='text/css'>
+
+  
+
+  
+
+  
+  <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+
+  <link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+  
+
+  <title>Pravendra Singh</title>
+
+  <!-- feed -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+    <div class="container">
+  <div class="row zero-bottom-margin">
+    <div class="col s12 m6 l6 center-align">
+      <h5><a class="navigation" href="/">Pravendra Singh</a></h5>
+    </div>
+
+    <div class="col s12 m6 l6 center-align">
+      <div class="row">
+        <div class="col s12">
+          <ul>
+            <li class="tab col s3"><span><a class="navigation" href="/about" title="About me, writing this takes most of the time."><span class="ion-person icon-black"></span></a></span></li>
+            <li class="tab col s3"><span><a class="navigation" href="/blog" title="Atricles, right from my untold drafts."><span class="ion-ios-paper icon-black"></span></a></span></li>
+            <li class="tab col s3"><span><a class="navigation" href="/projects" title="Projects, out of thin air."><span class="ion-social-github icon-black"></span></a></span></li>
+            <li class="tab col s3"><span><a class="navigation" href="/quotes" title="Sayings, that can inspire you."><span class="ion-quote icon-black"></span></a></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="divider"></div>
+
+    <div class="valign-wrapper" style="background:#7b9fd3;padding-top:10px;padding-bottom:10px;">
+      <div class="valign container">
+        <div class="row">
+          <div class="col s12 article-date" style="color:#30343f;">
+            11 Dec 2015
+          </div>
+
+          <div class="col s12">
+            <h2 style="color:#fafaff;">Breaking into the Indian E-commerce</h2>
+          </div>
+
+          <div class="col s12 section-heading">
+            <h6 style="color:#434a79;"><span><b>Lets find out how India shops and how big is Myntra.</b></span></h6>
+          </div>
+
+          <div class="col s12 article-tags section-description">
+            <ul>
+              
+              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#data"><b>&nbsp;Data</b></a></li>
+              
+              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#python"><b>&nbsp;Python</b></a></li>
+              
+              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#rethinkdb"><b>&nbsp;RethinkDB</b></a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="container post-content" style="font-family: 'Catamaran', sans-serif;">
+      <p>Before I start telling you the story, I&#39;m going to do an experiment. I&#39;ll write the summary of this post first, just to stick you around, in case you are one among the people who don&#39;t read to the end.</p>
+
+<h3>tl;dr</h3>
+
+<p><a href="http://www.myntra.com/">Myntra</a> is India&#39;s largest online fashion and lifestyle store, as they say. Which is owned by <a href="http://flipkart.com/">Flipkart</a>, one of the big players in Indian E-commerce.</p>
+
+<p>I found a little opening in the flow of their online movement and used it to collect some information(<em>not private though</em>). Using this information we can see the way &#39;online shopping&#39; is escalating in the country, and the role <em>Myntra</em> and the people are playing in it.</p>
+
+<p>Sounds interesting? Hold on.</p>
+
+<h3>Emergence of the idea</h3>
+
+<p>Let me tell you, how did I get started with this.</p>
+
+<p>All this happened recently, when I was looking for some <em>T-Shirts</em> with my friend. We placed a shared order for two and a pair of shoes.</p>
+
+<p>Whenever you order from Myntra, you get a <em>text message</em> on your registered mobile number, giving you a link where you can <em>track your order</em>. Each order is given a unique identifier of length 4 because it&#39;s a shortened URL to fit well in a text message.</p>
+
+<p>I opened that link in my phone and it worked, saying that the details of your order are yet to be updated. Then I tried a different URL, not mine, of course, all thanks to my disruptive mind. It worked again, now this was something to pay attention to.</p>
+
+<p>You know, 4 is a <em>nanoscopic</em> number if a computer is your best friend. I think you can guess what happened next, I couldn&#39;t sleep properly thinking about my next move to just have all the order details. Right from crawling and storing the data to analysing it.</p>
+
+<h3>Crawler Infrastructure</h3>
+
+<p>Being a <em>pessimistic</em> person, as one of my friends calls me. I end up thinking too much about all the possible edge cases. Something similar happened with the design of the crawling system.</p>
+
+<p>As the saying goes, <strong>&quot;A thief believes everybody steals&quot;</strong>. I was afraid that my collection signatures(IP) will be blocked.</p>
+
+<p>If you have read my last post <a href="http://pravj.github.io/blog/bangalore-taxis/">Jump in to ride all the Bangalore taxis, at once</a>; I said that you should not hit the resource at a constant time period, it&#39;s a basic heuristic to identify bots. I considered that, it was a simple thing.</p>
+
+<p>Now comes the main thing I was afraid of, <em>&quot;What if they catch me while trying to collect all the orders in a sequential manner (alphabetically increasing uid)&quot;?</em></p>
+
+<p>As I couldn&#39;t take a risk of losing the data, I designed my solution around it. I developed two things, <em>Engine</em> and <em>Station</em>.</p>
+
+<p><em>Engine</em> is the one who takes care of the identifier generation and distribution. It uses a little <em>group theory</em> and <em>anagram properties</em> to generate <em>non-sequential unique identifiers of fixed length</em>. It generates them in advance and serve you <em>on demand</em> while taking care of the stock by generating in the background when you start approaching the bottom of the vessel. To know more about <em>Engine</em>, you can stalk its <a href="https://github.com/pravj/engine">repository</a>.</p>
+
+<p><em>Station</em> is a Node.js package(<em>private obviously</em>) running a <em>Nightmare</em> instance for <em>headless browsing</em>. From <em>station</em>, it collects the next set of identifiers to fetch and then assemble all the necessary information beforing shipping it to the storage.</p>
+
+<p><img src="//pravj.github.io/assets/indian-ecommerce/crawler-infra.png" alt="crawler-infra" title="Crawler Infrastructure"></p>
+
+<p>Together they solve the problem with sequential crawling.</p>
+
+<p>Now one more thing, the collection signature(IP) is still vulnerable to blocking. I found a (working) solution for it right on the Engineering blog of Myntra. They have an interesting post named <a href="http://myntra.github.io/2015/01/19/dynamic-bot-detection-using-bloom-filters/">Dynamic Bot Detection Using Bloom Filters</a>, which labels you as a <em>bot</em> if you have sent relatively more requests in the past 60 seconds. So the time difference <em>station</em> assigns between two consecutive requests is dynamically set such that the <em>Bloom Filter</em> is unable to catch it.</p>
+
+<p>Planning too much on the <em>Information Retrieval</em> part has been a good exercise though, I&#39;m thinking about working on a <em>Machine Learning approach of Bot Detection</em>, where movement of a user from one page to another on service/website is mapped as <em>state transitions</em> of a <em>Markov Chain</em>, and anyone who violates the <em>transition probability range</em> is a suspicious visitor.</p>
+
+<p>Rough idea, leave that for me.</p>
+
+<h3>Statistical nature of the data</h3>
+
+<p>As I read more and more research papers and live next to some great statistician&#39;s <em>Internet Residences</em>, I know that you can&#39;t conclude <em>a thing</em> from a small dataset.</p>
+
+<p>In the dataset that I have collected, there are 1045 <em>Returned Orders</em>, 4406 <em>Cancelled Orders</em> and 6368 <em>Completed Orders</em>. <em>Returned Order</em> means the package was returned back due to some reasons, and <em>Cancelled Orders</em> means it was cancelled by the customer before shipping.</p>
+
+<p>This could have been a bigger one, so I&#39;ll try not to <em>conclude</em> a result here but we can see the customer behavior and the service <em>Myntra</em> provides. Coming to a result from this data would be a case of <em>overfitting</em> essentially.</p>
+
+<p>Although the dataset is small, it&#39;s distributed over a <em>time continuum</em> instead of being a <em>discrete segment</em>, because of the internal working of <em>Engine</em>.</p>
+
+<p><img src="//pravj.github.io/assets/indian-ecommerce/engine.png" alt="engine" title="How Engine generate identifiers"></p>
+
+<p>We are all set to take off now.</p>
+
+<h3>When does India shops?</h3>
+
+<p>As long as I remember, I have ordered something online in the evening, around 06-07 PM. But this is not the case for everyone else.</p>
+
+<div>
+    <a href="https://plot.ly/~pravj/51/" target="_blank" title="When does India shops?" style="display: block; text-align: center;"><img src="https://plot.ly/~pravj/51.png" alt="When does India shops?" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="pravj:51"  src="https://plot.ly/embed.js" async></script>
+</div>
+
+<p>We can see that there are two concerted segments. One from 09:00 AM to 05:00 PM in the evening and the other is from 06:00 PM to midnight. Not many orders are there during the <em>bed time</em>, after midnight till the dawn.</p>
+
+<p>The morning peak is around 10:00 AM, which is near the usual opening hours of <em>Myntra&#39;s big discount sales</em>. <em>Returned Orders</em> are present throughout the days.</p>
+
+<p>The presence of orders at every possible time of day shows the ease in the life of people using &#39;online shopping&#39;. You have got a need and there are platforms to fulfill that. Otherwise, why would someone order at 02:00 AM in the morning?</p>
+
+<p><em>Myntra</em> also runs a <em>same day delivery</em> program where they ship your order in 24 hours, across the country. And in our dataset, a significant number of such orders were placed after midnight.</p>
+
+<h3>From where does India shops?</h3>
+
+<div id='customer-map' style="height:400px;"></div>
+
+<script src='https://gist.githack.com/pravj/d4c24e297e5eafeba22f/raw/c8f7541edb7e69dd53ed688ef81d34a34c66f479/customer-location.js'></script>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoicHJhdmoiLCJhIjoiNjc1YTVjYTEzMjAyNjU4ZTgwNjQyMDQwNzgxNTc5MGMifQ.bEvQyBRzIuy5S_hmpsPLuA';
+    var map = L.mapbox.map('customer-map', 'mapbox.streets')
+        .setView([23.548683,79.7800369], 4);
+
+    var markers = new L.MarkerClusterGroup();
+
+    for (var i = 0; i < addressPoints.length; i++) {
+        var a = addressPoints[i];
+        var title = a[2];
+        var marker = L.marker(new L.LatLng(a[0], a[1]), {
+            icon: L.mapbox.marker.icon({'marker-symbol': 'building', 'marker-color': 'DD44FF'}),
+            title: title
+        });
+        marker.bindPopup(title);
+        markers.addLayer(marker);
+    }
+
+    map.addLayer(markers);
+</script>
+
+<p>Here is a clustered map of places in the country, that I found as <em>final destinations</em> of <em>completed orders</em>. This means that the map ignores the number of orders at a place, it just represents the <em>geographic distribution</em> of the orders. Also, it doesn&#39;t count a locality multiple times. For example, <em>Agartala</em> has 2-3 different final destinations but they are clustered to a single place/centre, <em>Agartala COD Centre 3</em>.</p>
+
+<p>I was magnificent to see this map when I plotted it first time. Not because my program worked, but to see the markers in extreme areas of the country, especially in the <em>Northeast India</em>.</p>
+
+<p>It&#39;s good to see that almost every region of the country is here. There are 432 different places in here. You are free to zoom in and check out your region, if available.</p>
+
+<p>After seeing this big coverage I would say, they can expand easily to <em>Bangladesh</em>.</p>
+
+<p>I have used <em>Google&#39;s Geocoding API</em> to convert a place name to its coordinates.</p>
+
+<h3>How long does it take to deliver your order?</h3>
+
+<div>
+    <a href="https://plot.ly/~pravj648/16/" target="_blank" title="How long does it take to deliver your order?" style="display: block; text-align: center;"><img src="https://plot.ly/~pravj648/16.png" alt="How long does it take to deliver your order?" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="pravj648:16"  src="https://plot.ly/embed.js" async></script>
+</div>
+
+<p>If you live in north India or near(<em>measured in terms of direct road connectivity</em>) the warehouses of <em>Myntra</em>, you <em>can</em> have your package in 24 hours. In the dataset, many orders from Nation Capital Region, Jaipur and Bangalore have delivered in the same day.</p>
+
+<p>Otherwise, majority of the orders takes 3 to 4 days across the country, except the <em>North East</em>(Guwahati, Imphal) and <em>West Coast</em>(Mumbai Parel, Antop Hill) region.</p>
+
+<p>I have calculated the delivery delay by subtracting the time of order being placed from the <em>last event time</em> in the events timeline of a <em>complete order</em>. The timeline consists of all the sub-details like <em>&#39;Order is placed&#39;</em>, <em>&#39;Order is packed&#39;</em>, <em>&#39;In transit&#39;</em>, <em>&#39;Arrived at delivery center&#39;</em>, <em>&#39;Order out for delivery&#39;</em> and <em>&#39;Delivered&#39;</em> etc. Which is <em>error prone</em> because they seems to update some order after awhile.</p>
+
+<p>At the <em>tail</em> of the curve, the delay in some cases seems to be caused by customers actually, some reason were <em>&#39;CID - COD(cash on delivery) AMOUNT NOT READY&#39;</em>, &#39;<em>Consignee Out Of Station; Shipment un-delivered</em>&#39;, &#39;<em>Undelivered due to - Consignee Residence Closed</em>&#39; etc.</p>
+
+<h3>Shared Logistics</h3>
+
+<div>
+    <a href="https://plot.ly/~pravj648/145/" target="_blank" title="Shared Logistics" style="display: block; text-align: center;"><img src="https://plot.ly/~pravj648/145.png" alt="Shared Logistics" style="max-width: 100%;width: 1258px;"  width="1258" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="pravj648:145"  src="https://plot.ly/embed.js" async></script>
+</div>
+
+<p>Having a great logistics service is a key point for online shops. Both <em>Myntra</em> and <em>Flipkart</em> have their own such services named <em>Myntra Logistics</em> and <em>EKart Logistics</em> respectively.</p>
+
+<p>To deliver products out of their range or to overcome the heavy demand during <em>big discount sales</em>, they ship the products with third party logistic providers.</p>
+
+<p>In the dataset you can see that majority of the orders have been shipped by <em>Myntra Logistics</em> itself, and then by <em>EKart</em>. <em>Delhivery</em> is an emerging logistic solution provider in the country.</p>
+
+<p>Here we can see the regions in which <em>FedEx</em> and <em>DTDC</em> were used for delivery.</p>
+
+<div>
+    <a href="https://plot.ly/~pravj648/159/" target="_blank" title="Outsourced Logistic Partner Network" style="display: block; text-align: center;"><img src="https://plot.ly/~pravj648/159.png" alt="Outsourced Logistic Partner Network" style="max-width: 100%;width: 1258px;"  width="1258" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="pravj648:159"  src="https://plot.ly/embed.js" async></script>
+</div>
+
+<h3>&#39;End of Reason Sale&#39; Purchase Behavior</h3>
+
+<p>&#39;End of Reason Sale&#39; (<em>EORS</em>) from 18-19 July was one of the biggest sales by <em>Myntra</em> in the year 2015. It was after when their previous sale faced criticism because of <a href="http://timesofindia.indiatimes.com/tech/tech-news/After-botching-up-sale-Myntra-apologizes-to-users/articleshow/47528824.cms">technical glitches</a> in May 2015.</p>
+
+<p><em>EORS</em> started on 18th July from 08:00 AM. Here is a heatmap of order from dataset ranging from 17th July to 20th July.</p>
+
+<div>
+    <a href="https://plot.ly/~pravj648/166/" target="_blank" title="EORS Purchase Behavior" style="display: block; text-align: center;"><img src="https://plot.ly/~pravj648/166.png" alt="EORS Purchase Behavior" style="max-width: 100%;width: 1258px;"  width="1258" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="pravj648:166"  src="https://plot.ly/embed.js" async></script>
+</div>
+
+<p>We can see a pattern similar to the <em>sale days</em> for 20th July, which supports the notion that <em>EORS</em> was <a href="http://webcache.googleusercontent.com/search?q=cache:DuSB-kY2Il4J:https://batch.com/insights/push/ey8v28jv00zd+&amp;cd=7&amp;hl=en&amp;ct=clnk&amp;gl=in">extended after its official period</a> for some styles.</p>
+
+<h3>Brands on the platform</h3>
+
+<p><em>Myntra</em> being an online shopping service mainly, also <a href="http://www.rediff.com/business/report/myntra-to-have-usd-100-mn-in-house-brands/20150805.htm">owns in-house fashion brands</a> like Roadster, Dressberry, Anouk (for women), Mast &amp; Harbour, Kook N Keech, Yellow Kite (for kids) and Invictus etc.</p>
+
+<p>Here is an <em>approx</em> gender segmentation of brands(top 50 in the dataset) on the platform.</p>
+
+<div>
+    <a href="https://plot.ly/~pravj648/105/" target="_blank" title="Gender Segmentation of brands" style="display: block; text-align: center;"><img src="https://plot.ly/~pravj648/105.png" alt="Gender Segmentation of brands" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="pravj648:105"  src="https://plot.ly/embed.js" async></script>
+</div>
+
+<h3>Do small shopkeepers purchase online to sell in their locality?</h3>
+
+<p>What do you generally purchase online? Whatever it&#39;s, but you don&#39;t actually buy 3 shirts of the same type, do you?</p>
+
+<p>This is something I found suspicious when I was looking in the dataset for orders having a lot of products in one shipment.</p>
+
+<p><img src="//pravj.github.io/assets/indian-ecommerce/bulk-order.png" alt="bulk-order" title="Does small shopkeepers purchase from Myntra to sell in their locality?"></p>
+
+<p>This picture shows products in a shipment which contains shoes only, of similar types.</p>
+
+<p>Although it&#39;s exactly how the selling process works, you buy from someone and sell to someone. But in this case, it seems weird to me.</p>
+
+<p>I thought &#39;online shopping services&#39; are just adjacent node to us on the <em>Internet Services Graph</em> and this is how people use it. This indicates towards the existence of a community which is still away from the Internet, its benefits and is being cheated. Cheating in the sense that shopkeepers may buy from online services during sales and then sell them at relatively high prices to local customers.</p>
+
+<h3>Inference</h3>
+
+<p>Although I have said that I won&#39;t conclude results from this data, but I guess we can&#39;t deny some facts.</p>
+
+<p>&#39;Online Shopping&#39; is a perk that the boom on Internet and Startups has given to the country. It&#39;s shaping the economy by creating a variety of employments. Still a lot of people are yet to go through this makeover.</p>
+
+<p>As the number of Internet users is growing in the country, we can expect more good to happen.</p>
+
+<h3>Disclaimer</h3>
+
+<p>This is going to be a little contradictory. According to Oxford Dictionary, <em>Disclaimer</em> means &quot;<em>A statement that denies something, especially responsibility</em>&quot;.</p>
+
+<p>I won&#39;t do that. This time again, I&#39;m aware that such collection of data is a wrong act in <em>Internet terms</em>. But I can&#39;t control myself when I get such an idea and some questions that can only be solved by visualizing the data, referring to <a href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet">Anscombe&#39;s quartet</a>. I just wish I&#39;m not getting prosecuted for this. The dataset doesn&#39;t contain any private information(<em>name, mobile number, home address</em>) of someone, <em>it&#39;s not at all available.</em></p>
+
+<p>Remember the <a href="https://github.com/pravj/blitz.engine">Engine</a> and <em>Station</em>? I have decided not to open source the <em>Station</em>, which was used to collect the data. Almost all programs I have used to <em>analyse</em> the data are available at <a href="https://github.com/pravj/Fuel">Fuel</a>, without the actual data I have collected.</p>
+
+<p>If you are reading this, you have passed my experiment. Let me gift you a free <b>Happy New Year</b> wish.</p>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="container section">
+  <span>
+    <iframe src="http://ghbtns.com/github-btn.html?user=pravj&type=follow&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20">
+    </iframe>
+  </span>
+
+  <span style="margin-right:20px;">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="hackpravj">
+      Tweet
+    </a>
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+  </span>
+
+  <span style="margin-right:20px;display:inline-flex;" class="fb-like" data-href=//pravj.github.io/blog/indian-ecommerce/ data-action="like" data-layout="button_count" data-show-faces="false" data-share="false" style="display: inline-flex;">
+  </span>
+</div>
+
+
+    <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+    <div class="container">
+      <div class="related">
+        <h5>Recent Posts</h4>
+        <ul class="related-posts">
+          
+            <li>
+              <h6>
+                <a href="/blog/bangalore-taxis/">
+                  Jump in to ride all the Bangalore taxis, at once
+                  <small>01 Sep 2015</small>
+                </a>
+              </h6>
+            </li>
+          
+            <li>
+              <h6>
+                <a href="/blog/development-story-of-puzzl/">
+                  Development story of puzzl
+                  <small>23 Apr 2015</small>
+                </a>
+              </h6>
+            </li>
+          
+            <li>
+              <h6>
+                <a href="/blog/painting-a-virtual-wall/">
+                  Holy Aesthete &#58; painting a virtual wall
+                  <small>06 Mar 2015</small>
+                </a>
+              </h6>
+            </li>
+          
+        </ul>
+      </div>
+
+      <h5>Discussion</h5>
+      <div class="disqus">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'pravj'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>
+      Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+    <a href="http://disqus.com" class="dsq-brlink">
+      comments powered by <span class="logo-disqus">Disqus</span>
+    </a>
+</div>
+
+    </div>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'pravj.github.io');
+  ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>

@@ -4,13 +4,227 @@
  <title></title>
  <link href="//pravj.github.io//atom.xml" rel="self"/>
  <link href="//pravj.github.io//"/>
- <updated>2015-09-26T19:26:57+05:30</updated>
+ <updated>2015-12-13T15:12:53+05:30</updated>
  <id>//pravj.github.io</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Breaking into the Indian E-commerce</title>
+   <link href="//pravj.github.io/blog/indian-ecommerce/"/>
+   <updated>2015-12-11T00:00:00+05:30</updated>
+   <id>//pravj.github.io//blog/indian-ecommerce</id>
+   <content type="html">&lt;p&gt;Before I start telling you the story, I&amp;#39;m going to do an experiment. I&amp;#39;ll write the summary of this post first, just to stick you around, in case you are one among the people who don&amp;#39;t read to the end.&lt;/p&gt;
+
+&lt;h3&gt;tl;dr&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.myntra.com/&quot;&gt;Myntra&lt;/a&gt; is India&amp;#39;s largest online fashion and lifestyle store, as they say. Which is owned by &lt;a href=&quot;http://flipkart.com/&quot;&gt;Flipkart&lt;/a&gt;, one of the big players in Indian E-commerce.&lt;/p&gt;
+
+&lt;p&gt;I found a little opening in the flow of their online movement and used it to collect some information(&lt;em&gt;not private though&lt;/em&gt;). Using this information we can see the way &amp;#39;online shopping&amp;#39; is escalating in the country, and the role &lt;em&gt;Myntra&lt;/em&gt; and the people are playing in it.&lt;/p&gt;
+
+&lt;p&gt;Sounds interesting? Hold on.&lt;/p&gt;
+
+&lt;h3&gt;Emergence of the idea&lt;/h3&gt;
+
+&lt;p&gt;Let me tell you, how did I get started with this.&lt;/p&gt;
+
+&lt;p&gt;All this happened recently, when I was looking for some &lt;em&gt;T-Shirts&lt;/em&gt; with my friend. We placed a shared order for two and a pair of shoes.&lt;/p&gt;
+
+&lt;p&gt;Whenever you order from Myntra, you get a &lt;em&gt;text message&lt;/em&gt; on your registered mobile number, giving you a link where you can &lt;em&gt;track your order&lt;/em&gt;. Each order is given a unique identifier of length 4 because it&amp;#39;s a shortened URL to fit well in a text message.&lt;/p&gt;
+
+&lt;p&gt;I opened that link in my phone and it worked, saying that the details of your order are yet to be updated. Then I tried a different URL, not mine, of course, all thanks to my disruptive mind. It worked again, now this was something to pay attention to.&lt;/p&gt;
+
+&lt;p&gt;You know, 4 is a &lt;em&gt;nanoscopic&lt;/em&gt; number if a computer is your best friend. I think you can guess what happened next, I couldn&amp;#39;t sleep properly thinking about my next move to just have all the order details. Right from crawling and storing the data to analysing it.&lt;/p&gt;
+
+&lt;h3&gt;Crawler Infrastructure&lt;/h3&gt;
+
+&lt;p&gt;Being a &lt;em&gt;pessimistic&lt;/em&gt; person, as one of my friends calls me. I end up thinking too much about all the possible edge cases. Something similar happened with the design of the crawling system.&lt;/p&gt;
+
+&lt;p&gt;As the saying goes, &lt;strong&gt;&amp;quot;A thief believes everybody steals&amp;quot;&lt;/strong&gt;. I was afraid that my collection signatures(IP) will be blocked.&lt;/p&gt;
+
+&lt;p&gt;If you have read my last post &lt;a href=&quot;http://pravj.github.io/blog/bangalore-taxis/&quot;&gt;Jump in to ride all the Bangalore taxis, at once&lt;/a&gt;; I said that you should not hit the resource at a constant time period, it&amp;#39;s a basic heuristic to identify bots. I considered that, it was a simple thing.&lt;/p&gt;
+
+&lt;p&gt;Now comes the main thing I was afraid of, &lt;em&gt;&amp;quot;What if they catch me while trying to collect all the orders in a sequential manner (alphabetically increasing uid)&amp;quot;?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;As I couldn&amp;#39;t take a risk of losing the data, I designed my solution around it. I developed two things, &lt;em&gt;Engine&lt;/em&gt; and &lt;em&gt;Station&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Engine&lt;/em&gt; is the one who takes care of the identifier generation and distribution. It uses a little &lt;em&gt;group theory&lt;/em&gt; and &lt;em&gt;anagram properties&lt;/em&gt; to generate &lt;em&gt;non-sequential unique identifiers of fixed length&lt;/em&gt;. It generates them in advance and serve you &lt;em&gt;on demand&lt;/em&gt; while taking care of the stock by generating in the background when you start approaching the bottom of the vessel. To know more about &lt;em&gt;Engine&lt;/em&gt;, you can stalk its &lt;a href=&quot;https://github.com/pravj/engine&quot;&gt;repository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Station&lt;/em&gt; is a Node.js package(&lt;em&gt;private obviously&lt;/em&gt;) running a &lt;em&gt;Nightmare&lt;/em&gt; instance for &lt;em&gt;headless browsing&lt;/em&gt;. From &lt;em&gt;station&lt;/em&gt;, it collects the next set of identifiers to fetch and then assemble all the necessary information beforing shipping it to the storage.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;//pravj.github.io/assets/indian-ecommerce/crawler-infra.png&quot; alt=&quot;crawler-infra&quot; title=&quot;Crawler Infrastructure&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Together they solve the problem with sequential crawling.&lt;/p&gt;
+
+&lt;p&gt;Now one more thing, the collection signature(IP) is still vulnerable to blocking. I found a (working) solution for it right on the Engineering blog of Myntra. They have an interesting post named &lt;a href=&quot;http://myntra.github.io/2015/01/19/dynamic-bot-detection-using-bloom-filters/&quot;&gt;Dynamic Bot Detection Using Bloom Filters&lt;/a&gt;, which labels you as a &lt;em&gt;bot&lt;/em&gt; if you have sent relatively more requests in the past 60 seconds. So the time difference &lt;em&gt;station&lt;/em&gt; assigns between two consecutive requests is dynamically set such that the &lt;em&gt;Bloom Filter&lt;/em&gt; is unable to catch it.&lt;/p&gt;
+
+&lt;p&gt;Planning too much on the &lt;em&gt;Information Retrieval&lt;/em&gt; part has been a good exercise though, I&amp;#39;m thinking about working on a &lt;em&gt;Machine Learning approach of Bot Detection&lt;/em&gt;, where movement of a user from one page to another on service/website is mapped as &lt;em&gt;state transitions&lt;/em&gt; of a &lt;em&gt;Markov Chain&lt;/em&gt;, and anyone who violates the &lt;em&gt;transition probability range&lt;/em&gt; is a suspicious visitor.&lt;/p&gt;
+
+&lt;p&gt;Rough idea, leave that for me.&lt;/p&gt;
+
+&lt;h3&gt;Statistical nature of the data&lt;/h3&gt;
+
+&lt;p&gt;As I read more and more research papers and live next to some great statistician&amp;#39;s &lt;em&gt;Internet Residences&lt;/em&gt;, I know that you can&amp;#39;t conclude &lt;em&gt;a thing&lt;/em&gt; from a small dataset.&lt;/p&gt;
+
+&lt;p&gt;In the dataset that I have collected, there are 1045 &lt;em&gt;Returned Orders&lt;/em&gt;, 4406 &lt;em&gt;Cancelled Orders&lt;/em&gt; and 6368 &lt;em&gt;Completed Orders&lt;/em&gt;. &lt;em&gt;Returned Order&lt;/em&gt; means the package was returned back due to some reasons, and &lt;em&gt;Cancelled Orders&lt;/em&gt; means it was cancelled by the customer before shipping.&lt;/p&gt;
+
+&lt;p&gt;This could have been a bigger one, so I&amp;#39;ll try not to &lt;em&gt;conclude&lt;/em&gt; a result here but we can see the customer behavior and the service &lt;em&gt;Myntra&lt;/em&gt; provides. Coming to a result from this data would be a case of &lt;em&gt;overfitting&lt;/em&gt; essentially.&lt;/p&gt;
+
+&lt;p&gt;Although the dataset is small, it&amp;#39;s distributed over a &lt;em&gt;time continuum&lt;/em&gt; instead of being a &lt;em&gt;discrete segment&lt;/em&gt;, because of the internal working of &lt;em&gt;Engine&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;//pravj.github.io/assets/indian-ecommerce/engine.png&quot; alt=&quot;engine&quot; title=&quot;How Engine generate identifiers&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;We are all set to take off now.&lt;/p&gt;
+
+&lt;h3&gt;When does India shops?&lt;/h3&gt;
+
+&lt;p&gt;As long as I remember, I have ordered something online in the evening, around 06-07 PM. But this is not the case for everyone else.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&quot;https://plot.ly/~pravj/51/&quot; target=&quot;_blank&quot; title=&quot;When does India shops?&quot; style=&quot;display: block; text-align: center;&quot;&gt;&lt;img src=&quot;https://plot.ly/~pravj/51.png&quot; alt=&quot;When does India shops?&quot; style=&quot;max-width: 100%;width: 600px;&quot;  width=&quot;600&quot; onerror=&quot;this.onerror=null;this.src='https://plot.ly/404.png';&quot; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&quot;pravj:51&quot;  src=&quot;https://plot.ly/embed.js&quot; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We can see that there are two concerted segments. One from 09:00 AM to 05:00 PM in the evening and the other is from 06:00 PM to midnight. Not many orders are there during the &lt;em&gt;bed time&lt;/em&gt;, after midnight till the dawn.&lt;/p&gt;
+
+&lt;p&gt;The morning peak is around 10:00 AM, which is near the usual opening hours of &lt;em&gt;Myntra&amp;#39;s big discount sales&lt;/em&gt;. &lt;em&gt;Returned Orders&lt;/em&gt; are present throughout the days.&lt;/p&gt;
+
+&lt;p&gt;The presence of orders at every possible time of day shows the ease in the life of people using &amp;#39;online shopping&amp;#39;. You have got a need and there are platforms to fulfill that. Otherwise, why would someone order at 02:00 AM in the morning?&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Myntra&lt;/em&gt; also runs a &lt;em&gt;same day delivery&lt;/em&gt; program where they ship your order in 24 hours, across the country. And in our dataset, a significant number of such orders were placed after midnight.&lt;/p&gt;
+
+&lt;h3&gt;From where does India shops?&lt;/h3&gt;
+
+&lt;div id='customer-map' style=&quot;height:400px;&quot;&gt;&lt;/div&gt;
+
+&lt;script src='https://gist.githack.com/pravj/d4c24e297e5eafeba22f/raw/c8f7541edb7e69dd53ed688ef81d34a34c66f479/customer-location.js'&gt;&lt;/script&gt;
+
+&lt;script&gt;
+L.mapbox.accessToken = 'pk.eyJ1IjoicHJhdmoiLCJhIjoiNjc1YTVjYTEzMjAyNjU4ZTgwNjQyMDQwNzgxNTc5MGMifQ.bEvQyBRzIuy5S_hmpsPLuA';
+    var map = L.mapbox.map('customer-map', 'mapbox.streets')
+        .setView([23.548683,79.7800369], 4);
+
+    var markers = new L.MarkerClusterGroup();
+
+    for (var i = 0; i &lt; addressPoints.length; i++) {
+        var a = addressPoints[i];
+        var title = a[2];
+        var marker = L.marker(new L.LatLng(a[0], a[1]), {
+            icon: L.mapbox.marker.icon({'marker-symbol': 'building', 'marker-color': 'DD44FF'}),
+            title: title
+        });
+        marker.bindPopup(title);
+        markers.addLayer(marker);
+    }
+
+    map.addLayer(markers);
+&lt;/script&gt;
+
+&lt;p&gt;Here is a clustered map of places in the country, that I found as &lt;em&gt;final destinations&lt;/em&gt; of &lt;em&gt;completed orders&lt;/em&gt;. This means that the map ignores the number of orders at a place, it just represents the &lt;em&gt;geographic distribution&lt;/em&gt; of the orders. Also, it doesn&amp;#39;t count a locality multiple times. For example, &lt;em&gt;Agartala&lt;/em&gt; has 2-3 different final destinations but they are clustered to a single place/centre, &lt;em&gt;Agartala COD Centre 3&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I was magnificent to see this map when I plotted it first time. Not because my program worked, but to see the markers in extreme areas of the country, especially in the &lt;em&gt;Northeast India&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s good to see that almost every region of the country is here. There are 432 different places in here. You are free to zoom in and check out your region, if available.&lt;/p&gt;
+
+&lt;p&gt;After seeing this big coverage I would say, they can expand easily to &lt;em&gt;Bangladesh&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have used &lt;em&gt;Google&amp;#39;s Geocoding API&lt;/em&gt; to convert a place name to its coordinates.&lt;/p&gt;
+
+&lt;h3&gt;How long does it take to deliver your order?&lt;/h3&gt;
+
+&lt;div&gt;
+    &lt;a href=&quot;https://plot.ly/~pravj648/16/&quot; target=&quot;_blank&quot; title=&quot;How long does it take to deliver your order?&quot; style=&quot;display: block; text-align: center;&quot;&gt;&lt;img src=&quot;https://plot.ly/~pravj648/16.png&quot; alt=&quot;How long does it take to deliver your order?&quot; style=&quot;max-width: 100%;width: 600px;&quot;  width=&quot;600&quot; onerror=&quot;this.onerror=null;this.src='https://plot.ly/404.png';&quot; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&quot;pravj648:16&quot;  src=&quot;https://plot.ly/embed.js&quot; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;If you live in north India or near(&lt;em&gt;measured in terms of direct road connectivity&lt;/em&gt;) the warehouses of &lt;em&gt;Myntra&lt;/em&gt;, you &lt;em&gt;can&lt;/em&gt; have your package in 24 hours. In the dataset, many orders from Nation Capital Region, Jaipur and Bangalore have delivered in the same day.&lt;/p&gt;
+
+&lt;p&gt;Otherwise, majority of the orders takes 3 to 4 days across the country, except the &lt;em&gt;North East&lt;/em&gt;(Guwahati, Imphal) and &lt;em&gt;West Coast&lt;/em&gt;(Mumbai Parel, Antop Hill) region.&lt;/p&gt;
+
+&lt;p&gt;I have calculated the delivery delay by subtracting the time of order being placed from the &lt;em&gt;last event time&lt;/em&gt; in the events timeline of a &lt;em&gt;complete order&lt;/em&gt;. The timeline consists of all the sub-details like &lt;em&gt;&amp;#39;Order is placed&amp;#39;&lt;/em&gt;, &lt;em&gt;&amp;#39;Order is packed&amp;#39;&lt;/em&gt;, &lt;em&gt;&amp;#39;In transit&amp;#39;&lt;/em&gt;, &lt;em&gt;&amp;#39;Arrived at delivery center&amp;#39;&lt;/em&gt;, &lt;em&gt;&amp;#39;Order out for delivery&amp;#39;&lt;/em&gt; and &lt;em&gt;&amp;#39;Delivered&amp;#39;&lt;/em&gt; etc. Which is &lt;em&gt;error prone&lt;/em&gt; because they seems to update some order after awhile.&lt;/p&gt;
+
+&lt;p&gt;At the &lt;em&gt;tail&lt;/em&gt; of the curve, the delay in some cases seems to be caused by customers actually, some reason were &lt;em&gt;&amp;#39;CID - COD(cash on delivery) AMOUNT NOT READY&amp;#39;&lt;/em&gt;, &amp;#39;&lt;em&gt;Consignee Out Of Station; Shipment un-delivered&lt;/em&gt;&amp;#39;, &amp;#39;&lt;em&gt;Undelivered due to - Consignee Residence Closed&lt;/em&gt;&amp;#39; etc.&lt;/p&gt;
+
+&lt;h3&gt;Shared Logistics&lt;/h3&gt;
+
+&lt;div&gt;
+    &lt;a href=&quot;https://plot.ly/~pravj648/145/&quot; target=&quot;_blank&quot; title=&quot;Shared Logistics&quot; style=&quot;display: block; text-align: center;&quot;&gt;&lt;img src=&quot;https://plot.ly/~pravj648/145.png&quot; alt=&quot;Shared Logistics&quot; style=&quot;max-width: 100%;width: 1258px;&quot;  width=&quot;1258&quot; onerror=&quot;this.onerror=null;this.src='https://plot.ly/404.png';&quot; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&quot;pravj648:145&quot;  src=&quot;https://plot.ly/embed.js&quot; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Having a great logistics service is a key point for online shops. Both &lt;em&gt;Myntra&lt;/em&gt; and &lt;em&gt;Flipkart&lt;/em&gt; have their own such services named &lt;em&gt;Myntra Logistics&lt;/em&gt; and &lt;em&gt;EKart Logistics&lt;/em&gt; respectively.&lt;/p&gt;
+
+&lt;p&gt;To deliver products out of their range or to overcome the heavy demand during &lt;em&gt;big discount sales&lt;/em&gt;, they ship the products with third party logistic providers.&lt;/p&gt;
+
+&lt;p&gt;In the dataset you can see that majority of the orders have been shipped by &lt;em&gt;Myntra Logistics&lt;/em&gt; itself, and then by &lt;em&gt;EKart&lt;/em&gt;. &lt;em&gt;Delhivery&lt;/em&gt; is an emerging logistic solution provider in the country.&lt;/p&gt;
+
+&lt;p&gt;Here we can see the regions in which &lt;em&gt;FedEx&lt;/em&gt; and &lt;em&gt;DTDC&lt;/em&gt; were used for delivery.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&quot;https://plot.ly/~pravj648/159/&quot; target=&quot;_blank&quot; title=&quot;Outsourced Logistic Partner Network&quot; style=&quot;display: block; text-align: center;&quot;&gt;&lt;img src=&quot;https://plot.ly/~pravj648/159.png&quot; alt=&quot;Outsourced Logistic Partner Network&quot; style=&quot;max-width: 100%;width: 1258px;&quot;  width=&quot;1258&quot; onerror=&quot;this.onerror=null;this.src='https://plot.ly/404.png';&quot; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&quot;pravj648:159&quot;  src=&quot;https://plot.ly/embed.js&quot; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;&amp;#39;End of Reason Sale&amp;#39; Purchase Behavior&lt;/h3&gt;
+
+&lt;p&gt;&amp;#39;End of Reason Sale&amp;#39; (&lt;em&gt;EORS&lt;/em&gt;) from 18-19 July was one of the biggest sales by &lt;em&gt;Myntra&lt;/em&gt; in the year 2015. It was after when their previous sale faced criticism because of &lt;a href=&quot;http://timesofindia.indiatimes.com/tech/tech-news/After-botching-up-sale-Myntra-apologizes-to-users/articleshow/47528824.cms&quot;&gt;technical glitches&lt;/a&gt; in May 2015.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;EORS&lt;/em&gt; started on 18th July from 08:00 AM. Here is a heatmap of order from dataset ranging from 17th July to 20th July.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&quot;https://plot.ly/~pravj648/166/&quot; target=&quot;_blank&quot; title=&quot;EORS Purchase Behavior&quot; style=&quot;display: block; text-align: center;&quot;&gt;&lt;img src=&quot;https://plot.ly/~pravj648/166.png&quot; alt=&quot;EORS Purchase Behavior&quot; style=&quot;max-width: 100%;width: 1258px;&quot;  width=&quot;1258&quot; onerror=&quot;this.onerror=null;this.src='https://plot.ly/404.png';&quot; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&quot;pravj648:166&quot;  src=&quot;https://plot.ly/embed.js&quot; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We can see a pattern similar to the &lt;em&gt;sale days&lt;/em&gt; for 20th July, which supports the notion that &lt;em&gt;EORS&lt;/em&gt; was &lt;a href=&quot;http://webcache.googleusercontent.com/search?q=cache:DuSB-kY2Il4J:https://batch.com/insights/push/ey8v28jv00zd+&amp;amp;cd=7&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;gl=in&quot;&gt;extended after its official period&lt;/a&gt; for some styles.&lt;/p&gt;
+
+&lt;h3&gt;Brands on the platform&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Myntra&lt;/em&gt; being an online shopping service mainly, also &lt;a href=&quot;http://www.rediff.com/business/report/myntra-to-have-usd-100-mn-in-house-brands/20150805.htm&quot;&gt;owns in-house fashion brands&lt;/a&gt; like Roadster, Dressberry, Anouk (for women), Mast &amp;amp; Harbour, Kook N Keech, Yellow Kite (for kids) and Invictus etc.&lt;/p&gt;
+
+&lt;p&gt;Here is an &lt;em&gt;approx&lt;/em&gt; gender segmentation of brands(top 50 in the dataset) on the platform.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&quot;https://plot.ly/~pravj648/105/&quot; target=&quot;_blank&quot; title=&quot;Gender Segmentation of brands&quot; style=&quot;display: block; text-align: center;&quot;&gt;&lt;img src=&quot;https://plot.ly/~pravj648/105.png&quot; alt=&quot;Gender Segmentation of brands&quot; style=&quot;max-width: 100%;width: 600px;&quot;  width=&quot;600&quot; onerror=&quot;this.onerror=null;this.src='https://plot.ly/404.png';&quot; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&quot;pravj648:105&quot;  src=&quot;https://plot.ly/embed.js&quot; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Do small shopkeepers purchase online to sell in their locality?&lt;/h3&gt;
+
+&lt;p&gt;What do you generally purchase online? Whatever it&amp;#39;s, but you don&amp;#39;t actually buy 3 shirts of the same type, do you?&lt;/p&gt;
+
+&lt;p&gt;This is something I found suspicious when I was looking in the dataset for orders having a lot of products in one shipment.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;//pravj.github.io/assets/indian-ecommerce/bulk-order.png&quot; alt=&quot;bulk-order&quot; title=&quot;Does small shopkeepers purchase from Myntra to sell in their locality?&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;This picture shows products in a shipment which contains shoes only, of similar types.&lt;/p&gt;
+
+&lt;p&gt;Although it&amp;#39;s exactly how the selling process works, you buy from someone and sell to someone. But in this case, it seems weird to me.&lt;/p&gt;
+
+&lt;p&gt;I thought &amp;#39;online shopping services&amp;#39; are just adjacent node to us on the &lt;em&gt;Internet Services Graph&lt;/em&gt; and this is how people use it. This indicates towards the existence of a community which is still away from the Internet, its benefits and is being cheated. Cheating in the sense that shopkeepers may buy from online services during sales and then sell them at relatively high prices to local customers.&lt;/p&gt;
+
+&lt;h3&gt;Inference&lt;/h3&gt;
+
+&lt;p&gt;Although I have said that I won&amp;#39;t conclude results from this data, but I guess we can&amp;#39;t deny some facts.&lt;/p&gt;
+
+&lt;p&gt;&amp;#39;Online Shopping&amp;#39; is a perk that the boom on Internet and Startups has given to the country. It&amp;#39;s shaping the economy by creating a variety of employments. Still a lot of people are yet to go through this makeover.&lt;/p&gt;
+
+&lt;p&gt;As the number of Internet users is growing in the country, we can expect more good to happen.&lt;/p&gt;
+
+&lt;h3&gt;Disclaimer&lt;/h3&gt;
+
+&lt;p&gt;This is going to be a little contradictory. According to Oxford Dictionary, &lt;em&gt;Disclaimer&lt;/em&gt; means &amp;quot;&lt;em&gt;A statement that denies something, especially responsibility&lt;/em&gt;&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;I won&amp;#39;t do that. This time again, I&amp;#39;m aware that such collection of data is a wrong act in &lt;em&gt;Internet terms&lt;/em&gt;. But I can&amp;#39;t control myself when I get such an idea and some questions that can only be solved by visualizing the data, referring to &lt;a href=&quot;https://en.wikipedia.org/wiki/Anscombe%27s_quartet&quot;&gt;Anscombe&amp;#39;s quartet&lt;/a&gt;. I just wish I&amp;#39;m not getting prosecuted for this. The dataset doesn&amp;#39;t contain any private information(&lt;em&gt;name, mobile number, home address&lt;/em&gt;) of someone, &lt;em&gt;it&amp;#39;s not at all available.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Remember the &lt;a href=&quot;https://github.com/pravj/blitz.engine&quot;&gt;Engine&lt;/a&gt; and &lt;em&gt;Station&lt;/em&gt;? I have decided not to open source the &lt;em&gt;Station&lt;/em&gt;, which was used to collect the data. Almost all programs I have used to &lt;em&gt;analyse&lt;/em&gt; the data are available at &lt;a href=&quot;https://github.com/pravj/Fuel&quot;&gt;Fuel&lt;/a&gt;, without the actual data I have collected.&lt;/p&gt;
+
+&lt;p&gt;If you are reading this, you have passed my experiment. Let me gift you a free &lt;b&gt;Happy New Year&lt;/b&gt; wish.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Jump in to ride all the Bangalore taxis, at once</title>
