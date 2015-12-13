@@ -4,7 +4,7 @@
  <title></title>
  <link href="//pravj.github.io//atom.xml" rel="self"/>
  <link href="//pravj.github.io//"/>
- <updated>2015-12-13T23:05:51+05:30</updated>
+ <updated>2015-12-13T23:20:42+05:30</updated>
  <id>//pravj.github.io</id>
  <author>
    <name></name>
@@ -213,6 +213,12 @@ L.mapbox.accessToken = 'pk.eyJ1IjoicHJhdmoiLCJhIjoiNjc1YTVjYTEzMjAyNjU4ZTgwNjQyM
 &lt;p&gt;&amp;#39;Online Shopping&amp;#39; is a perk that the boom on Internet and Startups has given to the country. It&amp;#39;s shaping the economy by creating a variety of employments. Still a lot of people are yet to go through this makeover.&lt;/p&gt;
 
 &lt;p&gt;As the number of Internet users is growing in the country, we can expect more good to happen.&lt;/p&gt;
+
+&lt;h3&gt;Probable Fix&lt;/h3&gt;
+
+&lt;p&gt;I think a simple solution can be employed here to avoid intruders.&lt;/p&gt;
+
+&lt;p&gt;To ask for the associated &lt;em&gt;mobile number&lt;/em&gt; while checking details of an order, if the user is not logged in. One can guess the &lt;em&gt;unique id&lt;/em&gt; for orders but not the &lt;em&gt;mobile number&lt;/em&gt;.&lt;/p&gt;
 
 &lt;h3&gt;Disclaimer&lt;/h3&gt;
 
