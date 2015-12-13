@@ -4,7 +4,7 @@
  <title></title>
  <link href="//pravj.github.io//atom.xml" rel="self"/>
  <link href="//pravj.github.io//"/>
- <updated>2015-12-13T20:10:39+05:30</updated>
+ <updated>2015-12-13T23:05:51+05:30</updated>
  <id>//pravj.github.io</id>
  <author>
    <name></name>
@@ -202,7 +202,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoicHJhdmoiLCJhIjoiNjc1YTVjYTEzMjAyNjU4ZTgwNjQyM
 
 &lt;p&gt;This picture shows products in a shipment which contains shoes only, of similar types.&lt;/p&gt;
 
-&lt;p&gt;Although it&amp;#39;s exactly how the selling process works, you buy from someone and sell to someone. But in this case, it seems weird to me.&lt;/p&gt;
+&lt;p&gt;Although it&amp;#39;s exactly how the selling process works, you buy from a person and sell to someone else. But in this case, it seems weird to me.&lt;/p&gt;
 
 &lt;p&gt;I thought &amp;#39;online shopping services&amp;#39; are just adjacent node to us on the &lt;em&gt;Internet Services Graph&lt;/em&gt; and this is how people use it. This indicates towards the existence of a community which is still away from the Internet, its benefits and is being cheated. Cheating in the sense that shopkeepers may buy from online services during sales and then sell them at relatively high prices to local customers.&lt;/p&gt;
 
@@ -435,23 +435,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoicHJhdmoiLCJhIjoiNjc1YTVjYTEzMjAyNjU4ZTgwNjQyM
 
 &lt;h3&gt;People don&amp;#39;t solve a problem until they get one&lt;/h3&gt;
 
-&lt;p&gt;Let me insert a story here.&lt;/p&gt;
-
-&lt;p&gt;It was my first day of the recent intern. I was sitting along at my place, waiting for someone to join me or at least talk to me. Then I started reading Myntra&amp;#39;s engineering blog to kill my time. The very first post was from the React fame &lt;em&gt;Sunil Pai&lt;/em&gt;, &lt;a href=&quot;http://myntra.github.io/2015/05/17/personal-thoughts-on-the-shutdown-of-the-myntra-website/&quot;&gt;Personal thoughts on the shutdown of the myntra.com website&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;There was this phrase that caught my attention.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Imagine being DDOSed by every mobile device on the planet.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Voila, I got my work. I designed a &lt;em&gt;reverse proxy&lt;/em&gt; based layer to detect the DDoS. I&amp;#39;m still not sure that if it would have worked or not, but doing that was exciting.&lt;/p&gt;
-
-&lt;p&gt;And then I showed the solution to my manager. He ignored it, right on my face, without even listening to me.&lt;/p&gt;
-
-&lt;p&gt;Maybe because he wasn&amp;#39;t really facing such problem (DDoS) that time, it wasn&amp;#39;t in the roadmap there. But they will have to work on it when they will face an attack.&lt;/p&gt;
-
-&lt;p&gt;Similarly, this simulated user interaction is wrong to the system. Can be easily converted into a &lt;em&gt;service denial&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;This simulated user interaction is wrong to the system. Can be easily converted into a &lt;em&gt;service denial&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;In my case, I was changing the user(simulated) location frequently, so fast that a human can&amp;#39;t reach there in a fraction of second (traversing whole Bangalore in 3 minutes).&lt;/p&gt;
 
