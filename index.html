@@ -69,7 +69,7 @@
         </div>
       </div>
 
-      <div class="front-content-middle valign-wrapper">
+      <div>
         <div class="container valign">
           <div class="row">
             <div class="col s12 m6 offset-m3 l6 offset-l3 center-align" style="color:#4B4F4D;">
@@ -99,6 +99,7 @@
         </div>
       </div>
 
+      <!--
       <div class="row front-content-footer" style="margin-bottom:0px;">
         <div class="col s12 front-nav">
           <ul class="tabs">
@@ -166,6 +167,87 @@
         </div>
       </div>
     </div>
+    -->
+
+    <div class="row">
+      <div class="col s12 m6 offset-m3 l6 offset-l3">
+        <h6>
+          <a href="/blog/indian-ecommerce"><b>Breaking into the Indian E-commerce</b></a>
+        </h6>
+      </div>
+
+      <div class="col s12 m6 offset-m3 l6 offset-l3 center-align">
+        <div class="card small">
+          <div class="card-image">
+            <img src="/assets/cards/ecommerce.png">
+          </div>
+          <div class="card-content" style="height:60px; overflow:hidden;">
+            <p>Let's find out how India shops and how big is Myntra.</p>
+          </div>
+          <div class="card-action" style="padding:0px;">
+            <ul class="featured-list">
+              <li>
+                <img src="/assets/featured/tech-in-asia.png" alt="Tech in Asia" title="Tech in Asia" onclick="openFeatured('https://www.techinasia.com/talk/breaking-indian-ecommerce-space');">
+              </li>
+              <li>
+                <img src="/assets/featured/python-weekly.png" alt="Python Weekly Newsletter" title="Python Weekly Newsletter" onclick="openFeatured('http://eepurl.com/bJ621z');">
+              </li>
+              <li>
+                <img src="/assets/featured/datatau.png" alt="DataTau" title="DataTau" onclick="openFeatured('http://www.datatau.com/item?id=10673');">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m6 offset-m3 l6 offset-l3">
+        <h6>
+          <a href="/blog/indian-ecommerce"><b>Jump in to ride all the Bangalore taxis, at once</b></a>
+        </h6>
+      </div>
+
+      <div class="col s12 m6 offset-m3 l6 offset-l3 center-align">
+        <div class="card small">
+          <div class="card-image">
+            <img src="/assets/cards/taxis.png">
+          </div>
+          <div class="card-content">
+            <p>Tracking all the taxis in Bangalore by a particular taxi aggregator service.</p>
+          </div>
+          <div class="card-action" style="padding:0px;">
+            <ul class="featured-list">
+              <li>
+                <img src="/assets/featured/twitter.png" alt="Twitter" title="Twitter" onclick="openFeatured('https://twitter.com/jackerhack/status/638724698914713600');">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m6 offset-m3 l6 offset-l3">
+        <h6>
+          <a href="/blog/indian-ecommerce"><b>Open Source Presence Infographic of Indian Startups</b></a>
+        </h6>
+      </div>
+
+      <div class="col s12 m6 offset-m3 l6 offset-l3 center-align">
+        <div class="card small">
+          <div class="card-image">
+            <img src="/assets/cards/ospi.png">
+          </div>
+          <div class="card-content">
+            <p>A report that compares leading organizations on the Open Source scale.</p>
+          </div>
+          <div class="card-action" style="padding:0px;">
+            <ul class="featured-list">
+              <li>
+                <img src="/assets/featured/wingify-engineering.png" alt="Wingify Engineering" title="Wingify Engineering" onclick="openFeatured('http://engineering.wingify.com/posts/opensource-at-wingify/');">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -187,6 +269,11 @@
       $('.front-nav a').click(function() {
         window.location.href = this;
       });
+
+      // open the 'url' in new tab
+      function openFeatured(url) {
+        window.open(url, '_blank');
+      }
     </script>
 
   </body>

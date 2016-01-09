@@ -332,3 +332,21 @@ img {
   position: relative;
   top: 30px;
 }
+
+.featured-list {
+  display: inline-table;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.featured-list li {
+  float: left;
+}
+
+.featured-list li {
+  cursor: pointer;
+}
+
+.custom-card {
+  padding-top: 0px;
+}
