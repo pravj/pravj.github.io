@@ -1,140 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+<html lang="en-us">
+<head>
+  <title>
+    Post-mortem of an Internet Accident - hack(pravj) | Pravendra Singh
+  </title>
 
-  <meta name="description" content="Pravendra Singh">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-  <!-- icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="192x192" href="//pravj.github.io/public/apple-touch-icon-precomposed.png">
-  <link rel="shortcut icon" href="//pravj.github.io/public/favicon.ico">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
 
-  <!-- Open Graph Protocol metadata starts -->
-  
-  <meta property="og:title" content="Post-mortem of an Internet Accident">
-  <meta property="og:type" content="article">
-  <meta property="og:description" content="Finding "good known" GitHub projects with maximum programming languages">
-  <meta property="article:published_time" content="2015-01-11">
-  <meta property="article:author" content="Pravendra Singh">
-  <meta property="article:section" content="Technology">
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="Post-mortem of an Internet Accident" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://pravj.github.io/blog/post-mortem-of-an-internet-accident/" />
+<meta property="og:description" content="Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination Internet Accident confuse you, let me decode its meaning in the context of this post.
+ Encounter with something on an edge node of the Holy Internet.
+ So this post is all about my attempt to solve a question, I saw on Quora.
+ What good known projects on GitHub uses the largest number of programming languages?" />
+<meta property="og:image" content=" http://pravj.github.io/images/main-building.jpg "/>
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
 
-  
-  <meta property="article:tag" content="GitHub">
-  
-  <meta property="article:tag" content="Quora">
-  
-  <meta property="article:tag" content="Data">
-  
-  <meta property="article:tag" content="Python">
-  
-  <meta property="article:tag" content="R">
-  
-
-  
-
-
-  <meta property="og:image" content="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11358226_664361487027156_125876068_n.jpg">
-  <meta property="og:url" content="http://pravj.github.io/blog/post-mortem-of-an-internet-accident/">
-  <meta property="og:site_name" content="Pravendra Singh · @hackpravj">
-  <!-- Open Graph Protocol metadata ends -->
-
-  <!-- Twitter cards metadata starts -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@hackpravj">
-  <meta name="twitter:creator" content="@hackpravj">
-  
-  <meta name="twitter:title" content="Post-mortem of an Internet Accident">
-  <meta name="twitter:description" content="Finding "good known" GitHub projects with maximum programming languages">
-  
-  <meta name="twitter:image" content="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11358226_664361487027156_125876068_n.jpg">
-  <!-- Twitter cards metadata ends -->
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="Post-mortem of an Internet Accident" />
+<meta name="twitter:description" content="Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination Internet Accident confuse you, let me decode its meaning in the context of this post.
+ Encounter with something on an edge node of the Holy Internet.
+ So this post is all about my attempt to solve a question, I saw on Quora.
+ What good known projects on GitHub uses the largest number of programming languages?" />
+<meta name="twitter:image" content=" http://pravj.github.io/images/main-building.jpg "/>
 
-  <!-- FB insights -->
-  <meta property="fb:admins" content="100003909612219" />
 
-  <link type="text/css" rel="stylesheet" href="/public/css/materialize.min.css"  media="screen,projection"/>
-  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="/public/css/custom/site.css"  media="screen,projection"/>
-  <link href='http://fonts.googleapis.com/css?family=Catamaran|Raleway' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="http://pravj.github.io/styles.min.css">
 
   
 
   
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
 
   
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
 
-  <title>Pravendra Singh</title>
 
-  <!-- feed -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  
 </head>
 
 
-  <body>
-    <div class="container">
-  <div class="row zero-bottom-margin">
-    <div class="col s12 m6 l6 center-align">
-      <h5><a class="navigation" href="/">Pravendra Singh</a></h5>
-    </div>
-
-    <div class="col s12 m6 l6 center-align">
-      <div class="row">
-        <div class="col s12">
-          <ul>
-            <li class="tab col s3"><span><a class="navigation" href="/about" title="About me, writing this takes most of the time."><span class="ion-person icon-black"></span></a></span></li>
-            <li class="tab col s3"><span><a class="navigation" href="/blog" title="Atricles, right from my untold drafts."><span class="ion-ios-paper icon-black"></span></a></span></li>
-            <li class="tab col s3"><span><a class="navigation" href="/projects" title="Projects, out of thin air."><span class="ion-social-github icon-black"></span></a></span></li>
-            <li class="tab col s3"><span><a class="navigation" href="/quotes" title="Sayings, that can inspire you."><span class="ion-quote icon-black"></span></a></span></li>
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
           </ul>
-        </div>
+        </nav>
       </div>
     </div>
   </div>
 </div>
 
 
-    <div class="divider"></div>
 
-    <div class="valign-wrapper" style="background:#7b9fd3;padding-top:10px;padding-bottom:10px;">
-      <div class="valign container">
-        <div class="row">
-          <div class="col s12 article-date" style="color:#30343f;">
-            11 Jan 2015
-          </div>
 
-          <div class="col s12">
-            <h2 style="color:#fafaff;">Post-mortem of an Internet Accident</h2>
-          </div>
+  <div class="container">
+    <div class="row">
 
-          <div class="col s12 section-heading">
-            <h6 style="color:#434a79;"><span><b>Finding "good known" GitHub projects with maximum programming languages</b></span></h6>
-          </div>
+      <section>
+            <h1 class="post-title">
+              <a href="/blog/post-mortem-of-an-internet-accident/">Post-mortem of an Internet Accident</a>
+            </h1>
 
-          <div class="col s12 article-tags section-description">
-            <ul>
-              
-              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#github"><b>&nbsp;GitHub</b></a></li>
-              
-              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#quora"><b>&nbsp;Quora</b></a></li>
-              
-              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#data"><b>&nbsp;Data</b></a></li>
-              
-              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#python"><b>&nbsp;Python</b></a></li>
-              
-              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#r"><b>&nbsp;R</b></a></li>
-              
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+          <div class="post-content-meta">
 
-    <div class="divider"></div>
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">January</span> 
+                <span class="post-date-day"> 11, </span>
+                <span class="post-date-year">2015</span>
+              </span> 
+            
 
-    <div class="container post-content" style="font-family: 'Catamaran', sans-serif;">
-      <p>Hi scout, thanks for visiting this edge node of the Holy Internet; Before the combination <em>Internet Accident</em> confuse you, let me decode its meaning in the context of this post.</p>
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-github" href="http://pravj.github.io/tags/github">
+                  <i class="icon-tag"></i>GitHub</a>
+                
+                <a class="post-tag post-tag-quora" href="http://pravj.github.io/tags/quora">
+                  <i class="icon-tag"></i>Quora</a>
+                
+                <a class="post-tag post-tag-data" href="http://pravj.github.io/tags/data">
+                  <i class="icon-tag"></i>Data</a>
+                
+                <a class="post-tag post-tag-python" href="http://pravj.github.io/tags/python">
+                  <i class="icon-tag"></i>Python</a>
+                
+                <a class="post-tag post-tag-r" href="http://pravj.github.io/tags/r">
+                  <i class="icon-tag"></i>R</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        
+
+<p>Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination <em>Internet Accident</em> confuse you, let me decode its meaning in the context of this post.</p>
 
 <blockquote>
 <p>Encounter with something on an edge node of the Holy Internet.</p>
@@ -156,17 +158,16 @@ I clicked the link to give it a separate tab; <em>even questions have self respe
 <p>So, to answer this, all I had to do was to find a repository which uses highest number of programming languages in it.</p>
 
 <blockquote>
-<p>Wait, the question also says a <em>&quot;good known project&quot;</em>.</p>
-
-<p>Now that&#39;s a plot twist.</p>
+<p>Wait, the question also says a <em>&ldquo;good known project&rdquo;</em>.
+Now that&rsquo;s a plot twist.</p>
 </blockquote>
 
 <p><em>GitHub</em> provides an excellent <a href="https://developer.github.com/v3/">REST API</a>, so excellent that it powers some awesome services also, like the <a href="https://gitter.im">Gitter</a>.</p>
 
-<p>Now, to look for languages statistics of a repository you need the names of the repository and its owner. Then you can check a repo&#39;s languages statistics using,</p>
+<p>Now, to look for languages statistics of a repository you need the names of the repository and its owner. Then you can check a repo&rsquo;s languages statistics using.</p>
 
 <blockquote>
-<p>https://api.github.com/repos/{owner}/{repo}/languages</p>
+<p><a href="https://api.github.com/repos/{owner}/{repo}/languages">https://api.github.com/repos/{owner}/{repo}/languages</a></p>
 </blockquote>
 
 <p><em>As far as a I know, there is not any way to do a reverse lookup, where you just provide number of programming languages and it gives you all the associated repositories.</em></p>
@@ -188,8 +189,11 @@ Now it was the time to shift to coffee <em>full time</em> but <em>Nope! I had an
 
 <p>So I moved to <em>GitHub Archive</em> finally and <a href="https://github.com/pravj/Post-mortem/blob/master/bigquery.sql">downloaded a .csv file</a> of all the repositories with greater than equal to 500 stars. Now, I think it covers most of your <em>good and known projects</em>, happy now?</p>
 
-<p>I <em>Vimed</em> the .csv file and found that some URLs were missing the owner&#39;s name.
-<img src="//pravj.github.io/assets/post-mortem-of-an-internet-accident/vim-screenshot.png" alt="Vim-Screenshot"></p>
+<p>I <em>Vimed</em> the .csv file and found that some URLs were missing the owner&rsquo;s name.</p>
+
+<figure> <img src="/images/vim-screenshot.png"> 
+    <figcaption>Vim Screenshot</figcaption>
+</figure>
 
 <blockquote>
 <p><strong>:g/https:\/\/github.com\/\//d</strong></p>
@@ -197,25 +201,29 @@ Now it was the time to shift to coffee <em>full time</em> but <em>Nope! I had an
 <p>I removed all the corrupted lines using this command.</p>
 </blockquote>
 
-<p>If you&#39;re thinking that by removing lines, we won&#39;t consider these repositories then take a deep breath and don&#39;t think so, we will consider them, keep reading.</p>
+<p>If you&rsquo;re thinking that by removing lines, we won&rsquo;t consider these repositories then take a deep breath and don&rsquo;t think so, we will consider them, keep reading.</p>
 
 <p>Then I wrote a <em>Python module</em> to interact with the <em>GitHub API</em>, named it <em><a href="https://github.com/pravj/Post-mortem/blob/master/postman.py">postman</a></em>.
 The <em>postman</em> uses <em>Authentication Token</em> from <em>GitHub</em> to prevent the <em>rate-limiting</em>.</p>
 
-<p>I don&#39;t know how much did <em>postman</em> take in its task as I was attending my classes then.
+<p>I don&rsquo;t know how much did <em>postman</em> take in its task as I was attending my classes then.
 But when I came back from class in the evening, I saw that <em>postman</em> was done with the task. <em>Wow, an obedient postman</em>.</p>
 
-<p><em>Right now if you search in GitHub for repositories having 500 or more stars, you will see around 7,200 results. So we have been doing this right so far as GitHub Archive <a href="http://git.io/78eKDg">don&#39;t have</a> all the data</em>.</p>
+<p><em>Right now if you search in GitHub for repositories having 500 or more stars, you will see around 7,200 results. So we have been doing this right so far as GitHub Archive <a href="http://git.io/78eKDg">don&rsquo;t have</a> all the data</em>.</p>
 
-<p>Once all the data is available, it&#39;s time to <em>rock &#39;n&#39; roll</em>. <a href="http://www.rstudio.com">Rstudio</a> is always there to help us.</p>
+<p>Once all the data is available, it&rsquo;s time to <em>rock &lsquo;n&rsquo; roll</em>. <a href="http://www.rstudio.com">Rstudio</a> is always there to help us.</p>
 
-<p>Plotting the stars and languages distribution over all the repositories, we get this graph.
-<img src="//pravj.github.io/assets/post-mortem-of-an-internet-accident/stars-and-languages.png" alt="Stars-and-Language-distribution">
-You can see that most of our good and known projects are in the bottom-left corner. Almost 90% of our repositories have less than 20,000 stars and 20 languages.</p>
+<p>Plotting the stars and languages distribution over all the repositories, we get this graph.</p>
+
+<figure> <img src="/images/stars-and-languages.png"> 
+    <figcaption>Stars and Language distribution</figcaption>
+</figure>
+
+<p>You can see that most of our good and known projects are in the bottom-left corner. Almost 90% of our repositories have less than 20,000 stars and 20 languages.</p>
 
 <p>There is only one repository with more than 40,000 stars, which is the <a href="https://github.com/twbs/bootstrap">twbs/bootstrap</a>.</p>
 
-<p>OK, let&#39;s come to the question again. I think ordering repositories according to their no. of programming languages will work.</p>
+<p>OK, let&rsquo;s come to the question again. I think ordering repositories according to their no. of programming languages will work.</p>
 
 <blockquote>
 <p>Top 25 projects by their no. of programming languages</p>
@@ -249,7 +257,7 @@ You can see that most of our good and known projects are in the bottom-left corn
 <li><a href="https://github.com/coolwanglu/vim.js">coolwanglu/vim.js</a>, languages : 21</li>
 </ul>
 
-<hr>
+<hr />
 
 <p>So, is that all? <em>Not at all! We have a lot to talk about my friend.</em></p>
 
@@ -257,32 +265,34 @@ You can see that most of our good and known projects are in the bottom-left corn
 
 <p></br></p>
 
-<h3>1. There were 382 repositories without any programming language.</h3>
+<h3 id="1-there-were-382-repositories-without-any-programming-language">1. There were 382 repositories without any programming language.</h3>
 
 <ul>
 <li>Most of them are documentations, list of resources for a field.</li>
 <li>For example <a href="https://github.com/vhf/free-programming-books">vhf/free-programming-books</a>, List of free learning resources.</li>
 </ul>
 
-<p><img src="//pravj.github.io/assets/post-mortem-of-an-internet-accident/zero-language-repository.png" alt="Zero-Language-Repositories"></p>
+<figure> <img src="/images/zero-language-repository.png"> 
+    <figcaption>Zero Language Repositories</figcaption>
+</figure>
 
 <blockquote>
-<p><em>subject to detection of the language by GitHub</em></p>
+<p>Subject to the detection of language by GitHub.</p>
 </blockquote>
 
 <p><em>Along with the required dataset, I was also collecting the <a href="https://github.com/pravj/Post-mortem/blob/master/log/postman.log">logs</a> data.
 So, there is something more interesting.</em></p>
 
-<h3>2. The log file shows &#39;ERROR : status 404&#39; in some lines.</h3>
+<h3 id="2-the-log-file-shows-error-status-404-in-some-lines">2. The log file shows &lsquo;ERROR : status 404&rsquo; in some lines.</h3>
 
 <ul>
-<li>There are 214 such lines, it means these projects have shifted their owners as it&#39;s unusual to delete such popular repository.</li>
+<li>There are 214 such lines, it means these projects have shifted their owners as it&rsquo;s unusual to delete such popular repository.</li>
 <li>They have evolved to much larger projects and have their own organizations now. For example the projects <a href="https://github.com/homebrew/homebrew">Homebrew</a>, <a href="https://github.com/docker/docker">Docker</a> and <a href="https://github.com/jekyll/jekyll">Jekyll</a>, earlier they were <a href="https://github.com/mxcl/homebrew">mxcl/homebrew</a>, <a href="https://github.com/dotcloud/docker">dotcloud/docker</a> and <a href="https://github.com/mojombo/jekyll">mojombo/jekyll</a> respectively.</li>
 <li>The maximum-star-holder-and-ultra-awesome project <a href="https://github.com/twbs/bootstrap">twbs/bootstrap</a> was earlier at <em>Twitter</em> by the address, <a href="https://github.com/twitter/bootstrap">twitter/bootstrap</a>.</li>
 <li>The one-and-only TJ Holowaychuk have changed his username from <a href="https://github.com/visionmedia">visionmedia</a> to <a href="https://github.com/tj">tj</a>.</li>
 </ul>
 
-<h3>3. The log file shows &#39;ERROR : status 403&#39; in some lines.</h3>
+<h3 id="3-the-log-file-shows-error-status-403-in-some-lines">3. The log file shows &lsquo;ERROR : status 403&rsquo; in some lines.</h3>
 
 <p>Now this is weird, as status 403 denotes the Forbidden state. But underlying secrets are much more awesome here.</p>
 
@@ -302,121 +312,98 @@ So, there is something more interesting.</em></p>
 
 <ul>
 <li><a href="https://github.com/NULLPointerDz/test">NULLPointerDz/test</a></li>
-<li>Don&#39;t know how but this repository had more than 500 stars once.</li>
+<li>Don&rsquo;t know how but this repository had more than 500 stars once.</li>
 </ul></li>
 </ol>
 
-<hr>
+<hr />
 
-<blockquote>
 <p>The code for this report is on GitHub, <a href="https://github.com/pravj/Post-mortem">pravj/Post-mortem</a>.</p>
 
+<blockquote>
 <p>If you feel that you can do more after going through this post-mortem report, you are welcome to show your medical skills.</p>
 </blockquote>
 
-    </div>
+      </div>
+	
+			
 
-    <div class="divider"></div>
-
-    <div class="container section">
-  <span>
-    <iframe src="http://ghbtns.com/github-btn.html?user=pravj&type=follow&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20">
-    </iframe>
-  </span>
-
-  <span style="margin-right:20px;">
-    <a href="https://twitter.com/share" class="twitter-share-button" data-via="hackpravj">
-      Tweet
-    </a>
-    <script>
-      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-    </script>
-  </span>
-
-  <span style="margin-right:20px;display:inline-flex;" class="fb-like" data-href=//pravj.github.io/blog/post-mortem-of-an-internet-accident/ data-action="like" data-layout="button_count" data-show-faces="false" data-share="false" style="display: inline-flex;">
-  </span>
-</div>
-
-
-    <div id="fb-root"></div>
-<script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
-
-
-    <div class="container">
-      <div class="related">
-        <h5>Recent Posts</h4>
-        <ul class="related-posts">
-          
-            <li>
-              <h6>
-                <a href="/blog/indian-ecommerce/">
-                  Breaking into the Indian E-commerce
-                  <small>11 Dec 2015</small>
-                </a>
-              </h6>
-            </li>
-          
-            <li>
-              <h6>
-                <a href="/blog/bangalore-taxis/">
-                  Jump in to ride all the Bangalore taxis, at once
-                  <small>01 Sep 2015</small>
-                </a>
-              </h6>
-            </li>
-          
-            <li>
-              <h6>
-                <a href="/blog/development-story-of-puzzl/">
-                  Development story of puzzl
-                  <small>23 Apr 2015</small>
-                </a>
-              </h6>
-            </li>
-          
-        </ul>
       </div>
 
-      <h5>Discussion</h5>
-      <div class="disqus">
-  <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'pravj'; // required: replace example with your forum shortname
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>
-      Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-    </noscript>
-    <a href="http://disqus.com" class="dsq-brlink">
-      comments powered by <span class="logo-disqus">Disqus</span>
-    </a>
-</div>
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/blog/going-on-the-go-path/"><i class="icon-left-open"></i> geopattern : going on the Go path</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/blog/the-git-game-writeup/">The git-game Write-up <i class="icon-right-open"></i></a>
+          </div>
+          
+
+      
+       </div>
+
 
     </div>
+  </div>
 
-    <script>
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+
+    <script type="text/javascript">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-48537986-1', 'pravj.github.io');
+  ga('create', 'UA-48537986-1', 'auto');
   ga('send', 'pageview');
 </script>
 
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
 
-  </body>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="http://pravj.github.io/main.js"></script>
+
+
+
+
+</body>
 </html>

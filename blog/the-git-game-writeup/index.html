@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    The git-game Write-up - hack(pravj) | Pravendra Singh
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
+
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="The git-game Write-up" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://pravj.github.io/blog/the-git-game-writeup/" />
+<meta property="og:description" content="Spoiler Alert
+You should go and check this out, git-game.
+It&rsquo;s a nice little complete-a-task-and-upgrade-level type of game layered on top of Git.
+ It is a terminal game designed to test your knowledge of git commands. Each level in the game is a task to perform on this repo. Once you perform that task, you will be given your next task. There are a total of ten levels, each one harder than last!" />
+<meta property="og:image" content=" http://pravj.github.io/images/main-building.jpg "/>
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="The git-game Write-up" />
+<meta name="twitter:description" content="Spoiler Alert
+You should go and check this out, git-game.
+It&rsquo;s a nice little complete-a-task-and-upgrade-level type of game layered on top of Git.
+ It is a terminal game designed to test your knowledge of git commands. Each level in the game is a task to perform on this repo. Once you perform that task, you will be given your next task. There are a total of ten levels, each one harder than last!" />
+<meta name="twitter:image" content=" http://pravj.github.io/images/main-building.jpg "/>
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="http://pravj.github.io/styles.min.css">
+
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/blog/the-git-game-writeup/">The git-game Write-up</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">January</span> 
+                <span class="post-date-day"> 15, </span>
+                <span class="post-date-year">2015</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-git" href="http://pravj.github.io/tags/git">
+                  <i class="icon-tag"></i>Git</a>
+                
+                <a class="post-tag post-tag-game" href="http://pravj.github.io/tags/game">
+                  <i class="icon-tag"></i>Game</a>
+                
+                <a class="post-tag post-tag-writeup" href="http://pravj.github.io/tags/writeup">
+                  <i class="icon-tag"></i>Writeup</a>
+                
+                <a class="post-tag post-tag-github" href="http://pravj.github.io/tags/github">
+                  <i class="icon-tag"></i>GitHub</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        
+
+<blockquote>
+<p><code>Spoiler Alert</code></p>
+
+<p>You should go and check this out, <a href="https://github.com/hgarc014/git-game">git-game</a>.</p>
+
+<p>It&rsquo;s a nice little <em>complete-a-task-and-upgrade-level</em> type of game layered on top of Git.</p>
+</blockquote>
+
+<p><em>It is a terminal game designed to test your knowledge of git commands. Each level in the game is a task to perform on this repo. Once you perform that task, you will be given your next task. There are a total of ten levels, each one harder than last!</em></p>
+
+<p>I saw the reference to this game floating around in my GitHub feed yesterday. The concept is awesome as there are already <a href="http://pcottle.github.io/learnGitBranching/">many</a> online tutorial courses on the Internet that uses interactive <em>learning-with-doing</em> methods for Git.</p>
+
+<p>According to the repository, I started the adventure with cloning the repository using <code>git clone git@github.com:hgarc014/git-game.git</code> command.</p>
+
+<p>The <em>default branch</em> was <em>master</em> and there were only two files in repository&rsquo;s <em>working directory</em>, README.md and LICENSE.</p>
+
+<p>I started with the README.md file and <code>cat README.md</code> revealed all its content.</p>
+
+<blockquote>
+<p>You should always check the README.md file for your next clue!</p>
+
+<p>Your first task is to checkout the commit whose commit message is the answer to this question:</p>
+
+<p>When a programmer is born, what is the first thing he/she learns to say?</p>
+</blockquote>
+
+<p>Well! a programmer is also a boy/girl, so first thing they do is <em>cry</em> but in the current context that thing will be <em>Hello, World!</em> :grinning:</p>
+
+<p>Now I had to find the commit whose commit message was <em>Hello World</em>, so the command <code>git log --graph --online</code> resulted this commit history.</p>
+
+<blockquote>
+<p>* 25bfa08 added information for people that don&rsquo;t know git</p>
+
+<p>*   27e9786 Merge pull request #6 from riqpe/master</p>
+
+<p>|</p>
+
+<p>| * 3893960 Corrected description of difficulty progression</p>
+
+<p>|/</p>
+
+<p>* bc9641f updated README</p>
+
+<p>* 9b9380b Hello World!</p>
+
+<p>* 8cafb7c Initial commit</p>
+</blockquote>
+
+<p>Can you see the <em>Hello World! commit</em> now? Yeah! we can represent it by HEAD~3.
+As that commit is <em>directly at level 3</em> or we can say <em>great-grandparent</em> of the HEAD commit.</p>
+
+<p>So all I needed to do was the command <code>git checkout HEAD~3</code>, doing so we&rsquo;re now done with the first task.</p>
+
+<p>After completing the first task when the HEAD is at that particular commit, the README.md file was ready with its new task.</p>
+
+<blockquote>
+<p>git-game</p>
+
+<p>========</p>
+
+<p>Hello World!</p>
+
+<p>It looks like you have some knowledge about traversing commits!</p>
+
+<p>Well, let&rsquo;s get this party started!</p>
+
+<p>We want to get to a branch whose name is the answer to this riddle:</p>
+
+<p>I am a creature that is smaller than man, but many times more in number.</p>
+
+<p>In code, my appearance can be subtle and no matter where I am found, I am unwanted.</p>
+
+<p>What am I?</p>
+</blockquote>
+
+<p>Easy Peasy? Yeah, the answer is <em>bug</em> obviously, so lets fly to same <em>branch</em> using the <code>git checkout bug</code> command.</p>
+
+<p>In this <em>branch</em>&rsquo;s <em>working directory</em> there were two extra files, <em>cool.cpp</em> and <em>remember</em> and the README.md was saying that :</p>
+
+<blockquote>
+<p>git-game</p>
+
+<p>========</p>
+
+<p>Congratulations, it looks like you found the &ldquo;bug.&rdquo;</p>
+
+<p>When you work with other programmers on the same project, bugs are bound to appear.</p>
+
+<p>One way to create bugs is by changing code that you did not write without understanding what the code is doing.</p>
+
+<p>Sometimes we like to blame others for introducing bugs in our code.</p>
+
+<p>Think you can find out who introduced a bug into our file cool.cpp?</p>
+
+<p>We think he had something to do with the development of git.</p>
+
+<p>And from what we hear he also made a branch under his name.</p>
+
+<p>Checkout to that branch after you find out who the culprit is.</p>
+</blockquote>
+
+<p>It says that there is a bug in the file <em>cool.cpp</em>, lets see.</p>
+
+<pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+   string mesg = &quot;Hello! Who are you?&quot;;
+   string input;
+   cout &lt;&lt; mesg &lt;&lt; endl;
+   cin &gt;&gt; input;
+   cout &lt;&lt; &quot;Loops are fun!&quot; &lt;&lt; endl;
+   while(1);
+   string reply = &quot;Well, &quot; + input + &quot;, we hope you are having fun with our git-game!&quot;;
+   cout &lt;&lt; reply &lt;&lt; endl;
+}
+</code></pre>
+
+<p>Yeah! there is one; the <em>while loop</em> will refuse the program from terminating.</p>
+
+<p>So, who did this? Well! that&rsquo;s what we have to answer now.</p>
+
+<blockquote>
+<p>git blame - Helps you finding who committed what.</p>
+
+<p>Show what revision and author last modified each line of a file</p>
+</blockquote>
+
+<p><code>git blame cool.cpp</code> is here for our rescue. It says that :</p>
+
+<pre><code>ce59bbfd (Henry Garcia      2014-12-08 18:22:35 -0800 10)    cin &gt;&gt; input;
+3922a6d8 (LinusTorvalds2014 2014-12-09 12:37:10 -0800 11)    cout &lt;&lt; &quot;Loops are fun!&quot; &lt;&lt; endl;
+3922a6d8 (LinusTorvalds2014 2014-12-09 12:37:10 -0800 12)    while(1);
+ce59bbfd (Henry Garcia      2014-12-08 18:22:35 -0800 13)    string reply = &quot;Well, &quot; + input + &quot;, ...
+</code></pre>
+
+<p>Damn! someone with a similar name to the great <em>Linus Torvalds</em> is the culprit, he wrote that buggy line in the file. OK, lets move to his <em>branch</em> as the README says, using <code>git checkout LinusTorvalds2014</code> command.</p>
+
+<p>This time the README.md file was not explicitly directing anywhere.</p>
+
+<pre><code>git-game
+========
+
+Looks like you found the branch of the evil Mastermind.
+Things may start to get a little more challenging...
+
+The next clue you are looking for --
+   is in a file you choose to ignore!
+</code></pre>
+
+<p>When I was doing this I thought may be it&rsquo;s pointing to that useless file named <em>remember</em> which was back there in the branch <em>bug</em>.</p>
+
+<p>So I <em>checked-out</em> again to the branch <em>bug</em> and tried to find any clue in the file <em>remember</em>. Its content looked like RSA Public keys to me.</p>
+
+<pre><code>cweJIY8GOo18Usi5ykA4nmhBR0h 6mMpyy4nFY71IhgjGGr0rkY3uE tVTo j5XlwgLZZ PpRK Pwbnd7Z4bpQWc6sU700xfLTI63FbD DsKCQbUKG KS02qfurxMJ3mHHD8f6VhFUmY2rPD NjznQ8mnQvlNwAR1QsLDK Zjl1kGbWQBeGoOBwVMfa790ATCNg fR OLPA0hi7OW N4jUN26mBIwQVhVtteDSDSr OVfhvUwb7ydODX7R2no xxTmrD5IFUXIB8dDhR lpSFaRcbF2up wrWA J2acmA28c2 NhE Bqj7ntV67GTHpVBSwO
+</code></pre>
+
+<p>I gave up after scrolling through the lengthy <em>remember</em> file and <em>checked-out</em> again to the branch <em>LinusTorvalds2014</em>.</p>
+
+<p>I have a strange habit to use <code>ls -a</code> instead of <code>ls</code> to list content of a directory so I did it and Boy! there it was, hiding all this time.</p>
+
+<p>Guess what? there was a file named <em>.gitignore</em> and it said :</p>
+
+<pre><code># welcome to the ignore file!!
+
+# This file is hidden by default,
+# but did you know you have some branches that aren't shown to you,
+# when you check the list of branches?
+#
+# For your next clue...
+# Which abstract data type tends to implement sets and maps??
+# The answer is the same answer to this riddle:
+#
+#   I am both mother and father.
+#   I am seldom still
+#   yet I never wander.
+#   I never birth nor nurse.
+#
+#   What am I?
+#
+# Afterwards... well, you
+# know, checkout to the answer.
+
+*.rem
+a.out
+</code></pre>
+
+<p>This time the answer of riddle is <em>Tree</em>, simple. Don&rsquo;t you know? You can <em>google</em> it any time, I did the same. :wink:</p>
+
+<p>So the next thing to do was, <code>git checkout tree</code> and the README.md file there said :</p>
+
+<pre><code>git-game
+========
+
+Welcome to the &quot;tree&quot; branch.
+Looks like good ol' Linus modified the &quot;nextclue_input.cpp&quot; file.
+Normally, when ran with the shell script &quot;outputclue.sh&quot;, the &quot;nextclue_input.cpp&quot; file would give us the next hint.
+
+Maybe, you should try running the shell script with the &quot;nextclue_input.cpp&quot; file and see what happens...
+
+You can run the script by running the command &quot;./outputclue.sh FILE&quot; .
+If you are on Windows, it's okey to use `git-bash` that is installed with [msysgit](https://msysgit.github.io/).
+</code></pre>
+
+<p>On executing the shell script with the <em>nextclue_input.cpp</em>, printed something on the STDOUT.</p>
+
+<pre><code>Linus has been here...
+I love messing with these amateur programmers!!
+If you want some real fun, then you should try resolving a conflict between this branch (tree) and code4life.
+I introduced a little bug that you should fix in the conflict. &gt;:)
+After you merge these 2 files you should run the shell script again!!
+
+Good Luck!!!
+</code></pre>
+
+<p>The file <em>outputclue.sh</em> is a <em>bash</em> source file and matches the <em>md5sum</em> of each word in the <em>nextclue_input.cpp</em> to a local <em>checksum</em> variable named <em>bug</em>.
+It keeps asking to fix <em>merge conflicts</em> until the word matching that checksum is present in the file.</p>
+
+<pre><code>#!/bin/bash
+if [ -z $1 ]; then
+  echo &quot;well, someone didn't want to run the script with a file...&quot;;
+  exit;
+fi
+
+file=$1
+bug=7c85d987a917c2a555d1391426978f05
+mesg=&quot;Linus has been here...\nI love messing with these amateur programmers!!\nIf you want some real fun, then you should try resolving a conflict between this branch (tree) and code4life.\nI introduced a little bug that you should fix in the conflict. &gt;:)\nAfter you merge these 2 files you should run the shell script again!!\n\nGood Luck!!!&quot;
+merges=$(git log --format=%h --merges | head -1)
+csum=&quot;md5sum&quot;
+if [ $(echo &quot;$OSTYPE&quot; | grep darwin) ];then
+    csum=&quot;md5&quot;
+fi
+
+if [ &quot;$file&quot; = &quot;nextclue_input.cpp&quot; ];then
+  if [ ${merges} ]; then
+    while read p; do
+      for w in $p;do
+        if [ `echo $w | $csum | awk '{print $1}'` = $bug ];then
+          echo -e $mesg;
+          exit;
+        fi;
+      done;
+    done &lt; $file ;
+    echo -e &quot;Well, congratulations!! You fixed my conflict!!\nIf you would like to continue, then you should checkout to the $(echo 90mP8ouQHsNe | tr -d '0-9A-Z') branch!!\n&quot; ;
+   else
+     echo -e $mesg;
+     exit;
+   fi;
+else
+  echo &quot;Looks like you passed in the wrong file&quot;;
+fi
+</code></pre>
+
+<p>I saw that the <em>nextclue_input.cpp</em> file was having a line with an <em>infinite while loop</em> and my guess was right, the <em>checksum</em> variable matched the <em>md5sum</em> of the term <em>while(1);</em></p>
+
+<p>So to fix the <em>merge conflict</em>, I did <code>git merge code4life</code> and removed the faulty line; It worked like a charm.</p>
+
+<pre><code>Well, congratulations!! You fixed my conflict!!
+If you would like to continue, then you should checkout to the mouse branch!!
+</code></pre>
+
+<blockquote>
+<p>BTW! It was way more easy. As the answer branch was, mouse.</p>
+
+<p><code>$ echo 90mP8ouQHsNe | tr -d '0-9A-Z'</code></p>
+
+<p>When I <em>checked-out</em> to the branch <em>mouse</em>, it said :</p>
+
+<pre><code>nextclue_input.cpp: needs merge
+error: you need to resolve your current index first
+</code></pre>
+
+<p>But you can get away without merging by <em>stashing the changes</em>, I did this with <code>git add nextclue_input.cpp &amp;&amp; git stash</code>.
+Now the README.md file in branch <em>mouse</em> said :</p>
+
+<p>```</p>
+
+<h1 id="git-game">git-game</h1>
+</blockquote>
+
+<p>Looks like you resolved your conflict and found our branch, congrats!!</p>
+
+<p>Hmm&hellip;it seems this branch has a file that was seen before in another branch.
+Do you &ldquo;remember&rdquo; what it is?
+I think this file has something to do with the next clue, but it seems to be very ugly looking.
+Maybe if we compare the &ldquo;diff&rdquo;erences between this file and the file from before we&rsquo;ll know where to go next&hellip;</p>
+
+<pre><code>
+Yeah! I do remember that the file *remember* was there in the branch *bug* as I wasted 10 minutes on it.
+
+I did ```git diff mouse bug -- remember``` to see the difference between these two files accross branches and the difference in the files was this one line :
+
+</code></pre>
+
+<p>-Sn The next clue is: YtrydjKsYqebDoI3h bTINUeV6 pTVY8jnK2re HRwwNy25Ps6 u0YChCo5Jtw N3xkH3G nx aGo6yQTW RVZMsf3xk tBL0sG9GAR HQbyGYdqs i6dx1fyIPGJVci
++Sn In a branch named: Henry YtrydjKsYqebDoI3h bTINUeV6 pTVY8jnK2re HRwwNy25Ps6 u0YChCo5Jtw N3xkH3G nx aGo6yQTW RVZMsf3xk tBL0sG9GAR HQbyGYdqs i6dx1fy</p>
+
+<pre><code>
+So, the next *branch* to move was *Henry*, but ```git checkout Henry``` was a trap.
+
+On *checking-out* it said, *You are in 'detached HEAD' state*; means we were not in a *branch* but *tag*. The README.md file was saying the same.
+
+</code></pre>
+
+<h1 id="git-game-1">git-game</h1>
+
+<p>Welcome to my Tag!!!</p>
+
+<p>If you&rsquo;re looking for my branch then you have gone the wrong way!!</p>
+
+<p>How do you checkout to a branch that has the same name as a tag???
+Deal with the tag first!!</p>
+
+<pre><code>
+The problem was that there was a *branch* with exactly same name as a tag, *Henry*.
+So I *renamed* the *tag*, because *who knows when you're gonna need something?*
+
+```git tag Henry-v0.1 Henry &amp;&amp; git tag -d Henry``` made a new tag pointing to old's commit and deleted the old one.
+
+Now after *checking-out* to the branch *Henry*, the README said :
+
+</code></pre>
+
+<h1 id="git-game-2">git-game</h1>
+
+<p>Welcome!! It looks like you made it to my Branch!!!
+Generally you want to refrain from making tags the same name as branches, unless you have a good reason.
+The tag is more like the stable release.
+While the branch is more like the in progress feature, which will be added soon.</p>
+
+<p>You&rsquo;re almost done!! Excited?? Hope you are! You have one more thing to do!</p>
+
+<p>Now its time to update the master branch, updating is really useful when you fork a repository and your forked repo starts to get behind on commits. The repository to update from is: <a href="https://github.com/drami025/git-game.git">https://github.com/drami025/git-game.git</a></p>
+
+<p>Don&rsquo;t cheat!!</p>
+
+<pre><code>
+So, according to the task, to update the *master branch* I *checked-out* to it.
+
+With ```git remote add updater git@github.com:drami025/git-game.git``` command, I added the new *remote* to update from, as the README.md said.
+
+Then a simple ```git pull updater master``` did rest of the work and the *master branch* was equal with the new *remote*, all updated. \o/.
+
+</code></pre>
+
+<h1 id="git-game-finish-line">Git Game Finish Line</h1>
+
+<h1 id="if-you-did-not-fork-this-repository-from-the-terminal-then-we-are-disappointed-in-you">If you did not fork this repository from the terminal, then we are disappointed in you!!</h1>
+
+<p>However, if you did, then great Job!!
+You completed our Git Game!
+```</p>
+
+<p>They have also implemented an <a href="http://openbadges.org/">Open-Badge</a> for this, I got one.</p>
+
+<blockquote>
+<p>Finally, it&rsquo;s complete. And this Write-up too.</p>
+
+<p>I&rsquo;m feeling pain in my fingers now.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="behind-the-scene">Behind the scene :</h3>
+
+<ul>
+<li>Each level was somewhat harder than the previous one but overall it wasn&rsquo;t.</li>
+<li>Yeah! I completed all tasks <em>twice</em>, the extra one while writing this Write-up.</li>
+<li>It took me almost 30 minutes to complete all tasks but 2 hours to write this.</li>
+<li>Today, it&rsquo;s an awesome sunny, winter day here. :sunny:</li>
+</ul>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/blog/post-mortem-of-an-internet-accident/"><i class="icon-left-open"></i> Post-mortem of an Internet Accident</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/blog/open-source-presence-infographic/">Open Source Presence Infographic of Indian Startups <i class="icon-right-open"></i></a>
+          </div>
+          
+
+      
+       </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="http://pravj.github.io/main.js"></script>
+
+
+
+
+</body>
+</html>
