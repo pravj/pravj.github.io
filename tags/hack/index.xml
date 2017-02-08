@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hack on hack(pravj)</title>
-    <link>http://pravj.github.io/tags/hack/index.xml</link>
+    <link>https://pravj.github.io/tags/hack/index.xml</link>
     <description>Recent content in Hack on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://pravj.github.io/tags/hack/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pravj.github.io/tags/hack/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Development story of puzzl</title>
-      <link>http://pravj.github.io/blog/development-story-of-puzzl/</link>
+      <link>https://pravj.github.io/blog/development-story-of-puzzl/</link>
       <pubDate>Thu, 23 Apr 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/development-story-of-puzzl/</guid>
+      <guid>https://pravj.github.io/blog/development-story-of-puzzl/</guid>
       <description>
 
 &lt;p&gt;Lets start with that old promotion rant I use all the time.&lt;/p&gt;
@@ -26,7 +26,7 @@
 
 &lt;p&gt;This post is about development of a sliding-puzzle game I made recently, named &lt;em&gt;puzzl&lt;/em&gt;. I refer it as an &lt;em&gt;intelligent version&lt;/em&gt; of the classical sliding puzzle game, and I&amp;rsquo;ll explain the reason behind this. Stay awake.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/puzzl.gif&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/puzzl.gif&#34;&gt; 
     &lt;figcaption&gt;Puzzl in action&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -80,7 +80,7 @@
 
 &lt;p&gt;All you have to do is, arrange all tiles in a particular order. Lets say, in increasing order with the blank tile being the last one.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/states.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/states.jpg&#34;&gt; 
     &lt;figcaption&gt;8 puzzle game states&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -126,7 +126,7 @@
 
 &lt;p&gt;Using the &lt;em&gt;Mathematical Induction&lt;/em&gt; on what it was there in the paper, I have a sample game for you. You can spend rest of your life solving this, if you want to.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/unsolvable-game.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/unsolvable-game.jpg&#34;&gt; 
     &lt;figcaption&gt;Unsolvable sliding puzzle&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -156,7 +156,7 @@
 
 &lt;p&gt;There are two &lt;em&gt;goroutines&lt;/em&gt;, one for &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417&#34;&gt;handling the notification events&lt;/a&gt; and another for &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417&#34;&gt;solving the game in background&lt;/a&gt;, both are non-blocking in nature to other routines like &lt;em&gt;user inputs&lt;/em&gt;, &lt;em&gt;game display&lt;/em&gt; etc. A &lt;em&gt;channel&lt;/em&gt; named &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/notification/notification.go#L19&#34;&gt;Tunnel&lt;/a&gt; was the messenger for these &lt;em&gt;goroutines&lt;/em&gt;.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/architecture.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/architecture.jpg&#34;&gt; 
     &lt;figcaption&gt;Asynchronous Gouroutines Architecture&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -197,10 +197,10 @@
     
     <item>
       <title>Holy Aesthete : painting a virtual wall</title>
-      <link>http://pravj.github.io/blog/virtual-wall/</link>
+      <link>https://pravj.github.io/blog/virtual-wall/</link>
       <pubDate>Fri, 06 Mar 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/virtual-wall/</guid>
+      <guid>https://pravj.github.io/blog/virtual-wall/</guid>
       <description>
 
 &lt;blockquote&gt;
@@ -211,7 +211,7 @@
 &lt;p&gt;Such Time. Much Rhyme.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/wall.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/wall.jpg&#34;&gt; 
     &lt;figcaption&gt;Virtual Wall&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -233,7 +233,7 @@
 
 &lt;p&gt;Well! I have. If not, you must have seen people doing it. &lt;em&gt;What happens when you start with the brush?&lt;/em&gt; Something like this picture.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/wall-paint.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/wall-paint.jpg&#34;&gt; 
     &lt;figcaption&gt;Wall Paint&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -243,7 +243,7 @@
 
 &lt;p&gt;I started with those rectangles, equally spaced with each other. The space was for the noise interference I was planning. Result was this, fix colored image.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/first-stage.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/first-stage.jpg&#34;&gt; 
     &lt;figcaption&gt;First Stage&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -251,7 +251,7 @@
 
 &lt;p&gt;Then I added the &lt;em&gt;noise&lt;/em&gt; on each rectangle. For this, instead of fix sized rectangle. I added some random lengthy stripes around the block, colored same as the block. The result was this image, fixed color again.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/second-stage.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/second-stage.jpg&#34;&gt; 
     &lt;figcaption&gt;Second Stage&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -259,7 +259,7 @@
 
 &lt;p&gt;After applying random colors to each block, it generates image similar to the one given below. The ideal thing to do would be, coloring each block in a way that it&amp;rsquo;s different from its surrounding block color. Something like the classical &lt;a href=&#34;http://en.wikipedia.org/wiki/Four_color_theorem&#34;&gt;Four Color Theorem&lt;/a&gt;, variant of the &lt;a href=&#34;http://en.wikipedia.org/wiki/Constraint_satisfaction_problem&#34;&gt;Constraint satisfaction problem&lt;/a&gt;.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/third-stage.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/third-stage.jpg&#34;&gt; 
     &lt;figcaption&gt;Third Stage&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -267,7 +267,7 @@
 
 &lt;p&gt;Precisely, for a &lt;a href=&#34;http://en.wikipedia.org/wiki/Cross&#34;&gt;slanted saltire(cross)&lt;/a&gt; shape divided in five squares, the probability of central square having same color as any surrounding square will be around 2 in 10 million.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/probability.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/probability.png&#34;&gt; 
     &lt;figcaption&gt;Probability&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -277,7 +277,7 @@
 
 &lt;p&gt;Now I was concerned about the equally spaced color blocks. Things were still not in the way I wanted them to be. It looked like there is a pattern inside. As systems having more entropy are more stable and &lt;em&gt;beautiful&lt;/em&gt;. I decided to put color blocks at random places in the image, result was this.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/fourth-stage.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/fourth-stage.jpg&#34;&gt; 
     &lt;figcaption&gt;Fourth Stage&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -285,7 +285,7 @@
 
 &lt;p&gt;After this all, the central rectangle that I have assumed for the structure, was clearly visible in the block. To conceal that, I formatted the block such that the &lt;em&gt;noise&lt;/em&gt; along the block-width depends on the index of the row in block matrix. Now, it was better than the last one.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/final-stage.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/final-stage.jpg&#34;&gt; 
     &lt;figcaption&gt;Final Stage&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -311,10 +311,10 @@
     
     <item>
       <title>Introducing Penticons : The Hash Game</title>
-      <link>http://pravj.github.io/blog/penticons-the-hash-game/</link>
+      <link>https://pravj.github.io/blog/penticons-the-hash-game/</link>
       <pubDate>Sun, 08 Feb 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/penticons-the-hash-game/</guid>
+      <guid>https://pravj.github.io/blog/penticons-the-hash-game/</guid>
       <description>
 
 &lt;p&gt;Jennifer Lawrence fan, huh? It was &lt;em&gt;The Hash Game&lt;/em&gt; by the way. Still in? Kewl.&lt;/p&gt;
@@ -357,13 +357,13 @@
 
 &lt;p&gt;Let&amp;rsquo;s fly back to the junior mathematics class and consider this tiny function.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/function.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/function.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Now, if I ask, what is the value of x when the value of function is 0? You can answer this easily by solving this simple quadratic equation. The values will be 2 and 1.&lt;/p&gt;
 
 &lt;p&gt;What if I change the function to a bit more horrible one. For example, take this.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/hard-function.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/hard-function.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Feeling cold, huh? Well! you can still find the roots but with a bit more effort. One simple effort you can do is to &lt;em&gt;google&lt;/em&gt; this equation and you&amp;rsquo;ll find it on the very first result page.&lt;/p&gt;
 
@@ -385,7 +385,7 @@
 
 &lt;p&gt;Can you guess, what is the maximum possible hash count MD5 can generate?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/md5-count.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/md5-count.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;So if you have more elements than this count to hash, MD5 would be producing similar hashes for all the extra elements.&lt;/p&gt;
 
@@ -407,13 +407,13 @@
 
 &lt;p&gt;Suppose they are using 20 colors to fill in the non-blank pixels, they are &lt;a href=&#34;https://github.com/cupcake/sigil/blob/6bf9722f2ae82f58a0c7d48daeb40ec844b78eae/server.go#L20-L29&#34;&gt;not using&lt;/a&gt; this much colors, though. Then total possible identicon count will be :&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/total-identicon.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/total-identicon.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;On the other hand, &lt;em&gt;Penticons&lt;/em&gt; uses &lt;a href=&#34;https://github.com/penticons/penticons.go/blob/master/utils/utils.go#L21-L25&#34;&gt;5 colors&lt;/a&gt; only, from GitHub&amp;rsquo;s contribution calendar. They also have a vertical axis of symmetry.&lt;/p&gt;
 
 &lt;p&gt;But instead of using a fix color to fill in, it uses any one of the 5, according to the hash value. This way, total number of identicons will be the following.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/total-penticons.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/total-penticons.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Which is way more than other implementations, so the rate of collision is also less here.&lt;/p&gt;
 
@@ -425,7 +425,7 @@
 
 &lt;p&gt;&lt;em&gt;Avatar&lt;/em&gt; for the organization is a penticon itself, of the word &amp;ldquo;Penticons&amp;rdquo;.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/avatar.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/avatar.png&#34;&gt; 
     &lt;figcaption&gt;Penticon Avatar for the word &#34;Penticons&#34;&lt;/figcaption&gt;
 &lt;/figure&gt;
 </description>
@@ -433,10 +433,10 @@
     
     <item>
       <title>termping : &lt;3 &#43; Node.js &#43; Streams &#43; CoffeeScript</title>
-      <link>http://pravj.github.io/blog/termping/</link>
+      <link>https://pravj.github.io/blog/termping/</link>
       <pubDate>Sun, 27 Jul 2014 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/termping/</guid>
+      <guid>https://pravj.github.io/blog/termping/</guid>
       <description>
 
 &lt;blockquote&gt;
@@ -451,7 +451,7 @@
 &lt;p&gt;But this prototype runs in your system&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/Computer_terminal&#34;&gt;terminal&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/termping.gif&#34;&gt;
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/termping.gif&#34;&gt;
     &lt;figcaption&gt;termping in action&lt;/figcaption&gt;
 &lt;/figure&gt;
 

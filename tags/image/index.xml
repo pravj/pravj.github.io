@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Image on hack(pravj)</title>
-    <link>http://pravj.github.io/tags/image/index.xml</link>
+    <link>https://pravj.github.io/tags/image/index.xml</link>
     <description>Recent content in Image on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://pravj.github.io/tags/image/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pravj.github.io/tags/image/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Holy Aesthete : painting a virtual wall</title>
-      <link>http://pravj.github.io/blog/virtual-wall/</link>
+      <link>https://pravj.github.io/blog/virtual-wall/</link>
       <pubDate>Fri, 06 Mar 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/virtual-wall/</guid>
+      <guid>https://pravj.github.io/blog/virtual-wall/</guid>
       <description>
 
 &lt;blockquote&gt;
@@ -24,7 +24,7 @@
 &lt;p&gt;Such Time. Much Rhyme.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/wall.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/wall.jpg&#34;&gt; 
     &lt;figcaption&gt;Virtual Wall&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -46,7 +46,7 @@
 
 &lt;p&gt;Well! I have. If not, you must have seen people doing it. &lt;em&gt;What happens when you start with the brush?&lt;/em&gt; Something like this picture.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/wall-paint.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/wall-paint.jpg&#34;&gt; 
     &lt;figcaption&gt;Wall Paint&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -56,7 +56,7 @@
 
 &lt;p&gt;I started with those rectangles, equally spaced with each other. The space was for the noise interference I was planning. Result was this, fix colored image.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/first-stage.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/first-stage.jpg&#34;&gt; 
     &lt;figcaption&gt;First Stage&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -64,7 +64,7 @@
 
 &lt;p&gt;Then I added the &lt;em&gt;noise&lt;/em&gt; on each rectangle. For this, instead of fix sized rectangle. I added some random lengthy stripes around the block, colored same as the block. The result was this image, fixed color again.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/second-stage.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/second-stage.jpg&#34;&gt; 
     &lt;figcaption&gt;Second Stage&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -72,7 +72,7 @@
 
 &lt;p&gt;After applying random colors to each block, it generates image similar to the one given below. The ideal thing to do would be, coloring each block in a way that it&amp;rsquo;s different from its surrounding block color. Something like the classical &lt;a href=&#34;http://en.wikipedia.org/wiki/Four_color_theorem&#34;&gt;Four Color Theorem&lt;/a&gt;, variant of the &lt;a href=&#34;http://en.wikipedia.org/wiki/Constraint_satisfaction_problem&#34;&gt;Constraint satisfaction problem&lt;/a&gt;.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/third-stage.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/third-stage.jpg&#34;&gt; 
     &lt;figcaption&gt;Third Stage&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -80,7 +80,7 @@
 
 &lt;p&gt;Precisely, for a &lt;a href=&#34;http://en.wikipedia.org/wiki/Cross&#34;&gt;slanted saltire(cross)&lt;/a&gt; shape divided in five squares, the probability of central square having same color as any surrounding square will be around 2 in 10 million.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/probability.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/probability.png&#34;&gt; 
     &lt;figcaption&gt;Probability&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -90,7 +90,7 @@
 
 &lt;p&gt;Now I was concerned about the equally spaced color blocks. Things were still not in the way I wanted them to be. It looked like there is a pattern inside. As systems having more entropy are more stable and &lt;em&gt;beautiful&lt;/em&gt;. I decided to put color blocks at random places in the image, result was this.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/fourth-stage.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/fourth-stage.jpg&#34;&gt; 
     &lt;figcaption&gt;Fourth Stage&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -98,7 +98,7 @@
 
 &lt;p&gt;After this all, the central rectangle that I have assumed for the structure, was clearly visible in the block. To conceal that, I formatted the block such that the &lt;em&gt;noise&lt;/em&gt; along the block-width depends on the index of the row in block matrix. Now, it was better than the last one.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/final-stage.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/final-stage.jpg&#34;&gt; 
     &lt;figcaption&gt;Final Stage&lt;/figcaption&gt;
 &lt;/figure&gt;
 

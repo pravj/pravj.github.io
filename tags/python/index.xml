@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on hack(pravj)</title>
-    <link>http://pravj.github.io/tags/python/index.xml</link>
+    <link>https://pravj.github.io/tags/python/index.xml</link>
     <description>Recent content in Python on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://pravj.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pravj.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Breaking into the Indian E-commerce</title>
-      <link>http://pravj.github.io/blog/indian-ecommerce/</link>
+      <link>https://pravj.github.io/blog/indian-ecommerce/</link>
       <pubDate>Fri, 11 Dec 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/indian-ecommerce/</guid>
+      <guid>https://pravj.github.io/blog/indian-ecommerce/</guid>
       <description>
 
 &lt;p&gt;Before I start telling you the story, I&amp;rsquo;m going to do an experiment. I&amp;rsquo;ll write the summary of this post first, just to stick you around, in case you are one among the people who don&amp;rsquo;t read to the end.&lt;/p&gt;
@@ -54,7 +54,7 @@
 
 &lt;p&gt;&lt;em&gt;Station&lt;/em&gt; is a Node.js package(&lt;em&gt;private obviously&lt;/em&gt;) running a &lt;em&gt;Nightmare&lt;/em&gt; instance for &lt;em&gt;headless browsing&lt;/em&gt;. From &lt;em&gt;Engine&lt;/em&gt;, it collects the next set of identifiers to fetch and then assemble all the necessary information before shipping it to the storage.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/crawler-infra.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/crawler-infra.png&#34;&gt; 
     &lt;figcaption&gt;Crawler Design&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -76,7 +76,7 @@
 
 &lt;p&gt;Although the dataset is small, it&amp;rsquo;s distributed over a &lt;em&gt;time continuum&lt;/em&gt; instead of being a &lt;em&gt;discrete segment&lt;/em&gt;, because of the internal working of &lt;em&gt;Engine&lt;/em&gt;.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/engine.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/engine.png&#34;&gt; 
     &lt;figcaption&gt;How Engine generate identifiers&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -178,7 +178,7 @@
 
 &lt;p&gt;This is something I found suspicious when I was looking in the dataset for orders having a lot of products in one shipment.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/bulk-order.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/bulk-order.png&#34;&gt; 
     &lt;figcaption&gt;Does small shopkeepers purchase from Myntra to sell in their locality?&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -216,10 +216,10 @@
     
     <item>
       <title>Post-mortem of an Internet Accident</title>
-      <link>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</link>
+      <link>https://pravj.github.io/blog/post-mortem-of-an-internet-accident/</link>
       <pubDate>Sun, 11 Jan 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</guid>
+      <guid>https://pravj.github.io/blog/post-mortem-of-an-internet-accident/</guid>
       <description>
 
 &lt;p&gt;Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination &lt;em&gt;Internet Accident&lt;/em&gt; confuse you, let me decode its meaning in the context of this post.&lt;/p&gt;
@@ -277,7 +277,7 @@ Now it was the time to shift to coffee &lt;em&gt;full time&lt;/em&gt; but &lt;em
 
 &lt;p&gt;I &lt;em&gt;Vimed&lt;/em&gt; the .csv file and found that some URLs were missing the owner&amp;rsquo;s name.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/vim-screenshot.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/vim-screenshot.png&#34;&gt; 
     &lt;figcaption&gt;Vim Screenshot&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -301,7 +301,7 @@ But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;
 
 &lt;p&gt;Plotting the stars and languages distribution over all the repositories, we get this graph.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/stars-and-languages.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/stars-and-languages.png&#34;&gt; 
     &lt;figcaption&gt;Stars and Language distribution&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -358,7 +358,7 @@ But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;
 &lt;li&gt;For example &lt;a href=&#34;https://github.com/vhf/free-programming-books&#34;&gt;vhf/free-programming-books&lt;/a&gt;, List of free learning resources.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/zero-language-repository.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/zero-language-repository.png&#34;&gt; 
     &lt;figcaption&gt;Zero Language Repositories&lt;/figcaption&gt;
 &lt;/figure&gt;
 

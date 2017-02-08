@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jekyll on hack(pravj)</title>
-    <link>http://pravj.github.io/tags/jekyll/index.xml</link>
+    <link>https://pravj.github.io/tags/jekyll/index.xml</link>
     <description>Recent content in Jekyll on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://pravj.github.io/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pravj.github.io/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introducing modified-lanyon, Harry, and me</title>
-      <link>http://pravj.github.io/blog/introduction/</link>
+      <link>https://pravj.github.io/blog/introduction/</link>
       <pubDate>Fri, 23 May 2014 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/introduction/</guid>
+      <guid>https://pravj.github.io/blog/introduction/</guid>
       <description>
 
 &lt;p&gt;&lt;code&gt;Yes, you don&#39;t know me. Cool, I&#39;m telling you that.&lt;/code&gt;&lt;/p&gt;

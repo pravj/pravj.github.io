@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Open Source on hack(pravj)</title>
-    <link>http://pravj.github.io/tags/open-source/index.xml</link>
+    <link>https://pravj.github.io/tags/open-source/index.xml</link>
     <description>Recent content in Open Source on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://pravj.github.io/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pravj.github.io/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Information Dynamics on the GitHub Network</title>
-      <link>http://pravj.github.io/blog/information-dynamics-on-github/</link>
+      <link>https://pravj.github.io/blog/information-dynamics-on-github/</link>
       <pubDate>Wed, 08 Feb 2017 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/information-dynamics-on-github/</guid>
+      <guid>https://pravj.github.io/blog/information-dynamics-on-github/</guid>
       <description>
 
 &lt;blockquote&gt;
@@ -182,7 +182,7 @@
 &lt;p&gt;As a solution to the problem, some GitHub users used to add most-followed users as collaborators. Because it would broadcast about the repository to all their followers, eventually getting more viewers to the repository.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/torvalds-broadcast.png&#34;&gt;
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/torvalds-broadcast.png&#34;&gt;
   &lt;figcaption&gt;A repository being broadcasted to users in feed&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -248,10 +248,10 @@
     
     <item>
       <title>Open Source Presence Infographic of Indian Startups</title>
-      <link>http://pravj.github.io/blog/open-source-presence-infographic/</link>
+      <link>https://pravj.github.io/blog/open-source-presence-infographic/</link>
       <pubDate>Sat, 17 Jan 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/open-source-presence-infographic/</guid>
+      <guid>https://pravj.github.io/blog/open-source-presence-infographic/</guid>
       <description>
 
 &lt;p&gt;Technically speaking, organizations used in this report are no more only a &lt;em&gt;startup&lt;/em&gt; now, but I hope you people won&amp;rsquo;t mind this and aren&amp;rsquo;t gonna launch a drone on me.&lt;/p&gt;
@@ -324,7 +324,7 @@
 
 &lt;p&gt;Do you know, when all of these organizations were found? Not sure?&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/appearance-timeline.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/appearance-timeline.png&#34;&gt; 
     &lt;figcaption&gt;Apperance Timeline&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -361,7 +361,7 @@
 
 &lt;p&gt;This section deals with no. of public repositories for each involved organization.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/repository-status.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/repository-status.png&#34;&gt; 
     &lt;figcaption&gt;Public Repository Count&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -375,7 +375,7 @@
 
 &lt;p&gt;But no. of stars on any GitHub repository can represent its vogue, &lt;em&gt;leave the case where they&amp;rsquo;re fake.&lt;/em&gt;&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/stars-distribution.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/stars-distribution.png&#34;&gt; 
     &lt;figcaption&gt;Stars Distribution&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -406,7 +406,7 @@
 
 &lt;p&gt;This section deals with attributes of repositories, counting which one of them is a &lt;em&gt;forked&lt;/em&gt; repository or which one is a &lt;em&gt;source&lt;/em&gt; repository.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/repository-attributes.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/repository-attributes.png&#34;&gt; 
     &lt;figcaption&gt;Repository Attributes&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -424,7 +424,7 @@
 
 &lt;p&gt;This section deals with creation of repositories of all the organizations.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/repository-creation.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/repository-creation.png&#34;&gt; 
     &lt;figcaption&gt;Repository Creation Frequency&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -449,7 +449,7 @@
 
 &lt;p&gt;This section deals with the commit activity of all the organizations.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/commit-activity-zoom.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/commit-activity-zoom.png&#34;&gt; 
     &lt;figcaption&gt;Commit Activity&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -467,7 +467,7 @@
 
 &lt;p&gt;This section deals with use of different programming languages in the involved organizations&amp;rsquo;s infrastructure.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/language-uses.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/language-uses.png&#34;&gt; 
     &lt;figcaption&gt;Language Used&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -540,10 +540,10 @@ I was all alone everytime, thinking about it, collecting the data, managing R so
     
     <item>
       <title>geopattern : going on the Go path</title>
-      <link>http://pravj.github.io/blog/going-on-the-go-path/</link>
+      <link>https://pravj.github.io/blog/going-on-the-go-path/</link>
       <pubDate>Sat, 01 Nov 2014 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/going-on-the-go-path/</guid>
+      <guid>https://pravj.github.io/blog/going-on-the-go-path/</guid>
       <description>
 
 &lt;blockquote&gt;
@@ -558,7 +558,7 @@ I was all alone everytime, thinking about it, collecting the data, managing R so
 
 &lt;p&gt;What do you think about this my favorite colored &lt;em&gt;concentric circle&lt;/em&gt; pattern?&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/concentric-circle.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/concentric-circle.png&#34;&gt; 
     &lt;figcaption&gt;Concentric Circle Pattern&lt;/figcaption&gt;
 &lt;/figure&gt;
 

@@ -21,7 +21,7 @@
 <meta property="og:title" content="Node.Js" />
 <meta property="og:type" content="article" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="http://pravj.github.io/tags/node/index.js/" />
+<meta property="og:url" content="https://pravj.github.io/tags/node/index.js/" />
 <meta property="og:description" content="" />
 
 <meta property="og:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
@@ -42,10 +42,10 @@
 
 
 
-  <link href='http://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
 
   
-  <link rel="stylesheet" href="http://pravj.github.io/styles.min.css">
+  <link rel="stylesheet" href="https://pravj.github.io/styles.min.css">
 
   
 
@@ -61,7 +61,7 @@
   <link rel="shortcut icon" href="/images/header-images/favicon.ico">
 
   
-  <link href="http://pravj.github.io/tags/node.js/index.xml" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+  <link href="https://pravj.github.io/tags/node.js/index.xml" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
 
 
   
@@ -102,19 +102,19 @@
           
             
               
-              <a class="post-tag post-tag-node.js" href="http://pravj.github.io/tags/node.js">
+              <a class="post-tag post-tag-node.js" href="https://pravj.github.io/tags/node.js">
                   <i class="icon-tag"></i> Node.js</a>
               
-              <a class="post-tag post-tag-coffeescript" href="http://pravj.github.io/tags/coffeescript">
+              <a class="post-tag post-tag-coffeescript" href="https://pravj.github.io/tags/coffeescript">
                   <i class="icon-tag"></i> CoffeeScript</a>
               
-              <a class="post-tag post-tag-game" href="http://pravj.github.io/tags/game">
+              <a class="post-tag post-tag-game" href="https://pravj.github.io/tags/game">
                   <i class="icon-tag"></i> Game</a>
               
-              <a class="post-tag post-tag-hack" href="http://pravj.github.io/tags/hack">
+              <a class="post-tag post-tag-hack" href="https://pravj.github.io/tags/hack">
                   <i class="icon-tag"></i> Hack</a>
               
-              <a class="post-tag post-tag-terminal" href="http://pravj.github.io/tags/terminal">
+              <a class="post-tag post-tag-terminal" href="https://pravj.github.io/tags/terminal">
                   <i class="icon-tag"></i> Terminal</a>
               
             
@@ -153,7 +153,7 @@
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="http://pravj.github.io/main.js"></script>
+<script src="https://pravj.github.io/main.js"></script>
 
 
 

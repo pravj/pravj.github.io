@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hash on hack(pravj)</title>
-    <link>http://pravj.github.io/tags/hash/index.xml</link>
+    <link>https://pravj.github.io/tags/hash/index.xml</link>
     <description>Recent content in Hash on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://pravj.github.io/tags/hash/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pravj.github.io/tags/hash/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introducing Penticons : The Hash Game</title>
-      <link>http://pravj.github.io/blog/penticons-the-hash-game/</link>
+      <link>https://pravj.github.io/blog/penticons-the-hash-game/</link>
       <pubDate>Sun, 08 Feb 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/penticons-the-hash-game/</guid>
+      <guid>https://pravj.github.io/blog/penticons-the-hash-game/</guid>
       <description>
 
 &lt;p&gt;Jennifer Lawrence fan, huh? It was &lt;em&gt;The Hash Game&lt;/em&gt; by the way. Still in? Kewl.&lt;/p&gt;
@@ -56,13 +56,13 @@
 
 &lt;p&gt;Let&amp;rsquo;s fly back to the junior mathematics class and consider this tiny function.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/function.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/function.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Now, if I ask, what is the value of x when the value of function is 0? You can answer this easily by solving this simple quadratic equation. The values will be 2 and 1.&lt;/p&gt;
 
 &lt;p&gt;What if I change the function to a bit more horrible one. For example, take this.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/hard-function.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/hard-function.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Feeling cold, huh? Well! you can still find the roots but with a bit more effort. One simple effort you can do is to &lt;em&gt;google&lt;/em&gt; this equation and you&amp;rsquo;ll find it on the very first result page.&lt;/p&gt;
 
@@ -84,7 +84,7 @@
 
 &lt;p&gt;Can you guess, what is the maximum possible hash count MD5 can generate?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/md5-count.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/md5-count.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;So if you have more elements than this count to hash, MD5 would be producing similar hashes for all the extra elements.&lt;/p&gt;
 
@@ -106,13 +106,13 @@
 
 &lt;p&gt;Suppose they are using 20 colors to fill in the non-blank pixels, they are &lt;a href=&#34;https://github.com/cupcake/sigil/blob/6bf9722f2ae82f58a0c7d48daeb40ec844b78eae/server.go#L20-L29&#34;&gt;not using&lt;/a&gt; this much colors, though. Then total possible identicon count will be :&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/total-identicon.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/total-identicon.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;On the other hand, &lt;em&gt;Penticons&lt;/em&gt; uses &lt;a href=&#34;https://github.com/penticons/penticons.go/blob/master/utils/utils.go#L21-L25&#34;&gt;5 colors&lt;/a&gt; only, from GitHub&amp;rsquo;s contribution calendar. They also have a vertical axis of symmetry.&lt;/p&gt;
 
 &lt;p&gt;But instead of using a fix color to fill in, it uses any one of the 5, according to the hash value. This way, total number of identicons will be the following.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/total-penticons.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/total-penticons.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Which is way more than other implementations, so the rate of collision is also less here.&lt;/p&gt;
 
@@ -124,7 +124,7 @@
 
 &lt;p&gt;&lt;em&gt;Avatar&lt;/em&gt; for the organization is a penticon itself, of the word &amp;ldquo;Penticons&amp;rdquo;.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/avatar.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/avatar.png&#34;&gt; 
     &lt;figcaption&gt;Penticon Avatar for the word &#34;Penticons&#34;&lt;/figcaption&gt;
 &lt;/figure&gt;
 </description>

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Quora on hack(pravj)</title>
-    <link>http://pravj.github.io/tags/quora/index.xml</link>
+    <link>https://pravj.github.io/tags/quora/index.xml</link>
     <description>Recent content in Quora on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://pravj.github.io/tags/quora/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pravj.github.io/tags/quora/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Post-mortem of an Internet Accident</title>
-      <link>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</link>
+      <link>https://pravj.github.io/blog/post-mortem-of-an-internet-accident/</link>
       <pubDate>Sun, 11 Jan 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</guid>
+      <guid>https://pravj.github.io/blog/post-mortem-of-an-internet-accident/</guid>
       <description>
 
 &lt;p&gt;Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination &lt;em&gt;Internet Accident&lt;/em&gt; confuse you, let me decode its meaning in the context of this post.&lt;/p&gt;
@@ -71,7 +71,7 @@ Now it was the time to shift to coffee &lt;em&gt;full time&lt;/em&gt; but &lt;em
 
 &lt;p&gt;I &lt;em&gt;Vimed&lt;/em&gt; the .csv file and found that some URLs were missing the owner&amp;rsquo;s name.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/vim-screenshot.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/vim-screenshot.png&#34;&gt; 
     &lt;figcaption&gt;Vim Screenshot&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -95,7 +95,7 @@ But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;
 
 &lt;p&gt;Plotting the stars and languages distribution over all the repositories, we get this graph.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/stars-and-languages.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/stars-and-languages.png&#34;&gt; 
     &lt;figcaption&gt;Stars and Language distribution&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -152,7 +152,7 @@ But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;
 &lt;li&gt;For example &lt;a href=&#34;https://github.com/vhf/free-programming-books&#34;&gt;vhf/free-programming-books&lt;/a&gt;, List of free learning resources.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/zero-language-repository.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/zero-language-repository.png&#34;&gt; 
     &lt;figcaption&gt;Zero Language Repositories&lt;/figcaption&gt;
 &lt;/figure&gt;
 

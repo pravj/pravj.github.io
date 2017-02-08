@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Github on hack(pravj)</title>
-    <link>http://pravj.github.io/tags/github/index.xml</link>
+    <link>https://pravj.github.io/tags/github/index.xml</link>
     <description>Recent content in Github on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://pravj.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pravj.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Information Dynamics on the GitHub Network</title>
-      <link>http://pravj.github.io/blog/information-dynamics-on-github/</link>
+      <link>https://pravj.github.io/blog/information-dynamics-on-github/</link>
       <pubDate>Wed, 08 Feb 2017 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/information-dynamics-on-github/</guid>
+      <guid>https://pravj.github.io/blog/information-dynamics-on-github/</guid>
       <description>
 
 &lt;blockquote&gt;
@@ -182,7 +182,7 @@
 &lt;p&gt;As a solution to the problem, some GitHub users used to add most-followed users as collaborators. Because it would broadcast about the repository to all their followers, eventually getting more viewers to the repository.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/torvalds-broadcast.png&#34;&gt;
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/torvalds-broadcast.png&#34;&gt;
   &lt;figcaption&gt;A repository being broadcasted to users in feed&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -248,10 +248,10 @@
     
     <item>
       <title>Introducing Penticons : The Hash Game</title>
-      <link>http://pravj.github.io/blog/penticons-the-hash-game/</link>
+      <link>https://pravj.github.io/blog/penticons-the-hash-game/</link>
       <pubDate>Sun, 08 Feb 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/penticons-the-hash-game/</guid>
+      <guid>https://pravj.github.io/blog/penticons-the-hash-game/</guid>
       <description>
 
 &lt;p&gt;Jennifer Lawrence fan, huh? It was &lt;em&gt;The Hash Game&lt;/em&gt; by the way. Still in? Kewl.&lt;/p&gt;
@@ -294,13 +294,13 @@
 
 &lt;p&gt;Let&amp;rsquo;s fly back to the junior mathematics class and consider this tiny function.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/function.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/function.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Now, if I ask, what is the value of x when the value of function is 0? You can answer this easily by solving this simple quadratic equation. The values will be 2 and 1.&lt;/p&gt;
 
 &lt;p&gt;What if I change the function to a bit more horrible one. For example, take this.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/hard-function.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/hard-function.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Feeling cold, huh? Well! you can still find the roots but with a bit more effort. One simple effort you can do is to &lt;em&gt;google&lt;/em&gt; this equation and you&amp;rsquo;ll find it on the very first result page.&lt;/p&gt;
 
@@ -322,7 +322,7 @@
 
 &lt;p&gt;Can you guess, what is the maximum possible hash count MD5 can generate?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/md5-count.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/md5-count.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;So if you have more elements than this count to hash, MD5 would be producing similar hashes for all the extra elements.&lt;/p&gt;
 
@@ -344,13 +344,13 @@
 
 &lt;p&gt;Suppose they are using 20 colors to fill in the non-blank pixels, they are &lt;a href=&#34;https://github.com/cupcake/sigil/blob/6bf9722f2ae82f58a0c7d48daeb40ec844b78eae/server.go#L20-L29&#34;&gt;not using&lt;/a&gt; this much colors, though. Then total possible identicon count will be :&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/total-identicon.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/total-identicon.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;On the other hand, &lt;em&gt;Penticons&lt;/em&gt; uses &lt;a href=&#34;https://github.com/penticons/penticons.go/blob/master/utils/utils.go#L21-L25&#34;&gt;5 colors&lt;/a&gt; only, from GitHub&amp;rsquo;s contribution calendar. They also have a vertical axis of symmetry.&lt;/p&gt;
 
 &lt;p&gt;But instead of using a fix color to fill in, it uses any one of the 5, according to the hash value. This way, total number of identicons will be the following.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/total-penticons.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/total-penticons.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Which is way more than other implementations, so the rate of collision is also less here.&lt;/p&gt;
 
@@ -362,7 +362,7 @@
 
 &lt;p&gt;&lt;em&gt;Avatar&lt;/em&gt; for the organization is a penticon itself, of the word &amp;ldquo;Penticons&amp;rdquo;.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/avatar.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/avatar.png&#34;&gt; 
     &lt;figcaption&gt;Penticon Avatar for the word &#34;Penticons&#34;&lt;/figcaption&gt;
 &lt;/figure&gt;
 </description>
@@ -370,10 +370,10 @@
     
     <item>
       <title>Open Source Presence Infographic of Indian Startups</title>
-      <link>http://pravj.github.io/blog/open-source-presence-infographic/</link>
+      <link>https://pravj.github.io/blog/open-source-presence-infographic/</link>
       <pubDate>Sat, 17 Jan 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/open-source-presence-infographic/</guid>
+      <guid>https://pravj.github.io/blog/open-source-presence-infographic/</guid>
       <description>
 
 &lt;p&gt;Technically speaking, organizations used in this report are no more only a &lt;em&gt;startup&lt;/em&gt; now, but I hope you people won&amp;rsquo;t mind this and aren&amp;rsquo;t gonna launch a drone on me.&lt;/p&gt;
@@ -446,7 +446,7 @@
 
 &lt;p&gt;Do you know, when all of these organizations were found? Not sure?&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/appearance-timeline.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/appearance-timeline.png&#34;&gt; 
     &lt;figcaption&gt;Apperance Timeline&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -483,7 +483,7 @@
 
 &lt;p&gt;This section deals with no. of public repositories for each involved organization.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/repository-status.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/repository-status.png&#34;&gt; 
     &lt;figcaption&gt;Public Repository Count&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -497,7 +497,7 @@
 
 &lt;p&gt;But no. of stars on any GitHub repository can represent its vogue, &lt;em&gt;leave the case where they&amp;rsquo;re fake.&lt;/em&gt;&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/stars-distribution.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/stars-distribution.png&#34;&gt; 
     &lt;figcaption&gt;Stars Distribution&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -528,7 +528,7 @@
 
 &lt;p&gt;This section deals with attributes of repositories, counting which one of them is a &lt;em&gt;forked&lt;/em&gt; repository or which one is a &lt;em&gt;source&lt;/em&gt; repository.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/repository-attributes.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/repository-attributes.png&#34;&gt; 
     &lt;figcaption&gt;Repository Attributes&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -546,7 +546,7 @@
 
 &lt;p&gt;This section deals with creation of repositories of all the organizations.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/repository-creation.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/repository-creation.png&#34;&gt; 
     &lt;figcaption&gt;Repository Creation Frequency&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -571,7 +571,7 @@
 
 &lt;p&gt;This section deals with the commit activity of all the organizations.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/commit-activity-zoom.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/commit-activity-zoom.png&#34;&gt; 
     &lt;figcaption&gt;Commit Activity&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -589,7 +589,7 @@
 
 &lt;p&gt;This section deals with use of different programming languages in the involved organizations&amp;rsquo;s infrastructure.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/language-uses.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/language-uses.png&#34;&gt; 
     &lt;figcaption&gt;Language Used&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -662,10 +662,10 @@ I was all alone everytime, thinking about it, collecting the data, managing R so
     
     <item>
       <title>The git-game Write-up</title>
-      <link>http://pravj.github.io/blog/the-git-game-writeup/</link>
+      <link>https://pravj.github.io/blog/the-git-game-writeup/</link>
       <pubDate>Thu, 15 Jan 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/the-git-game-writeup/</guid>
+      <guid>https://pravj.github.io/blog/the-git-game-writeup/</guid>
       <description>
 
 &lt;blockquote&gt;
@@ -1046,10 +1046,10 @@ You completed our Git Game!
     
     <item>
       <title>Post-mortem of an Internet Accident</title>
-      <link>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</link>
+      <link>https://pravj.github.io/blog/post-mortem-of-an-internet-accident/</link>
       <pubDate>Sun, 11 Jan 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</guid>
+      <guid>https://pravj.github.io/blog/post-mortem-of-an-internet-accident/</guid>
       <description>
 
 &lt;p&gt;Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination &lt;em&gt;Internet Accident&lt;/em&gt; confuse you, let me decode its meaning in the context of this post.&lt;/p&gt;
@@ -1107,7 +1107,7 @@ Now it was the time to shift to coffee &lt;em&gt;full time&lt;/em&gt; but &lt;em
 
 &lt;p&gt;I &lt;em&gt;Vimed&lt;/em&gt; the .csv file and found that some URLs were missing the owner&amp;rsquo;s name.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/vim-screenshot.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/vim-screenshot.png&#34;&gt; 
     &lt;figcaption&gt;Vim Screenshot&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -1131,7 +1131,7 @@ But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;
 
 &lt;p&gt;Plotting the stars and languages distribution over all the repositories, we get this graph.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/stars-and-languages.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/stars-and-languages.png&#34;&gt; 
     &lt;figcaption&gt;Stars and Language distribution&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -1188,7 +1188,7 @@ But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;
 &lt;li&gt;For example &lt;a href=&#34;https://github.com/vhf/free-programming-books&#34;&gt;vhf/free-programming-books&lt;/a&gt;, List of free learning resources.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/zero-language-repository.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/zero-language-repository.png&#34;&gt; 
     &lt;figcaption&gt;Zero Language Repositories&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -1244,10 +1244,10 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
     
     <item>
       <title>geopattern : going on the Go path</title>
-      <link>http://pravj.github.io/blog/going-on-the-go-path/</link>
+      <link>https://pravj.github.io/blog/going-on-the-go-path/</link>
       <pubDate>Sat, 01 Nov 2014 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/going-on-the-go-path/</guid>
+      <guid>https://pravj.github.io/blog/going-on-the-go-path/</guid>
       <description>
 
 &lt;blockquote&gt;
@@ -1262,7 +1262,7 @@ So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;What do you think about this my favorite colored &lt;em&gt;concentric circle&lt;/em&gt; pattern?&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/concentric-circle.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/concentric-circle.png&#34;&gt; 
     &lt;figcaption&gt;Concentric Circle Pattern&lt;/figcaption&gt;
 &lt;/figure&gt;
 

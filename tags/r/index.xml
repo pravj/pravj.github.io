@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on hack(pravj)</title>
-    <link>http://pravj.github.io/tags/r/index.xml</link>
+    <link>https://pravj.github.io/tags/r/index.xml</link>
     <description>Recent content in R on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://pravj.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pravj.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Jump in to ride all the Bangalore taxis, at once</title>
-      <link>http://pravj.github.io/blog/bangalore-taxis/</link>
+      <link>https://pravj.github.io/blog/bangalore-taxis/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/bangalore-taxis/</guid>
+      <guid>https://pravj.github.io/blog/bangalore-taxis/</guid>
       <description>
 
 &lt;p&gt;All right, just imagine that you have popcorn with you, because I know that you don&amp;rsquo;t have.&lt;/p&gt;
@@ -56,7 +56,7 @@
 
 &lt;p&gt;Equally spacing those spots minimizes the total number of requests made, which descreases the chances of getting blocked, &lt;em&gt;if there is such service on the other side&lt;/em&gt;.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/point-net.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/point-net.png&#34;&gt; 
     &lt;figcaption&gt;Equally separated places&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -121,7 +121,7 @@
 
 &lt;p&gt;Here is how the cab availability distribution over time looks like.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/distribution.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/distribution.png&#34;&gt; 
     &lt;figcaption&gt;Cab availability distribution over time&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -137,7 +137,7 @@
 
 &lt;p&gt;The uniqueness and time range of all those fields strongly supports that it was the time when a cab got associated with the organization.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/cab-timeline.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/cab-timeline.png&#34;&gt; 
     &lt;figcaption&gt;Cab timeline&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -220,7 +220,7 @@
 
 &lt;p&gt;The &lt;em&gt;cab response time&lt;/em&gt; seems to be dependant on the distance only, which looks like a &lt;em&gt;step function&lt;/em&gt;.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/restime.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/restime.png&#34;&gt; 
     &lt;figcaption&gt;Cab Response Time&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -252,10 +252,10 @@
     
     <item>
       <title>Open Source Presence Infographic of Indian Startups</title>
-      <link>http://pravj.github.io/blog/open-source-presence-infographic/</link>
+      <link>https://pravj.github.io/blog/open-source-presence-infographic/</link>
       <pubDate>Sat, 17 Jan 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/open-source-presence-infographic/</guid>
+      <guid>https://pravj.github.io/blog/open-source-presence-infographic/</guid>
       <description>
 
 &lt;p&gt;Technically speaking, organizations used in this report are no more only a &lt;em&gt;startup&lt;/em&gt; now, but I hope you people won&amp;rsquo;t mind this and aren&amp;rsquo;t gonna launch a drone on me.&lt;/p&gt;
@@ -328,7 +328,7 @@
 
 &lt;p&gt;Do you know, when all of these organizations were found? Not sure?&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/appearance-timeline.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/appearance-timeline.png&#34;&gt; 
     &lt;figcaption&gt;Apperance Timeline&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -365,7 +365,7 @@
 
 &lt;p&gt;This section deals with no. of public repositories for each involved organization.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/repository-status.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/repository-status.png&#34;&gt; 
     &lt;figcaption&gt;Public Repository Count&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -379,7 +379,7 @@
 
 &lt;p&gt;But no. of stars on any GitHub repository can represent its vogue, &lt;em&gt;leave the case where they&amp;rsquo;re fake.&lt;/em&gt;&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/stars-distribution.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/stars-distribution.png&#34;&gt; 
     &lt;figcaption&gt;Stars Distribution&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -410,7 +410,7 @@
 
 &lt;p&gt;This section deals with attributes of repositories, counting which one of them is a &lt;em&gt;forked&lt;/em&gt; repository or which one is a &lt;em&gt;source&lt;/em&gt; repository.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/repository-attributes.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/repository-attributes.png&#34;&gt; 
     &lt;figcaption&gt;Repository Attributes&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -428,7 +428,7 @@
 
 &lt;p&gt;This section deals with creation of repositories of all the organizations.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/repository-creation.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/repository-creation.png&#34;&gt; 
     &lt;figcaption&gt;Repository Creation Frequency&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -453,7 +453,7 @@
 
 &lt;p&gt;This section deals with the commit activity of all the organizations.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/commit-activity-zoom.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/commit-activity-zoom.png&#34;&gt; 
     &lt;figcaption&gt;Commit Activity&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -471,7 +471,7 @@
 
 &lt;p&gt;This section deals with use of different programming languages in the involved organizations&amp;rsquo;s infrastructure.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/language-uses.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/language-uses.png&#34;&gt; 
     &lt;figcaption&gt;Language Used&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -544,10 +544,10 @@ I was all alone everytime, thinking about it, collecting the data, managing R so
     
     <item>
       <title>Post-mortem of an Internet Accident</title>
-      <link>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</link>
+      <link>https://pravj.github.io/blog/post-mortem-of-an-internet-accident/</link>
       <pubDate>Sun, 11 Jan 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</guid>
+      <guid>https://pravj.github.io/blog/post-mortem-of-an-internet-accident/</guid>
       <description>
 
 &lt;p&gt;Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination &lt;em&gt;Internet Accident&lt;/em&gt; confuse you, let me decode its meaning in the context of this post.&lt;/p&gt;
@@ -605,7 +605,7 @@ Now it was the time to shift to coffee &lt;em&gt;full time&lt;/em&gt; but &lt;em
 
 &lt;p&gt;I &lt;em&gt;Vimed&lt;/em&gt; the .csv file and found that some URLs were missing the owner&amp;rsquo;s name.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/vim-screenshot.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/vim-screenshot.png&#34;&gt; 
     &lt;figcaption&gt;Vim Screenshot&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -629,7 +629,7 @@ But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;
 
 &lt;p&gt;Plotting the stars and languages distribution over all the repositories, we get this graph.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/stars-and-languages.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/stars-and-languages.png&#34;&gt; 
     &lt;figcaption&gt;Stars and Language distribution&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -686,7 +686,7 @@ But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;
 &lt;li&gt;For example &lt;a href=&#34;https://github.com/vhf/free-programming-books&#34;&gt;vhf/free-programming-books&lt;/a&gt;, List of free learning resources.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/zero-language-repository.png&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/zero-language-repository.png&#34;&gt; 
     &lt;figcaption&gt;Zero Language Repositories&lt;/figcaption&gt;
 &lt;/figure&gt;
 

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Node.Js on hack(pravj)</title>
-    <link>http://pravj.github.io/tags/node.js/index.xml</link>
+    <link>https://pravj.github.io/tags/node.js/index.xml</link>
     <description>Recent content in Node.Js on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://pravj.github.io/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pravj.github.io/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>termping : &lt;3 &#43; Node.js &#43; Streams &#43; CoffeeScript</title>
-      <link>http://pravj.github.io/blog/termping/</link>
+      <link>https://pravj.github.io/blog/termping/</link>
       <pubDate>Sun, 27 Jul 2014 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/termping/</guid>
+      <guid>https://pravj.github.io/blog/termping/</guid>
       <description>
 
 &lt;blockquote&gt;
@@ -28,7 +28,7 @@
 &lt;p&gt;But this prototype runs in your system&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/Computer_terminal&#34;&gt;terminal&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/termping.gif&#34;&gt;
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/termping.gif&#34;&gt;
     &lt;figcaption&gt;termping in action&lt;/figcaption&gt;
 &lt;/figure&gt;
 

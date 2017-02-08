@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Game on hack(pravj)</title>
-    <link>http://pravj.github.io/tags/game/index.xml</link>
+    <link>https://pravj.github.io/tags/game/index.xml</link>
     <description>Recent content in Game on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://pravj.github.io/tags/game/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pravj.github.io/tags/game/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Development story of puzzl</title>
-      <link>http://pravj.github.io/blog/development-story-of-puzzl/</link>
+      <link>https://pravj.github.io/blog/development-story-of-puzzl/</link>
       <pubDate>Thu, 23 Apr 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/development-story-of-puzzl/</guid>
+      <guid>https://pravj.github.io/blog/development-story-of-puzzl/</guid>
       <description>
 
 &lt;p&gt;Lets start with that old promotion rant I use all the time.&lt;/p&gt;
@@ -26,7 +26,7 @@
 
 &lt;p&gt;This post is about development of a sliding-puzzle game I made recently, named &lt;em&gt;puzzl&lt;/em&gt;. I refer it as an &lt;em&gt;intelligent version&lt;/em&gt; of the classical sliding puzzle game, and I&amp;rsquo;ll explain the reason behind this. Stay awake.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/puzzl.gif&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/puzzl.gif&#34;&gt; 
     &lt;figcaption&gt;Puzzl in action&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -80,7 +80,7 @@
 
 &lt;p&gt;All you have to do is, arrange all tiles in a particular order. Lets say, in increasing order with the blank tile being the last one.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/states.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/states.jpg&#34;&gt; 
     &lt;figcaption&gt;8 puzzle game states&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -126,7 +126,7 @@
 
 &lt;p&gt;Using the &lt;em&gt;Mathematical Induction&lt;/em&gt; on what it was there in the paper, I have a sample game for you. You can spend rest of your life solving this, if you want to.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/unsolvable-game.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/unsolvable-game.jpg&#34;&gt; 
     &lt;figcaption&gt;Unsolvable sliding puzzle&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -156,7 +156,7 @@
 
 &lt;p&gt;There are two &lt;em&gt;goroutines&lt;/em&gt;, one for &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417&#34;&gt;handling the notification events&lt;/a&gt; and another for &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417&#34;&gt;solving the game in background&lt;/a&gt;, both are non-blocking in nature to other routines like &lt;em&gt;user inputs&lt;/em&gt;, &lt;em&gt;game display&lt;/em&gt; etc. A &lt;em&gt;channel&lt;/em&gt; named &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/notification/notification.go#L19&#34;&gt;Tunnel&lt;/a&gt; was the messenger for these &lt;em&gt;goroutines&lt;/em&gt;.&lt;/p&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/architecture.jpg&#34;&gt; 
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/architecture.jpg&#34;&gt; 
     &lt;figcaption&gt;Asynchronous Gouroutines Architecture&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -197,10 +197,10 @@
     
     <item>
       <title>The git-game Write-up</title>
-      <link>http://pravj.github.io/blog/the-git-game-writeup/</link>
+      <link>https://pravj.github.io/blog/the-git-game-writeup/</link>
       <pubDate>Thu, 15 Jan 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/the-git-game-writeup/</guid>
+      <guid>https://pravj.github.io/blog/the-git-game-writeup/</guid>
       <description>
 
 &lt;blockquote&gt;
@@ -581,10 +581,10 @@ You completed our Git Game!
     
     <item>
       <title>termping : &lt;3 &#43; Node.js &#43; Streams &#43; CoffeeScript</title>
-      <link>http://pravj.github.io/blog/termping/</link>
+      <link>https://pravj.github.io/blog/termping/</link>
       <pubDate>Sun, 27 Jul 2014 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/termping/</guid>
+      <guid>https://pravj.github.io/blog/termping/</guid>
       <description>
 
 &lt;blockquote&gt;
@@ -599,7 +599,7 @@ You completed our Git Game!
 &lt;p&gt;But this prototype runs in your system&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/Computer_terminal&#34;&gt;terminal&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/termping.gif&#34;&gt;
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/termping.gif&#34;&gt;
     &lt;figcaption&gt;termping in action&lt;/figcaption&gt;
 &lt;/figure&gt;
 

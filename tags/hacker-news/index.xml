@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hacker News on hack(pravj)</title>
-    <link>http://pravj.github.io/tags/hacker-news/index.xml</link>
+    <link>https://pravj.github.io/tags/hacker-news/index.xml</link>
     <description>Recent content in Hacker News on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://pravj.github.io/tags/hacker-news/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pravj.github.io/tags/hacker-news/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Information Dynamics on the GitHub Network</title>
-      <link>http://pravj.github.io/blog/information-dynamics-on-github/</link>
+      <link>https://pravj.github.io/blog/information-dynamics-on-github/</link>
       <pubDate>Wed, 08 Feb 2017 00:00:00 +0530</pubDate>
       
-      <guid>http://pravj.github.io/blog/information-dynamics-on-github/</guid>
+      <guid>https://pravj.github.io/blog/information-dynamics-on-github/</guid>
       <description>
 
 &lt;blockquote&gt;
@@ -182,7 +182,7 @@
 &lt;p&gt;As a solution to the problem, some GitHub users used to add most-followed users as collaborators. Because it would broadcast about the repository to all their followers, eventually getting more viewers to the repository.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/torvalds-broadcast.png&#34;&gt;
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/torvalds-broadcast.png&#34;&gt;
   &lt;figcaption&gt;A repository being broadcasted to users in feed&lt;/figcaption&gt;
 &lt;/figure&gt;
 
