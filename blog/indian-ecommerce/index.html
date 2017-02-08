@@ -47,6 +47,15 @@ I found a little opening in the flow of their online movement and used it to col
   
 
   
+    <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+
+    <link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+  
+
+  
   <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
@@ -214,28 +223,6 @@ I found a little opening in the flow of their online movement and used it to col
 <h3 id="from-where-does-india-shops">From where does India shops?</h3>
 
 <div id='customer-map' style="height:400px;"></div>
-
-<script src='https://gist.githack.com/pravj/d4c24e297e5eafeba22f/raw/c8f7541edb7e69dd53ed688ef81d34a34c66f479/customer-location.js'></script>
-<script>
-L.mapbox.accessToken = 'pk.eyJ1IjoicHJhdmoiLCJhIjoiNjc1YTVjYTEzMjAyNjU4ZTgwNjQyMDQwNzgxNTc5MGMifQ.bEvQyBRzIuy5S_hmpsPLuA';
-    var map = L.mapbox.map('customer-map', 'mapbox.streets')
-        .setView([23.548683,79.7800369], 4);
-
-    var markers = new L.MarkerClusterGroup();
-
-    for (var i = 0; i < addressPoints.length; i++) {
-        var a = addressPoints[i];
-        var title = a[2];
-        var marker = L.marker(new L.LatLng(a[0], a[1]), {
-            icon: L.mapbox.marker.icon({'marker-symbol': 'building', 'marker-color': 'DD44FF'}),
-            title: title
-        });
-        marker.bindPopup(title);
-        markers.addLayer(marker);
-    }
-
-    map.addLayer(markers);
-</script>
 
 <p>Here is a clustered map of places in the country, that I found as <em>final destinations</em> of <em>completed orders</em>. This means that the map ignores the number of orders at a place, it just represents the <em>geographic distribution</em> of the orders. Also, it doesn&rsquo;t count a locality multiple times. For example, <em>Agartala</em> has 2-3 different final destinations but they are clustered to a single place/centre, <em>Agartala COD Centre 3</em>.</p>
 
@@ -419,6 +406,33 @@ L.mapbox.accessToken = 'pk.eyJ1IjoicHJhdmoiLCJhIjoiNjc1YTVjYTEzMjAyNjU4ZTgwNjQyM
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="http://pravj.github.io/main.js"></script>
+
+
+
+
+
+<script src='https://gist.githack.com/pravj/d4c24e297e5eafeba22f/raw/c8f7541edb7e69dd53ed688ef81d34a34c66f479/customer-location.js'></script>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoicHJhdmoiLCJhIjoiNjc1YTVjYTEzMjAyNjU4ZTgwNjQyMDQwNzgxNTc5MGMifQ.bEvQyBRzIuy5S_hmpsPLuA';
+    var map = L.mapbox.map('customer-map', 'mapbox.streets')
+        .setView([23.548683,79.7800369], 4);
+
+    var markers = new L.MarkerClusterGroup();
+
+    for (var i = 0; i < addressPoints.length; i++) {
+        var a = addressPoints[i];
+        var title = a[2];
+        var marker = L.marker(new L.LatLng(a[0], a[1]), {
+            icon: L.mapbox.marker.icon({'marker-symbol': 'building', 'marker-color': 'DD44FF'}),
+            title: title
+        });
+        marker.bindPopup(title);
+        markers.addLayer(marker);
+    }
+
+    map.addLayer(markers);
+</script>
 
 
 

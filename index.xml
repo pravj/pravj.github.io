@@ -104,28 +104,6 @@
 
 &lt;div id=&#39;customer-map&#39; style=&#34;height:400px;&#34;&gt;&lt;/div&gt;
 
-&lt;script src=&#39;https://gist.githack.com/pravj/d4c24e297e5eafeba22f/raw/c8f7541edb7e69dd53ed688ef81d34a34c66f479/customer-location.js&#39;&gt;&lt;/script&gt;
-&lt;script&gt;
-L.mapbox.accessToken = &#39;pk.eyJ1IjoicHJhdmoiLCJhIjoiNjc1YTVjYTEzMjAyNjU4ZTgwNjQyMDQwNzgxNTc5MGMifQ.bEvQyBRzIuy5S_hmpsPLuA&#39;;
-    var map = L.mapbox.map(&#39;customer-map&#39;, &#39;mapbox.streets&#39;)
-        .setView([23.548683,79.7800369], 4);
-
-    var markers = new L.MarkerClusterGroup();
-
-    for (var i = 0; i &lt; addressPoints.length; i++) {
-        var a = addressPoints[i];
-        var title = a[2];
-        var marker = L.marker(new L.LatLng(a[0], a[1]), {
-            icon: L.mapbox.marker.icon({&#39;marker-symbol&#39;: &#39;building&#39;, &#39;marker-color&#39;: &#39;DD44FF&#39;}),
-            title: title
-        });
-        marker.bindPopup(title);
-        markers.addLayer(marker);
-    }
-
-    map.addLayer(markers);
-&lt;/script&gt;
-
 &lt;p&gt;Here is a clustered map of places in the country, that I found as &lt;em&gt;final destinations&lt;/em&gt; of &lt;em&gt;completed orders&lt;/em&gt;. This means that the map ignores the number of orders at a place, it just represents the &lt;em&gt;geographic distribution&lt;/em&gt; of the orders. Also, it doesn&amp;rsquo;t count a locality multiple times. For example, &lt;em&gt;Agartala&lt;/em&gt; has 2-3 different final destinations but they are clustered to a single place/centre, &lt;em&gt;Agartala COD Centre 3&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;I was magnificent to see this map when I plotted it first time. Not because my program worked, but to see the markers in extreme areas of the country, especially in the &lt;em&gt;Northeast India&lt;/em&gt;.&lt;/p&gt;
