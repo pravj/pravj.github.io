@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on hack(pravj)</title>
+    <link>http://pravj.github.io/tags/python/index.xml</link>
+    <description>Recent content in Python on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://pravj.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Breaking into the Indian E-commerce</title>
+      <link>http://pravj.github.io/blog/indian-ecommerce/</link>
+      <pubDate>Fri, 11 Dec 2015 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/indian-ecommerce/</guid>
+      <description>
+
+&lt;p&gt;Before I start telling you the story, I&amp;rsquo;m going to do an experiment. I&amp;rsquo;ll write the summary of this post first, just to stick you around, in case you are one among the people who don&amp;rsquo;t read to the end.&lt;/p&gt;
+
+&lt;h3 id=&#34;tl-dr&#34;&gt;tl;dr&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.myntra.com/&#34;&gt;Myntra&lt;/a&gt; is India&amp;rsquo;s largest online fashion and lifestyle store, as they say. Which is owned by &lt;a href=&#34;http://flipkart.com/&#34;&gt;Flipkart&lt;/a&gt;, one of the big players in Indian E-commerce.&lt;/p&gt;
+
+&lt;p&gt;I found a little opening in the flow of their online movement and used it to collect some information(&lt;em&gt;not private though&lt;/em&gt;). Using this information we can see the way &amp;lsquo;online shopping&amp;rsquo; is escalating in the country, and the role &lt;em&gt;Myntra&lt;/em&gt; and the people are playing in it.&lt;/p&gt;
+
+&lt;p&gt;Sounds interesting? Hold on.&lt;/p&gt;
+
+&lt;h3 id=&#34;emergence-of-the-idea&#34;&gt;Emergence of the idea&lt;/h3&gt;
+
+&lt;p&gt;Let me tell you, how did I get started with this.&lt;/p&gt;
+
+&lt;p&gt;All this happened recently, when I was looking for some &lt;em&gt;T-Shirts&lt;/em&gt; with my friend. We placed a shared order for two and a pair of shoes.&lt;/p&gt;
+
+&lt;p&gt;Whenever you order from Myntra, you get a &lt;em&gt;text message&lt;/em&gt; on your registered mobile number, giving you a link where you can &lt;em&gt;track your order&lt;/em&gt;. Each order is given a unique identifier of length 4 because it&amp;rsquo;s a shortened URL to fit well in a text message.&lt;/p&gt;
+
+&lt;p&gt;I opened that link in my phone and it worked, saying that the details of your order are yet to be updated. Then I tried a different URL, not mine, of course, all thanks to my disruptive mind. It worked again, now this was something to pay attention to.&lt;/p&gt;
+
+&lt;p&gt;You know, 4 is a &lt;em&gt;nanoscopic&lt;/em&gt; number if a computer is your best friend. I think you can guess what happened next, I couldn&amp;rsquo;t sleep properly thinking about my next move to just have all the order details. Right from crawling and storing the data to analysing it.&lt;/p&gt;
+
+&lt;h3 id=&#34;crawler-infrastructure&#34;&gt;Crawler Infrastructure&lt;/h3&gt;
+
+&lt;p&gt;Being a &lt;em&gt;pessimistic&lt;/em&gt; person, as one of my friends calls me. I end up thinking too much about all the possible edge cases. Something similar happened with the design of the crawling system.&lt;/p&gt;
+
+&lt;p&gt;As the saying goes, &lt;strong&gt;&amp;ldquo;A thief believes everybody steals&amp;rdquo;&lt;/strong&gt;. I was afraid that my collection signatures(IP) will be blocked.&lt;/p&gt;
+
+&lt;p&gt;If you have read my last post &lt;a href=&#34;http://pravj.github.io/blog/bangalore-taxis/&#34;&gt;Jump in to ride all the Bangalore taxis, at once&lt;/a&gt;; I said that you should not hit the resource at a constant time period, it&amp;rsquo;s a basic heuristic to identify bots. I considered that, it was a simple thing.&lt;/p&gt;
+
+&lt;p&gt;Now comes the main thing I was afraid of, &lt;em&gt;&amp;ldquo;What if they catch me while trying to collect all the orders in a sequential manner (alphabetically increasing uid)&amp;rdquo;?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;As I couldn&amp;rsquo;t take a risk of losing the data, I designed my solution around it. I developed two things, &lt;em&gt;Engine&lt;/em&gt; and &lt;em&gt;Station&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Engine&lt;/em&gt; is the one who takes care of the identifier generation and distribution. It uses a little &lt;em&gt;group theory&lt;/em&gt; and &lt;em&gt;anagram properties&lt;/em&gt; to generate &lt;em&gt;non-sequential unique identifiers of fixed length&lt;/em&gt;. It generates them in advance and serve you &lt;em&gt;on demand&lt;/em&gt; while taking care of the stock by generating in the background when you start approaching the bottom of the vessel. To know more about &lt;em&gt;Engine&lt;/em&gt;, you can stalk its &lt;a href=&#34;https://github.com/pravj/engine&#34;&gt;repository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Station&lt;/em&gt; is a Node.js package(&lt;em&gt;private obviously&lt;/em&gt;) running a &lt;em&gt;Nightmare&lt;/em&gt; instance for &lt;em&gt;headless browsing&lt;/em&gt;. From &lt;em&gt;Engine&lt;/em&gt;, it collects the next set of identifiers to fetch and then assemble all the necessary information before shipping it to the storage.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/crawler-infra.png&#34;&gt; 
+    &lt;figcaption&gt;Crawler Design&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Together they solve the problem with sequential crawling.&lt;/p&gt;
+
+&lt;p&gt;Now one more thing, the collection signature(IP) is still vulnerable to blocking. I found a (working) solution for it right on the Engineering blog of Myntra. They have an interesting post named &lt;a href=&#34;http://myntra.github.io/2015/01/19/dynamic-bot-detection-using-bloom-filters/&#34;&gt;Dynamic Bot Detection Using Bloom Filters&lt;/a&gt;, which labels you as a &lt;em&gt;bot&lt;/em&gt; if you have sent relatively more requests in the past 60 seconds. So the time difference &lt;em&gt;station&lt;/em&gt; assigns between two consecutive requests is dynamically set such that the &lt;em&gt;Bloom Filter&lt;/em&gt; is unable to catch it.&lt;/p&gt;
+
+&lt;p&gt;Planning too much on the &lt;em&gt;Information Retrieval&lt;/em&gt; part has been a good exercise though, I&amp;rsquo;m thinking about working on a &lt;em&gt;Machine Learning approach of Bot Detection&lt;/em&gt;, where movement of a user from one page to another on service/website is mapped as &lt;em&gt;state transitions&lt;/em&gt; of a &lt;em&gt;Markov Chain&lt;/em&gt;, and anyone who violates the &lt;em&gt;transition probability range&lt;/em&gt; is a suspicious visitor.&lt;/p&gt;
+
+&lt;p&gt;Rough idea, leave that for me.&lt;/p&gt;
+
+&lt;h3 id=&#34;statistical-nature-of-the-data&#34;&gt;Statistical nature of the data&lt;/h3&gt;
+
+&lt;p&gt;As I read more and more research papers and live next to some great statistician&amp;rsquo;s &lt;em&gt;Internet Residences&lt;/em&gt;, I know that you can&amp;rsquo;t conclude &lt;em&gt;a thing&lt;/em&gt; from a small dataset.&lt;/p&gt;
+
+&lt;p&gt;In the dataset that I have collected, there are 1045 &lt;em&gt;Returned Orders&lt;/em&gt;, 4406 &lt;em&gt;Cancelled Orders&lt;/em&gt; and 6368 &lt;em&gt;Completed Orders&lt;/em&gt;. &lt;em&gt;Returned Order&lt;/em&gt; means the package was returned back due to some reasons, and &lt;em&gt;Cancelled Orders&lt;/em&gt; means it was cancelled by the customer before shipping.&lt;/p&gt;
+
+&lt;p&gt;This could have been a bigger one, so I&amp;rsquo;ll try not to &lt;em&gt;conclude&lt;/em&gt; a result here but we can see the customer behavior and the service &lt;em&gt;Myntra&lt;/em&gt; provides. Coming to a result from this data would be a case of &lt;em&gt;overfitting&lt;/em&gt; essentially.&lt;/p&gt;
+
+&lt;p&gt;Although the dataset is small, it&amp;rsquo;s distributed over a &lt;em&gt;time continuum&lt;/em&gt; instead of being a &lt;em&gt;discrete segment&lt;/em&gt;, because of the internal working of &lt;em&gt;Engine&lt;/em&gt;.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/engine.png&#34;&gt; 
+    &lt;figcaption&gt;How Engine generate identifiers&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;We are all set to take off now.&lt;/p&gt;
+
+&lt;h3 id=&#34;when-does-india-shops&#34;&gt;When does India shops?&lt;/h3&gt;
+
+&lt;p&gt;As long as I remember, I have ordered something online in the evening, around 06-07 PM. But this is not the case for everyone else.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~pravj/51/&#34; target=&#34;_blank&#34; title=&#34;When does India shops?&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~pravj/51.png&#34; alt=&#34;When does India shops?&#34; style=&#34;max-width: 100%;width: 600px;&#34;  width=&#34;600&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;pravj:51&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We can see that there are two concerted segments. One from 09:00 AM to 05:00 PM in the evening and the other is from 06:00 PM to midnight. Not many orders are there during the &lt;em&gt;bed time&lt;/em&gt;, after midnight till the dawn.&lt;/p&gt;
+
+&lt;p&gt;The morning peak is around 10:00 AM, which is near the usual opening hours of &lt;em&gt;Myntra&amp;rsquo;s big discount sales&lt;/em&gt;. &lt;em&gt;Returned Orders&lt;/em&gt; are present throughout the days.&lt;/p&gt;
+
+&lt;p&gt;The presence of orders at every possible time of day shows the ease in the life of people using &amp;lsquo;online shopping&amp;rsquo;. You have got a need and there are platforms to fulfill that. Otherwise, why would someone order at 02:00 AM in the morning?&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Myntra&lt;/em&gt; also runs a &lt;em&gt;same day delivery&lt;/em&gt; program where they ship your order in 24 hours, across the country. And in our dataset, a significant number of such orders were placed after midnight.&lt;/p&gt;
+
+&lt;h3 id=&#34;from-where-does-india-shops&#34;&gt;From where does India shops?&lt;/h3&gt;
+
+&lt;div id=&#39;customer-map&#39; style=&#34;height:400px;&#34;&gt;&lt;/div&gt;
+
+&lt;script src=&#39;https://gist.githack.com/pravj/d4c24e297e5eafeba22f/raw/c8f7541edb7e69dd53ed688ef81d34a34c66f479/customer-location.js&#39;&gt;&lt;/script&gt;
+&lt;script&gt;
+L.mapbox.accessToken = &#39;pk.eyJ1IjoicHJhdmoiLCJhIjoiNjc1YTVjYTEzMjAyNjU4ZTgwNjQyMDQwNzgxNTc5MGMifQ.bEvQyBRzIuy5S_hmpsPLuA&#39;;
+    var map = L.mapbox.map(&#39;customer-map&#39;, &#39;mapbox.streets&#39;)
+        .setView([23.548683,79.7800369], 4);
+
+    var markers = new L.MarkerClusterGroup();
+
+    for (var i = 0; i &lt; addressPoints.length; i++) {
+        var a = addressPoints[i];
+        var title = a[2];
+        var marker = L.marker(new L.LatLng(a[0], a[1]), {
+            icon: L.mapbox.marker.icon({&#39;marker-symbol&#39;: &#39;building&#39;, &#39;marker-color&#39;: &#39;DD44FF&#39;}),
+            title: title
+        });
+        marker.bindPopup(title);
+        markers.addLayer(marker);
+    }
+
+    map.addLayer(markers);
+&lt;/script&gt;
+
+&lt;p&gt;Here is a clustered map of places in the country, that I found as &lt;em&gt;final destinations&lt;/em&gt; of &lt;em&gt;completed orders&lt;/em&gt;. This means that the map ignores the number of orders at a place, it just represents the &lt;em&gt;geographic distribution&lt;/em&gt; of the orders. Also, it doesn&amp;rsquo;t count a locality multiple times. For example, &lt;em&gt;Agartala&lt;/em&gt; has 2-3 different final destinations but they are clustered to a single place/centre, &lt;em&gt;Agartala COD Centre 3&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I was magnificent to see this map when I plotted it first time. Not because my program worked, but to see the markers in extreme areas of the country, especially in the &lt;em&gt;Northeast India&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s good to see that almost every region of the country is here. There are 432 different places in here. You are free to zoom in and check out your region, if available.&lt;/p&gt;
+
+&lt;p&gt;After seeing this big coverage I would say, they can expand easily to &lt;em&gt;Bangladesh&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have used &lt;em&gt;Google&amp;rsquo;s Geocoding API&lt;/em&gt; to convert a place name to its coordinates.&lt;/p&gt;
+
+&lt;h3 id=&#34;how-long-does-it-take-to-deliver-your-order&#34;&gt;How long does it take to deliver your order?&lt;/h3&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~pravj648/16/&#34; target=&#34;_blank&#34; title=&#34;How long does it take to deliver your order?&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~pravj648/16.png&#34; alt=&#34;How long does it take to deliver your order?&#34; style=&#34;max-width: 100%;width: 600px;&#34;  width=&#34;600&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;pravj648:16&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;If you live in north India or near(&lt;em&gt;measured in terms of direct road connectivity&lt;/em&gt;) the warehouses of &lt;em&gt;Myntra&lt;/em&gt;, you &lt;em&gt;can&lt;/em&gt; have your package in 24 hours. In the dataset, many orders from Nation Capital Region, Jaipur and Bangalore have delivered in the same day.&lt;/p&gt;
+
+&lt;p&gt;Otherwise, majority of the orders takes 3 to 4 days across the country, except the &lt;em&gt;North East&lt;/em&gt;(Guwahati, Imphal) and &lt;em&gt;West Coast&lt;/em&gt;(Mumbai Parel, Antop Hill) region.&lt;/p&gt;
+
+&lt;p&gt;I have calculated the delivery delay by subtracting the time of order being placed from the &lt;em&gt;last event time&lt;/em&gt; in the events timeline of a &lt;em&gt;complete order&lt;/em&gt;. The timeline consists of all the sub-details like &lt;em&gt;&amp;lsquo;Order is placed&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;Order is packed&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;In transit&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;Arrived at delivery center&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;Order out for delivery&amp;rsquo;&lt;/em&gt; and &lt;em&gt;&amp;lsquo;Delivered&amp;rsquo;&lt;/em&gt; etc. Which is &lt;em&gt;error prone&lt;/em&gt; because they seems to update some order after awhile.&lt;/p&gt;
+
+&lt;p&gt;At the &lt;em&gt;tail&lt;/em&gt; of the curve, the delay in some cases seems to be caused by customers actually, some reason were &lt;em&gt;&amp;lsquo;CID - COD(cash on delivery) AMOUNT NOT READY&amp;rsquo;&lt;/em&gt;, &amp;lsquo;&lt;em&gt;Consignee Out Of Station; Shipment un-delivered&lt;/em&gt;&amp;rsquo;, &amp;lsquo;&lt;em&gt;Undelivered due to - Consignee Residence Closed&lt;/em&gt;&amp;rsquo; etc.&lt;/p&gt;
+
+&lt;h3 id=&#34;shared-logistics&#34;&gt;Shared Logistics&lt;/h3&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~pravj648/145/&#34; target=&#34;_blank&#34; title=&#34;Shared Logistics&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~pravj648/145.png&#34; alt=&#34;Shared Logistics&#34; style=&#34;max-width: 100%;width: 1258px;&#34;  width=&#34;1258&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;pravj648:145&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Having a great logistics service is a key point for online shops. Both &lt;em&gt;Myntra&lt;/em&gt; and &lt;em&gt;Flipkart&lt;/em&gt; have their own such services named &lt;em&gt;Myntra Logistics&lt;/em&gt; and &lt;em&gt;EKart Logistics&lt;/em&gt; respectively.&lt;/p&gt;
+
+&lt;p&gt;To deliver products out of their range or to overcome the heavy demand during &lt;em&gt;big discount sales&lt;/em&gt;, they ship the products with third party logistic providers.&lt;/p&gt;
+
+&lt;p&gt;In the dataset you can see that majority of the orders have been shipped by &lt;em&gt;Myntra Logistics&lt;/em&gt; itself, and then by &lt;em&gt;EKart&lt;/em&gt;. &lt;em&gt;Delhivery&lt;/em&gt; is an emerging logistic solution provider in the country.&lt;/p&gt;
+
+&lt;p&gt;Here we can see the regions in which &lt;em&gt;FedEx&lt;/em&gt; and &lt;em&gt;DTDC&lt;/em&gt; were used for delivery.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~pravj648/159/&#34; target=&#34;_blank&#34; title=&#34;Outsourced Logistic Partner Network&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~pravj648/159.png&#34; alt=&#34;Outsourced Logistic Partner Network&#34; style=&#34;max-width: 100%;width: 1258px;&#34;  width=&#34;1258&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;pravj648:159&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;end-of-reason-sale-purchase-behavior&#34;&gt;&amp;lsquo;End of Reason Sale&amp;rsquo; Purchase Behavior&lt;/h3&gt;
+
+&lt;p&gt;&amp;lsquo;End of Reason Sale&amp;rsquo; (&lt;em&gt;EORS&lt;/em&gt;) from 18-19 July was one of the biggest sales by &lt;em&gt;Myntra&lt;/em&gt; in the year 2015. It was after when their previous sale faced criticism because of &lt;a href=&#34;http://timesofindia.indiatimes.com/tech/tech-news/After-botching-up-sale-Myntra-apologizes-to-users/articleshow/47528824.cms&#34;&gt;technical glitches&lt;/a&gt; in May 2015.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;EORS&lt;/em&gt; started on 18th July from 08:00 AM. Here is a heatmap of order from dataset ranging from 17th July to 20th July.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~pravj648/166/&#34; target=&#34;_blank&#34; title=&#34;EORS Purchase Behavior&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~pravj648/166.png&#34; alt=&#34;EORS Purchase Behavior&#34; style=&#34;max-width: 100%;width: 1258px;&#34;  width=&#34;1258&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;pravj648:166&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We can see a pattern similar to the &lt;em&gt;sale days&lt;/em&gt; for 20th July, which supports the notion that &lt;em&gt;EORS&lt;/em&gt; was &lt;a href=&#34;http://webcache.googleusercontent.com/search?q=cache:DuSB-kY2Il4J:https://batch.com/insights/push/ey8v28jv00zd+&amp;amp;cd=7&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;gl=in&#34;&gt;extended after its official period&lt;/a&gt; for some styles.&lt;/p&gt;
+
+&lt;h3 id=&#34;brands-on-the-platform&#34;&gt;Brands on the platform&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Myntra&lt;/em&gt; being an online shopping service mainly, also &lt;a href=&#34;http://www.rediff.com/business/report/myntra-to-have-usd-100-mn-in-house-brands/20150805.htm&#34;&gt;owns in-house fashion brands&lt;/a&gt; like Roadster, Dressberry, Anouk (for women), Mast &amp;amp; Harbour, Kook N Keech, Yellow Kite (for kids) and Invictus etc.&lt;/p&gt;
+
+&lt;p&gt;Here is an &lt;em&gt;approx&lt;/em&gt; gender segmentation of brands(top 50 in the dataset) on the platform.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~pravj648/105/&#34; target=&#34;_blank&#34; title=&#34;Gender Segmentation of brands&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~pravj648/105.png&#34; alt=&#34;Gender Segmentation of brands&#34; style=&#34;max-width: 100%;width: 600px;&#34;  width=&#34;600&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;pravj648:105&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;do-small-shopkeepers-purchase-online-to-sell-in-their-locality&#34;&gt;Do small shopkeepers purchase online to sell in their locality?&lt;/h3&gt;
+
+&lt;p&gt;What do you generally purchase online? Whatever it&amp;rsquo;s, but you don&amp;rsquo;t actually buy 3 shirts of the same type, do you?&lt;/p&gt;
+
+&lt;p&gt;This is something I found suspicious when I was looking in the dataset for orders having a lot of products in one shipment.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/bulk-order.png&#34;&gt; 
+    &lt;figcaption&gt;Does small shopkeepers purchase from Myntra to sell in their locality?&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This picture shows products in a shipment which contains shoes only, of similar types.&lt;/p&gt;
+
+&lt;p&gt;Although it&amp;rsquo;s exactly how the selling process works, you buy from a person and sell to someone else. But in this case, it seems weird to me.&lt;/p&gt;
+
+&lt;p&gt;I thought &amp;lsquo;online shopping services&amp;rsquo; are just adjacent node to us on the &lt;em&gt;Internet Services Graph&lt;/em&gt; and this is how people use it. This indicates towards the existence of a community which is still away from the Internet, its benefits and is being cheated. Cheating in the sense that shopkeepers may buy from online services during sales and then sell them at relatively high prices to local customers.&lt;/p&gt;
+
+&lt;h3 id=&#34;inference&#34;&gt;Inference&lt;/h3&gt;
+
+&lt;p&gt;Although I have said that I won&amp;rsquo;t conclude results from this data, but I guess we can&amp;rsquo;t deny some facts.&lt;/p&gt;
+
+&lt;p&gt;&amp;lsquo;Online Shopping&amp;rsquo; is a perk that the boom on Internet and Startups has given to the country. It&amp;rsquo;s shaping the economy by creating a variety of employments. Still a lot of people are yet to go through this makeover.&lt;/p&gt;
+
+&lt;p&gt;As the number of Internet users is growing in the country, we can expect more good to happen.&lt;/p&gt;
+
+&lt;h3 id=&#34;probable-fix&#34;&gt;Probable Fix&lt;/h3&gt;
+
+&lt;p&gt;I think a simple solution can be employed here to avoid intruders.&lt;/p&gt;
+
+&lt;p&gt;To ask for the associated &lt;em&gt;mobile number&lt;/em&gt; while checking details of an order, if the user is not logged in. One can guess the &lt;em&gt;unique id&lt;/em&gt; for orders but not the &lt;em&gt;mobile number&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;disclaimer&#34;&gt;Disclaimer&lt;/h3&gt;
+
+&lt;p&gt;This is going to be a little contradictory. According to Oxford Dictionary, &lt;em&gt;Disclaimer&lt;/em&gt; means &amp;ldquo;&lt;em&gt;A statement that denies something, especially responsibility&lt;/em&gt;&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;I won&amp;rsquo;t do that. This time again, I&amp;rsquo;m aware that such collection of data is a wrong act in &lt;em&gt;Internet terms&lt;/em&gt;. But I can&amp;rsquo;t control myself when I get such an idea and some questions that can only be solved by visualizing the data, referring to &lt;a href=&#34;https://en.wikipedia.org/wiki/Anscombe%27s_quartet&#34;&gt;Anscombe&amp;rsquo;s quartet&lt;/a&gt;. I just wish I&amp;rsquo;m not getting prosecuted for this. The dataset doesn&amp;rsquo;t contain any private information(&lt;em&gt;name, mobile number, home address&lt;/em&gt;) of someone, &lt;em&gt;it&amp;rsquo;s not at all available.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Remember the &lt;a href=&#34;https://github.com/pravj/blitz.engine&#34;&gt;Engine&lt;/a&gt; and &lt;em&gt;Station&lt;/em&gt;? I have decided not to open source the &lt;em&gt;Station&lt;/em&gt;, which was used to collect the data. Almost all programs I have used to &lt;em&gt;analyse&lt;/em&gt; the data are available at &lt;a href=&#34;https://github.com/pravj/Fuel&#34;&gt;Fuel&lt;/a&gt;, without the actual data I have collected.&lt;/p&gt;
+
+&lt;p&gt;If you are reading this, you have passed my experiment. Let me gift you a free &lt;b&gt;Happy New Year&lt;/b&gt; wish.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Post-mortem of an Internet Accident</title>
+      <link>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</link>
+      <pubDate>Sun, 11 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</guid>
+      <description>
+
+&lt;p&gt;Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination &lt;em&gt;Internet Accident&lt;/em&gt; confuse you, let me decode its meaning in the context of this post.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Encounter with something on an edge node of the Holy Internet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So this post is all about my attempt to solve a question, I saw on &lt;em&gt;Quora&lt;/em&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.quora.com/What-good-known-project-on-GitHub-uses-the-largest-number-of-programming-languages&#34;&gt;What good known projects on GitHub uses the largest number of programming languages?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And I think that my answer is 98.76% correct, respecting the &lt;em&gt;No-Zero-Redundancy&lt;/em&gt; law.&lt;/p&gt;
+
+&lt;p&gt;I saw this question while jumping between my chrome tabs when I was struggling with old drafts of my blog.
+I clicked the link to give it a separate tab; &lt;em&gt;even questions have self respect&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I stumbled upon it as I saw that the question had a topic named &lt;em&gt;GitHub&lt;/em&gt; also.&lt;/p&gt;
+
+&lt;p&gt;So, to answer this, all I had to do was to find a repository which uses highest number of programming languages in it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Wait, the question also says a &lt;em&gt;&amp;ldquo;good known project&amp;rdquo;&lt;/em&gt;.
+Now that&amp;rsquo;s a plot twist.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;GitHub&lt;/em&gt; provides an excellent &lt;a href=&#34;https://developer.github.com/v3/&#34;&gt;REST API&lt;/a&gt;, so excellent that it powers some awesome services also, like the &lt;a href=&#34;https://gitter.im&#34;&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, to look for languages statistics of a repository you need the names of the repository and its owner. Then you can check a repo&amp;rsquo;s languages statistics using.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://api.github.com/repos/{owner}/{repo}/languages&#34;&gt;https://api.github.com/repos/{owner}/{repo}/languages&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;As far as a I know, there is not any way to do a reverse lookup, where you just provide number of programming languages and it gives you all the associated repositories.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;So I thought, lets give up on it and enjoy the coffee, &lt;em&gt;I had one on my desk&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I closed the question tab and started enjoying the coffee but then I opened it again because I felt that there may be a chance, if I use the &lt;em&gt;GitHub Archive&lt;/em&gt; project.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;GitHub Archive is a project to record the public GitHub timeline, archive it, and make it easily accessible for further analysis.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This shift in plan was also not enough as &lt;em&gt;GitHub Archive&lt;/em&gt; gives only the major programming language for a project.
+Now it was the time to shift to coffee &lt;em&gt;full time&lt;/em&gt; but &lt;em&gt;Nope! I had another idea&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The idea was to collect &lt;em&gt;good and known&lt;/em&gt; projects of &lt;em&gt;GitHub&lt;/em&gt; and rank them according to no. of programming languages in them. This sounds like &lt;em&gt;Brute Force&lt;/em&gt; but it was the only way left.&lt;/p&gt;
+
+&lt;p&gt;I headed towards the &lt;em&gt;GitHub API&lt;/em&gt; for it but found that they gives you the first 1000 search results only.&lt;/p&gt;
+
+&lt;p&gt;So I moved to &lt;em&gt;GitHub Archive&lt;/em&gt; finally and &lt;a href=&#34;https://github.com/pravj/Post-mortem/blob/master/bigquery.sql&#34;&gt;downloaded a .csv file&lt;/a&gt; of all the repositories with greater than equal to 500 stars. Now, I think it covers most of your &lt;em&gt;good and known projects&lt;/em&gt;, happy now?&lt;/p&gt;
+
+&lt;p&gt;I &lt;em&gt;Vimed&lt;/em&gt; the .csv file and found that some URLs were missing the owner&amp;rsquo;s name.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/vim-screenshot.png&#34;&gt; 
+    &lt;figcaption&gt;Vim Screenshot&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;:g/https:\/\/github.com\/\//d&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I removed all the corrupted lines using this command.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If you&amp;rsquo;re thinking that by removing lines, we won&amp;rsquo;t consider these repositories then take a deep breath and don&amp;rsquo;t think so, we will consider them, keep reading.&lt;/p&gt;
+
+&lt;p&gt;Then I wrote a &lt;em&gt;Python module&lt;/em&gt; to interact with the &lt;em&gt;GitHub API&lt;/em&gt;, named it &lt;em&gt;&lt;a href=&#34;https://github.com/pravj/Post-mortem/blob/master/postman.py&#34;&gt;postman&lt;/a&gt;&lt;/em&gt;.
+The &lt;em&gt;postman&lt;/em&gt; uses &lt;em&gt;Authentication Token&lt;/em&gt; from &lt;em&gt;GitHub&lt;/em&gt; to prevent the &lt;em&gt;rate-limiting&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t know how much did &lt;em&gt;postman&lt;/em&gt; take in its task as I was attending my classes then.
+But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;/em&gt; was done with the task. &lt;em&gt;Wow, an obedient postman&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Right now if you search in GitHub for repositories having 500 or more stars, you will see around 7,200 results. So we have been doing this right so far as GitHub Archive &lt;a href=&#34;http://git.io/78eKDg&#34;&gt;don&amp;rsquo;t have&lt;/a&gt; all the data&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once all the data is available, it&amp;rsquo;s time to &lt;em&gt;rock &amp;lsquo;n&amp;rsquo; roll&lt;/em&gt;. &lt;a href=&#34;http://www.rstudio.com&#34;&gt;Rstudio&lt;/a&gt; is always there to help us.&lt;/p&gt;
+
+&lt;p&gt;Plotting the stars and languages distribution over all the repositories, we get this graph.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/stars-and-languages.png&#34;&gt; 
+    &lt;figcaption&gt;Stars and Language distribution&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;You can see that most of our good and known projects are in the bottom-left corner. Almost 90% of our repositories have less than 20,000 stars and 20 languages.&lt;/p&gt;
+
+&lt;p&gt;There is only one repository with more than 40,000 stars, which is the &lt;a href=&#34;https://github.com/twbs/bootstrap&#34;&gt;twbs/bootstrap&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;OK, let&amp;rsquo;s come to the question again. I think ordering repositories according to their no. of programming languages will work.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Top 25 projects by their no. of programming languages&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/leachim6/hello-world&#34;&gt;leachim6/hello-world&lt;/a&gt;, languages : 82&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ajaxorg/ace&#34;&gt;ajaxorg/ace&lt;/a&gt;, languages : 58&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ajaxorg/ace-builds&#34;&gt;ajaxorg/ace-builds&lt;/a&gt;, languages : 58&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/freebsd/freebsd&#34;&gt;RMerl/asuswrt-merlin&lt;/a&gt;, languages : 57&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/freebsd/freebsd&#34;&gt;freebsd/freebsd&lt;/a&gt;, languages : 39&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/geany/geany&#34;&gt;geany/geany&lt;/a&gt;, languages : 36&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/xbmc/xbmc&#34;&gt;xbmc/xbmc&lt;/a&gt;, languages : 30&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/dspinellis/unix-history-repo&#34;&gt;dspinellis/unix-history-repo&lt;/a&gt;, languages : 30&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/TechEmpower/FrameworkBenchmarks&#34;&gt;TechEmpower/FrameworkBenchmarks&lt;/a&gt;, languages : 28&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/imatix/zguide&#34;&gt;imatix/zguide&lt;/a&gt;, languages : 28&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/apache/thrift&#34;&gt;apache/thrift&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/msysgit/msysgit&#34;&gt;msysgit/msysgit&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kennyledet/Algorithm-Implementations&#34;&gt;kennyledet/Algorithm-Implementations&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/flycheck/flycheck&#34;&gt;flycheck/flycheck&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aichallenge/aichallenge&#34;&gt;aichallenge/aichallenge&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/triAGENS/ArangoDB&#34;&gt;triAGENS/ArangoDB&lt;/a&gt;, languages : 26&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/offensive-security/exploit-database&#34;&gt;offensive-security/exploit-database&lt;/a&gt;, languages : 25&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JuliaLang/julia&#34;&gt;JuliaLang/julia&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JetBrains/intellij-community&#34;&gt;JetBrains/intellij-community&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/facebook/pfff&#34;&gt;facebook/pfff&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ornicar/lila&#34;&gt;ornicar/lila&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/WebKit/webkit&#34;&gt;WebKit/webkit&lt;/a&gt;, languages : 22&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ariya/phantomjs&#34;&gt;ariya/phantomjs&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ruby/ruby&#34;&gt;ruby/ruby&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/coolwanglu/vim.js&#34;&gt;coolwanglu/vim.js&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;So, is that all? &lt;em&gt;Not at all! We have a lot to talk about my friend.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets talk about something interesting I found in the data there.&lt;/p&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;1-there-were-382-repositories-without-any-programming-language&#34;&gt;1. There were 382 repositories without any programming language.&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Most of them are documentations, list of resources for a field.&lt;/li&gt;
+&lt;li&gt;For example &lt;a href=&#34;https://github.com/vhf/free-programming-books&#34;&gt;vhf/free-programming-books&lt;/a&gt;, List of free learning resources.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/zero-language-repository.png&#34;&gt; 
+    &lt;figcaption&gt;Zero Language Repositories&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Subject to the detection of language by GitHub.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Along with the required dataset, I was also collecting the &lt;a href=&#34;https://github.com/pravj/Post-mortem/blob/master/log/postman.log&#34;&gt;logs&lt;/a&gt; data.
+So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;2-the-log-file-shows-error-status-404-in-some-lines&#34;&gt;2. The log file shows &amp;lsquo;ERROR : status 404&amp;rsquo; in some lines.&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;There are 214 such lines, it means these projects have shifted their owners as it&amp;rsquo;s unusual to delete such popular repository.&lt;/li&gt;
+&lt;li&gt;They have evolved to much larger projects and have their own organizations now. For example the projects &lt;a href=&#34;https://github.com/homebrew/homebrew&#34;&gt;Homebrew&lt;/a&gt;, &lt;a href=&#34;https://github.com/docker/docker&#34;&gt;Docker&lt;/a&gt; and &lt;a href=&#34;https://github.com/jekyll/jekyll&#34;&gt;Jekyll&lt;/a&gt;, earlier they were &lt;a href=&#34;https://github.com/mxcl/homebrew&#34;&gt;mxcl/homebrew&lt;/a&gt;, &lt;a href=&#34;https://github.com/dotcloud/docker&#34;&gt;dotcloud/docker&lt;/a&gt; and &lt;a href=&#34;https://github.com/mojombo/jekyll&#34;&gt;mojombo/jekyll&lt;/a&gt; respectively.&lt;/li&gt;
+&lt;li&gt;The maximum-star-holder-and-ultra-awesome project &lt;a href=&#34;https://github.com/twbs/bootstrap&#34;&gt;twbs/bootstrap&lt;/a&gt; was earlier at &lt;em&gt;Twitter&lt;/em&gt; by the address, &lt;a href=&#34;https://github.com/twitter/bootstrap&#34;&gt;twitter/bootstrap&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The one-and-only TJ Holowaychuk have changed his username from &lt;a href=&#34;https://github.com/visionmedia&#34;&gt;visionmedia&lt;/a&gt; to &lt;a href=&#34;https://github.com/tj&#34;&gt;tj&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;3-the-log-file-shows-error-status-403-in-some-lines&#34;&gt;3. The log file shows &amp;lsquo;ERROR : status 403&amp;rsquo; in some lines.&lt;/h3&gt;
+
+&lt;p&gt;Now this is weird, as status 403 denotes the Forbidden state. But underlying secrets are much more awesome here.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;There were two repositories, disabled due to a DMCA takedown notice.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/popcorn-official/popcorn-app&#34;&gt;popcorn-official/popcorn-app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Bukkit/CraftBukkit&#34;&gt;Bukkit/CraftBukkit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;There was one repositories which is disabled by GitHub staff.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mandatoryprogrammer/Octodog_Invasion&#34;&gt;mandatoryprogrammer/Octodog_Invasion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;There was one repository which is deleted.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/NULLPointerDz/test&#34;&gt;NULLPointerDz/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t know how but this repository had more than 500 stars once.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The code for this report is on GitHub, &lt;a href=&#34;https://github.com/pravj/Post-mortem&#34;&gt;pravj/Post-mortem&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you feel that you can do more after going through this post-mortem report, you are welcome to show your medical skills.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

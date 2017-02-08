@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on hack(pravj)</title>
+    <link>http://pravj.github.io/tags/golang/index.xml</link>
+    <description>Recent content in Golang on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://pravj.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Development story of puzzl</title>
+      <link>http://pravj.github.io/blog/development-story-of-puzzl/</link>
+      <pubDate>Thu, 23 Apr 2015 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/development-story-of-puzzl/</guid>
+      <description>
+
+&lt;p&gt;Lets start with that old promotion rant I use all the time.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You should have a look at &lt;a href=&#34;https://github.com/pravj/puzzl&#34;&gt;puzzl&lt;/a&gt;, if you haven&amp;rsquo;t yet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;what-this-is-all-about&#34;&gt;What this is all about?&lt;/h3&gt;
+
+&lt;p&gt;This post is about development of a sliding-puzzle game I made recently, named &lt;em&gt;puzzl&lt;/em&gt;. I refer it as an &lt;em&gt;intelligent version&lt;/em&gt; of the classical sliding puzzle game, and I&amp;rsquo;ll explain the reason behind this. Stay awake.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/puzzl.gif&#34;&gt; 
+    &lt;figcaption&gt;Puzzl in action&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;for-what-joy&#34;&gt;For What Joy?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Yes, that&amp;rsquo;s the best question. Why did I do that?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There &lt;em&gt;is&lt;/em&gt; a force behind everything we do, so the same goes for any new software product we see in the jungle or a new medicine or whatever.&lt;/p&gt;
+
+&lt;p&gt;They all try to solve some problems. A new version of a software has some bugs fixed from the older one and so on.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;But hey! you can develop a game without such force anytime.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Specially, when you are supposed to study for your exams. Tested, &lt;em&gt;rule of thumb&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;exam-time-bamboozlement&#34;&gt;Exam-time bamboozlement&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The &lt;em&gt;session&lt;/em&gt; when your mind&amp;rsquo;s &lt;em&gt;stream&lt;/em&gt; is *grep*ing too many *event*s.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You feel like, put this exam thing in left and consider this problem-&lt;em&gt;blah&lt;/em&gt;, because the world needs you. Right now.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s gone after a nice sleep, like hangover. But it may attack you again on the next exam day, depending on your performance in last exam.&lt;/p&gt;
+
+&lt;p&gt;You think about too many things, however some are out of your domain though.&lt;/p&gt;
+
+&lt;p&gt;For example, &lt;em&gt;A bicycle for old aged people&lt;/em&gt;. I found it an actual problem by the way, as I often see them having trouble riding the native big bicycles.&lt;/p&gt;
+
+&lt;p&gt;Then you think that it should run on its own, so you draw a sketch and invest your time in adding solar panels at proper orientation, so that charging is not something to worry about, no matter where the sun is.&lt;/p&gt;
+
+&lt;p&gt;Then you suddenly realize that you&amp;rsquo;re about to transform into &lt;em&gt;Tony Stark&lt;/em&gt;. You&amp;rsquo;re working on a problem which comes under &lt;em&gt;Mechanical Engineering&lt;/em&gt;. And there is no chance you can complete this without either having a degree in it or a girlfriend from that stream. By the way, both the solutions are difficult.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A similar bamboozlement was the reason behind the game &lt;em&gt;puzzl&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I was setting up my camp for the mid-term exam of &lt;em&gt;Artificial Intelligence&lt;/em&gt; course. And then I stumbled upon this &lt;em&gt;sliding-puzzle&lt;/em&gt; game thing in book.&lt;/p&gt;
+
+&lt;p&gt;Then I thought, what about a sliding-puzzle game for terminals?&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s it. I was done with further preparation. I even spent the entire exam time divising the &lt;em&gt;scoring mechanism&lt;/em&gt; and &lt;em&gt;logo&lt;/em&gt; for the game. The last page of the solution paper and my low score is the proof.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-problem-statement&#34;&gt;The problem statement&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Sliding-puzzle&lt;/em&gt; games have many variants. I decided to move ahead with the one having a 3x3 board, the &lt;em&gt;8-puzzle&lt;/em&gt;. 8 out of 9 tiles have some numbers on them, one tile is blank.&lt;/p&gt;
+
+&lt;p&gt;All you have to do is, arrange all tiles in a particular order. Lets say, in increasing order with the blank tile being the last one.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/states.jpg&#34;&gt; 
+    &lt;figcaption&gt;8 puzzle game states&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This sounds a little easy, taking user inputs, moving the tiles accordingly and checking that whether we are done with the game or not. So, I decided to enhance both the development and playing processes.&lt;/p&gt;
+
+&lt;p&gt;To solve the game in background and track user moves accordingly or give them hints. Poor humans.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-solution&#34;&gt;The solution&lt;/h3&gt;
+
+&lt;p&gt;The solution is pretty simple actually. There is a blank tile in the game board and you can reach to a different configuration by moving that blank tile in atmost 4 directions, according to its current position.&lt;/p&gt;
+
+&lt;p&gt;Now, how do you make a computer solve this, efficiently?&lt;/p&gt;
+
+&lt;p&gt;This can be reduced to a problem where any game board configuration is a &lt;em&gt;node&lt;/em&gt; and you can reach to a &lt;em&gt;node&lt;/em&gt; from its &lt;em&gt;parent node&lt;/em&gt; by applying a &lt;em&gt;successor function&lt;/em&gt;, which is the movement of the blank tile in this case.&lt;/p&gt;
+
+&lt;p&gt;So, this is a &lt;em&gt;graph search problem&lt;/em&gt; now. You have a &lt;em&gt;start state&lt;/em&gt; and you have to reach at a &lt;em&gt;goal state&lt;/em&gt; in minimum steps.&lt;/p&gt;
+
+&lt;p&gt;In &lt;em&gt;puzzl&lt;/em&gt;, the algoirthm which solves this &lt;em&gt;graph search problem&lt;/em&gt; is &lt;a href=&#34;http://en.wikipedia.org/wiki/A*_search_algorithm&#34;&gt;A* algorithm&lt;/a&gt;. As of now, it uses the easiest &lt;em&gt;Heuristic Function&lt;/em&gt;, &lt;a href=&#34;http://en.wikipedia.org/wiki/Heuristic_function&#34;&gt;Misplaced Tiles Count&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The auto solving part sounds pretty easy, right? Like a walk while eating a cake.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;But there were some other interesting challenges.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;primary-language&#34;&gt;Primary Language&lt;/h3&gt;
+
+&lt;p&gt;I opted for Golang as the primary language of &lt;em&gt;puzzl&lt;/em&gt;, just because &lt;em&gt;I&amp;rsquo;m loving it&lt;/em&gt; and I wanted it to takeoff comparatively faster than other solutions, let&amp;rsquo;s say Python.&lt;/p&gt;
+
+&lt;p&gt;After some work, I started getting ideas of other features and I was happy with my language choice, as Go is the best solution I can think of for them. I&amp;rsquo;ll talk about those features in a while.&lt;/p&gt;
+
+&lt;h3 id=&#34;solvability-of-the-problem&#34;&gt;Solvability of the problem&lt;/h3&gt;
+
+&lt;p&gt;This is one of those interesting parts I faced while making it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Not all 8- puzzle game configurations are solvable.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Yes, for a 3x3 game board, there are a total of 362880 configurations possible(9!), but only half of them are actually solvable.&lt;/p&gt;
+
+&lt;p&gt;Initially it took me a while to get it that why only some of them are solvable? But after going through &amp;ldquo;&lt;em&gt;Notes on the 15 puzzle&lt;/em&gt;&amp;rdquo; paper by &lt;em&gt;Wm. Woolsey Johnson and William E. Story&lt;/em&gt; it was clear to me.&lt;/p&gt;
+
+&lt;p&gt;Using the &lt;em&gt;Mathematical Induction&lt;/em&gt; on what it was there in the paper, I have a sample game for you. You can spend rest of your life solving this, if you want to.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/unsolvable-game.jpg&#34;&gt; 
+    &lt;figcaption&gt;Unsolvable sliding puzzle&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Then I added a package named &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/scanner/scanner.go&#34;&gt;scanner&lt;/a&gt; in the game, with the help of &amp;ldquo;&lt;em&gt;Analysis of the Sixteen Puzzle&lt;/em&gt;&amp;rdquo;. It makes sure that any game configuration we are using, is really solvable. It uses another for the game, if one is not actually solvable.&lt;/p&gt;
+
+&lt;h3 id=&#34;notification-system&#34;&gt;Notification System&lt;/h3&gt;
+
+&lt;p&gt;And this was the most interesting part. Developing a &lt;em&gt;Real time Notification System&lt;/em&gt; according to the game state.&lt;/p&gt;
+
+&lt;p&gt;When I was done with writing the auto-solving background process for the game, I noticed that sometimes it takes a while to solve from the initial game configuration.&lt;/p&gt;
+
+&lt;p&gt;For example, the hardest game configuration is solvable in 31 moves. So, when the game is solving it, it doesn&amp;rsquo;t properly respond to user inputs.&lt;/p&gt;
+
+&lt;p&gt;It won&amp;rsquo;t respond in this way because the control flow architecture is &lt;em&gt;Synchronous&lt;/em&gt; now. It means that firstoff the game will solve itself in background and then stars accepting user inputs.&lt;/p&gt;
+
+&lt;p&gt;And this goes worse when the game is solving itself on each move because user input was wrong. A serious problem it was.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Here comes the concurrency primitives of Golang.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Concurrent programming is the beauty in Go. The language comes with built-in weapons, &lt;em&gt;goroutines&lt;/em&gt; and &lt;em&gt;channels&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The solution works like this, we have to change the control flow architecture into &lt;em&gt;Asynchronous&lt;/em&gt; mode. Where the game would be notifying us that &lt;em&gt;OK, now I&amp;rsquo;m done with solving and you can give any input&lt;/em&gt;, and avoiding all user inputs gracefully till then without a crash.&lt;/p&gt;
+
+&lt;p&gt;And this can be used in many other aspects, notifying on a particular internal event. Like &lt;em&gt;the game is complete&lt;/em&gt;, &lt;em&gt;you just did a right/wrong move&lt;/em&gt;, &lt;em&gt;there are no hints left&lt;/em&gt; etc.&lt;/p&gt;
+
+&lt;p&gt;There are two &lt;em&gt;goroutines&lt;/em&gt;, one for &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417&#34;&gt;handling the notification events&lt;/a&gt; and another for &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417&#34;&gt;solving the game in background&lt;/a&gt;, both are non-blocking in nature to other routines like &lt;em&gt;user inputs&lt;/em&gt;, &lt;em&gt;game display&lt;/em&gt; etc. A &lt;em&gt;channel&lt;/em&gt; named &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/notification/notification.go#L19&#34;&gt;Tunnel&lt;/a&gt; was the messenger for these &lt;em&gt;goroutines&lt;/em&gt;.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/architecture.jpg&#34;&gt; 
+    &lt;figcaption&gt;Asynchronous Gouroutines Architecture&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This is like feeding each other. Best friends forever.&lt;/p&gt;
+
+&lt;h3 id=&#34;game-interface&#34;&gt;Game Interface&lt;/h3&gt;
+
+&lt;p&gt;Thanks to &lt;a href=&#34;http://en.wikipedia.org/wiki/Box-drawing_character&#34;&gt;Box-drawing characters&lt;/a&gt;, the best old way to develop text based user interfaces. And thanks to &lt;a href=&#34;https://github.com/nsf/termbox-go&#34;&gt;termbox-go&lt;/a&gt;, an awesome library for such interface development in Golang.&lt;/p&gt;
+
+&lt;h3 id=&#34;arxiv-submission&#34;&gt;arXiv submission&lt;/h3&gt;
+
+&lt;p&gt;I loved working on it so much that I even framed its development in shape of a research paper, sort of. It&amp;rsquo;s available on the arXiv digital library, here &lt;a href=&#34;http://arxiv.org/abs/1503.08345&#34;&gt;arxiv-1503.08345&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Implementing an intelligent version of the classical sliding-puzzle game for unix terminals using Golang&amp;rsquo;s concurrency primitives.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s not in LaTeX, so the arXiv stamp is absent in PDF format there. They replied that they don&amp;rsquo;t have any technique yet to stamp other formats. I&amp;rsquo;ll probably port it in LaTeX one day.&lt;/p&gt;
+
+&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.jstor.org/stable/pdf/2369492.pdf?acceptTC=true&#34;&gt;Notes on the 15 puzzle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://kevingong.com/Math/SixteenPuzzle.html&#34;&gt;Analysis of the Sixteen Puzzle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ai-php.com/wp-content/uploads/2013/12/AI8pzzle.jpg&#34;&gt;ai-php.com&lt;/a&gt; for the 8-puzzle game states image&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://captnemo.in/&#34;&gt;Abhay Rana&lt;/a&gt; for teaching me what &lt;em&gt;For What Joy&lt;/em&gt; is. #FWJ?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;behind-the-scene&#34;&gt;Behind the scene&lt;/h3&gt;
+
+&lt;p&gt;I framed all this story for you, the truth is something else.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Guess what? It&amp;rsquo;s my exam-time again that made me write this.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The source code for &lt;em&gt;puzzl&lt;/em&gt; is on &lt;a href=&#34;https://github.com/pravj/puzzl&#34;&gt;GitHub&lt;/a&gt;. Do whatever you want, just respect licensing and other respectful things.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Holy Aesthete : painting a virtual wall</title>
+      <link>http://pravj.github.io/blog/virtual-wall/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/virtual-wall/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;Today, it&amp;rsquo;s the day of &lt;a href=&#34;http://en.wikipedia.org/wiki/Holi&#34;&gt;&lt;em&gt;Holi&lt;/em&gt;&lt;/a&gt;, the festival of colors in India.&lt;/p&gt;
+
+&lt;p&gt;Yesterday, it was the end of our midterm exams.&lt;/p&gt;
+
+&lt;p&gt;Such Time. Much Rhyme.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/wall.jpg&#34;&gt; 
+    &lt;figcaption&gt;Virtual Wall&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;During the last minutes, I decided to stop writing after matching an answer with the person sitting next to me. I was all set to run outside the hall and smell the &lt;em&gt;woot! no more exams left&lt;/em&gt; scent in the air.&lt;/p&gt;
+
+&lt;p&gt;I have one strange habit of drawing random things in my notebook, ranging from literally anything to &lt;em&gt;K-nearest&lt;/em&gt; girls. All the drawings are terrible though.&lt;/p&gt;
+
+&lt;p&gt;So I started utilizing rest of the time by drawing in the backside of exam paper. After a little journey to some wonderland, I had this weird sounding thought in my mind, &lt;em&gt;to write something that simulates a painted wall.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Then the exam ended, we left the hall, enjoyed the &lt;em&gt;Holi&lt;/em&gt; all day with batchmates.&lt;/p&gt;
+
+&lt;p&gt;That &lt;em&gt;weird thought&lt;/em&gt; was still there in my mind, deep somewhere. I decided to give it a shout next morning. And you never need a &lt;em&gt;halcion&lt;/em&gt; after ~40 hours of &lt;em&gt;not sleeping&lt;/em&gt; and doing &lt;em&gt;not so successful&lt;/em&gt; attempt of &lt;em&gt;cram&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Today, I started justifying that thought, picked up &lt;em&gt;golang&lt;/em&gt; for it and created a directory, &lt;em&gt;~/go/src/github/pravj/wall&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Wait! let&amp;rsquo;s talk over. Have you ever painted a wall before?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Well! I have. If not, you must have seen people doing it. &lt;em&gt;What happens when you start with the brush?&lt;/em&gt; Something like this picture.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/wall-paint.jpg&#34;&gt; 
+    &lt;figcaption&gt;Wall Paint&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Here in the picture, the part painted by each color doesn&amp;rsquo;t have a specific shape.&lt;/p&gt;
+
+&lt;p&gt;So, in my attempt, I assumed that there exists a central rectangular shape in color block generated by each brush swipe. And the final block also contains some &lt;em&gt;noise&lt;/em&gt; around that rectangle, resulting in the final irregular shape.&lt;/p&gt;
+
+&lt;p&gt;I started with those rectangles, equally spaced with each other. The space was for the noise interference I was planning. Result was this, fix colored image.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/first-stage.jpg&#34;&gt; 
+    &lt;figcaption&gt;First Stage&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Then I added the &lt;em&gt;noise&lt;/em&gt; on each rectangle. For this, instead of fix sized rectangle. I added some random lengthy stripes around the block, colored same as the block. The result was this image, fixed color again.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/second-stage.jpg&#34;&gt; 
+    &lt;figcaption&gt;Second Stage&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;After applying random colors to each block, it generates image similar to the one given below. The ideal thing to do would be, coloring each block in a way that it&amp;rsquo;s different from its surrounding block color. Something like the classical &lt;a href=&#34;http://en.wikipedia.org/wiki/Four_color_theorem&#34;&gt;Four Color Theorem&lt;/a&gt;, variant of the &lt;a href=&#34;http://en.wikipedia.org/wiki/Constraint_satisfaction_problem&#34;&gt;Constraint satisfaction problem&lt;/a&gt;.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/third-stage.jpg&#34;&gt; 
+    &lt;figcaption&gt;Third Stage&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;But in this case, the probability of the ideal case violation is &lt;em&gt;lilliputian&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Precisely, for a &lt;a href=&#34;http://en.wikipedia.org/wiki/Cross&#34;&gt;slanted saltire(cross)&lt;/a&gt; shape divided in five squares, the probability of central square having same color as any surrounding square will be around 2 in 10 million.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/probability.png&#34;&gt; 
+    &lt;figcaption&gt;Probability&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;So let&amp;rsquo;s ignore it like a pigeon closing its eyes in front of a venerer cat.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Now I was concerned about the equally spaced color blocks. Things were still not in the way I wanted them to be. It looked like there is a pattern inside. As systems having more entropy are more stable and &lt;em&gt;beautiful&lt;/em&gt;. I decided to put color blocks at random places in the image, result was this.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/fourth-stage.jpg&#34;&gt; 
+    &lt;figcaption&gt;Fourth Stage&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;After this all, the central rectangle that I have assumed for the structure, was clearly visible in the block. To conceal that, I formatted the block such that the &lt;em&gt;noise&lt;/em&gt; along the block-width depends on the index of the row in block matrix. Now, it was better than the last one.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/final-stage.jpg&#34;&gt; 
+    &lt;figcaption&gt;Final Stage&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This is what I have thought about. A wall painted by some children in their tiffin time.&lt;/p&gt;
+
+&lt;p&gt;This may sound like a dumb thing to work on, it&amp;rsquo;s actually. It&amp;rsquo;s just a combination of some &lt;em&gt;for&lt;/em&gt; and &lt;em&gt;if-else&lt;/em&gt; loops.&lt;/p&gt;
+
+&lt;p&gt;But this is more than just dumb, now I feel relieved as I made it real what I have thought about, something like Aaron has said.&lt;/p&gt;
+
+&lt;h3 id=&#34;behind-the-scene&#34;&gt;Behind the scene&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;While doing this, I painted one of my room wall, &lt;em&gt;hypothetically&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;You must have got the idea behind this post&amp;rsquo;s heading. &lt;em&gt;The Holi Fever&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Today, my room&amp;rsquo;s light is not working and I wrote this in the screen light.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Source Code : &lt;a href=&#34;https://github.com/pravj/virtual-wall&#34;&gt;virtual-wall&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introducing Penticons : The Hash Game</title>
+      <link>http://pravj.github.io/blog/penticons-the-hash-game/</link>
+      <pubDate>Sun, 08 Feb 2015 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/penticons-the-hash-game/</guid>
+      <description>
+
+&lt;p&gt;Jennifer Lawrence fan, huh? It was &lt;em&gt;The Hash Game&lt;/em&gt; by the way. Still in? Kewl.&lt;/p&gt;
+
+&lt;h3 id=&#34;what-s-the-buzz-all-about&#34;&gt;What&amp;rsquo;s the buzz all about?&lt;/h3&gt;
+
+&lt;p&gt;Unfortunately, there is no buzz. This post is about development of &lt;a href=&#34;https://github.com/penticons&#34;&gt;Penticons&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;penticons-what&#34;&gt;Penticons. What?&lt;/h3&gt;
+
+&lt;p&gt;Remember those &lt;a href=&#34;http://a0.twimg.com/sticky/default_profile_images/default_profile_6_normal.png&#34;&gt;egg shaped profile pictures&lt;/a&gt; on Twitter? They are automaticaly linked to your profile, when you forget to upload your custom profile picture.&lt;/p&gt;
+
+&lt;p&gt;Different services uses different default profile pictures. For example, Quora uses &lt;a href=&#34;http://qph.is.quoracdn.net/main-qimg-caf2e843c5e4c9dfec11bf60f9e82ccb?convert_to_webp=true&#34;&gt;this image&lt;/a&gt; of their co-founder Charlie Cheever.&lt;/p&gt;
+
+&lt;p&gt;In Internet&amp;rsquo;s language, these profile pictures are called &lt;em&gt;Avatars&lt;/em&gt;. They represents a particular user or object on the Internet.&lt;/p&gt;
+
+&lt;p&gt;As we have seen, Quora provides a single image as the default avatar. What if, you want to distinguish between users on the basis of their &lt;em&gt;avatars&lt;/em&gt;?&lt;/p&gt;
+
+&lt;p&gt;This particular problem to recognize users or objects according to their &lt;em&gt;avatar&lt;/em&gt; images was the main force behind the invention of &lt;a href=&#34;http://en.wikipedia.org/wiki/Identicon&#34;&gt;Identicons&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;An Identicon is a visual representation of a &lt;strong&gt;hash value&lt;/strong&gt;, uniquely* mapped to any object on the internet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Penticons&lt;/em&gt; are just another implementation of identicons. But it tries to solve a key problem with available identicons. Let&amp;rsquo;s see how.&lt;/p&gt;
+
+&lt;h3 id=&#34;hash-value-what&#34;&gt;Hash value. What?&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s put this identicon thingy in the left and talk on something interesting.&lt;/p&gt;
+
+&lt;p&gt;Do you know, How do they store your password in the Facebook? Obviously you do, but in case you don&amp;rsquo;t, let me confess something.&lt;/p&gt;
+
+&lt;p&gt;They have some guys sitting there, they remember all your passwords and match it to your input whenever you log in to the service. That simple it is.&lt;/p&gt;
+
+&lt;p&gt;Facebook also keeps a &lt;em&gt;hashed&lt;/em&gt; version of your passwords, in case all those smart guys are on leave, they just &lt;em&gt;hash&lt;/em&gt; your input again to match with their stored value. They log you in, if both of the values are same.&lt;/p&gt;
+
+&lt;p&gt;In case you are thinking, why do they &lt;em&gt;hash&lt;/em&gt; your passwords? They do it to make sure that nobody really knows your passwords except those &lt;em&gt;smart and loyal&lt;/em&gt; guys.&lt;/p&gt;
+
+&lt;h3 id=&#34;hash-hash-what-the-hash&#34;&gt;Hash.. Hash.. What the Hash?&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s fly back to the junior mathematics class and consider this tiny function.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/function.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, if I ask, what is the value of x when the value of function is 0? You can answer this easily by solving this simple quadratic equation. The values will be 2 and 1.&lt;/p&gt;
+
+&lt;p&gt;What if I change the function to a bit more horrible one. For example, take this.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/hard-function.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Feeling cold, huh? Well! you can still find the roots but with a bit more effort. One simple effort you can do is to &lt;em&gt;google&lt;/em&gt; this equation and you&amp;rsquo;ll find it on the very first result page.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;Hash Function&lt;/em&gt; we were talking about is one similar function that takes a value and returns the mapped value.&lt;/p&gt;
+
+&lt;p&gt;But in case of the &lt;em&gt;Cryptographic Hash Functions&lt;/em&gt;, it&amp;rsquo;s pretty hard to get back the &lt;em&gt;pre-image&lt;/em&gt; of a function value, somewhat like the second function above.&lt;/p&gt;
+
+&lt;p&gt;Additionally, these &lt;em&gt;Hash Functions&lt;/em&gt; are supposed to be &lt;em&gt;injective&lt;/em&gt; in nature. Unlike the first function above, which has two roots 2 and 1. In reality they are not totally injetive, though.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/MD5&#34;&gt;MD5&lt;/a&gt; and &lt;a href=&#34;http://en.wikipedia.org/wiki/SHA-1&#34;&gt;SHA-1&lt;/a&gt; are two such &lt;em&gt;Cryptographic Hash Functions&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;any-wrong-with-these-hash-functions&#34;&gt;Any wrong with these Hash Functions?&lt;/h3&gt;
+
+&lt;p&gt;Yeah! Let&amp;rsquo;s consider the MD5 hash function.&lt;/p&gt;
+
+&lt;p&gt;It generates a 128 bit hash-value for any argument. In the text format, it&amp;rsquo;s written as a 32 digit hexadecimal number.&lt;/p&gt;
+
+&lt;p&gt;For example, the word &amp;ldquo;alpha&amp;rdquo; results in, &lt;em&gt;2c1743a391305fbf367df8e4f069f9f9&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Can you guess, what is the maximum possible hash count MD5 can generate?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/md5-count.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;So if you have more elements than this count to hash, MD5 would be producing similar hashes for all the extra elements.&lt;/p&gt;
+
+&lt;p&gt;This is the case when MD5 is pure as hell, but it&amp;rsquo;s not actually.&lt;/p&gt;
+
+&lt;p&gt;There are many reports showing cryptographic weakness of MD5. For example, consider &lt;a href=&#34;http://www.mathstat.dal.ca/~selinger/md5collision/&#34;&gt;this report&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;why-penticons&#34;&gt;Why Penticons?&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Penticons tries to solve one key problem with available identicons.&lt;/em&gt; Let me explain.&lt;/p&gt;
+
+&lt;p&gt;They are developed on top of the identicons that &lt;a href=&#34;https://github.com/blog/1586-identicons&#34;&gt;GitHub provides&lt;/a&gt;. There are &lt;a href=&#34;https://github.com/search?utf8=%E2%9C%93&amp;amp;q=identicon&#34;&gt;many other&lt;/a&gt; similar identicon implementations available on GitHub.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take an inside on How these identicons works.&lt;/p&gt;
+
+&lt;p&gt;They generates a 5x5 pixel sprites, where they choose to color some of the pixel and left rest pixels as blank, according to the hash of user&amp;rsquo;s handle. They also have a vertical axis of symmetry, so the identicon is similar from left to right. Finally they color non-blank pixels with a color.&lt;/p&gt;
+
+&lt;p&gt;Now, what is the maximum number of identicons generated this way?&lt;/p&gt;
+
+&lt;p&gt;Suppose they are using 20 colors to fill in the non-blank pixels, they are &lt;a href=&#34;https://github.com/cupcake/sigil/blob/6bf9722f2ae82f58a0c7d48daeb40ec844b78eae/server.go#L20-L29&#34;&gt;not using&lt;/a&gt; this much colors, though. Then total possible identicon count will be :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/total-identicon.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;On the other hand, &lt;em&gt;Penticons&lt;/em&gt; uses &lt;a href=&#34;https://github.com/penticons/penticons.go/blob/master/utils/utils.go#L21-L25&#34;&gt;5 colors&lt;/a&gt; only, from GitHub&amp;rsquo;s contribution calendar. They also have a vertical axis of symmetry.&lt;/p&gt;
+
+&lt;p&gt;But instead of using a fix color to fill in, it uses any one of the 5, according to the hash value. This way, total number of identicons will be the following.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pravj.github.io/images/total-penticons.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Which is way more than other implementations, so the rate of collision is also less here.&lt;/p&gt;
+
+&lt;h3 id=&#34;now-what&#34;&gt;Now what?&lt;/h3&gt;
+
+&lt;p&gt;I made an organization for &lt;a href=&#34;https://github.com/penticons&#34;&gt;Penticons&lt;/a&gt;; just to look cool, though. I think so.&lt;/p&gt;
+
+&lt;p&gt;Last night, I wrote the &lt;a href=&#34;https://github.com/penticons/penticons.go&#34;&gt;golang implementation&lt;/a&gt; for &lt;em&gt;Penticons&lt;/em&gt;. My friend &lt;a href=&#34;https://github.com/nkman&#34;&gt;Nairitya&lt;/a&gt; will be writing some more very soon, at-least he promised me. Let&amp;rsquo;s see.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Avatar&lt;/em&gt; for the organization is a penticon itself, of the word &amp;ldquo;Penticons&amp;rdquo;.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/avatar.png&#34;&gt; 
+    &lt;figcaption&gt;Penticon Avatar for the word &#34;Penticons&#34;&lt;/figcaption&gt;
+&lt;/figure&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>geopattern : going on the Go path</title>
+      <link>http://pravj.github.io/blog/going-on-the-go-path/</link>
+      <pubDate>Sat, 01 Nov 2014 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/going-on-the-go-path/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;You should have a look at &lt;a href=&#34;https://github.com/pravj/geopattern&#34;&gt;geopattern&lt;/a&gt;, if you haven&amp;rsquo;t yet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;what-s-the-buzz-all-about&#34;&gt;What&amp;rsquo;s the buzz all about?&lt;/h3&gt;
+
+&lt;p&gt;This blog post is about development of &lt;em&gt;geopattern&lt;/em&gt; library in &lt;em&gt;golang&lt;/em&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;What do you think about this my favorite colored &lt;em&gt;concentric circle&lt;/em&gt; pattern?&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/concentric-circle.png&#34;&gt; 
+    &lt;figcaption&gt;Concentric Circle Pattern&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;geopattern-what&#34;&gt;geopattern. What?&lt;/h3&gt;
+
+&lt;p&gt;Umm, actually I don&amp;rsquo;t know exactly why the name is &lt;em&gt;geopattern&lt;/em&gt; but I know what it is.&lt;/p&gt;
+
+&lt;p&gt;It is a &lt;em&gt;golang&lt;/em&gt; library that generates pretty image patterns. It comes with awesome pattern types like nested squares, tessellation, concentric circles, and &lt;a href=&#34;https://github.com/pravj/geopattern#available-pattern&#34;&gt;13 more&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now if you are thinking, why I don&amp;rsquo;t know the reason behind its naming. It&amp;rsquo;s because &lt;em&gt;geopattern&lt;/em&gt; is actually the golang port of &lt;em&gt;my friend and GitHubber&lt;/em&gt; &lt;a href=&#34;https://github.com/jasonlong&#34;&gt;Jason Long&lt;/a&gt;&amp;rsquo;s &lt;a href=&#34;https://github.com/jasonlong&#34;&gt;GeoPattern&lt;/a&gt; Ruby library.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Jason&lt;/em&gt; created the original Ruby library to power GitHub&amp;rsquo;s &lt;a href=&#34;https://guides.github.com/&#34;&gt;Guides&lt;/a&gt; and &lt;a href=&#34;https://github.com/explore&#34;&gt;Explore&lt;/a&gt; sections.&lt;/p&gt;
+
+&lt;h3 id=&#34;another-geopattern-why&#34;&gt;Another geopattern. Why?&lt;/h3&gt;
+
+&lt;p&gt;As you can see the original &lt;em&gt;geopattern&lt;/em&gt; is being used at GitHub itself. &lt;em&gt;What else do you want, huh?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;There are many other &lt;a href=&#34;https://github.com/jasonlong/geopattern#ports&#34;&gt;implemetations&lt;/a&gt; in different programming languages, trying to help users of each language choice.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;But this was not the real force for me to develop one more in golang.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Before &lt;em&gt;geopattern&lt;/em&gt;, the last thing I worked on was &lt;a href=&#34;https://github.com/pravj/Doga&#34;&gt;Doga: HTTP log monitoring console for Humans&lt;/a&gt;. I really loved developing it and still love to just watch it working.&lt;/p&gt;
+
+&lt;p&gt;The reason behind this special attraction is that :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;It helped me landing a summer internship at &lt;a href=&#34;https://www.datadoghq.com/&#34;&gt;Datadog&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;It is written in Python. &lt;strong&gt;&amp;lt;3&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then I started writing blog for an old project &lt;a href=&#34;https://github.com/pravj/teamwork&#34;&gt;teamwork&lt;/a&gt;, just for the sake of adding an entry to my archives but it&amp;rsquo;s still in drafts.&lt;/p&gt;
+
+&lt;p&gt;I tried many things to kill my time :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;watched too much movies, more than too much &lt;em&gt;Animation movies&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;tried to read one seventh of the entire internet; I just missed it, though.&lt;/li&gt;
+&lt;li&gt;collected some best music and shaped it in a playlist named &lt;em&gt;confusion&lt;/em&gt; on Muzi, so was I.&lt;/li&gt;
+&lt;li&gt;managed to complete reading one entire research paper, &lt;em&gt;first time \o/.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;attempted watching Coursera content for two courses.&lt;/li&gt;
+&lt;li&gt;tried to work on something new but got stuck somewhere and paused the work.&lt;/li&gt;
+&lt;li&gt;managed to contribute to term2048, &lt;em&gt;only one right thing.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In short I was doing everything but there was no sign of satisfaction; &lt;em&gt;getting philosophical, lol.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That&amp;rsquo;s why I decided to write something. And here comes the &lt;em&gt;geopattern.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;golang-why&#34;&gt;Golang. Why?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Please don&amp;rsquo;t kill me, if you use &amp;lsquo;go&amp;rsquo; more than &amp;lsquo;golang&amp;rsquo;. I&amp;rsquo;m just being formal.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Since this summer I was collecting talks, blogs and other sources etc. about use of different programming languages in the wild. I hope someday I&amp;rsquo;ll be able to convert that all in something readable.&lt;/p&gt;
+
+&lt;p&gt;Golang was on my list ever since.&lt;/p&gt;
+
+&lt;p&gt;I have seen many awesome products shifting their infrastructure from &lt;a href=&#34;https://www.spacemonkey.com/blog/posts/go-space-monkey&#34;&gt;Python&lt;/a&gt;, &lt;a href=&#34;http://www.quora.com/Why-did-Koding-switch-from-Node-js-to-Go&#34;&gt;Node.js&lt;/a&gt; to &lt;em&gt;golang&lt;/em&gt;. Even Dropbox &lt;a href=&#34;https://tech.dropbox.com/2014/07/open-sourcing-our-go-libraries/&#34;&gt;migrated&lt;/a&gt; part of their code stack to golang from Python. Also I have read the &lt;em&gt;TJ holowaychuk&lt;/em&gt; &lt;a href=&#34;https://medium.com/code-adventures/farewell-node-js-4ba9e7f3e52b&#34;&gt;praising&lt;/a&gt; golang.&lt;/p&gt;
+
+&lt;p&gt;All this made me to take a walk in the &lt;em&gt;golang&lt;/em&gt; land.&lt;/p&gt;
+
+&lt;h3 id=&#34;learning-golang-developing-geopattern&#34;&gt;Learning Golang. Developing geopattern.&lt;/h3&gt;
+
+&lt;p&gt;In starting I spend two evenings reading about formal language convention stuff on the &lt;a href=&#34;http://www.golang-book.com/&#34;&gt;Golang-Book&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After playing for a while in my &lt;em&gt;~/projects/learn.go/&lt;/em&gt; directory, I started working on &lt;em&gt;geopattern&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I love to read source code of every readable thing in any language except assembly, &lt;em&gt;as far as I can understand it&lt;/em&gt;. So I started reading source code of original &lt;em&gt;library&lt;/em&gt; and it was fun. The most helpful thing was Jason&amp;rsquo;s blog &lt;a href=&#34;https://medium.com/@jasonlong/generating-visual-designs-with-code-62e59c4881ca&#34;&gt;Generating visual designs with code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In starting I was having problems that I even googled &lt;em&gt;go sucks&lt;/em&gt;. Because I found that &lt;em&gt;golang&lt;/em&gt; is a bit more verbose language. It doesn&amp;rsquo;t have some generic things so you have to write some work around like absense of optional arguments in functions and a better way to manage classes and stay object oriented.&lt;/p&gt;
+
+&lt;p&gt;But the more I worked with it I found that I&amp;rsquo;m more aware about what I&amp;rsquo;m writing, debugging is hell lot easy and what not.&lt;/p&gt;
+
+&lt;p&gt;Things that helped me from not giving up, are :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gobyexample.com/&#34;&gt;Go by Example&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://jordanorelli.com/post/32665860244/how-to-use-interfaces-in-go&#34;&gt;How to use interfaces in Go&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.golang.org/godoc-documenting-go-code&#34;&gt;Godoc: documenting Go code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;And the &lt;em&gt;Holy Internet&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I mailed Jason asking permission to port it and some other stuff related to licensing. His reply was positive. &lt;em&gt;That&amp;rsquo;s the ideal way you port something.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Then I called an astrologer for the right time to post about &lt;em&gt;geopattern&lt;/em&gt; on &lt;a href=&#34;https://news.ycombinator.com/item?id=8520961&#34;&gt;Hacker News&lt;/a&gt; and Holy, mother of bull!, He was perfect. It went to 2nd rank on the front page. #ThanksHN \o/.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;All this happened a bit fast. In a week or so.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;now-what&#34;&gt;Now What?&lt;/h3&gt;
+
+&lt;p&gt;I hated and then loved working with &lt;em&gt;golang; still loving&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;As you can see, people are using &lt;em&gt;golang&lt;/em&gt; to speed up their projects and scale them upto higher levels. So now I wish to understand more about it. I haven&amp;rsquo;t smoked &lt;em&gt;golang&amp;rsquo;s concurrency primitives - Go routines and Channels yet&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;It was awesome to see &lt;em&gt;geopattern&lt;/em&gt; &lt;a href=&#34;https://twitter.com/jasonlong/status/527465160253132803&#34;&gt;leading&lt;/a&gt; GitHub&amp;rsquo;s trending repositories.&lt;/p&gt;
+
+&lt;p&gt;I have noticed that I&amp;rsquo;m not good in managing my past works like some inspiring people do in the GitHub community. It&amp;rsquo;s mainly because I move myself to some other stuff &lt;em&gt;totally&lt;/em&gt; and don&amp;rsquo;t pay much attention to older ones.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll try to work on this and learn more things about &lt;em&gt;golang&lt;/em&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you want to answer the question I asked in the start, you can use the &lt;em&gt;Internet of things&lt;/em&gt; to catch me. \o/.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

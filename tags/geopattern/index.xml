@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Geopattern on hack(pravj)</title>
+    <link>http://pravj.github.io/tags/geopattern/index.xml</link>
+    <description>Recent content in Geopattern on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://pravj.github.io/tags/geopattern/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>geopattern : going on the Go path</title>
+      <link>http://pravj.github.io/blog/going-on-the-go-path/</link>
+      <pubDate>Sat, 01 Nov 2014 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/going-on-the-go-path/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;You should have a look at &lt;a href=&#34;https://github.com/pravj/geopattern&#34;&gt;geopattern&lt;/a&gt;, if you haven&amp;rsquo;t yet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;what-s-the-buzz-all-about&#34;&gt;What&amp;rsquo;s the buzz all about?&lt;/h3&gt;
+
+&lt;p&gt;This blog post is about development of &lt;em&gt;geopattern&lt;/em&gt; library in &lt;em&gt;golang&lt;/em&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;What do you think about this my favorite colored &lt;em&gt;concentric circle&lt;/em&gt; pattern?&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/concentric-circle.png&#34;&gt; 
+    &lt;figcaption&gt;Concentric Circle Pattern&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;geopattern-what&#34;&gt;geopattern. What?&lt;/h3&gt;
+
+&lt;p&gt;Umm, actually I don&amp;rsquo;t know exactly why the name is &lt;em&gt;geopattern&lt;/em&gt; but I know what it is.&lt;/p&gt;
+
+&lt;p&gt;It is a &lt;em&gt;golang&lt;/em&gt; library that generates pretty image patterns. It comes with awesome pattern types like nested squares, tessellation, concentric circles, and &lt;a href=&#34;https://github.com/pravj/geopattern#available-pattern&#34;&gt;13 more&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now if you are thinking, why I don&amp;rsquo;t know the reason behind its naming. It&amp;rsquo;s because &lt;em&gt;geopattern&lt;/em&gt; is actually the golang port of &lt;em&gt;my friend and GitHubber&lt;/em&gt; &lt;a href=&#34;https://github.com/jasonlong&#34;&gt;Jason Long&lt;/a&gt;&amp;rsquo;s &lt;a href=&#34;https://github.com/jasonlong&#34;&gt;GeoPattern&lt;/a&gt; Ruby library.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Jason&lt;/em&gt; created the original Ruby library to power GitHub&amp;rsquo;s &lt;a href=&#34;https://guides.github.com/&#34;&gt;Guides&lt;/a&gt; and &lt;a href=&#34;https://github.com/explore&#34;&gt;Explore&lt;/a&gt; sections.&lt;/p&gt;
+
+&lt;h3 id=&#34;another-geopattern-why&#34;&gt;Another geopattern. Why?&lt;/h3&gt;
+
+&lt;p&gt;As you can see the original &lt;em&gt;geopattern&lt;/em&gt; is being used at GitHub itself. &lt;em&gt;What else do you want, huh?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;There are many other &lt;a href=&#34;https://github.com/jasonlong/geopattern#ports&#34;&gt;implemetations&lt;/a&gt; in different programming languages, trying to help users of each language choice.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;But this was not the real force for me to develop one more in golang.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Before &lt;em&gt;geopattern&lt;/em&gt;, the last thing I worked on was &lt;a href=&#34;https://github.com/pravj/Doga&#34;&gt;Doga: HTTP log monitoring console for Humans&lt;/a&gt;. I really loved developing it and still love to just watch it working.&lt;/p&gt;
+
+&lt;p&gt;The reason behind this special attraction is that :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;It helped me landing a summer internship at &lt;a href=&#34;https://www.datadoghq.com/&#34;&gt;Datadog&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;It is written in Python. &lt;strong&gt;&amp;lt;3&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then I started writing blog for an old project &lt;a href=&#34;https://github.com/pravj/teamwork&#34;&gt;teamwork&lt;/a&gt;, just for the sake of adding an entry to my archives but it&amp;rsquo;s still in drafts.&lt;/p&gt;
+
+&lt;p&gt;I tried many things to kill my time :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;watched too much movies, more than too much &lt;em&gt;Animation movies&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;tried to read one seventh of the entire internet; I just missed it, though.&lt;/li&gt;
+&lt;li&gt;collected some best music and shaped it in a playlist named &lt;em&gt;confusion&lt;/em&gt; on Muzi, so was I.&lt;/li&gt;
+&lt;li&gt;managed to complete reading one entire research paper, &lt;em&gt;first time \o/.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;attempted watching Coursera content for two courses.&lt;/li&gt;
+&lt;li&gt;tried to work on something new but got stuck somewhere and paused the work.&lt;/li&gt;
+&lt;li&gt;managed to contribute to term2048, &lt;em&gt;only one right thing.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In short I was doing everything but there was no sign of satisfaction; &lt;em&gt;getting philosophical, lol.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That&amp;rsquo;s why I decided to write something. And here comes the &lt;em&gt;geopattern.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;golang-why&#34;&gt;Golang. Why?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Please don&amp;rsquo;t kill me, if you use &amp;lsquo;go&amp;rsquo; more than &amp;lsquo;golang&amp;rsquo;. I&amp;rsquo;m just being formal.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Since this summer I was collecting talks, blogs and other sources etc. about use of different programming languages in the wild. I hope someday I&amp;rsquo;ll be able to convert that all in something readable.&lt;/p&gt;
+
+&lt;p&gt;Golang was on my list ever since.&lt;/p&gt;
+
+&lt;p&gt;I have seen many awesome products shifting their infrastructure from &lt;a href=&#34;https://www.spacemonkey.com/blog/posts/go-space-monkey&#34;&gt;Python&lt;/a&gt;, &lt;a href=&#34;http://www.quora.com/Why-did-Koding-switch-from-Node-js-to-Go&#34;&gt;Node.js&lt;/a&gt; to &lt;em&gt;golang&lt;/em&gt;. Even Dropbox &lt;a href=&#34;https://tech.dropbox.com/2014/07/open-sourcing-our-go-libraries/&#34;&gt;migrated&lt;/a&gt; part of their code stack to golang from Python. Also I have read the &lt;em&gt;TJ holowaychuk&lt;/em&gt; &lt;a href=&#34;https://medium.com/code-adventures/farewell-node-js-4ba9e7f3e52b&#34;&gt;praising&lt;/a&gt; golang.&lt;/p&gt;
+
+&lt;p&gt;All this made me to take a walk in the &lt;em&gt;golang&lt;/em&gt; land.&lt;/p&gt;
+
+&lt;h3 id=&#34;learning-golang-developing-geopattern&#34;&gt;Learning Golang. Developing geopattern.&lt;/h3&gt;
+
+&lt;p&gt;In starting I spend two evenings reading about formal language convention stuff on the &lt;a href=&#34;http://www.golang-book.com/&#34;&gt;Golang-Book&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After playing for a while in my &lt;em&gt;~/projects/learn.go/&lt;/em&gt; directory, I started working on &lt;em&gt;geopattern&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I love to read source code of every readable thing in any language except assembly, &lt;em&gt;as far as I can understand it&lt;/em&gt;. So I started reading source code of original &lt;em&gt;library&lt;/em&gt; and it was fun. The most helpful thing was Jason&amp;rsquo;s blog &lt;a href=&#34;https://medium.com/@jasonlong/generating-visual-designs-with-code-62e59c4881ca&#34;&gt;Generating visual designs with code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In starting I was having problems that I even googled &lt;em&gt;go sucks&lt;/em&gt;. Because I found that &lt;em&gt;golang&lt;/em&gt; is a bit more verbose language. It doesn&amp;rsquo;t have some generic things so you have to write some work around like absense of optional arguments in functions and a better way to manage classes and stay object oriented.&lt;/p&gt;
+
+&lt;p&gt;But the more I worked with it I found that I&amp;rsquo;m more aware about what I&amp;rsquo;m writing, debugging is hell lot easy and what not.&lt;/p&gt;
+
+&lt;p&gt;Things that helped me from not giving up, are :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gobyexample.com/&#34;&gt;Go by Example&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://jordanorelli.com/post/32665860244/how-to-use-interfaces-in-go&#34;&gt;How to use interfaces in Go&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.golang.org/godoc-documenting-go-code&#34;&gt;Godoc: documenting Go code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;And the &lt;em&gt;Holy Internet&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I mailed Jason asking permission to port it and some other stuff related to licensing. His reply was positive. &lt;em&gt;That&amp;rsquo;s the ideal way you port something.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Then I called an astrologer for the right time to post about &lt;em&gt;geopattern&lt;/em&gt; on &lt;a href=&#34;https://news.ycombinator.com/item?id=8520961&#34;&gt;Hacker News&lt;/a&gt; and Holy, mother of bull!, He was perfect. It went to 2nd rank on the front page. #ThanksHN \o/.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;All this happened a bit fast. In a week or so.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;now-what&#34;&gt;Now What?&lt;/h3&gt;
+
+&lt;p&gt;I hated and then loved working with &lt;em&gt;golang; still loving&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;As you can see, people are using &lt;em&gt;golang&lt;/em&gt; to speed up their projects and scale them upto higher levels. So now I wish to understand more about it. I haven&amp;rsquo;t smoked &lt;em&gt;golang&amp;rsquo;s concurrency primitives - Go routines and Channels yet&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;It was awesome to see &lt;em&gt;geopattern&lt;/em&gt; &lt;a href=&#34;https://twitter.com/jasonlong/status/527465160253132803&#34;&gt;leading&lt;/a&gt; GitHub&amp;rsquo;s trending repositories.&lt;/p&gt;
+
+&lt;p&gt;I have noticed that I&amp;rsquo;m not good in managing my past works like some inspiring people do in the GitHub community. It&amp;rsquo;s mainly because I move myself to some other stuff &lt;em&gt;totally&lt;/em&gt; and don&amp;rsquo;t pay much attention to older ones.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll try to work on this and learn more things about &lt;em&gt;golang&lt;/em&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you want to answer the question I asked in the start, you can use the &lt;em&gt;Internet of things&lt;/em&gt; to catch me. \o/.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

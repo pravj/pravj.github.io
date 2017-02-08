@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plugin on hack(pravj)</title>
+    <link>http://pravj.github.io/tags/plugin/index.xml</link>
+    <description>Recent content in Plugin on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://pravj.github.io/tags/plugin/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introducing modified-lanyon, Harry, and me</title>
+      <link>http://pravj.github.io/blog/introduction/</link>
+      <pubDate>Fri, 23 May 2014 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/introduction/</guid>
+      <description>
+
+&lt;p&gt;&lt;code&gt;Yes, you don&#39;t know me. Cool, I&#39;m telling you that.&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I am Pravendra. Developer at awesome &lt;a href=&#34;https://twitter.com/sdslabs&#34;&gt;SDSLabs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also a Computer Science undergraduate student at IIT Roorkee.&lt;/p&gt;
+
+&lt;p&gt;When I&amp;rsquo;m not scrolling in sublime-text or vim, I am watching Discovery Channel :bowtie:&lt;/p&gt;
+
+&lt;p&gt;I am a sincere reader and It feels nice to read about other&amp;rsquo;s experiences in different fields.&lt;/p&gt;
+
+&lt;p&gt;Sometimes it shows new things that you are not aware about.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;A thought of owning a blog have always excited me.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;My choice for a setup was &lt;code&gt;Jekyll&lt;/code&gt; powered blog hosted with &lt;code&gt;Github Pages&lt;/code&gt;, so I started searching for a cool Jekyll theme.&lt;/p&gt;
+
+&lt;h3 id=&#34;lanyon-https-github-com-poole-lanyon&#34;&gt;&lt;a href=&#34;https://github.com/poole/lanyon&#34;&gt;Lanyon&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Definition according to it&amp;rsquo;s Developer &lt;a href=&#34;https://twitter.com/mdo&#34;&gt;@mdo&lt;/a&gt;
+&amp;gt; Lanyon is an unassuming Jekyll theme that places content first by tucking away navigation in a hidden drawer. It&amp;rsquo;s based on Poole, the Jekyll butler.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s really a cool theme with pretty nice design and a Toggelable sliding sidebar to provide enough space for your content.&lt;/p&gt;
+
+&lt;p&gt;Themes avaiable on internet are generally meant to be used as it is or without any hesitation but I wanted something extra in the theme. I wanted to have tags for each post and post sorting according to tags.&lt;/p&gt;
+
+&lt;p&gt;One more thing was that original Lanyon theme serves fix posts on a page and provides pagination(customizable). So if you want to read first post, you have to manually visit all pages till you reach at last page.&lt;/p&gt;
+
+&lt;p&gt;Then an old chat with &lt;a href=&#34;https://twitter.com/leostatic&#34;&gt;@sm&lt;/a&gt; motivated me to do something on my own , he said :
+&amp;gt; its never bad to develop a thing, if you are not copying something entirely.&lt;/p&gt;
+
+&lt;h3 id=&#34;modified-lanyon&#34;&gt;modified Lanyon&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/pravj/modified-lanyon&#34;&gt;modified Lanyon&lt;/a&gt; is the jekyll theme, I ended up while customizing original Lanyon.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Things I added to the original theme are :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;now it shows title, date and related tags for each post on main page&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;It provides easy access to all posts&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;there is a section for all tags in posts, its lists all posts under each tag in archive.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;Reader can easily visit for each post under a tag.&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;there is a timeline section showing all posts sorted according to year of post, having latest post first in timeline.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;Clicking on a date of post opens the timeline section&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I added support to have smileys in blog, for this I created a jekyll plugin &lt;a href=&#34;https://github.com/pravj/Harry&#34;&gt;Harry&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;Using it, you can use all emojis available on the famous www.emoji-cheat-sheet.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;modifying-lanyon&#34;&gt;modifying Lanyon&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;each change I did was done with Jekyll Plugins&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://jekyllrb.com&#34;&gt;Jekyll&lt;/a&gt; have cool &lt;a href=&#34;http://jekyllrb.com/docs/plugins/&#34;&gt;plugin&lt;/a&gt; support that allow you to create custom generated content specific to your site.&lt;/p&gt;
+
+&lt;p&gt;according to Jekyll documentation :
+&amp;gt; in your site&amp;rsquo;s root directory inside &lt;code&gt;_plugins/&lt;/code&gt; directory any file ending in &lt;code&gt;.rb&lt;/code&gt; will be loaded before Jekyll generates your site.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;to change the index page rendering style, I used &lt;a href=&#34;https://github.com/Shopify/liquid&#34;&gt;Liquid&lt;/a&gt; Tags and Filters in index.html to show listing of all posts with title, date and tags. see it &lt;a href=&#34;https://github.com/pravj/modified-lanyon/blob/master/index.html&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;to list all posts under a particular tag :&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I created &lt;code&gt;tagger.rb&lt;/code&gt;, placed it in &lt;code&gt;_plugins/&lt;/code&gt;. it maps each tag in archive to related posts having that tag and let you use that mapped data via &lt;a href=&#34;http://jekyllrb.com/docs/variables/#site-variables&#34;&gt;site.pages&lt;/a&gt; variable. see it &lt;a href=&#34;https://github.com/pravj/modified-lanyon/blob/master/_plugins/tagger.rb&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;to create the archive timeline :&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I am using &lt;code&gt;timeline.rb&lt;/code&gt; from this &lt;a href=&#34;http://tech.pro/tutorial/1299/getting-started-with-jekyll-plugins&#34;&gt;tutorial&lt;/a&gt;, I reversed the data to show latest post first in timeline. see it &lt;a href=&#34;https://github.com/pravj/modified-lanyon/blob/master/_plugins/timeline.rb&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;harry&#34;&gt;Harry&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/pravj/Harry&#34;&gt;Harry&lt;/a&gt; is the jekyll plugin I developed, it lets you use any smiley from &lt;a href=&#34;http://www.emoji-cheat-sheet.com/&#34;&gt;emoji-cheat-sheet&lt;/a&gt; in your blog.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It was fun developing this, because I just love smileys. specially this :grinning:&lt;/p&gt;
+
+&lt;p&gt;It saves any valid smiley image in &lt;code&gt;public/smileys/&lt;/code&gt; from &lt;a href=&#34;http://www.emoji-cheat-sheet.com/&#34;&gt;emoji-cheat-sheet&lt;/a&gt; and serve from here. more about using Harry can be found &lt;a href=&#34;https://github.com/pravj/Harry/blob/master/README.md&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;problem-with-using-jekyll-plugins-on-github-pages&#34;&gt;Problem with using Jekyll Plugins on GitHub Pages&lt;/h3&gt;
+
+&lt;p&gt;Github Pages don&amp;rsquo;t allow you to use plugins because of security reasons, so I am pushing only generated static files to &lt;a href=&#34;https://github.com/pravj/pravj.github.io&#34;&gt;repository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;source-code&#34;&gt;Source Code&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pravj/pravj.github.io&#34;&gt;this blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pravj/modified-lanyon&#34;&gt;modified-lanyon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pravj/Harry&#34;&gt;Harry&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;depreciation&#34;&gt;Depreciation&lt;/h3&gt;
+
+&lt;p&gt;By the way, the theme that you are seeing right now, isn&amp;rsquo;t the &lt;em&gt;modified-lanyon&lt;/em&gt; theme.&lt;/p&gt;
+
+&lt;p&gt;You can read about the current theme&amp;rsquo;s development, here. &lt;a href=&#34;http://pravj.github.io&#34;&gt;A little paint over my webspace&amp;rsquo;s design&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

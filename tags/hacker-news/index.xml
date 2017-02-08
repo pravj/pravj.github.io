@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hacker News on Falling leaves</title>
+    <link>http://pravj.github.io/tags/hacker-news/index.xml</link>
+    <description>Recent content in Hacker News on Falling leaves</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://pravj.github.io/tags/hacker-news/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Information Dynamics on the GitHub Network</title>
+      <link>http://pravj.github.io/blog/information-dynamics-on-github/</link>
+      <pubDate>Wed, 01 Feb 2017 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/information-dynamics-on-github/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Exploring the &amp;ldquo;social coding&amp;rdquo; behavior.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Social groups have a system of behaviours occuring within the group or between groups, called &amp;ldquo;Group dynamics&amp;rdquo;. GitHub, being a social coding network, is the host to millions of developers and software projects. This report will use openly available data to unveil such behaviors in an intellectual-friendly social network.&lt;/p&gt;
+
+&lt;!--stars are to show bookmarks and interest--&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;social-coding&#34;&gt;Social Coding&lt;/h3&gt;
+
+&lt;p&gt;The growth of GitHub has been significantly different from other OSS communities such as &lt;a href=&#34;http://alioth.debian.org&#34;&gt;Alioth&lt;/a&gt;, &lt;a href=&#34;http://freecode.com&#34;&gt;Freecode&lt;/a&gt;, and &lt;a href=&#34;http://savannah.gnu.org/&#34;&gt;Savannah&lt;/a&gt;. It has experienced an &amp;ldquo;explosive growth&amp;rdquo;, defined as the &amp;ldquo;outburst-type&amp;rdquo;. &lt;a href=&#34;http://yuyue.github.io/res/paper/crowdsoft2014.pdf&#34;&gt;(Yu et al. 2014)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The following chart demonstrates the growth of GitHub, Alioth, Freenode, and Savannah. It&amp;rsquo;s made by approximating the data points in the pictures (using &lt;a href=&#34;http://arohatgi.info/WebPlotDigitizer&#34;&gt;WebplotDigitizer&lt;/a&gt;) embeded in the above-mentioned paper.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~octogrid/143/&#34; target=&#34;_blank&#34; title=&#34;oss-growth&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~octogrid/143.png&#34; alt=&#34;oss-growth&#34; style=&#34;max-width: 100%;width: 640px;&#34;  width=&#34;640&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;octogrid:143&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We can notice that the GitHub has experienced a big leap in a short time. On the other hand, the growth of other communities gradually slows down after a period of rising.&lt;/p&gt;
+
+&lt;p&gt;GitHub keep promoting the &amp;ldquo;social coding&amp;rdquo; ideology, &lt;a href=&#34;https://help.github.com/articles/be-social/&#34;&gt;Be Social&lt;/a&gt;. They have multiple social features such as &lt;em&gt;networking based on following developers&lt;/em&gt;, &lt;em&gt;sharing based on repository forking&lt;/em&gt;, and &lt;em&gt;watching a project&amp;rsquo;s development&lt;/em&gt; etc.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The social features are the core factors behind this explosive growth of GitHub, setting it apart from other open source software communities.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;distribution-channels&#34;&gt;Distribution Channels&lt;/h3&gt;
+
+&lt;div class=&#34;custom-quote&#34;&gt;
+  &lt;h1 class=&#34;icon-quote-left&#34;&gt;&lt;/i&gt;&lt;/h1&gt;
+  &lt;p&gt;
+    The worst thing to happen with your repository is, &lt;i&gt;nobody will see it&lt;/i&gt;.
+    &lt;span class=&#34;author&#34;&gt;
+        - &lt;a target=&#34;_blank&#34; href=&#34;https://twitter.com/captn3m0&#34;&gt;Nemo&lt;/a&gt;
+    &lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;By the way, even worse is that the &lt;a href=&#34;https://news.ycombinator.com/item?id=10101469&#34;&gt;government will see it&lt;/a&gt; and ask you to stop working on it.&lt;/p&gt;
+
+&lt;p&gt;Whenever &lt;em&gt;a new repository is created&lt;/em&gt;, &lt;em&gt;an issue is filed&lt;/em&gt;, or &lt;em&gt;a pull-request is submitted&lt;/em&gt;; there exist several mediums to notify interested users about it.&lt;/p&gt;
+
+&lt;h4 id=&#34;internal-distribution-channels&#34;&gt;Internal distribution channels&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Watch&lt;/em&gt; a repository to get notified about the development and discussion.&lt;/li&gt;
+&lt;li&gt;Discover interesting projects in the &lt;a href=&#34;https://github.com/explore&#34;&gt;Explore GitHub&lt;/a&gt; and &lt;a href=&#34;https://github.com/trending&#34;&gt;Trending&lt;/a&gt; sections.&lt;/li&gt;
+&lt;li&gt;Find a repository in your public activity timeline if anyone from your network has &lt;em&gt;created&lt;/em&gt;, &lt;em&gt;starred&lt;/em&gt;, or &lt;em&gt;forked&lt;/em&gt; it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;external-distribution-channels&#34;&gt;External distribution channels&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Find a repository in the manually or algorithmically crafted digest emails.&lt;/li&gt;
+&lt;li&gt;Locate a repository outside of the GitHub; on Hacker News, Reddit, Twitter, or blogs etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A user &lt;em&gt;starring&lt;/em&gt; a repository can propogate it to his/her direct (first-degree) followers. If anyone from those connections &lt;em&gt;star&lt;/em&gt; the repository, it has the chance to appear in the activity feed of their followers and so on&amp;hellip;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If a repository is being starred by someone disconnected (without any connection to the creator), we can say that it has traversed far away in the network or &lt;em&gt;gone viral&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;contribution-of-external-channels&#34;&gt;Contribution of external channels&lt;/h3&gt;
+
+&lt;p&gt;External distribution channels have a significant impact on the popularity of a repository. They allow a repository to be viewed by &lt;em&gt;more&lt;/em&gt; people compared to all the users it could have reached by the internal distribution channels of GitHub. (a paper on virality)&lt;/p&gt;
+
+&lt;h4 id=&#34;hacker-news&#34;&gt;Hacker News&lt;/h4&gt;
+
+&lt;p&gt;YCombinator&amp;rsquo;s &lt;a href=&#34;http://news.ycombinator.com&#34;&gt;Hacker News&lt;/a&gt; is a news aggregator website focusing on &lt;em&gt;computer science&lt;/em&gt;, &lt;em&gt;technology&lt;/em&gt;, and &lt;em&gt;entrepreneurship&lt;/em&gt;; known for its frontpage blessings. It has a dedicated section called &lt;a href=&#34;https://news.ycombinator.com/showhn.html&#34;&gt;Show HN&lt;/a&gt; to share something that you&amp;rsquo;ve made.&lt;/p&gt;
+
+&lt;p&gt;There have been &lt;a href=&#34;https://medium.com/@iamclovin/hacker-news-vs-product-hunt-a-launch-story-db18a23bc56a&#34;&gt;multiple&lt;/a&gt; startups &lt;a href=&#34;http://pitchpigeon.com/blog/10-lessons-learned-from-a-successful-hacker-news-launch.html&#34;&gt;successfully&lt;/a&gt; launching their products on Hacker News.&lt;/p&gt;
+
+&lt;p&gt;According to Paul Graham, the frontpage works in a self-protecting way, advertising what type of submissions are expected.&lt;/p&gt;
+
+&lt;p&gt;Now, &lt;em&gt;everyone want to see their submission on the frontpage&lt;/em&gt;. So in GitHub&amp;rsquo;s context, they post about their repository on HN &lt;strong&gt;as soon as&lt;/strong&gt; they open-source it.&lt;/p&gt;
+
+&lt;p&gt;For the following chart showing the &lt;em&gt;submission delay&lt;/em&gt; (difference between the time of a Hacker News submission and repository creation), I have collected submissions (linking to a GitHub repository) from the past 100 days.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~octogrid/145?show_link=False&#34; target=&#34;_blank&#34; title=&#34;hn-delay&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~octogrid/145.png&#34; alt=&#34;hn-delay&#34; style=&#34;max-width: 100%;width: 640px;&#34;  width=&#34;640&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;octogrid:145&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;!--hover trace-name--&gt;
+
+&lt;p&gt;You can observe a &lt;em&gt;long tail&lt;/em&gt; in the submission delay distribution. There are &lt;strong&gt;3261&lt;/strong&gt; HN stories linking to a GitHub repository in these 100 days, with more than &lt;strong&gt;33%&lt;/strong&gt; of them (&lt;strong&gt;1078&lt;/strong&gt;) being posted in the &lt;strong&gt;first week&lt;/strong&gt;, and &lt;strong&gt;15%&lt;/strong&gt; in just &lt;strong&gt;24 hours&lt;/strong&gt; of repository creation.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It implies that people tend to use these external channels more often, to get visitors.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;effect-of-internal-and-external-distribution-channels&#34;&gt;Effect of internal and external distribution channels&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s consider a recent trending repository, &lt;a href=&#34;https://github.com/minimaxir/big-list-of-naughty-strings&#34;&gt;minimaxir/big-list-of-naughty-strings&lt;/a&gt; to compare the effect of &lt;em&gt;external&lt;/em&gt; and &lt;em&gt;internal&lt;/em&gt; distribution channels.&lt;/p&gt;
+
+&lt;p&gt;In the following chart you can see the &lt;em&gt;stars&lt;/em&gt; it has received every day since its creation.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~octogrid/147/&#34; target=&#34;_blank&#34; title=&#34;minimaxir-repo-stars&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~octogrid/147.png&#34; alt=&#34;minimaxir-repo-stars&#34; style=&#34;max-width: 100%;width: 640px;&#34;  width=&#34;640&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;octogrid:147&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You can easily notice &lt;strong&gt;4 local maximas&lt;/strong&gt;, &lt;a href=&#34;https://github.com/minimaxir/big-list-of-naughty-strings#social-media-discussions&#34;&gt;corresponding to a Hacker News or Reddit submission featuring this repository&lt;/a&gt;. It has scored relatively less &lt;em&gt;stars&lt;/em&gt; on other days, except the day it was created.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re wondering why does it has almost 1000 stars on the day 1 before the first HN submission, &lt;em&gt;keep reading.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mention the recursive mentions of issue&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In general, external channels have more impact than internal distribution channels.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;how-does-it-reach-so-far&#34;&gt;How does it reach so far?&lt;/h4&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s consider another repository titled &lt;a href=&#34;https://github.com/pravj/Doga&#34;&gt;pravj/Doga&lt;/a&gt;. I&amp;rsquo;m fortunate enough to have written it. You &lt;em&gt;can explore&lt;/em&gt; how Hacker News had contributed to its &lt;em&gt;small success&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m choosing this repository because it has relatively less number of stargazers, 229 precisely at the time of data collection. So it&amp;rsquo;s easy to visualize them, still a little hard to make a responsive visualization given that it&amp;rsquo;s my first &lt;em&gt;production level&lt;/em&gt; encounter with D3.&lt;/p&gt;
+
+&lt;p&gt;The following interactive visualization demonstrates the &amp;ldquo;stargazers network&amp;rdquo; that contains the stargazers of this repository. You can &lt;em&gt;hover on a node&lt;/em&gt; (user) to see its connected stargazers.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The &amp;lsquo;stargazer network&amp;rsquo; is a &lt;strong&gt;directed graph&lt;/strong&gt; of all stargazers of the repository.&lt;/p&gt;
+
+&lt;p&gt;There exist an edge (U&lt;sub&gt;i&lt;/sub&gt; → U&lt;sub&gt;j&lt;/sub&gt;) in the network &lt;strong&gt;if&lt;/strong&gt; U&lt;sub&gt;i&lt;/sub&gt; is following U&lt;sub&gt;j&lt;/sub&gt; &lt;strong&gt;and&lt;/strong&gt; has starred the repository &lt;strong&gt;after&lt;/strong&gt; U&lt;sub&gt;j&lt;/sub&gt; has starred (or created) it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The size of a node in a row is proportional to its &lt;strong&gt;in-degree&lt;/strong&gt;, the number of users it &lt;em&gt;might have told&lt;/em&gt; about the repository by starring it.&lt;/p&gt;
+
+&lt;p&gt;Users having a high in-degree (more number of GitHub followers) have relatively high probability of spreading the news about the repository &lt;strong&gt;inside the GitHub network&lt;/strong&gt;. Just like the repository creator did on his own, spreading it to a few users before the HN submission.&lt;/p&gt;
+
+&lt;p&gt;According to WSJ Graphics&amp;rsquo; &lt;a href=&#34;http://graphics.wsj.com/anatomy-of-a-hit/&#34;&gt;Anatomy of a hit&lt;/a&gt;, &lt;strong&gt;Audience size&lt;/strong&gt; is a role playing factor in the success of open source software. That&amp;rsquo;s why &lt;em&gt;minimaxir&lt;/em&gt; was able to spread his repository &lt;em&gt;big-list-of-naughty-strings&lt;/em&gt; to more people before the first HN submission, because he has more followers than me (@pravj).&lt;/p&gt;
+
+&lt;div class=&#39;chart&#39;&gt;&lt;/div&gt;
+
+&lt;p&gt;We can label the stargazers at network distance &lt;strong&gt;N&lt;/strong&gt; as &lt;em&gt;disconnected stargazers&lt;/em&gt;, because they have no &lt;em&gt;following&lt;/em&gt; relation to other users, &lt;strong&gt;out-degree being 0&lt;/strong&gt; for them. There are a total of 139 such stargazers.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Disconnected stargazers at network distance &lt;strong&gt;N&lt;/strong&gt; don&amp;rsquo;t have any successors, that means they have discovered the repository somewhere &lt;strong&gt;out of the GitHub network&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;!--
+rawgit production level
+
+Google analytics
+
+Hacker News story submission
+
+Stars of minimaxir repository
+
+How far does it go? (Doga)
+--&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;how-do-you-get-more-visitors-to-your-repository&#34;&gt;How do you get more visitors to your repository?&lt;/h3&gt;
+
+&lt;p&gt;GitHub models user-actions on the platform as &lt;a href=&#34;https://developer.github.com/v3/activity/events/types/&#34;&gt;various events&lt;/a&gt;, they &lt;em&gt;may&lt;/em&gt; or &lt;em&gt;may not&lt;/em&gt; appear in the public activity timeline based on the event types.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://developer.github.com/v3/activity/events/types/#memberevent&#34;&gt;MemberEvent&lt;/a&gt; is one such event, triggered when a user is added or removed as a collaborator to a repository, or has their permissions changed. (GitHub API v3)&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Whenever a user U&lt;sub&gt;i&lt;/sub&gt; adds another user U&lt;sub&gt;j&lt;/sub&gt; as a collaborator to the repository R, all the followers of U&lt;sub&gt;j&lt;/sub&gt; will receive it in their activity feed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Let&amp;rsquo;s relate it with &amp;ldquo;Influence Maximization&amp;rdquo; (&lt;a href=&#34;http://www.cs.cornell.edu/home/kleinber/kdd03-inf.pdf&#34;&gt;Kempe et al. 2003&lt;/a&gt;). It&amp;rsquo;s a widely studied problem in social networks, trying to find a subset of users (seed users) to adopt a new idea or product to trigger a cascade of further adoptions via &lt;em&gt;social influence&lt;/em&gt;. The problem is to &lt;em&gt;locate those seed users so that the total number of adoptions can be maximized&lt;/em&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;As a solution to the problem, some GitHub users used to add most-followed users as collaborators. Because it would broadcast about the repository to all their followers, eventually getting more viewers to the repository.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/torvalds-broadcast.png&#34;&gt;
+  &lt;figcaption&gt;A repository being broadcasted to users in feed&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A user U&lt;sub&gt;i&lt;/sub&gt; adding another user U&lt;sub&gt;j&lt;/sub&gt; to the repository R as a collaborator is a &amp;ldquo;collaboration spam&amp;rdquo;, if U&lt;sub&gt;j&lt;/sub&gt; has zero commits in the repository &lt;strong&gt;and&lt;/strong&gt; U&lt;sub&gt;j&lt;/sub&gt; does not follow U&lt;sub&gt;i&lt;/sub&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&#34;it-might-give-false-positive-results-also-but-overall-it-s-a-good-method-for-the-classification&#34;&gt;It might give false positive results also, but overall it&amp;rsquo;s a good method for the classification.&lt;/h5&gt;
+
+&lt;h5 id=&#34;for-example-if-the-repository-has-been-deleted-it-ll-count-that-as-a-spam&#34;&gt;For example, if the repository has been deleted, it&amp;rsquo;ll count that as a &amp;lsquo;spam&amp;rsquo;.&lt;/h5&gt;
+
+&lt;p&gt;The following chart shows how many times some popular users were the target in a &lt;strong&gt;collaboration spam&lt;/strong&gt; (in a year).&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~octogrid/153/&#34; target=&#34;_blank&#34; title=&#34;collaboration-spam-vertical&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~octogrid/153.png&#34; alt=&#34;collaboration-spam-vertical&#34; style=&#34;max-width: 100%;width: 100%;&#34;  width=&#34;100%&#34; height=&#34;600px&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;octogrid:153&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You can feel how annoying it would have been for the popular users, specially for the most-followed &lt;strong&gt;Linus Torvalds&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h5 id=&#34;to-prepare-this-chart-a-total-of-3m-memberevents-were-collected-from-the-bigquery-dataset-then-all-the-events-adding-top-100-most-followed-users-as-a-collaborator-were-filtered-out-for-further-processing-finally-top-10-users-on-the-basis-of-frequency-of-being-targeted-in-spam-are-selected-for-a-year&#34;&gt;To prepare this chart, a total of &lt;strong&gt;3M MemberEvents&lt;/strong&gt; were collected from the BigQuery dataset. Then all the events adding Top-100 most followed users as a collaborator were filtered out for further processing. Finally Top-10 users on the basis of frequency of being targeted in spam are selected for a year.&lt;/h5&gt;
+
+&lt;p&gt;The &amp;lsquo;collaboration spam&amp;rsquo; &lt;a href=&#34;http://stackoverflow.com/questions/26224256/how-to-reject-remove-yourself-from-a-collaborative-github-repo&#34;&gt;was a real problem&lt;/a&gt;. Finally, GitHub released &lt;a href=&#34;https://github.com/blog/2170-repository-invitations&#34;&gt;repository invitations&lt;/a&gt; to resolve it. Now you need to accept the invitations to let all your followers know about the repository.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~octogrid/155/&#34; target=&#34;_blank&#34; title=&#34;collaboration-spam-timeline&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~octogrid/155.png&#34; alt=&#34;collaboration-spam-timeline&#34; style=&#34;max-width: 100%;width: 640px;&#34;  width=&#34;640&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;octogrid:155&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The &amp;lsquo;repository invitation&amp;rsquo; feature has reduced the &amp;lsquo;collaboration spam&amp;rsquo; on GitHub.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;hits-from-event-groups&#34;&gt;HITS from event groups&lt;/h3&gt;
+
+&lt;h3 id=&#34;indented-influence-traversal&#34;&gt;Indented influence traversal&lt;/h3&gt;
+
+&lt;h3 id=&#34;bipartile-graph-structure-for-user-recommendation&#34;&gt;Bipartile graph structure for user recommendation&lt;/h3&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

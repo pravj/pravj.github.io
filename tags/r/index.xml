@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on hack(pravj)</title>
+    <link>http://pravj.github.io/tags/r/index.xml</link>
+    <description>Recent content in R on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://pravj.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Jump in to ride all the Bangalore taxis, at once</title>
+      <link>http://pravj.github.io/blog/bangalore-taxis/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/bangalore-taxis/</guid>
+      <description>
+
+&lt;p&gt;All right, just imagine that you have popcorn with you, because I know that you don&amp;rsquo;t have.&lt;/p&gt;
+
+&lt;p&gt;I decided to do this report when I was in Bangalore this summer, &lt;em&gt;Sillicon Valley of India&lt;/em&gt;. You can observe a gob of information flowing through in such metropolitan population. People ordering/delivering meal, groceries or literally everything by online orders, people booking a vehicle and riding in no time, people booking a seat for dinner/movie and many more thing to generate the logs. Which is fascinating.&lt;/p&gt;
+
+&lt;p&gt;One day while riding a cab, I got this plan to go into the rectangle map the app was showing, and run around. Just like what &lt;a href=&#34;https://www.youtube.com/watch?v=oKCIMX2dsEc&#34;&gt;Joey did in an episode of Friends&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To execute this all, I had to collect the relavent information and work on the possible outcomes of the collected information.&lt;/p&gt;
+
+&lt;p&gt;Here in this post I have written the procedure I followed, things I have feared of, interesting results I saw and count of tea cups I have sipped.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-brick-wall&#34;&gt;The brick wall&lt;/h3&gt;
+
+&lt;p&gt;A little more theory and then we will get right to the practicals.&lt;/p&gt;
+
+&lt;p&gt;While setting up the collection infrastucture, I realised that I might be under the &lt;em&gt;terms and services&lt;/em&gt; monster. This suspicion helped me lading in the depression zone where I wasn&amp;rsquo;t sure if the work I have done so far was worth doing or not.&lt;/p&gt;
+
+&lt;p&gt;I thought about asking the respective organization for a permission but I was too afraid to hear a negative reply. So I went ahead and ignored this. Because this report does not publicize any private property like vehicle numbers, mobile numbers and all. Even I wasn&amp;rsquo;t able to access such private properties.&lt;/p&gt;
+
+&lt;p&gt;The major reason was, I have already bunked too many classes for this, so terminating the work wasn&amp;rsquo;t an option.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m aware that it&amp;rsquo;s a wrong act but I couldn&amp;rsquo;t stop the &lt;em&gt;David McCandless&lt;/em&gt; inside me from doing this. I hope I&amp;rsquo;m not getting sued for this.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This report is based on the data from a particular taxi service in a single day&amp;rsquo;s time span, so it may be a little baised.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;information-retrieval&#34;&gt;Information Retrieval&lt;/h3&gt;
+
+&lt;p&gt;Collecting the right information was the foundation for the whole game. Possibility of getting blocked was also there, once you come under the &lt;em&gt;Night&amp;rsquo;s watch&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The task reduces to finding &lt;em&gt;how many taxis are there in the city&lt;/em&gt; (at a time), &lt;em&gt;where they are&lt;/em&gt; and then keep doing this all the day &lt;em&gt;without getting caught&lt;/em&gt;. Easy Peasy?&lt;/p&gt;
+
+&lt;p&gt;I came up with the solution to find places in the city which are equally seperated and then drawing circles on those points would cover the entire city. A fake &lt;em&gt;cab search request&lt;/em&gt; would return us the status of cabs around that place.&lt;/p&gt;
+
+&lt;p&gt;For that I planned to start from the center of the city, iterate this on adjacent places using a &lt;a href=&#34;https://en.wikipedia.org/wiki/Finite-state_machine&#34;&gt;Finite State Machine&lt;/a&gt; to stay aware of the ending state (when we are done with all such place-combinations) and state changes (when we are out of the city&amp;rsquo;s boundary in a particular direction).&lt;/p&gt;
+
+&lt;p&gt;While writing the FSM, I found an efficient alternative to iterate over all the equally separated places which comes under the &lt;a href=&#34;https://en.wikipedia.org/wiki/Minimum_bounding_rectangle&#34;&gt;Minimum Bounding Rectangle&lt;/a&gt; of Bangalore, and check if the cab service is available in that area or not.&lt;/p&gt;
+
+&lt;p&gt;Equally spacing those spots minimizes the total number of requests made, which descreases the chances of getting blocked, &lt;em&gt;if there is such service on the other side&lt;/em&gt;.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/point-net.png&#34;&gt; 
+    &lt;figcaption&gt;Equally separated places&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Once all those places were spotted, I made a &lt;em&gt;cab search request&lt;/em&gt; on all those spots every 15 minutes. I think it&amp;rsquo;s a bit more time than the &lt;em&gt;average trip duration&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Later I realised a mistake that I have forgot to count the time making requests to all the places, so the separation went up to almost 19 minutes.&lt;/p&gt;
+
+&lt;p&gt;I continuously pumped all those responses to a &lt;a href=&#34;http://www.iron.io/mq/&#34;&gt;IronMQ&lt;/a&gt; powered message queue and then imported all the data into a local &lt;a href=&#34;http://rethinkdb.com/&#34;&gt;RethinkDB&lt;/a&gt; instance.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;One should try not to hit the source at a constant timeperiod (like 15 minutes in this case), because that&amp;rsquo;s the basic heuristic for smart &lt;em&gt;bot detection&lt;/em&gt; systems. I had to do that because it was needed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;service-availability&#34;&gt;Service Availability&lt;/h3&gt;
+
+&lt;p&gt;In the &lt;em&gt;Minimum Bounding Rectangle&lt;/em&gt;, I found a total of 272 spots but only 96 of them have the cab service available. The distance between adjacent places is 2 Mile (3.2186 KM.), which is almost same as the equivalent area we see while booking a cab on mobile applications (on default zoom level).&lt;/p&gt;
+
+&lt;div id=&#39;availability-map&#39; style=&#34;height:400px;&#34;&gt;&lt;/div&gt;
+
+&lt;p&gt;Although this is biased because it represent only a single day of activity but it gives us a little overview of the situation. I&amp;rsquo;m not that familier with the places in the bangalore but I found an interesting thing, maybe a native resident can confirm this.&lt;/p&gt;
+
+&lt;p&gt;See those two circles at the top of the rectangle, they are too far from the main localities but we have the service there. Those circles contains places like &lt;em&gt;Rajanukunte&lt;/em&gt;, &lt;em&gt;Doddajala&lt;/em&gt;, &lt;em&gt;Chikkajala&lt;/em&gt; etc. On googling their name, you will get comparatively more listings about property/real-estate business compared to other areas in the city.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s like the scenario we had with &lt;em&gt;Delhi - Gurgaon&lt;/em&gt; some time back, those places are under &lt;em&gt;Industrialization&lt;/em&gt;. Which makes it a good reason to have the taxi services availability, no matter some famous places around the city doesn&amp;rsquo;t have this cab service, like the &lt;em&gt;Bannerghatta National Park&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;guardians-vehicles&#34;&gt;Guardians (Vehicles)&lt;/h3&gt;
+
+&lt;p&gt;During the day, the system spotted a total of 897 different cabs, with 4 different types.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;RethinkDB query&lt;/em&gt; to count different type of cabs.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;r.db(&#39;taxis&#39;).table(&#39;datacenter&#39;)
+	.filter({available: true})
+	.pluck(&#39;type&#39;, &#39;cab_id&#39;)
+	.distinct()
+	.group(&#39;type&#39;)
+	.count()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#34;row&#34;&gt;
+    &lt;div class=&#34;col s12 m6 l3 center-align&#34; style=&#34;color:#DDD;background:#00648C;&#34;&gt;
+      &lt;h4&gt;#Hatchback 525&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;col s12 m6 l3 center-align&#34; style=&#34;color:#DDD;background:#10698C;&#34;&gt;
+      &lt;h4&gt;#Sedan 324&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;col s12 m6 l3 center-align&#34; style=&#34;color:#DDD;background:#4F7B8C;&#34;&gt;
+      &lt;h4&gt;#Nano 46&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;col s12 m6 l3 center-align&#34; style=&#34;color:#DDD;background:#7497A5;&#34;&gt;
+      &lt;h4&gt;#SUV 2&lt;/h4&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;cab-availability-according-to-time&#34;&gt;Cab Availability (according to time)&lt;/h3&gt;
+
+&lt;p&gt;What do you think about the number of cabs available at 8:30 AM and 8:30 PM? You will see that the number is more in the morning.&lt;/p&gt;
+
+&lt;p&gt;There is a theory, &lt;em&gt;Utilitarianism&lt;/em&gt;. Which states that everyone wants to maximize their utility. Take the example of E-commerce. Between so many brands, sellers and customers, everyone wants to increase their benefits. For e-sellers, scheduling an online sell is just like a game of chess. Each team want to win it. (Quoted by a good person)&lt;/p&gt;
+
+&lt;p&gt;Here is how the cab availability distribution over time looks like.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/distribution.png&#34;&gt; 
+    &lt;figcaption&gt;Cab availability distribution over time&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I think it goes like, the probability of a taxi being hired is high during the morning when people are going to the office/college, then it decreases during the noon-time, increases again during the 4 PM - 6 PM window when people are going back home or going out for their evening gig, and decreses in the night.&lt;/p&gt;
+
+&lt;p&gt;This is how drivers play their part as per &lt;em&gt;Utilitarianism&lt;/em&gt;, which reflects in the number of available taxis.&lt;/p&gt;
+
+&lt;h3 id=&#34;rise-of-the-guardians-vehicles&#34;&gt;Rise of the Guardians (Vehicles)&lt;/h3&gt;
+
+&lt;p&gt;In the responses I got for the cab search requests, there was a field representing a timestamp, constant for a particular cab. Initially when I saw that, I thought it&amp;rsquo;s the last time a cab was booked but it wasn&amp;rsquo;t.&lt;/p&gt;
+
+&lt;p&gt;5 out of the 897 total cabs have that field equal to 1, which translates to January 1, 1970. This indicates that initially the field wasn&amp;rsquo;t part of their architecture, but later they adopted it.&lt;/p&gt;
+
+&lt;p&gt;The uniqueness and time range of all those fields strongly supports that it was the time when a cab got associated with the organization.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/cab-timeline.png&#34;&gt; 
+    &lt;figcaption&gt;Cab timeline&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Horizontal scale for this graph is cropped because almost 85+ % events belongs to the year 2015 itself. Which seems a bit weird, but it&amp;rsquo;s what it&amp;rsquo;s.&lt;/p&gt;
+
+&lt;h3 id=&#34;cabs-around-the-city-throughout-the-day&#34;&gt;Cabs around the city throughout the day&lt;/h3&gt;
+
+&lt;div id=&#39;map&#39; style=&#34;height:400px;&#34;&gt;
+    &lt;span id=&#39;info&#39; class=&#39;info&#39; style=&#39;padding:10px;background:#fff;position:relative;top:17px;right:-50px;z-index:100;&#39;&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This particular map represents the geographic view of the &lt;em&gt;cab availability&lt;/em&gt; (according to time) diagram. Where total cabs at a time are distributed accross the city according to their actual positions.&lt;/p&gt;
+
+&lt;p&gt;Now if you are thinking about the places where most of the cabs are, I have created another map for that, scroll down.&lt;/p&gt;
+
+&lt;h3 id=&#34;cab-availability-index&#34;&gt;Cab Availability Index&lt;/h3&gt;
+
+&lt;p&gt;This map is somewhat inspired from the Housing&amp;rsquo;s &lt;a href=&#34;https://housing.com/blog/2013/11/14/launching-child-friendliness-index-heat-maps/&#34;&gt;Child Friendly Index&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It uses those equally seperated circles to count total cabs in them throughout the day, and uses the relative percentage as the opacity of each circle.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;RethinkDB query&lt;/em&gt; that counts the cabs which are in a 2 mile circle centered at &amp;lsquo;centerPoint&amp;rsquo;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;r.db(&#39;taxis&#39;).table(&#39;datacenter&#39;)
+	.filter({available: true})
+	.pluck(&#39;cab_lat&#39;, &#39;cab_lng&#39;)
+	.distinct()
+	.map(function(instance) {
+		return r.circle(centerPoint, 2, {unit: &#39;mi&#39;})
+			.includes(r.point(instance(&#39;cab_lat&#39;), instance(&#39;cab_lat&#39;)))
+	})
+	.count(true)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div id=&#39;dmap&#39; style=&#39;height:400px;&#39;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Neighbourhoods having maximum availability index are mostly in the &lt;em&gt;northern-western&lt;/em&gt; and a little &lt;em&gt;central&lt;/em&gt; part of the bangalore. Which consists of some big educational institutes as &lt;em&gt;Indian Institute of Science&lt;/em&gt;, &lt;em&gt;Bangalore University&lt;/em&gt;, &lt;em&gt;R.V. College of Engineering&lt;/em&gt;, some famous tourist spots as &lt;em&gt;Lalbagh Botanical Garden&lt;/em&gt; to contribute to the higher availability density.&lt;/p&gt;
+
+&lt;p&gt;Along with that, reports shows that &lt;em&gt;northern-western&lt;/em&gt; bangalore has maximum population density in the city. Check out these images (&lt;a href=&#34;http://wgbis.ces.iisc.ernet.in/biodiversity/pubs/ETR/ETR55/Population%20Density.jpg&#34; target=&#34;_blank&#34;&gt;latest&lt;/a&gt; and &lt;a href=&#34;http://wgbis.ces.iisc.ernet.in/biodiversity/pubs/ces_tr/TR118_SPoonancha/Index1_clip_image002_0000.jpg&#34; target=&#34;_blank&#34;&gt;old&lt;/a&gt;) from &lt;em&gt;Centre for Ecological Sciences, IISc&lt;/em&gt; for the reference.&lt;/p&gt;
+
+&lt;h3 id=&#34;cab-that-travelled-the-most&#34;&gt;Cab that travelled the most&lt;/h3&gt;
+
+&lt;p&gt;As I have told you that initially I&amp;rsquo;d misread a timestamp field as the time when a cab was last hired. Writing a precise (almost) algorithm to find the path travelled by cab using current/past location and the last booking time would have been easy that way.&lt;/p&gt;
+
+&lt;p&gt;In the currecnt implementation, I have used the locations between adjacent appearances of a cab to find the approximate distance travelled by the vehicle. It assumes that the cab travelled from position A to position B despite being sufficient time difference between both appearances.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;RethinkDB query&lt;/em&gt; that collects the chronological appearances of each taxi.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;r.db(&#39;taxis&#39;).table(&#39;datacenter&#39;)
+	.filter({available: true})
+	.without(&#39;id&#39;, &#39;place_lat&#39;, &#39;place_lng&#39;, &#39;duration&#39;, &#39;distance&#39;)
+	.group(&#39;cab_id&#39;)
+	.pluck(&#39;cab_lat&#39;, &#39;cab_lng&#39;, &#39;index&#39;, &#39;timestamp&#39;)
+	.orderBy(&#39;index&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To watch the jounrney &lt;em&gt;time-lapse&lt;/em&gt; of the cab who travelled the most, press the &lt;em&gt;play button&lt;/em&gt; below.&lt;/p&gt;
+
+&lt;div id=&#39;cmap&#39; style=&#39;height:400px;&#39;&gt;
+&lt;/div&gt;
+
+&lt;div style=&#39;width:60px;margin: 0 auto;&#39;&gt;
+    &lt;h2 id=&#34;replay-btn&#34; style=&#39;position:relative;top:-100px;padding-left:15px;color:#343434;background-color:rgba(255, 255, 255, 0.8);width:60px;height:50px;cursor:pointer;&#39;&gt;
+        &lt;span class=&#39;ion-play&#39;&gt;&lt;/span&gt;
+    &lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;is-this-all-fake-just-like-uber-illusion&#34;&gt;Is this all fake, just like Uber illusion?&lt;/h3&gt;
+
+&lt;p&gt;Do you remember those &lt;em&gt;phantom car&lt;/em&gt; stories of Uber?&lt;/p&gt;
+
+&lt;p&gt;There was a research which revealed that Uber shows a mirage of tiny black cabs moving around you, when you do a cab search. Just to convince you that a cab is there for you. Study concluded that the cab network you see around, is not real-time.&lt;/p&gt;
+
+&lt;p&gt;I wanted to analyse the &lt;em&gt;traffic status&lt;/em&gt; using the response data I had. My objective was to find the regression in the &lt;em&gt;cab response time&lt;/em&gt; (time taken by a cab to reach you) and &lt;em&gt;time of the day&lt;/em&gt;. Because the sixth sense says that the &lt;em&gt;cab response time&lt;/em&gt; should be high when there is &lt;em&gt;high traffic&lt;/em&gt; in some areas of the city, likely in those peek hours (morning and evening time).&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;cab response time&lt;/em&gt; seems to be dependant on the distance only, which looks like a &lt;em&gt;step function&lt;/em&gt;.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/restime.png&#34;&gt; 
+    &lt;figcaption&gt;Cab Response Time&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I realised that there wasn&amp;rsquo;t any fluctuation in the &lt;em&gt;response time&lt;/em&gt;, it was same for a particular distance between the cab and the user (simulated), all the day.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Which implies that similar to Uber, this cab network isn&amp;rsquo;t real-time.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A nice explanation of the &lt;em&gt;phantom cars&lt;/em&gt; is available &lt;a href=&#34;http://motherboard.vice.com/read/Ubers-phantom-cabs?update&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;people-don-t-solve-a-problem-until-they-get-one&#34;&gt;People don&amp;rsquo;t solve a problem until they get one&lt;/h3&gt;
+
+&lt;p&gt;This simulated user interaction is wrong to the system. Can be easily converted into a &lt;em&gt;service denial&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;In my case, I was changing the user(simulated) location frequently, so fast that a human can&amp;rsquo;t reach there in a fraction of second (traversing whole Bangalore in 3 minutes).&lt;/p&gt;
+
+&lt;p&gt;If the service allows a user to book a cab for someone else (who is far away from where the real user is), the monitoring system should take care of the conversion rates. Someone trying to book a cab for someone else this fast, then not booking a single cab, and then repeating this every 15 minute all the day is a plain pattern to detect. Which should be detected. I hope somebody will fix this.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;That&amp;rsquo;s it, get out of the cab now.&lt;/p&gt;
+
+&lt;p&gt;I have decided not to release the collected data and code for the data retrieval. Everything else including the data processing part can be found at &lt;a href=&#34;https://github.com/pravj&#34;&gt;pravj/bangalore-taxis&lt;/a&gt; repository. Thanks to &lt;em&gt;RethinkDB&lt;/em&gt; and &lt;em&gt;Mapbox&lt;/em&gt;, you guys are really amazing.&lt;/p&gt;
+
+&lt;script src=&#39;{{http://localhost:4000}}/public/lib/taxis.js&#39;&gt;&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Open Source Presence Infographic of Indian Startups</title>
+      <link>http://pravj.github.io/blog/open-source-presence-infographic/</link>
+      <pubDate>Sat, 17 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/open-source-presence-infographic/</guid>
+      <description>
+
+&lt;p&gt;Technically speaking, organizations used in this report are no more only a &lt;em&gt;startup&lt;/em&gt; now, but I hope you people won&amp;rsquo;t mind this and aren&amp;rsquo;t gonna launch a drone on me.&lt;/p&gt;
+
+&lt;h3 id=&#34;abstract&#34;&gt;Abstract&lt;/h3&gt;
+
+&lt;p&gt;I think, &lt;em&gt;something&lt;/em&gt; is clear from the name itself, is it? Well! it should.&lt;/p&gt;
+
+&lt;p&gt;This report tries to plot all the involved organizations on the Open-Source portal. It tries to tell that, in the race to achieve their goals, what different organizations are doing there, for/in the community.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s pretty biased though, because this report uses only one platform of the Open-Source community, GitHub.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This report doesn&amp;rsquo;t measure the success of involved organizations; it simply can&amp;rsquo;t. They all are doing good in their fields, that&amp;rsquo;s why they are here.&lt;/em&gt; :tophat:&lt;/p&gt;
+
+&lt;h3 id=&#34;motive&#34;&gt;Motive&lt;/h3&gt;
+
+&lt;p&gt;I think it was almost mid of the December last year when I saw the &lt;a href=&#34;http://yourstory.com/2014/12/techie-tuesdays-amod-malviya-cto-flipkart/&#34;&gt;interview&lt;/a&gt; of Flipkart&amp;rsquo;s CTO &lt;em&gt;Amod Malviya&lt;/em&gt; in a YourStory article. I started reading that and kept reading till the end. At the end my reaction was, &lt;em&gt;wow! this man is awesome&lt;/em&gt; and he is indeed. I have seen many of his talks after reading that interview.&lt;/p&gt;
+
+&lt;p&gt;That interview made a different impression on me. I liked his words where he was talking about building a top class internet infrastructure in India. I don&amp;rsquo;t know what you people think of Flipkart, Myntra etc. but what I think is that they are evolving continuously, at least in the technical aspect. That&amp;rsquo;s why they are in the marathon and Amazon itself is in the race with them.&lt;/p&gt;
+
+&lt;p&gt;So, after a while I found myself on the GitHub organization of Flipkart and I was scrolling through their projects there. Then the idea of this report popped-up in my mind and here I&amp;rsquo;m, struggling with it.&lt;/p&gt;
+
+&lt;h3 id=&#34;for-what-joy-is-there-a-need&#34;&gt;For What Joy? Is there a need?&lt;/h3&gt;
+
+&lt;p&gt;The earth will keep rotating without this report but it&amp;rsquo;s kinda necessary for technical organizations to be a part of current Open-Source era. I mean as they say in the &lt;em&gt;Group Dynamics&lt;/em&gt;, If you&amp;rsquo;re part of a group then you learn for other members and they learn from you.&lt;/p&gt;
+
+&lt;p&gt;Do you remember something named Facebook? Lets take an example from them.&lt;/p&gt;
+
+&lt;p&gt;Maybe that you take PHP as &lt;em&gt;a language for the kids&lt;/em&gt; but keep in mind that &lt;em&gt;The Social Network&lt;/em&gt; was initially developed in that same PHP. But as they started growing and feeling glitch using it; seeing that the :santa: was not coming to help them, they attempted building something on their own. Finally today, we know the inventions as &lt;a href=&#34;http://hhvm.com/&#34;&gt;HHVM&lt;/a&gt; and &lt;a href=&#34;http://hacklang.org/&#34;&gt;Hack language&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, the thing is &lt;em&gt;don&amp;rsquo;t wait for santa and build cool things that matters&lt;/em&gt;. Big organizations are already doing it, be it &lt;a href=&#34;https://github.com/facebook/hhvm&#34;&gt;hhvm&lt;/a&gt;, &lt;a href=&#34;https://github.com/facebook/react&#34;&gt;react&lt;/a&gt; by Facebook or &lt;a href=&#34;https://github.com/twitter/typeahead.js&#34;&gt;typeahead.js&lt;/a&gt; by Twitter or &lt;a href=&#34;https://github.com/google/web-starter-kit&#34;&gt;web-starter-kit&lt;/a&gt; by Google and many more by others.&lt;/p&gt;
+
+&lt;h3 id=&#34;involved-organizations&#34;&gt;Involved Organizations&lt;/h3&gt;
+
+&lt;p&gt;I do believe that the organization selection part was a bit biased as I wanted to have my favorite organizations first on the list, like HackerEarth, Hasgeek, Housing, Flipkart, Wingify and Zomato etc.&lt;/p&gt;
+
+&lt;p&gt;It was disappointing to see that Housing was not on the GitHub by that time and Zomato&amp;rsquo;s organization was having zero public activities.&lt;/p&gt;
+
+&lt;p&gt;Finally, I selected 15 startups, giving priority to my favorite ones.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cucumbertown.com/&#34;&gt;Cucumbertown&lt;/a&gt; - Follow great cooks, showcase your cooking, build a following&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://exotel.in/&#34;&gt;Exotel&lt;/a&gt; - Reliable Cloud Telephony System for your business&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.flipkart.com/&#34;&gt;Flipkart&lt;/a&gt; - Online Shopping India&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://freshdesk.com/&#34;&gt;Freshdesk&lt;/a&gt; - Online customer support software and helpdesk solution&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.hackerearth.com/&#34;&gt;HackerEarth&lt;/a&gt; - Programming challenges and Developer jobs&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hasgeek.com/&#34;&gt;HasGeek&lt;/a&gt; - HasGeek organises events for geeks&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.instamojo.com/v2/&#34;&gt;Instamojo&lt;/a&gt; - Easiest Way to Collect Payments Online&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.myntra.com/&#34;&gt;Myntra&lt;/a&gt; - Online Shopping India&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.mysmartprice.com/&#34;&gt;MySmartPrice&lt;/a&gt; - Compare the best prices from online retailers&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.practo.com/&#34;&gt;Practo&lt;/a&gt; - Find Best Doctors and Book Appointments Online&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.shephertz.com/&#34;&gt;ShepHertz&lt;/a&gt; - Complete Cloud Ecosystem for App/Game Developers&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.urbanladder.com/&#34;&gt;Urban Ladder&lt;/a&gt; - Furniture Online Shopping Store&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://webengage.com/&#34;&gt;WebEngage&lt;/a&gt; - On-Site Customer Engagement Suite&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wingify.com/&#34;&gt;Wingify&lt;/a&gt; - Website Optimization tools that simply work&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.zomato.com/&#34;&gt;Zomato&lt;/a&gt; - Discover great places to eat around you&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There is a section here in this report, which uses last year&amp;rsquo;s GitHub activity of organizations, so I killed my idea of replacing Zomato by someone else as the year was gone and it was kinda tough to jump traditional API &lt;a href=&#34;https://developer.github.com/v3/repos/statistics/#participation&#34;&gt;bumper&lt;/a&gt; and collect data.&lt;/p&gt;
+
+&lt;p&gt;As I said Zomato have zero public activity last year but it doesn&amp;rsquo;t mean they are not good, they are doing pretty good; aquiring it all, at a rate of hurricane wind speed and serving in cities more than you&amp;rsquo;ve ever been in your life. Maybe they are using some other platform, a local Git hosting or something.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;You better zoom-in the images or open them in a different tab.&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;1-appearance-timeline-of-organizations&#34;&gt;1. Appearance Timeline of Organizations&lt;/h4&gt;
+
+&lt;p&gt;Do you know, when all of these organizations were found? Not sure?&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/appearance-timeline.png&#34;&gt; 
+    &lt;figcaption&gt;Apperance Timeline&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This plot shows &lt;em&gt;relative appearance&lt;/em&gt; of selected organizations both in the public world as well as in the open-source world.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Add legend text in the image.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I didn&amp;rsquo;t know that Myntra was founded a bit earlier than Flipkart, who &lt;a href=&#34;http://timesofindia.indiatimes.com/tech/tech-news/Flipkart-acquires-Myntra/articleshow/35472797.cms&#34;&gt;aquired&lt;/a&gt; the older player recently.&lt;/li&gt;
+&lt;li&gt;Myntra and Flipkart came in existance before the GitHub itself.&lt;/li&gt;
+&lt;li&gt;We can see a large gap between apperance on these two portals for Flipkart, Myntra and Zomato, Myntra being the slowest one to join.&lt;/li&gt;
+&lt;li&gt;Some organizations like Instamojo, HackerEarth and HasGeek felt the need of time and took no significant time in this.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Well! in case if you&amp;rsquo;re thinking that this information is all chatter, let me present something interesting.&lt;/p&gt;
+
+&lt;p&gt;Go back and see the image carefully and you&amp;rsquo;ll notice something different from others for Cucumbertown and HasGeek.&lt;/p&gt;
+
+&lt;p&gt;Yes! the GitHub organizations for these two were created before their public launching itself. &lt;em&gt;Sounds interesting, right?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I can&amp;rsquo;t say for Cucumbertown now but I can present a supporting theory to prove this for the HasGeek.&lt;/p&gt;
+
+&lt;p&gt;Do you guys remeber what was the first event that HasGeek organised? It was &lt;a href=&#34;http://wiki.hasgeek.in/DocType_HTML5&#34;&gt;DocType HTML5&lt;/a&gt;, you silly. The event was held on October, 2010 and HasGeek was pubilcally launched in December, 2010. You can fly to their GitHub account and check that they are developing &lt;a href=&#34;https://github.com/hasgeek/doctypehtml5&#34;&gt;hasgeek/doctypehtml5&lt;/a&gt; since then.&lt;/p&gt;
+
+&lt;p&gt;Maybe organising this event was the inspiration behind launching the HasGeek, I need to hear HasGeek founder &lt;a href=&#34;https://twitter.com/jackerhack&#34;&gt;Kiran&lt;/a&gt;&amp;rsquo;s words on it, though.&lt;/p&gt;
+
+&lt;h4 id=&#34;2-repository-status&#34;&gt;2. Repository Status&lt;/h4&gt;
+
+&lt;p&gt;As we all know, repository is an important component of GitHub&amp;rsquo;s ecosystem.&lt;/p&gt;
+
+&lt;h5 id=&#34;2-1-public-repository-status&#34;&gt;2.1. Public Repository Status&lt;/h5&gt;
+
+&lt;p&gt;This section deals with no. of public repositories for each involved organization.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/repository-status.png&#34;&gt; 
+    &lt;figcaption&gt;Public Repository Count&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Cloud services provider ShepHertz has maximum no. of public repositories there, mainly based on their &lt;em&gt;App42&lt;/em&gt; service stack. Flipkart and HasGeek also have significant no. of repositories, rest are the organizations are building their store gradually.&lt;/p&gt;
+
+&lt;p&gt;No. of repositories on GitHub is not the right thing to measure about, though.&lt;/p&gt;
+
+&lt;h5 id=&#34;2-2-stars-distribution&#34;&gt;2.2. Stars Distribution&lt;/h5&gt;
+
+&lt;p&gt;As I said, having more number of repositories doesn&amp;rsquo;t explicitly show your popularity. It&amp;rsquo;s not an old wars between states where king with more elephants was supposed to be the winner.&lt;/p&gt;
+
+&lt;p&gt;But no. of stars on any GitHub repository can represent its vogue, &lt;em&gt;leave the case where they&amp;rsquo;re fake.&lt;/em&gt;&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/stars-distribution.png&#34;&gt; 
+    &lt;figcaption&gt;Stars Distribution&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This graph represents the stars distribution on all the repositories of involved organizations.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Top 10 repositories according to no. of stars&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wingify/please.js&#34;&gt;wingify/please.js&lt;/a&gt; &amp;#183; 211 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/flipkart/hostdb&#34;&gt;flipkart/HostDB&lt;/a&gt; 190 &amp;#183; &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/myntra/MYNStickyFlowLayout&#34;&gt;myntra/MYNStickyFlowLayout&lt;/a&gt; &amp;#183; 133 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wingify/dom-comparator&#34;&gt;wingify/dom-comparator&lt;/a&gt; &amp;#183; 129 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hasgeek/lastuser&#34;&gt;hasgeek/lastuser&lt;/a&gt; &amp;#183; 113 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/flipkart/phantom&#34;&gt;flipkart/phantom&lt;/a&gt; &amp;#183; 71 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hasgeek/hasjob&#34;&gt;hasgeek/hasjob&lt;/a&gt; &amp;#183; 70 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wingify/agentredrabbit&#34;&gt;wingify/agentredrabbit&lt;/a&gt; &amp;#183; 49 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wingify/lua-resty-rabbitmqstomp&#34;&gt;wingify/lua-resty-rabbitmqstomp&lt;/a&gt; &amp;#183; 45 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hackerearth/hackerearth.vim&#34;&gt;hackerearth/hackerearth.vim&lt;/a&gt; &amp;#183; 28 &amp;#x2606;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can see Wingify, Flipkart and HasGeek are ruling the leader-board here.&lt;/p&gt;
+
+&lt;h5 id=&#34;2-3-relative-repository-attributes&#34;&gt;2.3. Relative Repository Attributes&lt;/h5&gt;
+
+&lt;p&gt;GitHub provides a feature named &lt;em&gt;fork&lt;/em&gt;, using that you can contribute to awesome projects of others like it was your own project.&lt;/p&gt;
+
+&lt;p&gt;This section deals with attributes of repositories, counting which one of them is a &lt;em&gt;forked&lt;/em&gt; repository or which one is a &lt;em&gt;source&lt;/em&gt; repository.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/repository-attributes.png&#34;&gt; 
+    &lt;figcaption&gt;Repository Attributes&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This plot shows which organization have all their own &lt;em&gt;source&lt;/em&gt; repositories and which one is having &lt;em&gt;forked&lt;/em&gt; repositories.&lt;/p&gt;
+
+&lt;p&gt;During the development, I also calculated &lt;em&gt;active&lt;/em&gt; and &lt;em&gt;inactive&lt;/em&gt; percentage of the &lt;em&gt;forked&lt;/em&gt; repositories. You can have a look &lt;a href=&#34;https://github.com/pravj/ospi/blob/master/Terms-and-conditions.md#section-7&#34;&gt;here&lt;/a&gt; at &lt;em&gt;how this was calculated&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;We can see that HasGeek is doing fairly good here, having more share of &lt;em&gt;source&lt;/em&gt; repositories than &lt;em&gt;forked&lt;/em&gt;. A large portion of Flipkart and Freshdesk&amp;rsquo;s repositories are &lt;em&gt;inactive-forked&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;3-development-activity&#34;&gt;3. Development Activity&lt;/h4&gt;
+
+&lt;p&gt;All the involved organizations have somewhat for the community; projects born as solutions of some problems, projects born in some hackathons and so on. They&amp;rsquo;re gradually building things to enhance their infrastucture and market position.&lt;/p&gt;
+
+&lt;h5 id=&#34;3-1-repository-creation&#34;&gt;3.1. Repository Creation&lt;/h5&gt;
+
+&lt;p&gt;This section deals with creation of repositories of all the organizations.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/repository-creation.png&#34;&gt; 
+    &lt;figcaption&gt;Repository Creation Frequency&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You can see that Urban Ladder, HasGeek and Exotel created their first repository almost at the same time of their GitHub organization creation.&lt;/li&gt;
+&lt;li&gt;ShepHertz, HasGeek and Flipkart have kinda continuous repository creation events through out the timeline.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Again, if you think that it&amp;rsquo;s &lt;em&gt;general knowledge&lt;/em&gt;, then let me show you the &lt;em&gt;magic&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Go back and watch the image carefully and you&amp;rsquo;ll notice something weird for HackerEarth, are you?&lt;/p&gt;
+
+&lt;p&gt;Yes! you see there, HackerEarth&amp;rsquo;s first repository was created before creation of their GitHub organization itself. &lt;em&gt;How is this even possible?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Well! ladies and gentlemen, this is possible. Let me introduce a new theory in support of this.&lt;/p&gt;
+
+&lt;p&gt;HackerEarth&amp;rsquo;s oldest repository in the time series is &lt;a href=&#34;https://github.com/hackerearth/django-storages&#34;&gt;django-storages&lt;/a&gt;. It&amp;rsquo;s the same repository, which is creating the confusion. But the fact is that this repository was initially &lt;em&gt;forked&lt;/em&gt; by HackerEarth&amp;rsquo;s Co-founder &lt;em&gt;Vivek&lt;/em&gt; on his GitHub &lt;a href=&#34;https://github.com/vivekp&#34;&gt;account&lt;/a&gt;. After the creation of a separate organization for HackerEarth, he merged that repository to the organization.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s why this repository&amp;rsquo;s creation date is before creation of their organization. Well! again, I need &lt;a href=&#34;https://github.com/vivekp&#34;&gt;Vivek&lt;/a&gt;&amp;rsquo;s approval on this.&lt;/p&gt;
+
+&lt;h5 id=&#34;3-2-commit-activity&#34;&gt;3.2. Commit Activity&lt;/h5&gt;
+
+&lt;p&gt;This section deals with the commit activity of all the organizations.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/commit-activity-zoom.png&#34;&gt; 
+    &lt;figcaption&gt;Commit Activity&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This plot shows weekly commit activity of all the organizations. This is pretty much mixed-up though, but this was the only plot-type in my mind at the time, when I was developing this.&lt;/p&gt;
+
+&lt;p&gt;You can see a relatively more development activity in the start of the year.&lt;/p&gt;
+
+&lt;p&gt;Flipkart development team &lt;a href=&#34;https://github.com/Flipkart/linux&#34;&gt;keeps&lt;/a&gt; a &lt;em&gt;fork&lt;/em&gt; of the &lt;em&gt;linux&lt;/em&gt;, it&amp;rsquo;s not a &lt;em&gt;forked repo&lt;/em&gt; though. I removed its activities because this was making the plot even more cluttered. You can check &lt;a href=&#34;{{site.url}}/assets/ospi/commit-activity.png&#34;&gt;that plot&lt;/a&gt; also, though.&lt;/p&gt;
+
+&lt;h4 id=&#34;4-technology-stack&#34;&gt;4. Technology Stack&lt;/h4&gt;
+
+&lt;p&gt;Different organization are working in different fields of the technology; be it medical services, developer events, online shopping, food, cloud services, online payments etc., so they&amp;rsquo;re encountering different problems in the path and managing it accordingly.&lt;/p&gt;
+
+&lt;h5 id=&#34;4-1-programming-languages-in-production&#34;&gt;4.1. Programming Languages in Production&lt;/h5&gt;
+
+&lt;p&gt;This section deals with use of different programming languages in the involved organizations&amp;rsquo;s infrastructure.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/language-uses.png&#34;&gt; 
+    &lt;figcaption&gt;Language Used&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This plot uses colors from GitHub&amp;rsquo;s &lt;a href=&#34;https://github.com/linguist&#34;&gt;linguist&lt;/a&gt; for different programming languages.&lt;/p&gt;
+
+&lt;p&gt;This helps us understanding tech-stack of all the organizations.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Flipkart uses Java, HasGeek uses Python, Practo uses PHP and Freshdesk uses Ruby as their major programming language.&lt;/li&gt;
+&lt;li&gt;Organizations have started using &lt;em&gt;non-traditional&lt;/em&gt; languages like Lua, Erlang and Scala etc.&lt;/li&gt;
+&lt;li&gt;ShepHertz uses maximum no. of programming languages(14), in their quest to serve all &lt;em&gt;in-demand&lt;/em&gt; programming language in their service.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;4-2-field-of-work&#34;&gt;4.2. Field of work&lt;/h5&gt;
+
+&lt;p&gt;This section deals with the fields, different organization are working in.&lt;/p&gt;
+
+&lt;p&gt;To calculate the results, I have used &lt;em&gt;repository names&lt;/em&gt; and &lt;em&gt;their description&lt;/em&gt; here.
+Actually I wanted to have relative sharing in fields of working of all the organizations.&lt;/p&gt;
+
+&lt;p&gt;So, initially, my plan was to use &lt;a href=&#34;http://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&#34;&gt;Latent Dirichlet Allocation&lt;/a&gt; on the &lt;em&gt;repository-description-text&lt;/em&gt; corpus for &lt;em&gt;Topic Modeling&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Where I had use &lt;em&gt;concatenated repository descriptions&lt;/em&gt; of organizations as a &lt;em&gt;document&lt;/em&gt; but then I droped this idea because of asymmetrical repository distribution. It was resulting in a corpus of 14 documents only (Zomato excluded).&lt;/p&gt;
+
+&lt;p&gt;You can have a brief knowledge about LDA, &lt;a href=&#34;http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then I changed the plan and moved towards &lt;em&gt;Naive Bayes Classifier&lt;/em&gt; and used word frequencies only.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You can check the &lt;a href=&#34;https://github.com/pravj/ospi/tree/master/classifier&#34;&gt;classifier&lt;/a&gt; topic results based on probability or frequency, &lt;a href=&#34;https://github.com/pravj/ospi/blob/master/results/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, some of the topic results from Classifier for organizations are :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Cucumbertown : &lt;em&gt;Django, Gearman, Email, Commit, Notifier&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Exotel : &lt;em&gt;Audio, IVR, Music, SMS&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Flipkart : &lt;em&gt;REST API&amp;rsquo;s, MySQL, lucence, Redis, HTTP proxy, load balancer&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Freshdesk : &lt;em&gt;Databases, Rails, API, Websockets, Socket.io, YUI, Resque&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;HasGeek : &lt;em&gt;Workshop, Lastuser, App management, TV, Job, GitHub&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;HackerEarth : &lt;em&gt;Django, API documentation and clients, extensions and editors&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Instamojo : &lt;em&gt;API clients, Wordpress, Frameworks, Huxley&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Myntra : &lt;em&gt;iOS, Cocoa, Android, ElasticSearch, Docker, Librato&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;MySmartPrice : &lt;em&gt;Technology Blog, Gearman workers, Cookbook&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Practo : &lt;em&gt;OpenID, Flask, Sentry, Symfony, Raven, Mail clients, Messages&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;ShepHertz : &lt;em&gt;App42, PaaS, SDK, API clients, MongoDB, MySQL, Redis&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;WebEngage : &lt;em&gt;Message, API, Website, Speech&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Wingify : &lt;em&gt;Angular.js, DOM, RabbitMQ, iOS, Data, Bootstrap, VWO&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here we can see that Flipkart&amp;rsquo;s stack includes things related to distributed computing, Networking, Databases on the other hand Wingify&amp;rsquo;s stack includes things related to Frontend, Data, Networking.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;So, this is it. Open Source Presence Infographic of Indian Startups. :octocat:.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re thinking that &lt;em&gt;santa&lt;/em&gt; helped me in all this; then you are wrong, my friend.
+I was all alone everytime, thinking about it, collecting the data, managing R source files in Rstudio, writing Python for it and all that.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re feeling that you can do &lt;em&gt;something&lt;/em&gt; much more awesome than this.
+&amp;gt; You can do whatever you want; It&amp;rsquo;s hosted on GitHub, &lt;a href=&#34;https://github.com/pravj/ospi&#34;&gt;pravj/ospi&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Open Source Presence Infograohic : &lt;a href=&#34;https://github.com/pravj/ospi/blob/master/Terms-and-conditions.md&#34;&gt;Terms and Conditions&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Post-mortem of an Internet Accident</title>
+      <link>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</link>
+      <pubDate>Sun, 11 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</guid>
+      <description>
+
+&lt;p&gt;Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination &lt;em&gt;Internet Accident&lt;/em&gt; confuse you, let me decode its meaning in the context of this post.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Encounter with something on an edge node of the Holy Internet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So this post is all about my attempt to solve a question, I saw on &lt;em&gt;Quora&lt;/em&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.quora.com/What-good-known-project-on-GitHub-uses-the-largest-number-of-programming-languages&#34;&gt;What good known projects on GitHub uses the largest number of programming languages?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And I think that my answer is 98.76% correct, respecting the &lt;em&gt;No-Zero-Redundancy&lt;/em&gt; law.&lt;/p&gt;
+
+&lt;p&gt;I saw this question while jumping between my chrome tabs when I was struggling with old drafts of my blog.
+I clicked the link to give it a separate tab; &lt;em&gt;even questions have self respect&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I stumbled upon it as I saw that the question had a topic named &lt;em&gt;GitHub&lt;/em&gt; also.&lt;/p&gt;
+
+&lt;p&gt;So, to answer this, all I had to do was to find a repository which uses highest number of programming languages in it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Wait, the question also says a &lt;em&gt;&amp;ldquo;good known project&amp;rdquo;&lt;/em&gt;.
+Now that&amp;rsquo;s a plot twist.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;GitHub&lt;/em&gt; provides an excellent &lt;a href=&#34;https://developer.github.com/v3/&#34;&gt;REST API&lt;/a&gt;, so excellent that it powers some awesome services also, like the &lt;a href=&#34;https://gitter.im&#34;&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, to look for languages statistics of a repository you need the names of the repository and its owner. Then you can check a repo&amp;rsquo;s languages statistics using.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://api.github.com/repos/{owner}/{repo}/languages&#34;&gt;https://api.github.com/repos/{owner}/{repo}/languages&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;As far as a I know, there is not any way to do a reverse lookup, where you just provide number of programming languages and it gives you all the associated repositories.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;So I thought, lets give up on it and enjoy the coffee, &lt;em&gt;I had one on my desk&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I closed the question tab and started enjoying the coffee but then I opened it again because I felt that there may be a chance, if I use the &lt;em&gt;GitHub Archive&lt;/em&gt; project.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;GitHub Archive is a project to record the public GitHub timeline, archive it, and make it easily accessible for further analysis.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This shift in plan was also not enough as &lt;em&gt;GitHub Archive&lt;/em&gt; gives only the major programming language for a project.
+Now it was the time to shift to coffee &lt;em&gt;full time&lt;/em&gt; but &lt;em&gt;Nope! I had another idea&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The idea was to collect &lt;em&gt;good and known&lt;/em&gt; projects of &lt;em&gt;GitHub&lt;/em&gt; and rank them according to no. of programming languages in them. This sounds like &lt;em&gt;Brute Force&lt;/em&gt; but it was the only way left.&lt;/p&gt;
+
+&lt;p&gt;I headed towards the &lt;em&gt;GitHub API&lt;/em&gt; for it but found that they gives you the first 1000 search results only.&lt;/p&gt;
+
+&lt;p&gt;So I moved to &lt;em&gt;GitHub Archive&lt;/em&gt; finally and &lt;a href=&#34;https://github.com/pravj/Post-mortem/blob/master/bigquery.sql&#34;&gt;downloaded a .csv file&lt;/a&gt; of all the repositories with greater than equal to 500 stars. Now, I think it covers most of your &lt;em&gt;good and known projects&lt;/em&gt;, happy now?&lt;/p&gt;
+
+&lt;p&gt;I &lt;em&gt;Vimed&lt;/em&gt; the .csv file and found that some URLs were missing the owner&amp;rsquo;s name.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/vim-screenshot.png&#34;&gt; 
+    &lt;figcaption&gt;Vim Screenshot&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;:g/https:\/\/github.com\/\//d&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I removed all the corrupted lines using this command.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If you&amp;rsquo;re thinking that by removing lines, we won&amp;rsquo;t consider these repositories then take a deep breath and don&amp;rsquo;t think so, we will consider them, keep reading.&lt;/p&gt;
+
+&lt;p&gt;Then I wrote a &lt;em&gt;Python module&lt;/em&gt; to interact with the &lt;em&gt;GitHub API&lt;/em&gt;, named it &lt;em&gt;&lt;a href=&#34;https://github.com/pravj/Post-mortem/blob/master/postman.py&#34;&gt;postman&lt;/a&gt;&lt;/em&gt;.
+The &lt;em&gt;postman&lt;/em&gt; uses &lt;em&gt;Authentication Token&lt;/em&gt; from &lt;em&gt;GitHub&lt;/em&gt; to prevent the &lt;em&gt;rate-limiting&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t know how much did &lt;em&gt;postman&lt;/em&gt; take in its task as I was attending my classes then.
+But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;/em&gt; was done with the task. &lt;em&gt;Wow, an obedient postman&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Right now if you search in GitHub for repositories having 500 or more stars, you will see around 7,200 results. So we have been doing this right so far as GitHub Archive &lt;a href=&#34;http://git.io/78eKDg&#34;&gt;don&amp;rsquo;t have&lt;/a&gt; all the data&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once all the data is available, it&amp;rsquo;s time to &lt;em&gt;rock &amp;lsquo;n&amp;rsquo; roll&lt;/em&gt;. &lt;a href=&#34;http://www.rstudio.com&#34;&gt;Rstudio&lt;/a&gt; is always there to help us.&lt;/p&gt;
+
+&lt;p&gt;Plotting the stars and languages distribution over all the repositories, we get this graph.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/stars-and-languages.png&#34;&gt; 
+    &lt;figcaption&gt;Stars and Language distribution&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;You can see that most of our good and known projects are in the bottom-left corner. Almost 90% of our repositories have less than 20,000 stars and 20 languages.&lt;/p&gt;
+
+&lt;p&gt;There is only one repository with more than 40,000 stars, which is the &lt;a href=&#34;https://github.com/twbs/bootstrap&#34;&gt;twbs/bootstrap&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;OK, let&amp;rsquo;s come to the question again. I think ordering repositories according to their no. of programming languages will work.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Top 25 projects by their no. of programming languages&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/leachim6/hello-world&#34;&gt;leachim6/hello-world&lt;/a&gt;, languages : 82&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ajaxorg/ace&#34;&gt;ajaxorg/ace&lt;/a&gt;, languages : 58&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ajaxorg/ace-builds&#34;&gt;ajaxorg/ace-builds&lt;/a&gt;, languages : 58&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/freebsd/freebsd&#34;&gt;RMerl/asuswrt-merlin&lt;/a&gt;, languages : 57&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/freebsd/freebsd&#34;&gt;freebsd/freebsd&lt;/a&gt;, languages : 39&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/geany/geany&#34;&gt;geany/geany&lt;/a&gt;, languages : 36&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/xbmc/xbmc&#34;&gt;xbmc/xbmc&lt;/a&gt;, languages : 30&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/dspinellis/unix-history-repo&#34;&gt;dspinellis/unix-history-repo&lt;/a&gt;, languages : 30&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/TechEmpower/FrameworkBenchmarks&#34;&gt;TechEmpower/FrameworkBenchmarks&lt;/a&gt;, languages : 28&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/imatix/zguide&#34;&gt;imatix/zguide&lt;/a&gt;, languages : 28&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/apache/thrift&#34;&gt;apache/thrift&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/msysgit/msysgit&#34;&gt;msysgit/msysgit&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kennyledet/Algorithm-Implementations&#34;&gt;kennyledet/Algorithm-Implementations&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/flycheck/flycheck&#34;&gt;flycheck/flycheck&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aichallenge/aichallenge&#34;&gt;aichallenge/aichallenge&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/triAGENS/ArangoDB&#34;&gt;triAGENS/ArangoDB&lt;/a&gt;, languages : 26&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/offensive-security/exploit-database&#34;&gt;offensive-security/exploit-database&lt;/a&gt;, languages : 25&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JuliaLang/julia&#34;&gt;JuliaLang/julia&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JetBrains/intellij-community&#34;&gt;JetBrains/intellij-community&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/facebook/pfff&#34;&gt;facebook/pfff&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ornicar/lila&#34;&gt;ornicar/lila&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/WebKit/webkit&#34;&gt;WebKit/webkit&lt;/a&gt;, languages : 22&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ariya/phantomjs&#34;&gt;ariya/phantomjs&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ruby/ruby&#34;&gt;ruby/ruby&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/coolwanglu/vim.js&#34;&gt;coolwanglu/vim.js&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;So, is that all? &lt;em&gt;Not at all! We have a lot to talk about my friend.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets talk about something interesting I found in the data there.&lt;/p&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;1-there-were-382-repositories-without-any-programming-language&#34;&gt;1. There were 382 repositories without any programming language.&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Most of them are documentations, list of resources for a field.&lt;/li&gt;
+&lt;li&gt;For example &lt;a href=&#34;https://github.com/vhf/free-programming-books&#34;&gt;vhf/free-programming-books&lt;/a&gt;, List of free learning resources.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/zero-language-repository.png&#34;&gt; 
+    &lt;figcaption&gt;Zero Language Repositories&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Subject to the detection of language by GitHub.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Along with the required dataset, I was also collecting the &lt;a href=&#34;https://github.com/pravj/Post-mortem/blob/master/log/postman.log&#34;&gt;logs&lt;/a&gt; data.
+So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;2-the-log-file-shows-error-status-404-in-some-lines&#34;&gt;2. The log file shows &amp;lsquo;ERROR : status 404&amp;rsquo; in some lines.&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;There are 214 such lines, it means these projects have shifted their owners as it&amp;rsquo;s unusual to delete such popular repository.&lt;/li&gt;
+&lt;li&gt;They have evolved to much larger projects and have their own organizations now. For example the projects &lt;a href=&#34;https://github.com/homebrew/homebrew&#34;&gt;Homebrew&lt;/a&gt;, &lt;a href=&#34;https://github.com/docker/docker&#34;&gt;Docker&lt;/a&gt; and &lt;a href=&#34;https://github.com/jekyll/jekyll&#34;&gt;Jekyll&lt;/a&gt;, earlier they were &lt;a href=&#34;https://github.com/mxcl/homebrew&#34;&gt;mxcl/homebrew&lt;/a&gt;, &lt;a href=&#34;https://github.com/dotcloud/docker&#34;&gt;dotcloud/docker&lt;/a&gt; and &lt;a href=&#34;https://github.com/mojombo/jekyll&#34;&gt;mojombo/jekyll&lt;/a&gt; respectively.&lt;/li&gt;
+&lt;li&gt;The maximum-star-holder-and-ultra-awesome project &lt;a href=&#34;https://github.com/twbs/bootstrap&#34;&gt;twbs/bootstrap&lt;/a&gt; was earlier at &lt;em&gt;Twitter&lt;/em&gt; by the address, &lt;a href=&#34;https://github.com/twitter/bootstrap&#34;&gt;twitter/bootstrap&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The one-and-only TJ Holowaychuk have changed his username from &lt;a href=&#34;https://github.com/visionmedia&#34;&gt;visionmedia&lt;/a&gt; to &lt;a href=&#34;https://github.com/tj&#34;&gt;tj&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;3-the-log-file-shows-error-status-403-in-some-lines&#34;&gt;3. The log file shows &amp;lsquo;ERROR : status 403&amp;rsquo; in some lines.&lt;/h3&gt;
+
+&lt;p&gt;Now this is weird, as status 403 denotes the Forbidden state. But underlying secrets are much more awesome here.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;There were two repositories, disabled due to a DMCA takedown notice.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/popcorn-official/popcorn-app&#34;&gt;popcorn-official/popcorn-app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Bukkit/CraftBukkit&#34;&gt;Bukkit/CraftBukkit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;There was one repositories which is disabled by GitHub staff.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mandatoryprogrammer/Octodog_Invasion&#34;&gt;mandatoryprogrammer/Octodog_Invasion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;There was one repository which is deleted.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/NULLPointerDz/test&#34;&gt;NULLPointerDz/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t know how but this repository had more than 500 stars once.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The code for this report is on GitHub, &lt;a href=&#34;https://github.com/pravj/Post-mortem&#34;&gt;pravj/Post-mortem&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you feel that you can do more after going through this post-mortem report, you are welcome to show your medical skills.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

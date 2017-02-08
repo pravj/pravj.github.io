@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quora on hack(pravj)</title>
+    <link>http://pravj.github.io/tags/quora/index.xml</link>
+    <description>Recent content in Quora on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://pravj.github.io/tags/quora/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Post-mortem of an Internet Accident</title>
+      <link>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</link>
+      <pubDate>Sun, 11 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/post-mortem-of-an-internet-accident/</guid>
+      <description>
+
+&lt;p&gt;Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination &lt;em&gt;Internet Accident&lt;/em&gt; confuse you, let me decode its meaning in the context of this post.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Encounter with something on an edge node of the Holy Internet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So this post is all about my attempt to solve a question, I saw on &lt;em&gt;Quora&lt;/em&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.quora.com/What-good-known-project-on-GitHub-uses-the-largest-number-of-programming-languages&#34;&gt;What good known projects on GitHub uses the largest number of programming languages?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And I think that my answer is 98.76% correct, respecting the &lt;em&gt;No-Zero-Redundancy&lt;/em&gt; law.&lt;/p&gt;
+
+&lt;p&gt;I saw this question while jumping between my chrome tabs when I was struggling with old drafts of my blog.
+I clicked the link to give it a separate tab; &lt;em&gt;even questions have self respect&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I stumbled upon it as I saw that the question had a topic named &lt;em&gt;GitHub&lt;/em&gt; also.&lt;/p&gt;
+
+&lt;p&gt;So, to answer this, all I had to do was to find a repository which uses highest number of programming languages in it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Wait, the question also says a &lt;em&gt;&amp;ldquo;good known project&amp;rdquo;&lt;/em&gt;.
+Now that&amp;rsquo;s a plot twist.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;GitHub&lt;/em&gt; provides an excellent &lt;a href=&#34;https://developer.github.com/v3/&#34;&gt;REST API&lt;/a&gt;, so excellent that it powers some awesome services also, like the &lt;a href=&#34;https://gitter.im&#34;&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, to look for languages statistics of a repository you need the names of the repository and its owner. Then you can check a repo&amp;rsquo;s languages statistics using.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://api.github.com/repos/{owner}/{repo}/languages&#34;&gt;https://api.github.com/repos/{owner}/{repo}/languages&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;As far as a I know, there is not any way to do a reverse lookup, where you just provide number of programming languages and it gives you all the associated repositories.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;So I thought, lets give up on it and enjoy the coffee, &lt;em&gt;I had one on my desk&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I closed the question tab and started enjoying the coffee but then I opened it again because I felt that there may be a chance, if I use the &lt;em&gt;GitHub Archive&lt;/em&gt; project.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;GitHub Archive is a project to record the public GitHub timeline, archive it, and make it easily accessible for further analysis.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This shift in plan was also not enough as &lt;em&gt;GitHub Archive&lt;/em&gt; gives only the major programming language for a project.
+Now it was the time to shift to coffee &lt;em&gt;full time&lt;/em&gt; but &lt;em&gt;Nope! I had another idea&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The idea was to collect &lt;em&gt;good and known&lt;/em&gt; projects of &lt;em&gt;GitHub&lt;/em&gt; and rank them according to no. of programming languages in them. This sounds like &lt;em&gt;Brute Force&lt;/em&gt; but it was the only way left.&lt;/p&gt;
+
+&lt;p&gt;I headed towards the &lt;em&gt;GitHub API&lt;/em&gt; for it but found that they gives you the first 1000 search results only.&lt;/p&gt;
+
+&lt;p&gt;So I moved to &lt;em&gt;GitHub Archive&lt;/em&gt; finally and &lt;a href=&#34;https://github.com/pravj/Post-mortem/blob/master/bigquery.sql&#34;&gt;downloaded a .csv file&lt;/a&gt; of all the repositories with greater than equal to 500 stars. Now, I think it covers most of your &lt;em&gt;good and known projects&lt;/em&gt;, happy now?&lt;/p&gt;
+
+&lt;p&gt;I &lt;em&gt;Vimed&lt;/em&gt; the .csv file and found that some URLs were missing the owner&amp;rsquo;s name.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/vim-screenshot.png&#34;&gt; 
+    &lt;figcaption&gt;Vim Screenshot&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;:g/https:\/\/github.com\/\//d&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I removed all the corrupted lines using this command.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If you&amp;rsquo;re thinking that by removing lines, we won&amp;rsquo;t consider these repositories then take a deep breath and don&amp;rsquo;t think so, we will consider them, keep reading.&lt;/p&gt;
+
+&lt;p&gt;Then I wrote a &lt;em&gt;Python module&lt;/em&gt; to interact with the &lt;em&gt;GitHub API&lt;/em&gt;, named it &lt;em&gt;&lt;a href=&#34;https://github.com/pravj/Post-mortem/blob/master/postman.py&#34;&gt;postman&lt;/a&gt;&lt;/em&gt;.
+The &lt;em&gt;postman&lt;/em&gt; uses &lt;em&gt;Authentication Token&lt;/em&gt; from &lt;em&gt;GitHub&lt;/em&gt; to prevent the &lt;em&gt;rate-limiting&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t know how much did &lt;em&gt;postman&lt;/em&gt; take in its task as I was attending my classes then.
+But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;/em&gt; was done with the task. &lt;em&gt;Wow, an obedient postman&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Right now if you search in GitHub for repositories having 500 or more stars, you will see around 7,200 results. So we have been doing this right so far as GitHub Archive &lt;a href=&#34;http://git.io/78eKDg&#34;&gt;don&amp;rsquo;t have&lt;/a&gt; all the data&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once all the data is available, it&amp;rsquo;s time to &lt;em&gt;rock &amp;lsquo;n&amp;rsquo; roll&lt;/em&gt;. &lt;a href=&#34;http://www.rstudio.com&#34;&gt;Rstudio&lt;/a&gt; is always there to help us.&lt;/p&gt;
+
+&lt;p&gt;Plotting the stars and languages distribution over all the repositories, we get this graph.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/stars-and-languages.png&#34;&gt; 
+    &lt;figcaption&gt;Stars and Language distribution&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;You can see that most of our good and known projects are in the bottom-left corner. Almost 90% of our repositories have less than 20,000 stars and 20 languages.&lt;/p&gt;
+
+&lt;p&gt;There is only one repository with more than 40,000 stars, which is the &lt;a href=&#34;https://github.com/twbs/bootstrap&#34;&gt;twbs/bootstrap&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;OK, let&amp;rsquo;s come to the question again. I think ordering repositories according to their no. of programming languages will work.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Top 25 projects by their no. of programming languages&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/leachim6/hello-world&#34;&gt;leachim6/hello-world&lt;/a&gt;, languages : 82&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ajaxorg/ace&#34;&gt;ajaxorg/ace&lt;/a&gt;, languages : 58&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ajaxorg/ace-builds&#34;&gt;ajaxorg/ace-builds&lt;/a&gt;, languages : 58&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/freebsd/freebsd&#34;&gt;RMerl/asuswrt-merlin&lt;/a&gt;, languages : 57&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/freebsd/freebsd&#34;&gt;freebsd/freebsd&lt;/a&gt;, languages : 39&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/geany/geany&#34;&gt;geany/geany&lt;/a&gt;, languages : 36&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/xbmc/xbmc&#34;&gt;xbmc/xbmc&lt;/a&gt;, languages : 30&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/dspinellis/unix-history-repo&#34;&gt;dspinellis/unix-history-repo&lt;/a&gt;, languages : 30&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/TechEmpower/FrameworkBenchmarks&#34;&gt;TechEmpower/FrameworkBenchmarks&lt;/a&gt;, languages : 28&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/imatix/zguide&#34;&gt;imatix/zguide&lt;/a&gt;, languages : 28&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/apache/thrift&#34;&gt;apache/thrift&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/msysgit/msysgit&#34;&gt;msysgit/msysgit&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kennyledet/Algorithm-Implementations&#34;&gt;kennyledet/Algorithm-Implementations&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/flycheck/flycheck&#34;&gt;flycheck/flycheck&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aichallenge/aichallenge&#34;&gt;aichallenge/aichallenge&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/triAGENS/ArangoDB&#34;&gt;triAGENS/ArangoDB&lt;/a&gt;, languages : 26&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/offensive-security/exploit-database&#34;&gt;offensive-security/exploit-database&lt;/a&gt;, languages : 25&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JuliaLang/julia&#34;&gt;JuliaLang/julia&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JetBrains/intellij-community&#34;&gt;JetBrains/intellij-community&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/facebook/pfff&#34;&gt;facebook/pfff&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ornicar/lila&#34;&gt;ornicar/lila&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/WebKit/webkit&#34;&gt;WebKit/webkit&lt;/a&gt;, languages : 22&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ariya/phantomjs&#34;&gt;ariya/phantomjs&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ruby/ruby&#34;&gt;ruby/ruby&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/coolwanglu/vim.js&#34;&gt;coolwanglu/vim.js&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;So, is that all? &lt;em&gt;Not at all! We have a lot to talk about my friend.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets talk about something interesting I found in the data there.&lt;/p&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;1-there-were-382-repositories-without-any-programming-language&#34;&gt;1. There were 382 repositories without any programming language.&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Most of them are documentations, list of resources for a field.&lt;/li&gt;
+&lt;li&gt;For example &lt;a href=&#34;https://github.com/vhf/free-programming-books&#34;&gt;vhf/free-programming-books&lt;/a&gt;, List of free learning resources.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/zero-language-repository.png&#34;&gt; 
+    &lt;figcaption&gt;Zero Language Repositories&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Subject to the detection of language by GitHub.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Along with the required dataset, I was also collecting the &lt;a href=&#34;https://github.com/pravj/Post-mortem/blob/master/log/postman.log&#34;&gt;logs&lt;/a&gt; data.
+So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;2-the-log-file-shows-error-status-404-in-some-lines&#34;&gt;2. The log file shows &amp;lsquo;ERROR : status 404&amp;rsquo; in some lines.&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;There are 214 such lines, it means these projects have shifted their owners as it&amp;rsquo;s unusual to delete such popular repository.&lt;/li&gt;
+&lt;li&gt;They have evolved to much larger projects and have their own organizations now. For example the projects &lt;a href=&#34;https://github.com/homebrew/homebrew&#34;&gt;Homebrew&lt;/a&gt;, &lt;a href=&#34;https://github.com/docker/docker&#34;&gt;Docker&lt;/a&gt; and &lt;a href=&#34;https://github.com/jekyll/jekyll&#34;&gt;Jekyll&lt;/a&gt;, earlier they were &lt;a href=&#34;https://github.com/mxcl/homebrew&#34;&gt;mxcl/homebrew&lt;/a&gt;, &lt;a href=&#34;https://github.com/dotcloud/docker&#34;&gt;dotcloud/docker&lt;/a&gt; and &lt;a href=&#34;https://github.com/mojombo/jekyll&#34;&gt;mojombo/jekyll&lt;/a&gt; respectively.&lt;/li&gt;
+&lt;li&gt;The maximum-star-holder-and-ultra-awesome project &lt;a href=&#34;https://github.com/twbs/bootstrap&#34;&gt;twbs/bootstrap&lt;/a&gt; was earlier at &lt;em&gt;Twitter&lt;/em&gt; by the address, &lt;a href=&#34;https://github.com/twitter/bootstrap&#34;&gt;twitter/bootstrap&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The one-and-only TJ Holowaychuk have changed his username from &lt;a href=&#34;https://github.com/visionmedia&#34;&gt;visionmedia&lt;/a&gt; to &lt;a href=&#34;https://github.com/tj&#34;&gt;tj&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;3-the-log-file-shows-error-status-403-in-some-lines&#34;&gt;3. The log file shows &amp;lsquo;ERROR : status 403&amp;rsquo; in some lines.&lt;/h3&gt;
+
+&lt;p&gt;Now this is weird, as status 403 denotes the Forbidden state. But underlying secrets are much more awesome here.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;There were two repositories, disabled due to a DMCA takedown notice.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/popcorn-official/popcorn-app&#34;&gt;popcorn-official/popcorn-app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Bukkit/CraftBukkit&#34;&gt;Bukkit/CraftBukkit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;There was one repositories which is disabled by GitHub staff.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mandatoryprogrammer/Octodog_Invasion&#34;&gt;mandatoryprogrammer/Octodog_Invasion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;There was one repository which is deleted.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/NULLPointerDz/test&#34;&gt;NULLPointerDz/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t know how but this repository had more than 500 stars once.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The code for this report is on GitHub, &lt;a href=&#34;https://github.com/pravj/Post-mortem&#34;&gt;pravj/Post-mortem&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you feel that you can do more after going through this post-mortem report, you are welcome to show your medical skills.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

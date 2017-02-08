@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ai on hack(pravj)</title>
+    <link>http://pravj.github.io/tags/ai/index.xml</link>
+    <description>Recent content in Ai on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://pravj.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Development story of puzzl</title>
+      <link>http://pravj.github.io/blog/development-story-of-puzzl/</link>
+      <pubDate>Thu, 23 Apr 2015 00:00:00 +0530</pubDate>
+      
+      <guid>http://pravj.github.io/blog/development-story-of-puzzl/</guid>
+      <description>
+
+&lt;p&gt;Lets start with that old promotion rant I use all the time.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You should have a look at &lt;a href=&#34;https://github.com/pravj/puzzl&#34;&gt;puzzl&lt;/a&gt;, if you haven&amp;rsquo;t yet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;what-this-is-all-about&#34;&gt;What this is all about?&lt;/h3&gt;
+
+&lt;p&gt;This post is about development of a sliding-puzzle game I made recently, named &lt;em&gt;puzzl&lt;/em&gt;. I refer it as an &lt;em&gt;intelligent version&lt;/em&gt; of the classical sliding puzzle game, and I&amp;rsquo;ll explain the reason behind this. Stay awake.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/puzzl.gif&#34;&gt; 
+    &lt;figcaption&gt;Puzzl in action&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;for-what-joy&#34;&gt;For What Joy?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Yes, that&amp;rsquo;s the best question. Why did I do that?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There &lt;em&gt;is&lt;/em&gt; a force behind everything we do, so the same goes for any new software product we see in the jungle or a new medicine or whatever.&lt;/p&gt;
+
+&lt;p&gt;They all try to solve some problems. A new version of a software has some bugs fixed from the older one and so on.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;But hey! you can develop a game without such force anytime.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Specially, when you are supposed to study for your exams. Tested, &lt;em&gt;rule of thumb&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;exam-time-bamboozlement&#34;&gt;Exam-time bamboozlement&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The &lt;em&gt;session&lt;/em&gt; when your mind&amp;rsquo;s &lt;em&gt;stream&lt;/em&gt; is *grep*ing too many *event*s.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You feel like, put this exam thing in left and consider this problem-&lt;em&gt;blah&lt;/em&gt;, because the world needs you. Right now.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s gone after a nice sleep, like hangover. But it may attack you again on the next exam day, depending on your performance in last exam.&lt;/p&gt;
+
+&lt;p&gt;You think about too many things, however some are out of your domain though.&lt;/p&gt;
+
+&lt;p&gt;For example, &lt;em&gt;A bicycle for old aged people&lt;/em&gt;. I found it an actual problem by the way, as I often see them having trouble riding the native big bicycles.&lt;/p&gt;
+
+&lt;p&gt;Then you think that it should run on its own, so you draw a sketch and invest your time in adding solar panels at proper orientation, so that charging is not something to worry about, no matter where the sun is.&lt;/p&gt;
+
+&lt;p&gt;Then you suddenly realize that you&amp;rsquo;re about to transform into &lt;em&gt;Tony Stark&lt;/em&gt;. You&amp;rsquo;re working on a problem which comes under &lt;em&gt;Mechanical Engineering&lt;/em&gt;. And there is no chance you can complete this without either having a degree in it or a girlfriend from that stream. By the way, both the solutions are difficult.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A similar bamboozlement was the reason behind the game &lt;em&gt;puzzl&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I was setting up my camp for the mid-term exam of &lt;em&gt;Artificial Intelligence&lt;/em&gt; course. And then I stumbled upon this &lt;em&gt;sliding-puzzle&lt;/em&gt; game thing in book.&lt;/p&gt;
+
+&lt;p&gt;Then I thought, what about a sliding-puzzle game for terminals?&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s it. I was done with further preparation. I even spent the entire exam time divising the &lt;em&gt;scoring mechanism&lt;/em&gt; and &lt;em&gt;logo&lt;/em&gt; for the game. The last page of the solution paper and my low score is the proof.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-problem-statement&#34;&gt;The problem statement&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Sliding-puzzle&lt;/em&gt; games have many variants. I decided to move ahead with the one having a 3x3 board, the &lt;em&gt;8-puzzle&lt;/em&gt;. 8 out of 9 tiles have some numbers on them, one tile is blank.&lt;/p&gt;
+
+&lt;p&gt;All you have to do is, arrange all tiles in a particular order. Lets say, in increasing order with the blank tile being the last one.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/states.jpg&#34;&gt; 
+    &lt;figcaption&gt;8 puzzle game states&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This sounds a little easy, taking user inputs, moving the tiles accordingly and checking that whether we are done with the game or not. So, I decided to enhance both the development and playing processes.&lt;/p&gt;
+
+&lt;p&gt;To solve the game in background and track user moves accordingly or give them hints. Poor humans.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-solution&#34;&gt;The solution&lt;/h3&gt;
+
+&lt;p&gt;The solution is pretty simple actually. There is a blank tile in the game board and you can reach to a different configuration by moving that blank tile in atmost 4 directions, according to its current position.&lt;/p&gt;
+
+&lt;p&gt;Now, how do you make a computer solve this, efficiently?&lt;/p&gt;
+
+&lt;p&gt;This can be reduced to a problem where any game board configuration is a &lt;em&gt;node&lt;/em&gt; and you can reach to a &lt;em&gt;node&lt;/em&gt; from its &lt;em&gt;parent node&lt;/em&gt; by applying a &lt;em&gt;successor function&lt;/em&gt;, which is the movement of the blank tile in this case.&lt;/p&gt;
+
+&lt;p&gt;So, this is a &lt;em&gt;graph search problem&lt;/em&gt; now. You have a &lt;em&gt;start state&lt;/em&gt; and you have to reach at a &lt;em&gt;goal state&lt;/em&gt; in minimum steps.&lt;/p&gt;
+
+&lt;p&gt;In &lt;em&gt;puzzl&lt;/em&gt;, the algoirthm which solves this &lt;em&gt;graph search problem&lt;/em&gt; is &lt;a href=&#34;http://en.wikipedia.org/wiki/A*_search_algorithm&#34;&gt;A* algorithm&lt;/a&gt;. As of now, it uses the easiest &lt;em&gt;Heuristic Function&lt;/em&gt;, &lt;a href=&#34;http://en.wikipedia.org/wiki/Heuristic_function&#34;&gt;Misplaced Tiles Count&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The auto solving part sounds pretty easy, right? Like a walk while eating a cake.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;But there were some other interesting challenges.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;primary-language&#34;&gt;Primary Language&lt;/h3&gt;
+
+&lt;p&gt;I opted for Golang as the primary language of &lt;em&gt;puzzl&lt;/em&gt;, just because &lt;em&gt;I&amp;rsquo;m loving it&lt;/em&gt; and I wanted it to takeoff comparatively faster than other solutions, let&amp;rsquo;s say Python.&lt;/p&gt;
+
+&lt;p&gt;After some work, I started getting ideas of other features and I was happy with my language choice, as Go is the best solution I can think of for them. I&amp;rsquo;ll talk about those features in a while.&lt;/p&gt;
+
+&lt;h3 id=&#34;solvability-of-the-problem&#34;&gt;Solvability of the problem&lt;/h3&gt;
+
+&lt;p&gt;This is one of those interesting parts I faced while making it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Not all 8- puzzle game configurations are solvable.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Yes, for a 3x3 game board, there are a total of 362880 configurations possible(9!), but only half of them are actually solvable.&lt;/p&gt;
+
+&lt;p&gt;Initially it took me a while to get it that why only some of them are solvable? But after going through &amp;ldquo;&lt;em&gt;Notes on the 15 puzzle&lt;/em&gt;&amp;rdquo; paper by &lt;em&gt;Wm. Woolsey Johnson and William E. Story&lt;/em&gt; it was clear to me.&lt;/p&gt;
+
+&lt;p&gt;Using the &lt;em&gt;Mathematical Induction&lt;/em&gt; on what it was there in the paper, I have a sample game for you. You can spend rest of your life solving this, if you want to.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/unsolvable-game.jpg&#34;&gt; 
+    &lt;figcaption&gt;Unsolvable sliding puzzle&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Then I added a package named &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/scanner/scanner.go&#34;&gt;scanner&lt;/a&gt; in the game, with the help of &amp;ldquo;&lt;em&gt;Analysis of the Sixteen Puzzle&lt;/em&gt;&amp;rdquo;. It makes sure that any game configuration we are using, is really solvable. It uses another for the game, if one is not actually solvable.&lt;/p&gt;
+
+&lt;h3 id=&#34;notification-system&#34;&gt;Notification System&lt;/h3&gt;
+
+&lt;p&gt;And this was the most interesting part. Developing a &lt;em&gt;Real time Notification System&lt;/em&gt; according to the game state.&lt;/p&gt;
+
+&lt;p&gt;When I was done with writing the auto-solving background process for the game, I noticed that sometimes it takes a while to solve from the initial game configuration.&lt;/p&gt;
+
+&lt;p&gt;For example, the hardest game configuration is solvable in 31 moves. So, when the game is solving it, it doesn&amp;rsquo;t properly respond to user inputs.&lt;/p&gt;
+
+&lt;p&gt;It won&amp;rsquo;t respond in this way because the control flow architecture is &lt;em&gt;Synchronous&lt;/em&gt; now. It means that firstoff the game will solve itself in background and then stars accepting user inputs.&lt;/p&gt;
+
+&lt;p&gt;And this goes worse when the game is solving itself on each move because user input was wrong. A serious problem it was.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Here comes the concurrency primitives of Golang.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Concurrent programming is the beauty in Go. The language comes with built-in weapons, &lt;em&gt;goroutines&lt;/em&gt; and &lt;em&gt;channels&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The solution works like this, we have to change the control flow architecture into &lt;em&gt;Asynchronous&lt;/em&gt; mode. Where the game would be notifying us that &lt;em&gt;OK, now I&amp;rsquo;m done with solving and you can give any input&lt;/em&gt;, and avoiding all user inputs gracefully till then without a crash.&lt;/p&gt;
+
+&lt;p&gt;And this can be used in many other aspects, notifying on a particular internal event. Like &lt;em&gt;the game is complete&lt;/em&gt;, &lt;em&gt;you just did a right/wrong move&lt;/em&gt;, &lt;em&gt;there are no hints left&lt;/em&gt; etc.&lt;/p&gt;
+
+&lt;p&gt;There are two &lt;em&gt;goroutines&lt;/em&gt;, one for &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417&#34;&gt;handling the notification events&lt;/a&gt; and another for &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417&#34;&gt;solving the game in background&lt;/a&gt;, both are non-blocking in nature to other routines like &lt;em&gt;user inputs&lt;/em&gt;, &lt;em&gt;game display&lt;/em&gt; etc. A &lt;em&gt;channel&lt;/em&gt; named &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/notification/notification.go#L19&#34;&gt;Tunnel&lt;/a&gt; was the messenger for these &lt;em&gt;goroutines&lt;/em&gt;.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;http://pravj.github.io/images/architecture.jpg&#34;&gt; 
+    &lt;figcaption&gt;Asynchronous Gouroutines Architecture&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This is like feeding each other. Best friends forever.&lt;/p&gt;
+
+&lt;h3 id=&#34;game-interface&#34;&gt;Game Interface&lt;/h3&gt;
+
+&lt;p&gt;Thanks to &lt;a href=&#34;http://en.wikipedia.org/wiki/Box-drawing_character&#34;&gt;Box-drawing characters&lt;/a&gt;, the best old way to develop text based user interfaces. And thanks to &lt;a href=&#34;https://github.com/nsf/termbox-go&#34;&gt;termbox-go&lt;/a&gt;, an awesome library for such interface development in Golang.&lt;/p&gt;
+
+&lt;h3 id=&#34;arxiv-submission&#34;&gt;arXiv submission&lt;/h3&gt;
+
+&lt;p&gt;I loved working on it so much that I even framed its development in shape of a research paper, sort of. It&amp;rsquo;s available on the arXiv digital library, here &lt;a href=&#34;http://arxiv.org/abs/1503.08345&#34;&gt;arxiv-1503.08345&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Implementing an intelligent version of the classical sliding-puzzle game for unix terminals using Golang&amp;rsquo;s concurrency primitives.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s not in LaTeX, so the arXiv stamp is absent in PDF format there. They replied that they don&amp;rsquo;t have any technique yet to stamp other formats. I&amp;rsquo;ll probably port it in LaTeX one day.&lt;/p&gt;
+
+&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.jstor.org/stable/pdf/2369492.pdf?acceptTC=true&#34;&gt;Notes on the 15 puzzle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://kevingong.com/Math/SixteenPuzzle.html&#34;&gt;Analysis of the Sixteen Puzzle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ai-php.com/wp-content/uploads/2013/12/AI8pzzle.jpg&#34;&gt;ai-php.com&lt;/a&gt; for the 8-puzzle game states image&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://captnemo.in/&#34;&gt;Abhay Rana&lt;/a&gt; for teaching me what &lt;em&gt;For What Joy&lt;/em&gt; is. #FWJ?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;behind-the-scene&#34;&gt;Behind the scene&lt;/h3&gt;
+
+&lt;p&gt;I framed all this story for you, the truth is something else.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Guess what? It&amp;rsquo;s my exam-time again that made me write this.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The source code for &lt;em&gt;puzzl&lt;/em&gt; is on &lt;a href=&#34;https://github.com/pravj/puzzl&#34;&gt;GitHub&lt;/a&gt;. Do whatever you want, just respect licensing and other respectful things.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
