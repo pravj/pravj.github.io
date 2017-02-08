@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+
+  <meta name="description" content="Pravendra Singh">
+
+  <!-- icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="192x192" href="//pravj.github.io/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="//pravj.github.io/public/favicon.ico">
+
+  <!-- Open Graph Protocol metadata starts -->
+  
+  <meta property="og:title" content="Development story of puzzl">
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="Intelligent version of the classical sliding puzzle game">
+  <meta property="article:published_time" content="2015-04-23">
+  <meta property="article:author" content="Pravendra Singh">
+  <meta property="article:section" content="Technology">
+
+  
+  <meta property="article:tag" content="Golang">
+  
+  <meta property="article:tag" content="AI">
+  
+  <meta property="article:tag" content="Game">
+  
+  <meta property="article:tag" content="Terminal">
+  
+  <meta property="article:tag" content="Hack">
+  
+
+  
+
+
+  <meta property="og:image" content="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11358226_664361487027156_125876068_n.jpg">
+  <meta property="og:url" content="http://pravj.github.io/blog/development-story-of-puzzl/">
+  <meta property="og:site_name" content="Pravendra Singh · @hackpravj">
+  <!-- Open Graph Protocol metadata ends -->
+
+  <!-- Twitter cards metadata starts -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@hackpravj">
+  <meta name="twitter:creator" content="@hackpravj">
+  
+  <meta name="twitter:title" content="Development story of puzzl">
+  <meta name="twitter:description" content="Intelligent version of the classical sliding puzzle game">
+  
+  <meta name="twitter:image" content="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11358226_664361487027156_125876068_n.jpg">
+  <!-- Twitter cards metadata ends -->
+
+  <!-- FB insights -->
+  <meta property="fb:admins" content="100003909612219" />
+
+  <link type="text/css" rel="stylesheet" href="/public/css/materialize.min.css"  media="screen,projection"/>
+  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/public/css/custom/site.css"  media="screen,projection"/>
+  <link href='http://fonts.googleapis.com/css?family=Catamaran|Raleway' rel='stylesheet' type='text/css'>
+
+  
+
+  
+
+  
+
+  <title>Pravendra Singh</title>
+
+  <!-- feed -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+    <div class="container">
+  <div class="row zero-bottom-margin">
+    <div class="col s12 m6 l6 center-align">
+      <h5><a class="navigation" href="/">Pravendra Singh</a></h5>
+    </div>
+
+    <div class="col s12 m6 l6 center-align">
+      <div class="row">
+        <div class="col s12">
+          <ul>
+            <li class="tab col s3"><span><a class="navigation" href="/about" title="About me, writing this takes most of the time."><span class="ion-person icon-black"></span></a></span></li>
+            <li class="tab col s3"><span><a class="navigation" href="/blog" title="Atricles, right from my untold drafts."><span class="ion-ios-paper icon-black"></span></a></span></li>
+            <li class="tab col s3"><span><a class="navigation" href="/projects" title="Projects, out of thin air."><span class="ion-social-github icon-black"></span></a></span></li>
+            <li class="tab col s3"><span><a class="navigation" href="/quotes" title="Sayings, that can inspire you."><span class="ion-quote icon-black"></span></a></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="divider"></div>
+
+    <div class="valign-wrapper" style="background:#7b9fd3;padding-top:10px;padding-bottom:10px;">
+      <div class="valign container">
+        <div class="row">
+          <div class="col s12 article-date" style="color:#30343f;">
+            23 Apr 2015
+          </div>
+
+          <div class="col s12">
+            <h2 style="color:#fafaff;">Development story of puzzl</h2>
+          </div>
+
+          <div class="col s12 section-heading">
+            <h6 style="color:#434a79;"><span><b>Intelligent version of the classical sliding puzzle game</b></span></h6>
+          </div>
+
+          <div class="col s12 article-tags section-description">
+            <ul>
+              
+              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#golang"><b>&nbsp;Golang</b></a></li>
+              
+              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#ai"><b>&nbsp;AI</b></a></li>
+              
+              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#game"><b>&nbsp;Game</b></a></li>
+              
+              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#terminal"><b>&nbsp;Terminal</b></a></li>
+              
+              <li><span style="color:#30343f;" class="ion-ios-pricetag-outline"></span><a style="color:#dce0e9;" href="/tags#hack"><b>&nbsp;Hack</b></a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="container post-content" style="font-family: 'Catamaran', sans-serif;">
+      <p>Lets start with that old promotion rant I use all the time.</p>
+
+<blockquote>
+<p><code>Before I start the tell</code></p>
+
+<p>You should have a look at <a href="https://github.com/pravj/puzzl">puzzl</a>, if you haven&#39;t yet.</p>
+</blockquote>
+
+<h3>What this is all about?</h3>
+
+<p>This post is about development of a sliding-puzzle game I made recently, named <em>puzzl</em>. I refer it as an <em>intelligent version</em> of the classical sliding puzzle game, and I&#39;ll explain the reason behind this. Stay awake.</p>
+
+<p><img src="//pravj.github.io/assets/development-story-of-puzzl/puzzl.gif" alt="puzzl-game" title="Puzzl Game"></p>
+
+<h3>For What Joy?</h3>
+
+<blockquote>
+<p>Yes, that&#39;s the best question. Why did I do that?</p>
+</blockquote>
+
+<p>There <em>is</em> a force behind everything we do, so the same goes for any new software product we see in the jungle or a new medicine or whatever.</p>
+
+<p>They all try to solve some problems. A new version of a software has some bugs fixed from the older one and so on.</p>
+
+<blockquote>
+<p>But hey! you can develop a game without such force anytime.</p>
+</blockquote>
+
+<p>Specially, when you are supposed to study for your exams. Tested, <em>rule of thumb</em>.</p>
+
+<h3>Exam-time bamboozlement</h3>
+
+<blockquote>
+<p>The <em>session</em> when your mind&#39;s <em>stream</em> is <em>grep</em>ing too many <em>event</em>s.</p>
+</blockquote>
+
+<p>You feel like, put this exam thing in left and consider this problem-<em>blah</em>, because the world needs you. Right now.</p>
+
+<p>It&#39;s gone after a nice sleep, like hangover. But it may attack you again on the next exam day, depending on your performance in last exam.</p>
+
+<p>You think about too many things, however some are out of your domain though.</p>
+
+<p>For example, <em>A bicycle for old aged people</em>. I found it an actual problem by the way, as I often see them having trouble riding the native big bicycles.</p>
+
+<p>Then you think that it should run on its own, so you draw a sketch and invest your time in adding solar panels at proper orientation, so that charging is not something to worry about, no matter where the sun is.</p>
+
+<p>Then you suddenly realize that you&#39;re about to transform into <em>Tony Stark</em>. You&#39;re working on a problem which comes under <em>Mechanical Engineering</em>. And there is no chance you can complete this without either having a degree in it or a girlfriend from that stream. By the way, both the solutions are difficult.</p>
+
+<blockquote>
+<p>A similar bamboozlement was the reason behind the game <em>puzzl</em>.</p>
+</blockquote>
+
+<p>I was setting up my camp for the mid-term exam of <em>Artificial Intelligence</em> course. And then I stumbled upon this <em>sliding-puzzle</em> game thing in book.</p>
+
+<p>Then I thought, what about a sliding-puzzle game for terminals?</p>
+
+<p>That&#39;s it. I was done with further preparation. I even spent the entire exam time divising the <em>scoring mechanism</em> and <em>logo</em> for the game. The last page of the solution paper and my low score is the proof.</p>
+
+<h3>The problem statement</h3>
+
+<p><em>Sliding-puzzle</em> games have many variants. I decided to move ahead with the one having a 3x3 board, the <em>8-puzzle</em>. 8 out of 9 tiles have some numbers on them, one tile is blank.</p>
+
+<p>All you have to do is, arrange all tiles in a particular order. Lets say, in increasing order with the blank tile being the last one.</p>
+
+<p><img src="//pravj.github.io/assets/development-story-of-puzzl/states.jpg" alt="Game States" title="8-puzzle game states"></p>
+
+<p>This sounds a little easy, taking user inputs, moving the tiles accordingly and checking that whether we are done with the game or not. So, I decided to enhance both the development and playing processes.</p>
+
+<p>To solve the game in background and track user moves accordingly or give them hints. Poor humans.</p>
+
+<h3>The solution</h3>
+
+<p>The solution is pretty simple actually. There is a blank tile in the game board and you can reach to a different configuration by moving that blank tile in atmost 4 directions, according to its current position.</p>
+
+<p>Now, how do you make a computer solve this, efficiently?</p>
+
+<p>This can be reduced to a problem where any game board configuration is a <em>node</em> and you can reach to a <em>node</em> from its <em>parent node</em> by applying a <em>successor function</em>, which is the movement of the blank tile in this case.</p>
+
+<p>So, this is a <em>graph search problem</em> now. You have a <em>start state</em> and you have to reach at a <em>goal state</em> in minimum steps.</p>
+
+<p>In <em>puzzl</em>, the algoirthm which solves this <em>graph search problem</em> is <a href="http://en.wikipedia.org/wiki/A*_search_algorithm">A* algorithm</a>. As of now, it uses the easiest <em>Heuristic Function</em>, <a href="http://en.wikipedia.org/wiki/Heuristic_function">Misplaced Tiles Count</a>.</p>
+
+<p>The auto solving part sounds pretty easy, right? Like a walk while eating a cake.</p>
+
+<blockquote>
+<p>But there were some other interesting challenges.</p>
+</blockquote>
+
+<h3>Primary Language</h3>
+
+<p>I opted for Golang as the primary language of <em>puzzl</em>, just because <em>I&#39;m loving it</em> and I wanted it to takeoff comparatively faster than other solutions, let&#39;s say Python.</p>
+
+<p>After some work, I started getting ideas of other features and I was happy with my language choice, as Go is the best solution I can think of for them. I&#39;ll talk about those features in a while.</p>
+
+<h3>Solvability of the problem</h3>
+
+<p>This is one of those interesting parts I faced while making it.</p>
+
+<blockquote>
+<p>Not all 8- puzzle game configurations are solvable.</p>
+</blockquote>
+
+<p>Yes, for a 3x3 game board, there are a total of 362880 configurations possible(9!), but only half of them are actually solvable.</p>
+
+<p>Initially it took me a while to get it that why only some of them are solvable? But after going through &quot;<em>Notes on the 15 puzzle</em>&quot; paper by <em>Wm. Woolsey Johnson and William E. Story</em> it was clear to me.</p>
+
+<p>Using the <em>Mathematical Induction</em> on what it was there in the paper, I have a sample game for you. You can spend rest of your life solving this, if you want to.</p>
+
+<p><img src="//pravj.github.io/assets/development-story-of-puzzl/unsolvable-game.jpg" alt="Unsolvable-Game" title="Unsolvable sliding-puzzle"></p>
+
+<p>Then I added a package named <a href="https://github.com/pravj/puzzl/blob/master/scanner/scanner.go">scanner</a> in the game, with the help of &quot;<em>Analysis of the Sixteen Puzzle</em>&quot;. It makes sure that any game configuration we are using, is really solvable. It uses another for the game, if one is not actually solvable.</p>
+
+<h3>Notification System</h3>
+
+<p>And this was the most interesting part. Developing a <em>Real time Notification System</em> according to the game state.</p>
+
+<p>When I was done with writing the auto-solving background process for the game, I noticed that sometimes it takes a while to solve from the initial game configuration.</p>
+
+<p>For example, the hardest game configuration is solvable in 31 moves. So, when the game is solving it, it doesn&#39;t properly respond to user inputs.</p>
+
+<p>It won&#39;t respond in this way because the control flow architecture is <em>Synchronous</em> now. It means that firstoff the game will solve itself in background and then stars accepting user inputs.</p>
+
+<p>And this goes worse when the game is solving itself on each move because user input was wrong. A serious problem it was.</p>
+
+<blockquote>
+<p>Here comes the concurrency primitives of Golang.</p>
+</blockquote>
+
+<p>Concurrent programming is the beauty in Go. The language comes with built-in weapons, <em>goroutines</em> and <em>channels</em>.</p>
+
+<p>The solution works like this, we have to change the control flow architecture into <em>Asynchronous</em> mode. Where the game would be notifying us that <em>OK, now I&#39;m done with solving and you can give any input</em>, and avoiding all user inputs gracefully till then without a crash.</p>
+
+<p>And this can be used in many other aspects, notifying on a particular internal event. Like <em>the game is complete</em>, <em>you just did a right/wrong move</em>, <em>there are no hints left</em> etc.</p>
+
+<p>There are two <em>goroutines</em>, one for <a href="https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417">handling the notification events</a> and another for <a href="https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417">solving the game in background</a>, both are non-blocking in nature to other routines like <em>user inputs</em>, <em>game display</em> etc. A <em>channel</em> named <a href="https://github.com/pravj/puzzl/blob/master/notification/notification.go#L19">Tunnel</a> was the messenger for these <em>goroutines</em>.</p>
+
+<p><img src="//pravj.github.io/assets/development-story-of-puzzl/architecture.jpg" alt="Goroutines" title="Asynchronous Goroutines Architecture"></p>
+
+<p>This is like feeding each other. Best friends forever.</p>
+
+<h3>Game Interface</h3>
+
+<p>Thanks to <a href="http://en.wikipedia.org/wiki/Box-drawing_character">Box-drawing characters</a>, the best old way to develop text based user interfaces. And thanks to <a href="https://github.com/nsf/termbox-go">termbox-go</a>, an awesome library for such interface development in Golang.</p>
+
+<h3>arXiv submission</h3>
+
+<p>I loved working on it so much that I even framed its development in shape of a research paper, sort of. It&#39;s available on the arXiv digital library, here <a href="http://arxiv.org/abs/1503.08345">arxiv-1503.08345</a>.</p>
+
+<p><em>Implementing an intelligent version of the classical sliding-puzzle game for unix terminals using Golang&#39;s concurrency primitives.</em></p>
+
+<p>It&#39;s not in LaTeX, so the arXiv stamp is absent in PDF format there. They replied that they don&#39;t have any technique yet to stamp other formats. I&#39;ll probably port it in LaTeX one day.</p>
+
+<h3>Reference</h3>
+
+<ol>
+<li><a href="http://www.jstor.org/stable/pdf/2369492.pdf?acceptTC=true">Notes on the 15 puzzle</a></li>
+<li><a href="http://kevingong.com/Math/SixteenPuzzle.html">Analysis of the Sixteen Puzzle</a></li>
+<li><a href="http://ai-php.com/wp-content/uploads/2013/12/AI8pzzle.jpg">ai-php.com</a> for the 8-puzzle game states image</li>
+<li><a href="https://captnemo.in/">Abhay Rana</a> for teaching me what <em>For What Joy</em> is. #FWJ?</li>
+</ol>
+
+<h3>Behind the scene</h3>
+
+<p>I framed all this story for you, the truth is something else.</p>
+
+<blockquote>
+<p>Guess what? It&#39;s my exam-time again that made me write this.</p>
+</blockquote>
+
+<p>The source code for <em>puzzl</em> is on <a href="https://github.com/pravj/puzzl">GitHub</a>. Do whatever you want, just respect licensing and other respectful things.</p>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="container section">
+  <span>
+    <iframe src="http://ghbtns.com/github-btn.html?user=pravj&type=follow&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20">
+    </iframe>
+  </span>
+
+  <span style="margin-right:20px;">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="hackpravj">
+      Tweet
+    </a>
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+  </span>
+
+  <span style="margin-right:20px;display:inline-flex;" class="fb-like" data-href=//pravj.github.io/blog/development-story-of-puzzl/ data-action="like" data-layout="button_count" data-show-faces="false" data-share="false" style="display: inline-flex;">
+  </span>
+</div>
+
+
+    <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+    <div class="container">
+      <div class="related">
+        <h5>Recent Posts</h4>
+        <ul class="related-posts">
+          
+            <li>
+              <h6>
+                <a href="/blog/indian-ecommerce/">
+                  Breaking into the Indian E-commerce
+                  <small>11 Dec 2015</small>
+                </a>
+              </h6>
+            </li>
+          
+            <li>
+              <h6>
+                <a href="/blog/bangalore-taxis/">
+                  Jump in to ride all the Bangalore taxis, at once
+                  <small>01 Sep 2015</small>
+                </a>
+              </h6>
+            </li>
+          
+            <li>
+              <h6>
+                <a href="/blog/painting-a-virtual-wall/">
+                  Holy Aesthete &#58; painting a virtual wall
+                  <small>06 Mar 2015</small>
+                </a>
+              </h6>
+            </li>
+          
+        </ul>
+      </div>
+
+      <h5>Discussion</h5>
+      <div class="disqus">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'pravj'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>
+      Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+    <a href="http://disqus.com" class="dsq-brlink">
+      comments powered by <span class="logo-disqus">Disqus</span>
+    </a>
+</div>
+
+    </div>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'pravj.github.io');
+  ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
