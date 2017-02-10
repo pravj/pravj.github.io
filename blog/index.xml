@@ -162,7 +162,7 @@
 &lt;p&gt;We can label the stargazers at network distance &lt;strong&gt;N&lt;/strong&gt; as &lt;em&gt;disconnected stargazers&lt;/em&gt; because they have no &lt;em&gt;following&lt;/em&gt; relation to other users, &lt;strong&gt;out-degree being 0&lt;/strong&gt; for them. There is a total of 139 such stargazers.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Disconnected stargazers at network distance &lt;strong&gt;N&lt;/strong&gt; don&amp;rsquo;t have any successors, that means they have discovered the repository somewhere &lt;strong&gt;out of the GitHub network&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Disconnected stargazers at network distance &lt;strong&gt;N&lt;/strong&gt; don&amp;rsquo;t have any successors, that means they have discovered the repository either from the GitHub search or somewhere &lt;strong&gt;out of the GitHub network&lt;/strong&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;hr /&gt;
