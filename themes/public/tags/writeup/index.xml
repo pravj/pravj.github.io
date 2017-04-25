@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writeup on hack(pravj)</title>
+    <link>https://pravj.github.io/tags/writeup/index.xml</link>
+    <description>Recent content in Writeup on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://pravj.github.io/tags/writeup/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The git-game Write-up</title>
+      <link>https://pravj.github.io/blog/the-git-game-writeup/</link>
+      <pubDate>Thu, 15 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/blog/the-git-game-writeup/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Spoiler Alert&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You should go and check this out, &lt;a href=&#34;https://github.com/hgarc014/git-game&#34;&gt;git-game&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s a nice little &lt;em&gt;complete-a-task-and-upgrade-level&lt;/em&gt; type of game layered on top of Git.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;It is a terminal game designed to test your knowledge of git commands. Each level in the game is a task to perform on this repo. Once you perform that task, you will be given your next task. There are a total of ten levels, each one harder than last!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I saw the reference to this game floating around in my GitHub feed yesterday. The concept is awesome as there are already &lt;a href=&#34;http://pcottle.github.io/learnGitBranching/&#34;&gt;many&lt;/a&gt; online tutorial courses on the Internet that uses interactive &lt;em&gt;learning-with-doing&lt;/em&gt; methods for Git.&lt;/p&gt;
+
+&lt;p&gt;According to the repository, I started the adventure with cloning the repository using &lt;code&gt;git clone git@github.com:hgarc014/git-game.git&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;default branch&lt;/em&gt; was &lt;em&gt;master&lt;/em&gt; and there were only two files in repository&amp;rsquo;s &lt;em&gt;working directory&lt;/em&gt;, README.md and LICENSE.&lt;/p&gt;
+
+&lt;p&gt;I started with the README.md file and &lt;code&gt;cat README.md&lt;/code&gt; revealed all its content.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You should always check the README.md file for your next clue!&lt;/p&gt;
+
+&lt;p&gt;Your first task is to checkout the commit whose commit message is the answer to this question:&lt;/p&gt;
+
+&lt;p&gt;When a programmer is born, what is the first thing he/she learns to say?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Well! a programmer is also a boy/girl, so first thing they do is &lt;em&gt;cry&lt;/em&gt; but in the current context that thing will be &lt;em&gt;Hello, World!&lt;/em&gt; :grinning:&lt;/p&gt;
+
+&lt;p&gt;Now I had to find the commit whose commit message was &lt;em&gt;Hello World&lt;/em&gt;, so the command &lt;code&gt;git log --graph --online&lt;/code&gt; resulted this commit history.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;* 25bfa08 added information for people that don&amp;rsquo;t know git&lt;/p&gt;
+
+&lt;p&gt;*   27e9786 Merge pull request #6 from riqpe/master&lt;/p&gt;
+
+&lt;p&gt;|&lt;/p&gt;
+
+&lt;p&gt;| * 3893960 Corrected description of difficulty progression&lt;/p&gt;
+
+&lt;p&gt;|/&lt;/p&gt;
+
+&lt;p&gt;* bc9641f updated README&lt;/p&gt;
+
+&lt;p&gt;* 9b9380b Hello World!&lt;/p&gt;
+
+&lt;p&gt;* 8cafb7c Initial commit&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Can you see the &lt;em&gt;Hello World! commit&lt;/em&gt; now? Yeah! we can represent it by HEAD~3.
+As that commit is &lt;em&gt;directly at level 3&lt;/em&gt; or we can say &lt;em&gt;great-grandparent&lt;/em&gt; of the HEAD commit.&lt;/p&gt;
+
+&lt;p&gt;So all I needed to do was the command &lt;code&gt;git checkout HEAD~3&lt;/code&gt;, doing so we&amp;rsquo;re now done with the first task.&lt;/p&gt;
+
+&lt;p&gt;After completing the first task when the HEAD is at that particular commit, the README.md file was ready with its new task.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;git-game&lt;/p&gt;
+
+&lt;p&gt;========&lt;/p&gt;
+
+&lt;p&gt;Hello World!&lt;/p&gt;
+
+&lt;p&gt;It looks like you have some knowledge about traversing commits!&lt;/p&gt;
+
+&lt;p&gt;Well, let&amp;rsquo;s get this party started!&lt;/p&gt;
+
+&lt;p&gt;We want to get to a branch whose name is the answer to this riddle:&lt;/p&gt;
+
+&lt;p&gt;I am a creature that is smaller than man, but many times more in number.&lt;/p&gt;
+
+&lt;p&gt;In code, my appearance can be subtle and no matter where I am found, I am unwanted.&lt;/p&gt;
+
+&lt;p&gt;What am I?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Easy Peasy? Yeah, the answer is &lt;em&gt;bug&lt;/em&gt; obviously, so lets fly to same &lt;em&gt;branch&lt;/em&gt; using the &lt;code&gt;git checkout bug&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;In this &lt;em&gt;branch&lt;/em&gt;&amp;rsquo;s &lt;em&gt;working directory&lt;/em&gt; there were two extra files, &lt;em&gt;cool.cpp&lt;/em&gt; and &lt;em&gt;remember&lt;/em&gt; and the README.md was saying that :&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;git-game&lt;/p&gt;
+
+&lt;p&gt;========&lt;/p&gt;
+
+&lt;p&gt;Congratulations, it looks like you found the &amp;ldquo;bug.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;When you work with other programmers on the same project, bugs are bound to appear.&lt;/p&gt;
+
+&lt;p&gt;One way to create bugs is by changing code that you did not write without understanding what the code is doing.&lt;/p&gt;
+
+&lt;p&gt;Sometimes we like to blame others for introducing bugs in our code.&lt;/p&gt;
+
+&lt;p&gt;Think you can find out who introduced a bug into our file cool.cpp?&lt;/p&gt;
+
+&lt;p&gt;We think he had something to do with the development of git.&lt;/p&gt;
+
+&lt;p&gt;And from what we hear he also made a branch under his name.&lt;/p&gt;
+
+&lt;p&gt;Checkout to that branch after you find out who the culprit is.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It says that there is a bug in the file &lt;em&gt;cool.cpp&lt;/em&gt;, lets see.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+using namespace std;
+
+int main()
+{
+   string mesg = &amp;quot;Hello! Who are you?&amp;quot;;
+   string input;
+   cout &amp;lt;&amp;lt; mesg &amp;lt;&amp;lt; endl;
+   cin &amp;gt;&amp;gt; input;
+   cout &amp;lt;&amp;lt; &amp;quot;Loops are fun!&amp;quot; &amp;lt;&amp;lt; endl;
+   while(1);
+   string reply = &amp;quot;Well, &amp;quot; + input + &amp;quot;, we hope you are having fun with our git-game!&amp;quot;;
+   cout &amp;lt;&amp;lt; reply &amp;lt;&amp;lt; endl;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yeah! there is one; the &lt;em&gt;while loop&lt;/em&gt; will refuse the program from terminating.&lt;/p&gt;
+
+&lt;p&gt;So, who did this? Well! that&amp;rsquo;s what we have to answer now.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;git blame - Helps you finding who committed what.&lt;/p&gt;
+
+&lt;p&gt;Show what revision and author last modified each line of a file&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;git blame cool.cpp&lt;/code&gt; is here for our rescue. It says that :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ce59bbfd (Henry Garcia      2014-12-08 18:22:35 -0800 10)    cin &amp;gt;&amp;gt; input;
+3922a6d8 (LinusTorvalds2014 2014-12-09 12:37:10 -0800 11)    cout &amp;lt;&amp;lt; &amp;quot;Loops are fun!&amp;quot; &amp;lt;&amp;lt; endl;
+3922a6d8 (LinusTorvalds2014 2014-12-09 12:37:10 -0800 12)    while(1);
+ce59bbfd (Henry Garcia      2014-12-08 18:22:35 -0800 13)    string reply = &amp;quot;Well, &amp;quot; + input + &amp;quot;, ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Damn! someone with a similar name to the great &lt;em&gt;Linus Torvalds&lt;/em&gt; is the culprit, he wrote that buggy line in the file. OK, lets move to his &lt;em&gt;branch&lt;/em&gt; as the README says, using &lt;code&gt;git checkout LinusTorvalds2014&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;This time the README.md file was not explicitly directing anywhere.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git-game
+========
+
+Looks like you found the branch of the evil Mastermind.
+Things may start to get a little more challenging...
+
+The next clue you are looking for --
+   is in a file you choose to ignore!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When I was doing this I thought may be it&amp;rsquo;s pointing to that useless file named &lt;em&gt;remember&lt;/em&gt; which was back there in the branch &lt;em&gt;bug&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;So I &lt;em&gt;checked-out&lt;/em&gt; again to the branch &lt;em&gt;bug&lt;/em&gt; and tried to find any clue in the file &lt;em&gt;remember&lt;/em&gt;. Its content looked like RSA Public keys to me.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cweJIY8GOo18Usi5ykA4nmhBR0h 6mMpyy4nFY71IhgjGGr0rkY3uE tVTo j5XlwgLZZ PpRK Pwbnd7Z4bpQWc6sU700xfLTI63FbD DsKCQbUKG KS02qfurxMJ3mHHD8f6VhFUmY2rPD NjznQ8mnQvlNwAR1QsLDK Zjl1kGbWQBeGoOBwVMfa790ATCNg fR OLPA0hi7OW N4jUN26mBIwQVhVtteDSDSr OVfhvUwb7ydODX7R2no xxTmrD5IFUXIB8dDhR lpSFaRcbF2up wrWA J2acmA28c2 NhE Bqj7ntV67GTHpVBSwO
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I gave up after scrolling through the lengthy &lt;em&gt;remember&lt;/em&gt; file and &lt;em&gt;checked-out&lt;/em&gt; again to the branch &lt;em&gt;LinusTorvalds2014&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have a strange habit to use &lt;code&gt;ls -a&lt;/code&gt; instead of &lt;code&gt;ls&lt;/code&gt; to list content of a directory so I did it and Boy! there it was, hiding all this time.&lt;/p&gt;
+
+&lt;p&gt;Guess what? there was a file named &lt;em&gt;.gitignore&lt;/em&gt; and it said :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# welcome to the ignore file!!
+
+# This file is hidden by default,
+# but did you know you have some branches that aren&#39;t shown to you,
+# when you check the list of branches?
+#
+# For your next clue...
+# Which abstract data type tends to implement sets and maps??
+# The answer is the same answer to this riddle:
+#
+#   I am both mother and father.
+#   I am seldom still
+#   yet I never wander.
+#   I never birth nor nurse.
+#
+#   What am I?
+#
+# Afterwards... well, you
+# know, checkout to the answer.
+
+*.rem
+a.out
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This time the answer of riddle is &lt;em&gt;Tree&lt;/em&gt;, simple. Don&amp;rsquo;t you know? You can &lt;em&gt;google&lt;/em&gt; it any time, I did the same. :wink:&lt;/p&gt;
+
+&lt;p&gt;So the next thing to do was, &lt;code&gt;git checkout tree&lt;/code&gt; and the README.md file there said :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git-game
+========
+
+Welcome to the &amp;quot;tree&amp;quot; branch.
+Looks like good ol&#39; Linus modified the &amp;quot;nextclue_input.cpp&amp;quot; file.
+Normally, when ran with the shell script &amp;quot;outputclue.sh&amp;quot;, the &amp;quot;nextclue_input.cpp&amp;quot; file would give us the next hint.
+
+Maybe, you should try running the shell script with the &amp;quot;nextclue_input.cpp&amp;quot; file and see what happens...
+
+You can run the script by running the command &amp;quot;./outputclue.sh FILE&amp;quot; .
+If you are on Windows, it&#39;s okey to use `git-bash` that is installed with [msysgit](https://msysgit.github.io/).
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On executing the shell script with the &lt;em&gt;nextclue_input.cpp&lt;/em&gt;, printed something on the STDOUT.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Linus has been here...
+I love messing with these amateur programmers!!
+If you want some real fun, then you should try resolving a conflict between this branch (tree) and code4life.
+I introduced a little bug that you should fix in the conflict. &amp;gt;:)
+After you merge these 2 files you should run the shell script again!!
+
+Good Luck!!!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The file &lt;em&gt;outputclue.sh&lt;/em&gt; is a &lt;em&gt;bash&lt;/em&gt; source file and matches the &lt;em&gt;md5sum&lt;/em&gt; of each word in the &lt;em&gt;nextclue_input.cpp&lt;/em&gt; to a local &lt;em&gt;checksum&lt;/em&gt; variable named &lt;em&gt;bug&lt;/em&gt;.
+It keeps asking to fix &lt;em&gt;merge conflicts&lt;/em&gt; until the word matching that checksum is present in the file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+if [ -z $1 ]; then
+  echo &amp;quot;well, someone didn&#39;t want to run the script with a file...&amp;quot;;
+  exit;
+fi
+
+file=$1
+bug=7c85d987a917c2a555d1391426978f05
+mesg=&amp;quot;Linus has been here...\nI love messing with these amateur programmers!!\nIf you want some real fun, then you should try resolving a conflict between this branch (tree) and code4life.\nI introduced a little bug that you should fix in the conflict. &amp;gt;:)\nAfter you merge these 2 files you should run the shell script again!!\n\nGood Luck!!!&amp;quot;
+merges=$(git log --format=%h --merges | head -1)
+csum=&amp;quot;md5sum&amp;quot;
+if [ $(echo &amp;quot;$OSTYPE&amp;quot; | grep darwin) ];then
+    csum=&amp;quot;md5&amp;quot;
+fi
+
+if [ &amp;quot;$file&amp;quot; = &amp;quot;nextclue_input.cpp&amp;quot; ];then
+  if [ ${merges} ]; then
+    while read p; do
+      for w in $p;do
+        if [ `echo $w | $csum | awk &#39;{print $1}&#39;` = $bug ];then
+          echo -e $mesg;
+          exit;
+        fi;
+      done;
+    done &amp;lt; $file ;
+    echo -e &amp;quot;Well, congratulations!! You fixed my conflict!!\nIf you would like to continue, then you should checkout to the $(echo 90mP8ouQHsNe | tr -d &#39;0-9A-Z&#39;) branch!!\n&amp;quot; ;
+   else
+     echo -e $mesg;
+     exit;
+   fi;
+else
+  echo &amp;quot;Looks like you passed in the wrong file&amp;quot;;
+fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I saw that the &lt;em&gt;nextclue_input.cpp&lt;/em&gt; file was having a line with an &lt;em&gt;infinite while loop&lt;/em&gt; and my guess was right, the &lt;em&gt;checksum&lt;/em&gt; variable matched the &lt;em&gt;md5sum&lt;/em&gt; of the term &lt;em&gt;while(1);&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;So to fix the &lt;em&gt;merge conflict&lt;/em&gt;, I did &lt;code&gt;git merge code4life&lt;/code&gt; and removed the faulty line; It worked like a charm.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Well, congratulations!! You fixed my conflict!!
+If you would like to continue, then you should checkout to the mouse branch!!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;BTW! It was way more easy. As the answer branch was, mouse.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ echo 90mP8ouQHsNe | tr -d &#39;0-9A-Z&#39;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;When I &lt;em&gt;checked-out&lt;/em&gt; to the branch &lt;em&gt;mouse&lt;/em&gt;, it said :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;nextclue_input.cpp: needs merge
+error: you need to resolve your current index first
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But you can get away without merging by &lt;em&gt;stashing the changes&lt;/em&gt;, I did this with &lt;code&gt;git add nextclue_input.cpp &amp;amp;&amp;amp; git stash&lt;/code&gt;.
+Now the README.md file in branch &lt;em&gt;mouse&lt;/em&gt; said :&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;h1 id=&#34;git-game&#34;&gt;git-game&lt;/h1&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Looks like you resolved your conflict and found our branch, congrats!!&lt;/p&gt;
+
+&lt;p&gt;Hmm&amp;hellip;it seems this branch has a file that was seen before in another branch.
+Do you &amp;ldquo;remember&amp;rdquo; what it is?
+I think this file has something to do with the next clue, but it seems to be very ugly looking.
+Maybe if we compare the &amp;ldquo;diff&amp;rdquo;erences between this file and the file from before we&amp;rsquo;ll know where to go next&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+Yeah! I do remember that the file *remember* was there in the branch *bug* as I wasted 10 minutes on it.
+
+I did ```git diff mouse bug -- remember``` to see the difference between these two files accross branches and the difference in the files was this one line :
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;-Sn The next clue is: YtrydjKsYqebDoI3h bTINUeV6 pTVY8jnK2re HRwwNy25Ps6 u0YChCo5Jtw N3xkH3G nx aGo6yQTW RVZMsf3xk tBL0sG9GAR HQbyGYdqs i6dx1fyIPGJVci
++Sn In a branch named: Henry YtrydjKsYqebDoI3h bTINUeV6 pTVY8jnK2re HRwwNy25Ps6 u0YChCo5Jtw N3xkH3G nx aGo6yQTW RVZMsf3xk tBL0sG9GAR HQbyGYdqs i6dx1fy&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+So, the next *branch* to move was *Henry*, but ```git checkout Henry``` was a trap.
+
+On *checking-out* it said, *You are in &#39;detached HEAD&#39; state*; means we were not in a *branch* but *tag*. The README.md file was saying the same.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;git-game-1&#34;&gt;git-game&lt;/h1&gt;
+
+&lt;p&gt;Welcome to my Tag!!!&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re looking for my branch then you have gone the wrong way!!&lt;/p&gt;
+
+&lt;p&gt;How do you checkout to a branch that has the same name as a tag???
+Deal with the tag first!!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+The problem was that there was a *branch* with exactly same name as a tag, *Henry*.
+So I *renamed* the *tag*, because *who knows when you&#39;re gonna need something?*
+
+```git tag Henry-v0.1 Henry &amp;amp;&amp;amp; git tag -d Henry``` made a new tag pointing to old&#39;s commit and deleted the old one.
+
+Now after *checking-out* to the branch *Henry*, the README said :
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;git-game-2&#34;&gt;git-game&lt;/h1&gt;
+
+&lt;p&gt;Welcome!! It looks like you made it to my Branch!!!
+Generally you want to refrain from making tags the same name as branches, unless you have a good reason.
+The tag is more like the stable release.
+While the branch is more like the in progress feature, which will be added soon.&lt;/p&gt;
+
+&lt;p&gt;You&amp;rsquo;re almost done!! Excited?? Hope you are! You have one more thing to do!&lt;/p&gt;
+
+&lt;p&gt;Now its time to update the master branch, updating is really useful when you fork a repository and your forked repo starts to get behind on commits. The repository to update from is: &lt;a href=&#34;https://github.com/drami025/git-game.git&#34;&gt;https://github.com/drami025/git-game.git&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Don&amp;rsquo;t cheat!!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+So, according to the task, to update the *master branch* I *checked-out* to it.
+
+With ```git remote add updater git@github.com:drami025/git-game.git``` command, I added the new *remote* to update from, as the README.md said.
+
+Then a simple ```git pull updater master``` did rest of the work and the *master branch* was equal with the new *remote*, all updated. \o/.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;git-game-finish-line&#34;&gt;Git Game Finish Line&lt;/h1&gt;
+
+&lt;h1 id=&#34;if-you-did-not-fork-this-repository-from-the-terminal-then-we-are-disappointed-in-you&#34;&gt;If you did not fork this repository from the terminal, then we are disappointed in you!!&lt;/h1&gt;
+
+&lt;p&gt;However, if you did, then great Job!!
+You completed our Git Game!
+```&lt;/p&gt;
+
+&lt;p&gt;They have also implemented an &lt;a href=&#34;http://openbadges.org/&#34;&gt;Open-Badge&lt;/a&gt; for this, I got one.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Finally, it&amp;rsquo;s complete. And this Write-up too.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m feeling pain in my fingers now.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;behind-the-scene&#34;&gt;Behind the scene :&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Each level was somewhat harder than the previous one but overall it wasn&amp;rsquo;t.&lt;/li&gt;
+&lt;li&gt;Yeah! I completed all tasks &lt;em&gt;twice&lt;/em&gt;, the extra one while writing this Write-up.&lt;/li&gt;
+&lt;li&gt;It took me almost 30 minutes to complete all tasks but 2 hours to write this.&lt;/li&gt;
+&lt;li&gt;Today, it&amp;rsquo;s an awesome sunny, winter day here. :sunny:&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

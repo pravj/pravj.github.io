@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    geopattern : going on the Go path - hack(pravj) | Pravendra Singh
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
+
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="geopattern : going on the Go path" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://pravj.github.io/blog/going-on-the-go-path/" />
+<meta property="og:description" content="You should have a look at geopattern, if you haven&rsquo;t yet.
+ What&rsquo;s the buzz all about? This blog post is about development of geopattern library in golang.
+What do you think about this my favorite colored concentric circle pattern?
+ Concentric Circle Pattern  geopattern. What? Umm, actually I don&rsquo;t know exactly why the name is geopattern but I know what it is.
+It is a golang library that generates pretty image patterns." />
+
+<meta property="og:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="geopattern : going on the Go path" />
+<meta name="twitter:description" content="You should have a look at geopattern, if you haven&rsquo;t yet.
+ What&rsquo;s the buzz all about? This blog post is about development of geopattern library in golang.
+What do you think about this my favorite colored concentric circle pattern?
+ Concentric Circle Pattern  geopattern. What? Umm, actually I don&rsquo;t know exactly why the name is geopattern but I know what it is.
+It is a golang library that generates pretty image patterns." />
+
+
+<meta property="twitter:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="https://pravj.github.io/styles.min.css">
+
+  
+
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/blog/going-on-the-go-path/">geopattern : going on the Go path</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">November</span> 
+                <span class="post-date-day"> 1, </span>
+                <span class="post-date-year">2014</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-golang" href="https://pravj.github.io/tags/golang">
+                  <i class="icon-tag"></i>Golang</a>
+                
+                <a class="post-tag post-tag-geopattern" href="https://pravj.github.io/tags/geopattern">
+                  <i class="icon-tag"></i>geopattern</a>
+                
+                <a class="post-tag post-tag-github" href="https://pravj.github.io/tags/github">
+                  <i class="icon-tag"></i>GitHub</a>
+                
+                <a class="post-tag post-tag-open-source" href="https://pravj.github.io/tags/open-source">
+                  <i class="icon-tag"></i>Open Source</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        
+
+<blockquote>
+<p>You should have a look at <a href="https://github.com/pravj/geopattern">geopattern</a>, if you haven&rsquo;t yet.</p>
+</blockquote>
+
+<h3 id="what-s-the-buzz-all-about">What&rsquo;s the buzz all about?</h3>
+
+<p>This blog post is about development of <em>geopattern</em> library in <em>golang</em>.</p>
+
+<hr />
+
+<p>What do you think about this my favorite colored <em>concentric circle</em> pattern?</p>
+
+<figure> <img src="/images/concentric-circle.png"> 
+    <figcaption>Concentric Circle Pattern</figcaption>
+</figure>
+
+<h3 id="geopattern-what">geopattern. What?</h3>
+
+<p>Umm, actually I don&rsquo;t know exactly why the name is <em>geopattern</em> but I know what it is.</p>
+
+<p>It is a <em>golang</em> library that generates pretty image patterns. It comes with awesome pattern types like nested squares, tessellation, concentric circles, and <a href="https://github.com/pravj/geopattern#available-pattern">13 more</a>.</p>
+
+<p>Now if you are thinking, why I don&rsquo;t know the reason behind its naming. It&rsquo;s because <em>geopattern</em> is actually the golang port of <em>my friend and GitHubber</em> <a href="https://github.com/jasonlong">Jason Long</a>&rsquo;s <a href="https://github.com/jasonlong">GeoPattern</a> Ruby library.</p>
+
+<p><em>Jason</em> created the original Ruby library to power GitHub&rsquo;s <a href="https://guides.github.com/">Guides</a> and <a href="https://github.com/explore">Explore</a> sections.</p>
+
+<h3 id="another-geopattern-why">Another geopattern. Why?</h3>
+
+<p>As you can see the original <em>geopattern</em> is being used at GitHub itself. <em>What else do you want, huh?</em></p>
+
+<p>There are many other <a href="https://github.com/jasonlong/geopattern#ports">implemetations</a> in different programming languages, trying to help users of each language choice.</p>
+
+<blockquote>
+<p>But this was not the real force for me to develop one more in golang.</p>
+</blockquote>
+
+<p>Before <em>geopattern</em>, the last thing I worked on was <a href="https://github.com/pravj/Doga">Doga: HTTP log monitoring console for Humans</a>. I really loved developing it and still love to just watch it working.</p>
+
+<p>The reason behind this special attraction is that :</p>
+
+<ul>
+<li>It helped me landing a summer internship at <a href="https://www.datadoghq.com/">Datadog</a>.</li>
+<li>It is written in Python. <strong>&lt;3</strong>.</li>
+</ul>
+
+<p>Then I started writing blog for an old project <a href="https://github.com/pravj/teamwork">teamwork</a>, just for the sake of adding an entry to my archives but it&rsquo;s still in drafts.</p>
+
+<p>I tried many things to kill my time :</p>
+
+<ul>
+<li>watched too much movies, more than too much <em>Animation movies</em>.</li>
+<li>tried to read one seventh of the entire internet; I just missed it, though.</li>
+<li>collected some best music and shaped it in a playlist named <em>confusion</em> on Muzi, so was I.</li>
+<li>managed to complete reading one entire research paper, <em>first time \o/.</em></li>
+<li>attempted watching Coursera content for two courses.</li>
+<li>tried to work on something new but got stuck somewhere and paused the work.</li>
+<li>managed to contribute to term2048, <em>only one right thing.</em></li>
+</ul>
+
+<blockquote>
+<p>In short I was doing everything but there was no sign of satisfaction; <em>getting philosophical, lol.</em></p>
+</blockquote>
+
+<p>That&rsquo;s why I decided to write something. And here comes the <em>geopattern.</em></p>
+
+<h3 id="golang-why">Golang. Why?</h3>
+
+<blockquote>
+<p>Please don&rsquo;t kill me, if you use &lsquo;go&rsquo; more than &lsquo;golang&rsquo;. I&rsquo;m just being formal.</p>
+</blockquote>
+
+<p>Since this summer I was collecting talks, blogs and other sources etc. about use of different programming languages in the wild. I hope someday I&rsquo;ll be able to convert that all in something readable.</p>
+
+<p>Golang was on my list ever since.</p>
+
+<p>I have seen many awesome products shifting their infrastructure from <a href="https://www.spacemonkey.com/blog/posts/go-space-monkey">Python</a>, <a href="http://www.quora.com/Why-did-Koding-switch-from-Node-js-to-Go">Node.js</a> to <em>golang</em>. Even Dropbox <a href="https://tech.dropbox.com/2014/07/open-sourcing-our-go-libraries/">migrated</a> part of their code stack to golang from Python. Also I have read the <em>TJ holowaychuk</em> <a href="https://medium.com/code-adventures/farewell-node-js-4ba9e7f3e52b">praising</a> golang.</p>
+
+<p>All this made me to take a walk in the <em>golang</em> land.</p>
+
+<h3 id="learning-golang-developing-geopattern">Learning Golang. Developing geopattern.</h3>
+
+<p>In starting I spend two evenings reading about formal language convention stuff on the <a href="http://www.golang-book.com/">Golang-Book</a>.</p>
+
+<p>After playing for a while in my <em>~/projects/learn.go/</em> directory, I started working on <em>geopattern</em>.</p>
+
+<p>I love to read source code of every readable thing in any language except assembly, <em>as far as I can understand it</em>. So I started reading source code of original <em>library</em> and it was fun. The most helpful thing was Jason&rsquo;s blog <a href="https://medium.com/@jasonlong/generating-visual-designs-with-code-62e59c4881ca">Generating visual designs with code</a>.</p>
+
+<p>In starting I was having problems that I even googled <em>go sucks</em>. Because I found that <em>golang</em> is a bit more verbose language. It doesn&rsquo;t have some generic things so you have to write some work around like absense of optional arguments in functions and a better way to manage classes and stay object oriented.</p>
+
+<p>But the more I worked with it I found that I&rsquo;m more aware about what I&rsquo;m writing, debugging is hell lot easy and what not.</p>
+
+<p>Things that helped me from not giving up, are :</p>
+
+<ul>
+<li><a href="https://gobyexample.com/">Go by Example</a></li>
+<li><a href="http://jordanorelli.com/post/32665860244/how-to-use-interfaces-in-go">How to use interfaces in Go</a></li>
+<li><a href="http://blog.golang.org/godoc-documenting-go-code">Godoc: documenting Go code</a></li>
+<li>And the <em>Holy Internet</em>.</li>
+</ul>
+
+<p>I mailed Jason asking permission to port it and some other stuff related to licensing. His reply was positive. <em>That&rsquo;s the ideal way you port something.</em></p>
+
+<p>Then I called an astrologer for the right time to post about <em>geopattern</em> on <a href="https://news.ycombinator.com/item?id=8520961">Hacker News</a> and Holy, mother of bull!, He was perfect. It went to 2nd rank on the front page. #ThanksHN \o/.</p>
+
+<blockquote>
+<p>All this happened a bit fast. In a week or so.</p>
+</blockquote>
+
+<h3 id="now-what">Now What?</h3>
+
+<p>I hated and then loved working with <em>golang; still loving</em>.</p>
+
+<p>As you can see, people are using <em>golang</em> to speed up their projects and scale them upto higher levels. So now I wish to understand more about it. I haven&rsquo;t smoked <em>golang&rsquo;s concurrency primitives - Go routines and Channels yet</em>.</p>
+
+<p>It was awesome to see <em>geopattern</em> <a href="https://twitter.com/jasonlong/status/527465160253132803">leading</a> GitHub&rsquo;s trending repositories.</p>
+
+<p>I have noticed that I&rsquo;m not good in managing my past works like some inspiring people do in the GitHub community. It&rsquo;s mainly because I move myself to some other stuff <em>totally</em> and don&rsquo;t pay much attention to older ones.</p>
+
+<p>I&rsquo;ll try to work on this and learn more things about <em>golang</em>.</p>
+
+<blockquote>
+<p>If you want to answer the question I asked in the start, you can use the <em>Internet of things</em> to catch me. \o/.</p>
+</blockquote>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/blog/termping/"><i class="icon-left-open"></i> termping : &lt;3 &#43; Node.js &#43; Streams &#43; CoffeeScript</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/blog/post-mortem-of-an-internet-accident/">Post-mortem of an Internet Accident <i class="icon-right-open"></i></a>
+          </div>
+          
+
+      
+       </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://pravj.github.io/main.js"></script>
+
+
+
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+</body>
+</html>

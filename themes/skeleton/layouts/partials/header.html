@@ -2,24 +2,42 @@
 <html lang="en-us">
 <head>
   <title>
-    {{ .Title }}{{ if ne .Title .Site.Title }} - {{ .Site.Title }}{{ end }} | Prakhar Srivastav
+    {{ .Title }}{{ if ne .Title .Site.Title }} - {{ .Site.Title }}{{ end }} | Pravendra Singh
   </title>
 
   {{ partial "meta.html" . }}
   {{ partial "og.html" . }}
   {{ partial "twitter.html" . }}
 
-  <link href='http://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ .Site.BaseURL }}styles.min.css">
 
+  {{ if eq .Title .Site.Params.github_post_title }}
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}stargazers-connection.css">
+  {{ end }}
+
+  {{ if eq .Title .Site.Params.ecommerce_post_title }}
+    <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+
+    <link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+  {{ end }}
+
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
 
   <!-- RSS -->
-  <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 
 
   {{ if .Site.Params.categoriescss }}

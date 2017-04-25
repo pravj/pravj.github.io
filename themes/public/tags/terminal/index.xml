@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terminal on hack(pravj)</title>
+    <link>https://pravj.github.io/tags/terminal/index.xml</link>
+    <description>Recent content in Terminal on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://pravj.github.io/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Development story of puzzl</title>
+      <link>https://pravj.github.io/blog/development-story-of-puzzl/</link>
+      <pubDate>Thu, 23 Apr 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/blog/development-story-of-puzzl/</guid>
+      <description>
+
+&lt;p&gt;Lets start with that old promotion rant I use all the time.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You should have a look at &lt;a href=&#34;https://github.com/pravj/puzzl&#34;&gt;puzzl&lt;/a&gt;, if you haven&amp;rsquo;t yet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;what-this-is-all-about&#34;&gt;What this is all about?&lt;/h3&gt;
+
+&lt;p&gt;This post is about development of a sliding-puzzle game I made recently, named &lt;em&gt;puzzl&lt;/em&gt;. I refer it as an &lt;em&gt;intelligent version&lt;/em&gt; of the classical sliding puzzle game, and I&amp;rsquo;ll explain the reason behind this. Stay awake.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/puzzl.gif&#34;&gt; 
+    &lt;figcaption&gt;Puzzl in action&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;for-what-joy&#34;&gt;For What Joy?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Yes, that&amp;rsquo;s the best question. Why did I do that?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There &lt;em&gt;is&lt;/em&gt; a force behind everything we do, so the same goes for any new software product we see in the jungle or a new medicine or whatever.&lt;/p&gt;
+
+&lt;p&gt;They all try to solve some problems. A new version of a software has some bugs fixed from the older one and so on.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;But hey! you can develop a game without such force anytime.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Specially, when you are supposed to study for your exams. Tested, &lt;em&gt;rule of thumb&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;exam-time-bamboozlement&#34;&gt;Exam-time bamboozlement&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The &lt;em&gt;session&lt;/em&gt; when your mind&amp;rsquo;s &lt;em&gt;stream&lt;/em&gt; is *grep*ing too many *event*s.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You feel like, put this exam thing in left and consider this problem-&lt;em&gt;blah&lt;/em&gt;, because the world needs you. Right now.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s gone after a nice sleep, like hangover. But it may attack you again on the next exam day, depending on your performance in last exam.&lt;/p&gt;
+
+&lt;p&gt;You think about too many things, however some are out of your domain though.&lt;/p&gt;
+
+&lt;p&gt;For example, &lt;em&gt;A bicycle for old aged people&lt;/em&gt;. I found it an actual problem by the way, as I often see them having trouble riding the native big bicycles.&lt;/p&gt;
+
+&lt;p&gt;Then you think that it should run on its own, so you draw a sketch and invest your time in adding solar panels at proper orientation, so that charging is not something to worry about, no matter where the sun is.&lt;/p&gt;
+
+&lt;p&gt;Then you suddenly realize that you&amp;rsquo;re about to transform into &lt;em&gt;Tony Stark&lt;/em&gt;. You&amp;rsquo;re working on a problem which comes under &lt;em&gt;Mechanical Engineering&lt;/em&gt;. And there is no chance you can complete this without either having a degree in it or a girlfriend from that stream. By the way, both the solutions are difficult.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A similar bamboozlement was the reason behind the game &lt;em&gt;puzzl&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I was setting up my camp for the mid-term exam of &lt;em&gt;Artificial Intelligence&lt;/em&gt; course. And then I stumbled upon this &lt;em&gt;sliding-puzzle&lt;/em&gt; game thing in book.&lt;/p&gt;
+
+&lt;p&gt;Then I thought, what about a sliding-puzzle game for terminals?&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s it. I was done with further preparation. I even spent the entire exam time divising the &lt;em&gt;scoring mechanism&lt;/em&gt; and &lt;em&gt;logo&lt;/em&gt; for the game. The last page of the solution paper and my low score is the proof.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-problem-statement&#34;&gt;The problem statement&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Sliding-puzzle&lt;/em&gt; games have many variants. I decided to move ahead with the one having a 3x3 board, the &lt;em&gt;8-puzzle&lt;/em&gt;. 8 out of 9 tiles have some numbers on them, one tile is blank.&lt;/p&gt;
+
+&lt;p&gt;All you have to do is, arrange all tiles in a particular order. Lets say, in increasing order with the blank tile being the last one.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/states.jpg&#34;&gt; 
+    &lt;figcaption&gt;8 puzzle game states&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This sounds a little easy, taking user inputs, moving the tiles accordingly and checking that whether we are done with the game or not. So, I decided to enhance both the development and playing processes.&lt;/p&gt;
+
+&lt;p&gt;To solve the game in background and track user moves accordingly or give them hints. Poor humans.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-solution&#34;&gt;The solution&lt;/h3&gt;
+
+&lt;p&gt;The solution is pretty simple actually. There is a blank tile in the game board and you can reach to a different configuration by moving that blank tile in atmost 4 directions, according to its current position.&lt;/p&gt;
+
+&lt;p&gt;Now, how do you make a computer solve this, efficiently?&lt;/p&gt;
+
+&lt;p&gt;This can be reduced to a problem where any game board configuration is a &lt;em&gt;node&lt;/em&gt; and you can reach to a &lt;em&gt;node&lt;/em&gt; from its &lt;em&gt;parent node&lt;/em&gt; by applying a &lt;em&gt;successor function&lt;/em&gt;, which is the movement of the blank tile in this case.&lt;/p&gt;
+
+&lt;p&gt;So, this is a &lt;em&gt;graph search problem&lt;/em&gt; now. You have a &lt;em&gt;start state&lt;/em&gt; and you have to reach at a &lt;em&gt;goal state&lt;/em&gt; in minimum steps.&lt;/p&gt;
+
+&lt;p&gt;In &lt;em&gt;puzzl&lt;/em&gt;, the algoirthm which solves this &lt;em&gt;graph search problem&lt;/em&gt; is &lt;a href=&#34;http://en.wikipedia.org/wiki/A*_search_algorithm&#34;&gt;A* algorithm&lt;/a&gt;. As of now, it uses the easiest &lt;em&gt;Heuristic Function&lt;/em&gt;, &lt;a href=&#34;http://en.wikipedia.org/wiki/Heuristic_function&#34;&gt;Misplaced Tiles Count&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The auto solving part sounds pretty easy, right? Like a walk while eating a cake.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;But there were some other interesting challenges.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;primary-language&#34;&gt;Primary Language&lt;/h3&gt;
+
+&lt;p&gt;I opted for Golang as the primary language of &lt;em&gt;puzzl&lt;/em&gt;, just because &lt;em&gt;I&amp;rsquo;m loving it&lt;/em&gt; and I wanted it to takeoff comparatively faster than other solutions, let&amp;rsquo;s say Python.&lt;/p&gt;
+
+&lt;p&gt;After some work, I started getting ideas of other features and I was happy with my language choice, as Go is the best solution I can think of for them. I&amp;rsquo;ll talk about those features in a while.&lt;/p&gt;
+
+&lt;h3 id=&#34;solvability-of-the-problem&#34;&gt;Solvability of the problem&lt;/h3&gt;
+
+&lt;p&gt;This is one of those interesting parts I faced while making it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Not all 8- puzzle game configurations are solvable.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Yes, for a 3x3 game board, there are a total of 362880 configurations possible(9!), but only half of them are actually solvable.&lt;/p&gt;
+
+&lt;p&gt;Initially it took me a while to get it that why only some of them are solvable? But after going through &amp;ldquo;&lt;em&gt;Notes on the 15 puzzle&lt;/em&gt;&amp;rdquo; paper by &lt;em&gt;Wm. Woolsey Johnson and William E. Story&lt;/em&gt; it was clear to me.&lt;/p&gt;
+
+&lt;p&gt;Using the &lt;em&gt;Mathematical Induction&lt;/em&gt; on what it was there in the paper, I have a sample game for you. You can spend rest of your life solving this, if you want to.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/unsolvable-game.jpg&#34;&gt; 
+    &lt;figcaption&gt;Unsolvable sliding puzzle&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Then I added a package named &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/scanner/scanner.go&#34;&gt;scanner&lt;/a&gt; in the game, with the help of &amp;ldquo;&lt;em&gt;Analysis of the Sixteen Puzzle&lt;/em&gt;&amp;rdquo;. It makes sure that any game configuration we are using, is really solvable. It uses another for the game, if one is not actually solvable.&lt;/p&gt;
+
+&lt;h3 id=&#34;notification-system&#34;&gt;Notification System&lt;/h3&gt;
+
+&lt;p&gt;And this was the most interesting part. Developing a &lt;em&gt;Real time Notification System&lt;/em&gt; according to the game state.&lt;/p&gt;
+
+&lt;p&gt;When I was done with writing the auto-solving background process for the game, I noticed that sometimes it takes a while to solve from the initial game configuration.&lt;/p&gt;
+
+&lt;p&gt;For example, the hardest game configuration is solvable in 31 moves. So, when the game is solving it, it doesn&amp;rsquo;t properly respond to user inputs.&lt;/p&gt;
+
+&lt;p&gt;It won&amp;rsquo;t respond in this way because the control flow architecture is &lt;em&gt;Synchronous&lt;/em&gt; now. It means that firstoff the game will solve itself in background and then stars accepting user inputs.&lt;/p&gt;
+
+&lt;p&gt;And this goes worse when the game is solving itself on each move because user input was wrong. A serious problem it was.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Here comes the concurrency primitives of Golang.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Concurrent programming is the beauty in Go. The language comes with built-in weapons, &lt;em&gt;goroutines&lt;/em&gt; and &lt;em&gt;channels&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The solution works like this, we have to change the control flow architecture into &lt;em&gt;Asynchronous&lt;/em&gt; mode. Where the game would be notifying us that &lt;em&gt;OK, now I&amp;rsquo;m done with solving and you can give any input&lt;/em&gt;, and avoiding all user inputs gracefully till then without a crash.&lt;/p&gt;
+
+&lt;p&gt;And this can be used in many other aspects, notifying on a particular internal event. Like &lt;em&gt;the game is complete&lt;/em&gt;, &lt;em&gt;you just did a right/wrong move&lt;/em&gt;, &lt;em&gt;there are no hints left&lt;/em&gt; etc.&lt;/p&gt;
+
+&lt;p&gt;There are two &lt;em&gt;goroutines&lt;/em&gt;, one for &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417&#34;&gt;handling the notification events&lt;/a&gt; and another for &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417&#34;&gt;solving the game in background&lt;/a&gt;, both are non-blocking in nature to other routines like &lt;em&gt;user inputs&lt;/em&gt;, &lt;em&gt;game display&lt;/em&gt; etc. A &lt;em&gt;channel&lt;/em&gt; named &lt;a href=&#34;https://github.com/pravj/puzzl/blob/master/notification/notification.go#L19&#34;&gt;Tunnel&lt;/a&gt; was the messenger for these &lt;em&gt;goroutines&lt;/em&gt;.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/architecture.jpg&#34;&gt; 
+    &lt;figcaption&gt;Asynchronous Gouroutines Architecture&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This is like feeding each other. Best friends forever.&lt;/p&gt;
+
+&lt;h3 id=&#34;game-interface&#34;&gt;Game Interface&lt;/h3&gt;
+
+&lt;p&gt;Thanks to &lt;a href=&#34;http://en.wikipedia.org/wiki/Box-drawing_character&#34;&gt;Box-drawing characters&lt;/a&gt;, the best old way to develop text based user interfaces. And thanks to &lt;a href=&#34;https://github.com/nsf/termbox-go&#34;&gt;termbox-go&lt;/a&gt;, an awesome library for such interface development in Golang.&lt;/p&gt;
+
+&lt;h3 id=&#34;arxiv-submission&#34;&gt;arXiv submission&lt;/h3&gt;
+
+&lt;p&gt;I loved working on it so much that I even framed its development in shape of a research paper, sort of. It&amp;rsquo;s available on the arXiv digital library, here &lt;a href=&#34;http://arxiv.org/abs/1503.08345&#34;&gt;arxiv-1503.08345&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Implementing an intelligent version of the classical sliding-puzzle game for unix terminals using Golang&amp;rsquo;s concurrency primitives.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s not in LaTeX, so the arXiv stamp is absent in PDF format there. They replied that they don&amp;rsquo;t have any technique yet to stamp other formats. I&amp;rsquo;ll probably port it in LaTeX one day.&lt;/p&gt;
+
+&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.jstor.org/stable/pdf/2369492.pdf?acceptTC=true&#34;&gt;Notes on the 15 puzzle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://kevingong.com/Math/SixteenPuzzle.html&#34;&gt;Analysis of the Sixteen Puzzle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ai-php.com/wp-content/uploads/2013/12/AI8pzzle.jpg&#34;&gt;ai-php.com&lt;/a&gt; for the 8-puzzle game states image&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://captnemo.in/&#34;&gt;Abhay Rana&lt;/a&gt; for teaching me what &lt;em&gt;For What Joy&lt;/em&gt; is. #FWJ?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;behind-the-scene&#34;&gt;Behind the scene&lt;/h3&gt;
+
+&lt;p&gt;I framed all this story for you, the truth is something else.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Guess what? It&amp;rsquo;s my exam-time again that made me write this.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The source code for &lt;em&gt;puzzl&lt;/em&gt; is on &lt;a href=&#34;https://github.com/pravj/puzzl&#34;&gt;GitHub&lt;/a&gt;. Do whatever you want, just respect licensing and other respectful things.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>termping : &lt;3 &#43; Node.js &#43; Streams &#43; CoffeeScript</title>
+      <link>https://pravj.github.io/blog/termping/</link>
+      <pubDate>Sun, 27 Jul 2014 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/blog/termping/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;You should have a look at &lt;a href=&#34;https://github.com/pravj/termping.git&#34;&gt;termping&lt;/a&gt;, if you haven&amp;rsquo;t yet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;what-s-the-fuss-about&#34;&gt;What&amp;rsquo;s the fuss about&lt;/h3&gt;
+
+&lt;p&gt;This Blog is all about development of a game(kind of) &lt;a href=&#34;https://github.com/pravj/termping.git&#34;&gt;termping&lt;/a&gt;, which is a prototype of one of the oldest video game &lt;a href=&#34;https://en.wikipedia.org/wiki/Pong&#34;&gt;Pong&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;But this prototype runs in your system&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/Computer_terminal&#34;&gt;terminal&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/termping.gif&#34;&gt;
+    &lt;figcaption&gt;termping in action&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;emergence&#34;&gt;Emergence&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;One thing that I just feel, I am getting good at is
+&lt;strong&gt;&amp;ldquo;reading and understanding other people&amp;rsquo;s code&amp;rdquo;&lt;/strong&gt; &lt;em&gt;&amp;#35;notprasingmyself&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In this summer I have explored unlimited repository out there on &lt;a href=&#34;https://github.com/pravj&#34;&gt;GitHub&lt;/a&gt;. some for solving any kind of issues I was facing in using them or some for just sake of learning anything new, be it any new language(Ruby) or a new field(Vim) for me.&lt;/p&gt;
+
+&lt;p&gt;One interesting recap is that I was working on a project for my team(&lt;a href=&#34;https://twitter.com/sdslabs&#34;&gt;SDSLabs&lt;/a&gt;) and I was using a ruby library as HTTP client, &lt;a href=&#34;https://github.com/rest-client/rest-client&#34;&gt;Rest-Client&lt;/a&gt;. I started facing issue(obviously) as I was new to Ruby. So I started reading code of Rest-Client just to take a look that what are the ingredients and their quantity in this library.&lt;/p&gt;
+
+&lt;p&gt;finally I completed Rest-Client with a better understanding that solved all my issues with it and gave me introduction to a new field, which is :
+&amp;gt; How does HTTP and REST clients works&lt;/p&gt;
+
+&lt;p&gt;Also while learning about the large world of &lt;strong&gt;&lt;a href=&#34;https://github.com/pravj/dotfiles/tree/learning/vim&#34;&gt;Vim&lt;/a&gt;&lt;/strong&gt;, I started developing on a rough idea in my mind. which was to develop a Pong like game, playable in Vim editor itself. I tried it, under the name of &lt;a href=&#34;https://github.com/pravj/vingvong&#34;&gt;vingvong.&lt;/a&gt;. But I was unable to complete it because Vim does not support Asynchronous subprocesses, so I stopped the development.&lt;/p&gt;
+
+&lt;p&gt;May be you have any other way of implementing same or I&amp;rsquo;m wrong somewhere. If so, please let &lt;a href=&#34;https://twitter.com/hackpravj&#34;&gt;me&lt;/a&gt; know.&lt;/p&gt;
+
+&lt;p&gt;In the same mission, one day I was going through project &lt;a href=&#34;https://github.com/visionmedia/nshell&#34;&gt;nshell&lt;/a&gt; of &lt;em&gt;one and only&lt;/em&gt; &lt;strong&gt;&lt;a href=&#34;https://github.com/visionmedia&#34;&gt;visionmedia&lt;/a&gt;&lt;/strong&gt;. I selected this repository because I recently developed an interest in &lt;a href=&#34;https://github.com/pravj/dotfiles&#34;&gt;bash, shells and dotfiles management&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I saw, he was using &lt;a href=&#34;http://nodejs.org/docs/latest/api/stream.html#stream_stream&#34;&gt;Stream&lt;/a&gt; in nshell development. I googled about streams and found many resources, this includes &lt;a href=&#34;http://nodejs.org/docs/latest/api/stream.html&#34;&gt;official stream docs&lt;/a&gt; and &lt;a href=&#34;https://github.com/substack/stream-handbook&#34;&gt;stream-handbook&lt;/a&gt; and many others.&lt;/p&gt;
+
+&lt;p&gt;Before that day, I have seen many people starring the &lt;em&gt;stream-handbook&lt;/em&gt; in my GitHub feed. But I was like &lt;em&gt;this thing does not belongs to me, right now&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;But that day I opened &lt;em&gt;stream-handbook&lt;/em&gt; with a motive to learn something. I started reading it and found that &lt;em&gt;Streams&lt;/em&gt; is a nice topic to learn.&lt;/p&gt;
+
+&lt;p&gt;Suddenly my mind searched something from it&amp;rsquo;s index and showed me result in form of an idea. It was :
+&amp;gt; Why don&amp;rsquo;t you just restart that Pingpong thing with this Stream ?&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;That&amp;rsquo;s all I wanted.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;development&#34;&gt;Development&lt;/h3&gt;
+
+&lt;p&gt;when I started thinking about Developing, shaping it as a &lt;strong&gt;Node Module&lt;/strong&gt; was the only and right option. I knew already that writing a Node Module in &lt;strong&gt;CoffeeScript&lt;/strong&gt; is both fancy(for world) and easy(for me).&lt;/p&gt;
+
+&lt;p&gt;There was another reason for Choosing CoffeeScript, my experience in CoffeeScript was only limited to write &lt;a href=&#34;https://gist.github.com/pravj/2f500607d0aa1bae26a2&#34;&gt;some&lt;/a&gt; hubot scripts for customizing internal communication at &lt;a href=&#34;https://github.com/sdslabs&#34;&gt;SDSLabs.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I was a cool opportunity to learn and do more things in CoffeeScript, so finally I was like :
+&amp;gt; OK, lets move with CoffeeScript.&lt;/p&gt;
+
+&lt;p&gt;One coolest thing is that for CoffeeScript, I have only used &lt;a href=&#34;http://arcturo.github.io/library/coffeescript/&#34;&gt;The Little Book on CoffeeScript&lt;/a&gt;, no StackOverflow here.&lt;/p&gt;
+
+&lt;p&gt;The current version of &lt;strong&gt;termping&lt;/strong&gt; is open-sourced at &lt;a href=&#34;https://github.com/pravj/termping&#34;&gt;GitHub&lt;/a&gt;, feel free to contribute to it.&lt;/p&gt;
+
+&lt;p&gt;Now I&amp;rsquo;ll try to explain Source Code of &lt;strong&gt;termping.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is the current file structure of the repository, once you browse it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.
+|__.npmignore
+|__src
+| |__objects.coffee
+| |__game.coffee
+| |__movement.coffee
+| |__status.coffee
+| |__source.coffee
+|__Cakefile
+|__bin
+| |__termping
+|__package.json
+|__.gitignore
+|__README.md
+|__docs
+| |__termping.gif
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;PS : this tree structure is generated from &lt;a href=&#34;https://github.com/pravj/dotfiles/blob/learning/bin/treegen&#34;&gt;treegen&lt;/a&gt;, my own attempt as the alternative of the great &lt;code&gt;tree&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;you can see, main things are inside &lt;code&gt;/src&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;h4 id=&#34;1-objects-coffee&#34;&gt;1. objects.coffee&lt;/h4&gt;
+
+&lt;p&gt;Object class keeps the game objects, including &lt;em&gt;ball&lt;/em&gt;, &lt;em&gt;paddle&lt;/em&gt; and &lt;em&gt;data&lt;/em&gt; to be rendered on screen. It also helps to populate the data initially according to terminal size.&lt;/p&gt;
+
+&lt;h4 id=&#34;2-game-coffee&#34;&gt;2. game.coffee&lt;/h4&gt;
+
+&lt;p&gt;Game class combines all available things at one place and makes it possible to play the game. It also invoke things in other classes on some particular events like &lt;em&gt;left&lt;/em&gt;/&lt;em&gt;right&lt;/em&gt; or &lt;em&gt;SpaceBar&lt;/em&gt; key press, that enable pause/resume or movement of paddle.&lt;/p&gt;
+
+&lt;h4 id=&#34;3-movement-coffee&#34;&gt;3. movement.coffee&lt;/h4&gt;
+
+&lt;p&gt;Movement class handles all movement related things. Ex. moving of user&amp;rsquo;s paddle, movement of ball, movement of computer&amp;rsquo;s paddle and one most useful thing &lt;em&gt;Collision Detection&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;4-status-coffee&#34;&gt;4. status.coffee&lt;/h4&gt;
+
+&lt;p&gt;status.coffee carries all variable and their values that different classes use throughout the game. which includes, velocity of ball, paddle positions, ball positions, state of game etc.&lt;/p&gt;
+
+&lt;h4 id=&#34;5-source-coffee&#34;&gt;5. source.coffee&lt;/h4&gt;
+
+&lt;p&gt;Source class is leading character in the movie. This is the place where all that Stream thing shows the magic. What it does is to &lt;strong&gt;pipe&lt;/strong&gt; the data to the &lt;strong&gt;stdout&lt;/strong&gt; that is to be rendered on screen. That&amp;rsquo;s why I named it as Source. Other classes just work together and periodically update the data.&lt;/p&gt;
+
+&lt;h3 id=&#34;learning&#34;&gt;Learning&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;finally the thing is that, was this all worth doing ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Answer is : &lt;strong&gt;Obviously, Yes. It&amp;rsquo;s always good to be pragmatic.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Now I feel as good with &lt;strong&gt;CoffeeScript&lt;/strong&gt; as I feel with my love, &lt;strong&gt;Python&lt;/strong&gt;.
+
+&lt;ul&gt;
+&lt;li&gt;as the Book says, CoffeeScript is a little language, but it&amp;rsquo;s pretty cool one.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Finally I have a &lt;a href=&#34;https://www.npmjs.org/package/termping&#34;&gt;NPM Module&lt;/a&gt; under my name \m/.
+
+&lt;ul&gt;
+&lt;li&gt;I have completed things in form of NPM modules 2-3 times but never published them, because I developed them for internal/local use only.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;I continued working on it, because I just wanted to complete that un-complete &lt;a href=&#34;https://github.com/pravj/vingvong&#34;&gt;vingvong&lt;/a&gt; thing.
+
+&lt;ul&gt;
+&lt;li&gt;Finally now, the revenge has been taken, &lt;strong&gt;Yo&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;It was the motive to complete it, that&amp;rsquo;s why I have added that ♥ in starting, instead of adding it in last.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;extra-learning&#34;&gt;Extra Learning&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Extra learning just means, things that I explored while developing it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;termping&lt;/strong&gt; is entirely developed in &lt;strong&gt;Vim&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;you can smell it&lt;/em&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Git&lt;/strong&gt; repo in &lt;strong&gt;termping&lt;/strong&gt; uses a pattern in it&amp;rsquo;s &lt;a href=&#34;https://github.com/pravj/termping/commits/master&#34;&gt;commit messages&lt;/a&gt;.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Commit messages uses a Prefix with them, which is&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;add&lt;/strong&gt; : when your commit is adding something new to the repository.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;change&lt;/strong&gt; : when your commit is changing something that already exists.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;remove&lt;/strong&gt; : when your commit is removing things from the repository.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;fix&lt;/strong&gt; : when commit fixes something wrong with repository.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;update&lt;/strong&gt; : when commit updates version info about repository.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Commit messages respects everything &lt;a href=&#34;http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html&#34;&gt;suggested&lt;/a&gt; by the great man of &lt;em&gt;Vim World&lt;/em&gt;, &lt;a href=&#34;https://github.com/tpope&#34;&gt;Tim Pope&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;contribution&#34;&gt;Contribution&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;termping&lt;/strong&gt; is still not complete, what you can contribute is :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A scoring thing, that counts score and decide winner when one player reach at score limit.&lt;/li&gt;
+&lt;li&gt;A level thing, that divides the game in parts depending on level of difficulty.&lt;/li&gt;
+&lt;li&gt;Feel free to open any &lt;a href=&#34;https://github.com/pravj/termping/issues&#34;&gt;issue&lt;/a&gt; or &lt;a href=&#34;https://github.com/pravj/termping/pulls&#34;&gt;Pull requests&lt;/a&gt; with a feature you want there.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I am not directly writing any more code to it right now, because I have to get involved with some other necessary things, but I will try to helps anyone interested.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;It was a great journey so far, with nice learning experience.&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

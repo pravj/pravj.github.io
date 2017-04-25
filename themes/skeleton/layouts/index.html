@@ -3,34 +3,56 @@
     {{ partial "singletop.html" . }}
   <div class="container">
     <div class="intro">
-      <figure> <img src="/images/skydive2.jpg" alt="skydive in dubai" data-action="zoom" /> </figure>
-      <p>Hi! I'm <a href="/about">Prakhar Srivastav</a> and welcome to my little corner of the internet.
-      I'm currently a <a href="http://www.columbia.edu/~ps2894/">graduate</a> student in Columbia University's <a href="http://www.cs.columbia.edu/">CS department</a> and I'm interested in Distributed Systems and Functional Programming.
+      <figure> <img src="/images/pravj-monu-art.jpg" title="Fine Art is Fine" alt="Fine Art is Fine" data-action="zoom" /> </figure>
+      <p>Hey there! I'm <a href="/about">Pravendra Singh</a>. Welcome to my node in the Webgraph.</p>
+      <p>Currently a "Data Journalist" at <a href="https://plot.ly">Plotly</a>, I'll be joining <a href="https://www.datadoghq.com">Datadog</a> as Software Engineer Intern. I'm interested in Data Science, Information Retrieval, Concurrent Systems, and Fine Art.</p>
     </div>
 
       <div class="row">
 
-        <div class="six columns recent">
-          <h3>Recent Posts</h3>
-          <ul>
-            {{ range first 3 .Data.Pages }}
-            <li>
-              <a href="{{ .RelPermalink }}" class="title">{{ .Title }}</a>
-              <p class="desc">{{ .Description }}</p>
-            </li>
-            {{ end }}
-          </ul>
-          <a class="button" href="/articles">All Posts</a>
-        </div>
-
-        <div class="six columns recent">
-          <h3>Recent Project</h3>
+        <div class="twelve columns recent">
+          <h3>Featured Reports</h3>
+          <a href="{{ .Site.BaseURL }}blog/information-dynamics-on-github/">Information Dynamics on the GitHub Network</a>
+          <span style="font-size:12px;">Feb. 8, 2017</span>
           <figure class="recent-project">
-            <img data-action="zoom" src="/images/gsoc2015.png">
+            <img data-action="zoom" src="/images/banner-images/github-dynamics-banner.png">
           </figure>
-          <p><a href="/projects#react-surveyman">React-Surveyman</a> is a rich, interactive drag-and-drop based <a href="https://en.wikipedia.org/wiki/Single-page_application">SPA</a> that serves as a survey building frontend for the Surveyman research project built from the ground up in React &amp; Flux.
-            </p>
-          <a class="button button-primary" href="/projects">All Projects</a>
+
+	  <hr>
+
+          <a href="{{ .Site.BaseURL }}blog/indian-ecommerce/">Breaking into the Indian E-commerce</a>
+          <span style="font-size:12px;">Dec. 11, 2015</span>
+          <figure class="recent-project">
+            <img data-action="zoom" src="/images/banner-images/indian-ecommerce-banner.png">
+          </figure>
+
+          <h6>
+            Featured in <a target="_blank" href="https://www.techinasia.com/talk/breaking-indian-ecommerce-space">Tech in Asia</a>, <a target="_blank" href="http://eepurl.com/bJ621z">Python Weekly Newsletter</a>, and <a target="_blank" href="http://www.datatau.com/item?id=10673">DataTau.</a>
+          </h6>
+
+          <hr>
+
+          <a href="{{ .Site.BaseURL }}blog/bangalore-taxis/">Jump in to ride all the Bangalore taxis, at once</a>
+          <span style="font-size:12px;">Sep. 1, 2015</span>
+          <figure class="recent-project">
+            <img data-action="zoom" src="/images/banner-images/bangalore-taxis-banner.png">
+          </figure>
+
+          <h6>
+            Retweeted by <a target="_blank" href="https://twitter.com/Plotlygraphs">Plotly</a> and HasGeek founder <a target="_blank" href="https://twitter.com/jackerhack/status/638724698914713600">Kiran jonnalagadda</a>.
+          </h6>
+
+          <hr>
+
+          <a href="{{ .Site.BaseURL }}blog/open-source-presence-infographic">Open Source Presence Infographic of Indian Startups</a>
+          <span style="font-size:12px;">Jan. 17, 2015</span>
+          <figure class="recent-project">
+            <img data-action="zoom" src="/images/banner-images/ospi-banner.png">
+          </figure>
+
+          <h6>
+            Mentioned in <a target="_blank" href="http://engineering.wingify.com/posts/opensource-at-wingify/">Wingify Engineering</a>. Received comments from former Flipkart CTO <a target="_blank" href="https://twitter.com/amodm">Amod Malviya</a>, former Myntra CTO <a target="_blank" href="https://twitter.com/shamiksharma">Shamik Sharma</a>, HasGeek founder <a target="_blank" href="https://twitter.com/jackerhack">Kiran jonnalagadda</a>, and ERPNext founder <a href="https://twitter.com/rushabh_mehta">Rushabh Mehta</a>.
+          </h6>
         </div>
 
     </div>

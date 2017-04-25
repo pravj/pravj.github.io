@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    termping : &lt;3 &#43; Node.js &#43; Streams &#43; CoffeeScript - hack(pravj) | Pravendra Singh
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
+
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="termping : &lt;3 &#43; Node.js &#43; Streams &#43; CoffeeScript" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://pravj.github.io/blog/termping/" />
+<meta property="og:description" content="You should have a look at termping, if you haven&rsquo;t yet.
+ What&rsquo;s the fuss about This Blog is all about development of a game(kind of) termping, which is a prototype of one of the oldest video game Pong.
+ But this prototype runs in your system&rsquo;s terminal
+  termping in action  Emergence  One thing that I just feel, I am getting good at is &ldquo;reading and understanding other people&rsquo;s code&rdquo; &#35;notprasingmyself" />
+
+<meta property="og:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="termping : &lt;3 &#43; Node.js &#43; Streams &#43; CoffeeScript" />
+<meta name="twitter:description" content="You should have a look at termping, if you haven&rsquo;t yet.
+ What&rsquo;s the fuss about This Blog is all about development of a game(kind of) termping, which is a prototype of one of the oldest video game Pong.
+ But this prototype runs in your system&rsquo;s terminal
+  termping in action  Emergence  One thing that I just feel, I am getting good at is &ldquo;reading and understanding other people&rsquo;s code&rdquo; &#35;notprasingmyself" />
+
+
+<meta property="twitter:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="https://pravj.github.io/styles.min.css">
+
+  
+
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/blog/termping/">termping : &lt;3 &#43; Node.js &#43; Streams &#43; CoffeeScript</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">July</span> 
+                <span class="post-date-day"> 27, </span>
+                <span class="post-date-year">2014</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-node.js" href="https://pravj.github.io/tags/node.js">
+                  <i class="icon-tag"></i>Node.js</a>
+                
+                <a class="post-tag post-tag-coffeescript" href="https://pravj.github.io/tags/coffeescript">
+                  <i class="icon-tag"></i>CoffeeScript</a>
+                
+                <a class="post-tag post-tag-game" href="https://pravj.github.io/tags/game">
+                  <i class="icon-tag"></i>Game</a>
+                
+                <a class="post-tag post-tag-hack" href="https://pravj.github.io/tags/hack">
+                  <i class="icon-tag"></i>Hack</a>
+                
+                <a class="post-tag post-tag-terminal" href="https://pravj.github.io/tags/terminal">
+                  <i class="icon-tag"></i>Terminal</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        
+
+<blockquote>
+<p>You should have a look at <a href="https://github.com/pravj/termping.git">termping</a>, if you haven&rsquo;t yet.</p>
+</blockquote>
+
+<h3 id="what-s-the-fuss-about">What&rsquo;s the fuss about</h3>
+
+<p>This Blog is all about development of a game(kind of) <a href="https://github.com/pravj/termping.git">termping</a>, which is a prototype of one of the oldest video game <a href="https://en.wikipedia.org/wiki/Pong">Pong</a>.</p>
+
+<blockquote>
+<p>But this prototype runs in your system&rsquo;s <a href="https://en.wikipedia.org/wiki/Computer_terminal">terminal</a></p>
+</blockquote>
+
+<figure> <img src="/images/termping.gif">
+    <figcaption>termping in action</figcaption>
+</figure>
+
+<h3 id="emergence">Emergence</h3>
+
+<blockquote>
+<p>One thing that I just feel, I am getting good at is
+<strong>&ldquo;reading and understanding other people&rsquo;s code&rdquo;</strong> <em>&#35;notprasingmyself</em></p>
+</blockquote>
+
+<p>In this summer I have explored unlimited repository out there on <a href="https://github.com/pravj">GitHub</a>. some for solving any kind of issues I was facing in using them or some for just sake of learning anything new, be it any new language(Ruby) or a new field(Vim) for me.</p>
+
+<p>One interesting recap is that I was working on a project for my team(<a href="https://twitter.com/sdslabs">SDSLabs</a>) and I was using a ruby library as HTTP client, <a href="https://github.com/rest-client/rest-client">Rest-Client</a>. I started facing issue(obviously) as I was new to Ruby. So I started reading code of Rest-Client just to take a look that what are the ingredients and their quantity in this library.</p>
+
+<p>finally I completed Rest-Client with a better understanding that solved all my issues with it and gave me introduction to a new field, which is :
+&gt; How does HTTP and REST clients works</p>
+
+<p>Also while learning about the large world of <strong><a href="https://github.com/pravj/dotfiles/tree/learning/vim">Vim</a></strong>, I started developing on a rough idea in my mind. which was to develop a Pong like game, playable in Vim editor itself. I tried it, under the name of <a href="https://github.com/pravj/vingvong">vingvong.</a>. But I was unable to complete it because Vim does not support Asynchronous subprocesses, so I stopped the development.</p>
+
+<p>May be you have any other way of implementing same or I&rsquo;m wrong somewhere. If so, please let <a href="https://twitter.com/hackpravj">me</a> know.</p>
+
+<p>In the same mission, one day I was going through project <a href="https://github.com/visionmedia/nshell">nshell</a> of <em>one and only</em> <strong><a href="https://github.com/visionmedia">visionmedia</a></strong>. I selected this repository because I recently developed an interest in <a href="https://github.com/pravj/dotfiles">bash, shells and dotfiles management</a>.</p>
+
+<p>I saw, he was using <a href="http://nodejs.org/docs/latest/api/stream.html#stream_stream">Stream</a> in nshell development. I googled about streams and found many resources, this includes <a href="http://nodejs.org/docs/latest/api/stream.html">official stream docs</a> and <a href="https://github.com/substack/stream-handbook">stream-handbook</a> and many others.</p>
+
+<p>Before that day, I have seen many people starring the <em>stream-handbook</em> in my GitHub feed. But I was like <em>this thing does not belongs to me, right now</em>.</p>
+
+<p>But that day I opened <em>stream-handbook</em> with a motive to learn something. I started reading it and found that <em>Streams</em> is a nice topic to learn.</p>
+
+<p>Suddenly my mind searched something from it&rsquo;s index and showed me result in form of an idea. It was :
+&gt; Why don&rsquo;t you just restart that Pingpong thing with this Stream ?</p>
+
+<blockquote>
+<p>That&rsquo;s all I wanted.</p>
+</blockquote>
+
+<h3 id="development">Development</h3>
+
+<p>when I started thinking about Developing, shaping it as a <strong>Node Module</strong> was the only and right option. I knew already that writing a Node Module in <strong>CoffeeScript</strong> is both fancy(for world) and easy(for me).</p>
+
+<p>There was another reason for Choosing CoffeeScript, my experience in CoffeeScript was only limited to write <a href="https://gist.github.com/pravj/2f500607d0aa1bae26a2">some</a> hubot scripts for customizing internal communication at <a href="https://github.com/sdslabs">SDSLabs.</a></p>
+
+<p>I was a cool opportunity to learn and do more things in CoffeeScript, so finally I was like :
+&gt; OK, lets move with CoffeeScript.</p>
+
+<p>One coolest thing is that for CoffeeScript, I have only used <a href="http://arcturo.github.io/library/coffeescript/">The Little Book on CoffeeScript</a>, no StackOverflow here.</p>
+
+<p>The current version of <strong>termping</strong> is open-sourced at <a href="https://github.com/pravj/termping">GitHub</a>, feel free to contribute to it.</p>
+
+<p>Now I&rsquo;ll try to explain Source Code of <strong>termping.</strong></p>
+
+<p>Here is the current file structure of the repository, once you browse it.</p>
+
+<pre><code>.
+|__.npmignore
+|__src
+| |__objects.coffee
+| |__game.coffee
+| |__movement.coffee
+| |__status.coffee
+| |__source.coffee
+|__Cakefile
+|__bin
+| |__termping
+|__package.json
+|__.gitignore
+|__README.md
+|__docs
+| |__termping.gif
+</code></pre>
+
+<p>PS : this tree structure is generated from <a href="https://github.com/pravj/dotfiles/blob/learning/bin/treegen">treegen</a>, my own attempt as the alternative of the great <code>tree</code> command.</p>
+
+<p>you can see, main things are inside <code>/src</code> directory.</p>
+
+<h4 id="1-objects-coffee">1. objects.coffee</h4>
+
+<p>Object class keeps the game objects, including <em>ball</em>, <em>paddle</em> and <em>data</em> to be rendered on screen. It also helps to populate the data initially according to terminal size.</p>
+
+<h4 id="2-game-coffee">2. game.coffee</h4>
+
+<p>Game class combines all available things at one place and makes it possible to play the game. It also invoke things in other classes on some particular events like <em>left</em>/<em>right</em> or <em>SpaceBar</em> key press, that enable pause/resume or movement of paddle.</p>
+
+<h4 id="3-movement-coffee">3. movement.coffee</h4>
+
+<p>Movement class handles all movement related things. Ex. moving of user&rsquo;s paddle, movement of ball, movement of computer&rsquo;s paddle and one most useful thing <em>Collision Detection</em>.</p>
+
+<h4 id="4-status-coffee">4. status.coffee</h4>
+
+<p>status.coffee carries all variable and their values that different classes use throughout the game. which includes, velocity of ball, paddle positions, ball positions, state of game etc.</p>
+
+<h4 id="5-source-coffee">5. source.coffee</h4>
+
+<p>Source class is leading character in the movie. This is the place where all that Stream thing shows the magic. What it does is to <strong>pipe</strong> the data to the <strong>stdout</strong> that is to be rendered on screen. That&rsquo;s why I named it as Source. Other classes just work together and periodically update the data.</p>
+
+<h3 id="learning">Learning</h3>
+
+<blockquote>
+<p>finally the thing is that, was this all worth doing ?</p>
+</blockquote>
+
+<p>Answer is : <strong>Obviously, Yes. It&rsquo;s always good to be pragmatic.</strong></p>
+
+<ul>
+<li>Now I feel as good with <strong>CoffeeScript</strong> as I feel with my love, <strong>Python</strong>.
+
+<ul>
+<li>as the Book says, CoffeeScript is a little language, but it&rsquo;s pretty cool one.</li>
+</ul></li>
+<li>Finally I have a <a href="https://www.npmjs.org/package/termping">NPM Module</a> under my name \m/.
+
+<ul>
+<li>I have completed things in form of NPM modules 2-3 times but never published them, because I developed them for internal/local use only.</li>
+</ul></li>
+<li>I continued working on it, because I just wanted to complete that un-complete <a href="https://github.com/pravj/vingvong">vingvong</a> thing.
+
+<ul>
+<li>Finally now, the revenge has been taken, <strong>Yo</strong>.</li>
+<li>It was the motive to complete it, that&rsquo;s why I have added that ♥ in starting, instead of adding it in last.</li>
+</ul></li>
+</ul>
+
+<h3 id="extra-learning">Extra Learning</h3>
+
+<blockquote>
+<p>Extra learning just means, things that I explored while developing it.</p>
+</blockquote>
+
+<ul>
+<li><strong>termping</strong> is entirely developed in <strong>Vim</strong>, <strong><em>you can smell it</em></strong>.</li>
+<li><strong>Git</strong> repo in <strong>termping</strong> uses a pattern in it&rsquo;s <a href="https://github.com/pravj/termping/commits/master">commit messages</a>.
+
+<ul>
+<li><strong>Commit messages uses a Prefix with them, which is</strong></li>
+<li><strong>add</strong> : when your commit is adding something new to the repository.</li>
+<li><strong>change</strong> : when your commit is changing something that already exists.</li>
+<li><strong>remove</strong> : when your commit is removing things from the repository.</li>
+<li><strong>fix</strong> : when commit fixes something wrong with repository.</li>
+<li><strong>update</strong> : when commit updates version info about repository.</li>
+</ul></li>
+<li>Commit messages respects everything <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">suggested</a> by the great man of <em>Vim World</em>, <a href="https://github.com/tpope">Tim Pope</a></li>
+</ul>
+
+<h3 id="contribution">Contribution</h3>
+
+<p><strong>termping</strong> is still not complete, what you can contribute is :</p>
+
+<ul>
+<li>A scoring thing, that counts score and decide winner when one player reach at score limit.</li>
+<li>A level thing, that divides the game in parts depending on level of difficulty.</li>
+<li>Feel free to open any <a href="https://github.com/pravj/termping/issues">issue</a> or <a href="https://github.com/pravj/termping/pulls">Pull requests</a> with a feature you want there.</li>
+</ul>
+
+<p>I am not directly writing any more code to it right now, because I have to get involved with some other necessary things, but I will try to helps anyone interested.</p>
+
+<p><strong>It was a great journey so far, with nice learning experience.</strong></p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/blog/introduction/"><i class="icon-left-open"></i> Introducing modified-lanyon, Harry, and me</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/blog/going-on-the-go-path/">geopattern : going on the Go path <i class="icon-right-open"></i></a>
+          </div>
+          
+
+      
+       </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://pravj.github.io/main.js"></script>
+
+
+
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1380 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on hack(pravj)</title>
+    <link>https://pravj.github.io/tags/github/index.xml</link>
+    <description>Recent content in Github on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://pravj.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Information Dynamics on the GitHub Network</title>
+      <link>https://pravj.github.io/blog/information-dynamics-on-github/</link>
+      <pubDate>Wed, 08 Feb 2017 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/blog/information-dynamics-on-github/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Exploring the &amp;ldquo;social coding&amp;rdquo; behavior.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Social groups have a system of behaviors occurring within the group or between groups, called “Group dynamics”. GitHub, being a social coding network, is the host to millions of developers and software projects. This report will use openly available data to unveil such behaviors in an intellectual-focused social network.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;social-coding&#34;&gt;Social Coding&lt;/h3&gt;
+
+&lt;p&gt;The growth of GitHub has been significantly different from other OSS communities such as &lt;a href=&#34;http://alioth.debian.org&#34;&gt;Alioth&lt;/a&gt;, &lt;a href=&#34;http://freecode.com&#34;&gt;Freecode&lt;/a&gt;, and &lt;a href=&#34;http://savannah.gnu.org/&#34;&gt;Savannah&lt;/a&gt;. It has experienced an &amp;ldquo;explosive growth&amp;rdquo;, defined as the &amp;ldquo;outburst-type&amp;rdquo;. &lt;a href=&#34;http://yuyue.github.io/res/paper/crowdsoft2014.pdf&#34;&gt;(Yu et al. 2014)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The following chart demonstrates the growth of GitHub, Alioth, Freenode, and Savannah. It’s made by approximating the data points in the pictures (using &lt;a href=&#34;http://arohatgi.info/WebPlotDigitizer&#34;&gt;WebplotDigitizer&lt;/a&gt;) embedded in the above-mentioned paper.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~octogrid/143/&#34; target=&#34;_blank&#34; title=&#34;oss-growth&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~octogrid/143.png&#34; alt=&#34;oss-growth&#34; style=&#34;max-width: 100%;width: 640px;&#34;  width=&#34;640&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;octogrid:143&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We can notice that the GitHub has experienced a big leap in a short time. On the other hand, the growth of other communities gradually slows down after a period of rising.&lt;/p&gt;
+
+&lt;p&gt;GitHub keeps promoting the &amp;ldquo;social coding&amp;rdquo; ideology, &lt;a href=&#34;https://help.github.com/articles/be-social/&#34;&gt;Be Social&lt;/a&gt;. They have multiple social features such as &lt;em&gt;networking based on following developers&lt;/em&gt;, &lt;em&gt;sharing based on repository forking&lt;/em&gt;, and &lt;em&gt;watching a project&amp;rsquo;s development&lt;/em&gt; etc.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The social features are the core factors behind this explosive growth of GitHub, setting it apart from other open source software communities.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;distribution-channels&#34;&gt;Distribution Channels&lt;/h3&gt;
+
+&lt;div class=&#34;custom-quote&#34;&gt;
+  &lt;h1 class=&#34;icon-quote-left&#34;&gt;&lt;/i&gt;&lt;/h1&gt;
+  &lt;p&gt;
+    The worst thing to happen with your repository is, &lt;i&gt;nobody will see it&lt;/i&gt;.
+    &lt;span class=&#34;author&#34;&gt;
+        - &lt;a target=&#34;_blank&#34; href=&#34;https://twitter.com/captn3m0&#34;&gt;Nemo&lt;/a&gt;
+    &lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;By the way, even worse is that the &lt;a href=&#34;https://news.ycombinator.com/item?id=10101469&#34;&gt;government will see it&lt;/a&gt; and ask you to stop working on it.&lt;/p&gt;
+
+&lt;p&gt;Whenever &lt;em&gt;a new repository is created&lt;/em&gt;, &lt;em&gt;an issue is filed&lt;/em&gt;, or &lt;em&gt;a pull-request is submitted&lt;/em&gt;; there exist several mediums to notify interested users about it.&lt;/p&gt;
+
+&lt;h4 id=&#34;internal-distribution-channels&#34;&gt;Internal distribution channels&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Watch&lt;/em&gt; a repository to get notified about the development and discussion.&lt;/li&gt;
+&lt;li&gt;Discover interesting projects in the &lt;a href=&#34;https://github.com/explore&#34;&gt;Explore GitHub&lt;/a&gt; and &lt;a href=&#34;https://github.com/trending&#34;&gt;Trending&lt;/a&gt; sections.&lt;/li&gt;
+&lt;li&gt;Find a repository in your public activity timeline if anyone from your network has &lt;em&gt;created&lt;/em&gt;, &lt;em&gt;starred&lt;/em&gt;, or &lt;em&gt;forked&lt;/em&gt; it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;external-distribution-channels&#34;&gt;External distribution channels&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Find a repository in the manually or algorithmically crafted digest emails.&lt;/li&gt;
+&lt;li&gt;Locate a repository outside of the GitHub; on Hacker News, Reddit, Twitter, or blogs etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A user &lt;em&gt;starring&lt;/em&gt; a repository can propagate it to his/her direct (first-degree) followers. If anyone from those connections &lt;em&gt;stars&lt;/em&gt; the repository, it has the chance to appear in the activity feed of their followers and so on…&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If someone disconnected (without any connection to the creator) stars a repository, we can say that it has traversed far away in the network or &lt;em&gt;gone viral&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;contribution-of-external-channels&#34;&gt;Contribution of external channels&lt;/h3&gt;
+
+&lt;p&gt;External distribution channels have a significant impact on the popularity of a repository. They allow a repository to be viewed by &lt;em&gt;more&lt;/em&gt; people compared to all the users it could have reached by the internal distribution channels of GitHub.&lt;/p&gt;
+
+&lt;h4 id=&#34;hacker-news&#34;&gt;Hacker News&lt;/h4&gt;
+
+&lt;p&gt;YCombinator&amp;rsquo;s &lt;a href=&#34;http://news.ycombinator.com&#34;&gt;Hacker News&lt;/a&gt; is a news aggregator website focusing on &lt;em&gt;computer science&lt;/em&gt;, &lt;em&gt;technology&lt;/em&gt;, and &lt;em&gt;entrepreneurship&lt;/em&gt;; known for its frontpage blessings. It has a dedicated section called &lt;a href=&#34;https://news.ycombinator.com/showhn.html&#34;&gt;Show HN&lt;/a&gt; to share something that you&amp;rsquo;ve made.&lt;/p&gt;
+
+&lt;p&gt;There have been &lt;a href=&#34;https://medium.com/@iamclovin/hacker-news-vs-product-hunt-a-launch-story-db18a23bc56a&#34;&gt;multiple&lt;/a&gt; startups &lt;a href=&#34;http://pitchpigeon.com/blog/10-lessons-learned-from-a-successful-hacker-news-launch.html&#34;&gt;successfully&lt;/a&gt; launching their products on Hacker News.&lt;/p&gt;
+
+&lt;p&gt;According to Paul Graham, the frontpage works in a self-protecting way, advertising what type of submissions are expected.&lt;/p&gt;
+
+&lt;p&gt;Now, &lt;em&gt;everyone wants to see their submission on the frontpage&lt;/em&gt;. So in GitHub&amp;rsquo;s context, they post about their repository on HN &lt;strong&gt;as soon as&lt;/strong&gt; they open-source it.&lt;/p&gt;
+
+&lt;p&gt;For the following chart showing the &lt;em&gt;submission delay&lt;/em&gt; (the difference between the time of a Hacker News submission and repository creation), I have collected submissions (linking to a GitHub repository) from the past 100 days.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~octogrid/145?show_link=False&#34; target=&#34;_blank&#34; title=&#34;hn-delay&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~octogrid/145.png&#34; alt=&#34;hn-delay&#34; style=&#34;max-width: 100%;width: 640px;&#34;  width=&#34;640&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;octogrid:145&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;!--hover trace-name--&gt;
+
+&lt;p&gt;You can observe a &lt;em&gt;long tail&lt;/em&gt; in the submission delay distribution. There are &lt;strong&gt;3261&lt;/strong&gt; HN stories linking to a GitHub repository in these 100 days, with more than &lt;strong&gt;33%&lt;/strong&gt; of them (&lt;strong&gt;1078&lt;/strong&gt;) being posted in the &lt;strong&gt;first week&lt;/strong&gt;, and &lt;strong&gt;15%&lt;/strong&gt; in just &lt;strong&gt;24 hours&lt;/strong&gt; of repository creation.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It implies that people tend to use these external channels more often, to get visitors.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;effect-of-internal-and-external-distribution-channels&#34;&gt;Effect of internal and external distribution channels&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s consider a recent trending repository &lt;a href=&#34;https://github.com/minimaxir/big-list-of-naughty-strings&#34;&gt;minimaxir/big-list-of-naughty-strings&lt;/a&gt;, to compare the effect of &lt;em&gt;external&lt;/em&gt; and &lt;em&gt;internal&lt;/em&gt; distribution channels.&lt;/p&gt;
+
+&lt;p&gt;In the following chart, you can see the &lt;em&gt;stars&lt;/em&gt; it has received every day since its creation.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~octogrid/147/&#34; target=&#34;_blank&#34; title=&#34;minimaxir-repo-stars&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~octogrid/147.png&#34; alt=&#34;minimaxir-repo-stars&#34; style=&#34;max-width: 100%;width: 640px;&#34;  width=&#34;640&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;octogrid:147&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You can easily notice &lt;strong&gt;4 local maxima&lt;/strong&gt;, &lt;a href=&#34;https://github.com/minimaxir/big-list-of-naughty-strings#social-media-discussions&#34;&gt;corresponding to a Hacker News or Reddit submission featuring this repository&lt;/a&gt;. It has scored relatively fewer &lt;em&gt;stars&lt;/em&gt; on other days, except the day it was created.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re wondering why does it have almost 1000 stars on the day 1 before the first HN submission, &lt;em&gt;keep reading.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;while-working-with-the-hacker-news-api-i-found-that-repository-had-mentioned-a-wrong-date-for-its-first-hn-submission-so-i-created-an-issue-about-the-typo-https-github-com-minimaxir-big-list-of-naughty-strings-issues-142-mentioning-this-report-a-circular-linked-list&#34;&gt;While working with the Hacker News API, I found that repository had mentioned a wrong date for its first HN submission. So I created an &lt;a href=&#34;https://github.com/minimaxir/big-list-of-naughty-strings/issues/142&#34;&gt;issue about the typo&lt;/a&gt; mentioning this report. A circular linked list.&lt;/h5&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In general, external channels have more impact than internal distribution channels.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;how-does-it-reach-so-far&#34;&gt;How does it reach so far?&lt;/h4&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s consider another repository titled &lt;a href=&#34;https://github.com/pravj/Doga&#34;&gt;pravj/Doga&lt;/a&gt;. I&amp;rsquo;m fortunate enough to have written it. You &lt;em&gt;can explore&lt;/em&gt; how Hacker News had contributed to its &lt;em&gt;small success&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m choosing this repository because it has relatively less number of stargazers, 229 precisely at the time of data collection. So it&amp;rsquo;s easy to visualize them, still a little hard to make a responsive visualization given that it&amp;rsquo;s my first &lt;em&gt;production level&lt;/em&gt; encounter with D3.&lt;/p&gt;
+
+&lt;p&gt;The following interactive visualization demonstrates the &amp;ldquo;stargazers network&amp;rdquo; that contains the stargazers of this repository. You can &lt;em&gt;hover on a node&lt;/em&gt; (user) to see its connected stargazers.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The &amp;lsquo;stargazer network&amp;rsquo; is a &lt;strong&gt;directed graph&lt;/strong&gt; of all stargazers of the repository.&lt;/p&gt;
+
+&lt;p&gt;There exist an edge (U&lt;sub&gt;i&lt;/sub&gt; → U&lt;sub&gt;j&lt;/sub&gt;) in the network &lt;strong&gt;if&lt;/strong&gt; U&lt;sub&gt;i&lt;/sub&gt; is following U&lt;sub&gt;j&lt;/sub&gt; &lt;strong&gt;and&lt;/strong&gt; has starred the repository &lt;strong&gt;after&lt;/strong&gt; U&lt;sub&gt;j&lt;/sub&gt; has starred (or created) it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The size of a node in a row is proportional to its &lt;strong&gt;in-degree&lt;/strong&gt;, the number of users it &lt;em&gt;might have told&lt;/em&gt; about the repository by starring it.&lt;/p&gt;
+
+&lt;p&gt;Users having a high in-degree (number of GitHub followers) have relatively high probability of spreading the news about the repository &lt;strong&gt;inside the GitHub network&lt;/strong&gt;. Just like the repository creator did on his own, spreading it to a few users before the HN submission.&lt;/p&gt;
+
+&lt;p&gt;According to WSJ Graphics&amp;rsquo; &lt;a href=&#34;http://graphics.wsj.com/anatomy-of-a-hit/&#34;&gt;Anatomy of a hit&lt;/a&gt;, &lt;strong&gt;Audience size&lt;/strong&gt; is a key factor in the success of open source software. That&amp;rsquo;s why &lt;em&gt;minimaxir&lt;/em&gt; was able to spread his repository &lt;em&gt;big-list-of-naughty-strings&lt;/em&gt; to more people before the first HN submission because he has more followers than me (@pravj).&lt;/p&gt;
+
+&lt;div class=&#39;chart&#39;&gt;&lt;/div&gt;
+
+&lt;p&gt;We can label the stargazers at network distance &lt;strong&gt;N&lt;/strong&gt; as &lt;em&gt;disconnected stargazers&lt;/em&gt; because they have no &lt;em&gt;following&lt;/em&gt; relation to other users, &lt;strong&gt;out-degree being 0&lt;/strong&gt; for them. There is a total of 139 such stargazers.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Disconnected stargazers at network distance &lt;strong&gt;N&lt;/strong&gt; don&amp;rsquo;t have any successors, that means they have discovered the repository somewhere &lt;strong&gt;out of the GitHub network&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;how-do-you-get-more-visitors-to-your-repository&#34;&gt;How do you get more visitors to your repository?&lt;/h3&gt;
+
+&lt;p&gt;GitHub models user-actions on the platform as &lt;a href=&#34;https://developer.github.com/v3/activity/events/types/&#34;&gt;various events&lt;/a&gt;, they &lt;em&gt;may&lt;/em&gt; or &lt;em&gt;may not&lt;/em&gt; appear in the public activity timeline based on the event types.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://developer.github.com/v3/activity/events/types/#memberevent&#34;&gt;MemberEvent&lt;/a&gt; is one such event, triggered when a user is added or removed as a collaborator to a repository or has their permissions changed. (GitHub API v3)&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Whenever a user U&lt;sub&gt;i&lt;/sub&gt; adds another user U&lt;sub&gt;j&lt;/sub&gt; as a collaborator to the repository R, all the followers of U&lt;sub&gt;j&lt;/sub&gt; will receive it in their activity feed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Let&amp;rsquo;s relate it with &amp;ldquo;Influence Maximization&amp;rdquo; (&lt;a href=&#34;http://www.cs.cornell.edu/home/kleinber/kdd03-inf.pdf&#34;&gt;Kempe et al. 2003&lt;/a&gt;). It&amp;rsquo;s a widely studied problem in social networks, trying to find a subset of users (seed users) to adopt a new idea or product to trigger a cascade of further adoptions via &lt;em&gt;social influence&lt;/em&gt;. The problem is to &lt;em&gt;locate those seed users so that the total number of adoptions can be maximized&lt;/em&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;As a solution to the problem, some GitHub users used to add most-followed users as collaborators. Because it would broadcast about the repository to all their followers, eventually getting more viewers to the repository.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/torvalds-broadcast.png&#34;&gt;
+  &lt;figcaption&gt;A repository being broadcasted to users in feed&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A user U&lt;sub&gt;i&lt;/sub&gt; adding another user U&lt;sub&gt;j&lt;/sub&gt; to the repository R as a collaborator is a &amp;ldquo;collaboration spam&amp;rdquo; if U&lt;sub&gt;j&lt;/sub&gt; has zero commits in the repository &lt;strong&gt;and&lt;/strong&gt; U&lt;sub&gt;j&lt;/sub&gt; does not follow U&lt;sub&gt;i&lt;/sub&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&#34;it-might-give-false-positive-results-also-but-overall-it-s-a-good-method-for-the-classification&#34;&gt;It might give false positive results also, but overall it&amp;rsquo;s a good method for the classification.&lt;/h5&gt;
+
+&lt;h5 id=&#34;for-example-if-the-repository-has-been-deleted-it-ll-count-that-as-a-spam&#34;&gt;For example, if the repository has been deleted, it&amp;rsquo;ll count that as a &amp;lsquo;spam&amp;rsquo;.&lt;/h5&gt;
+
+&lt;p&gt;The following chart shows how many times some popular users were the target of a &lt;strong&gt;collaboration spam&lt;/strong&gt; (in a year).&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~octogrid/153/&#34; target=&#34;_blank&#34; title=&#34;collaboration-spam-vertical&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~octogrid/153.png&#34; alt=&#34;collaboration-spam-vertical&#34; style=&#34;max-width: 100%;width: 100%;&#34;  width=&#34;100%&#34; height=&#34;600px&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;octogrid:153&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You can feel how annoying it would have been for the popular users, especially for the most-followed &lt;strong&gt;Linus Torvalds&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h5 id=&#34;to-prepare-this-chart-a-total-of-3m-memberevents-were-collected-from-the-bigquery-dataset-then-all-the-events-adding-top-100-most-followed-users-as-a-collaborator-were-filtered-out-for-further-processing-finally-top-10-users-on-the-basis-of-the-frequency-of-being-targeted-in-spam-are-selected-for-a-year&#34;&gt;To prepare this chart, a total of &lt;strong&gt;3M MemberEvents&lt;/strong&gt; were collected from the BigQuery dataset. Then all the events adding Top-100 most followed users as a collaborator were filtered out for further processing. Finally, Top-10 users on the basis of the frequency of being targeted in spam are selected for a year.&lt;/h5&gt;
+
+&lt;p&gt;The &amp;lsquo;collaboration spam&amp;rsquo; &lt;a href=&#34;http://stackoverflow.com/questions/26224256/how-to-reject-remove-yourself-from-a-collaborative-github-repo&#34;&gt;was a real problem&lt;/a&gt;. Finally, GitHub released &lt;a href=&#34;https://github.com/blog/2170-repository-invitations&#34;&gt;repository invitations&lt;/a&gt; to resolve it. Now you need to accept the invitations to let all your followers know about the repository.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;a href=&#34;https://plot.ly/~octogrid/155/&#34; target=&#34;_blank&#34; title=&#34;collaboration-spam-timeline&#34; style=&#34;display: block; text-align: center;&#34;&gt;&lt;img src=&#34;https://plot.ly/~octogrid/155.png&#34; alt=&#34;collaboration-spam-timeline&#34; style=&#34;max-width: 100%;width: 640px;&#34;  width=&#34;640&#34; onerror=&#34;this.onerror=null;this.src=&#39;https://plot.ly/404.png&#39;;&#34; /&gt;&lt;/a&gt;
+    &lt;script data-plotly=&#34;octogrid:155&#34;  src=&#34;https://plot.ly/embed.js&#34; async&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The &amp;lsquo;repository invitation&amp;rsquo; feature has reduced the &amp;lsquo;collaboration spam&amp;rsquo; on GitHub significantly.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;That&amp;rsquo;s my exploration of the information dynamics on GitHub.&lt;/p&gt;
+
+&lt;p&gt;Well, I do have some questions unanswered. For now, I will keep them as &lt;strong&gt;secret&lt;/strong&gt;. Also, I&amp;rsquo;m envious of the data people at GitHub, because they have access to much more data, I can only dream to have.&lt;/p&gt;
+
+&lt;p&gt;I am thinking of collecting additional data using some other ways, though I don&amp;rsquo;t have the format ready now, just a thought. You can keep an eye on my &lt;a href=&#34;https://github.com/pravj&#34;&gt;GitHub&lt;/a&gt; to get the updates.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The source code for this report is available at &lt;a href=&#34;https://github.com/pravj/github-dynamics&#34;&gt;pravj/github-dynamics&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;data-source&#34;&gt;Data Source&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://hn.algolia.com/api&#34;&gt;Hacker News API (Algolia)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;GitHub Archive dataset (BigQuery)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;visualization-courtesy&#34;&gt;Visualization courtesy&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://plot.ly&#34;&gt;Plotly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://d3js.org/&#34;&gt;D3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introducing Penticons : The Hash Game</title>
+      <link>https://pravj.github.io/blog/penticons-the-hash-game/</link>
+      <pubDate>Sun, 08 Feb 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/blog/penticons-the-hash-game/</guid>
+      <description>
+
+&lt;p&gt;Jennifer Lawrence fan, huh? It was &lt;em&gt;The Hash Game&lt;/em&gt; by the way. Still in? Kewl.&lt;/p&gt;
+
+&lt;h3 id=&#34;what-s-the-buzz-all-about&#34;&gt;What&amp;rsquo;s the buzz all about?&lt;/h3&gt;
+
+&lt;p&gt;Unfortunately, there is no buzz. This post is about development of &lt;a href=&#34;https://github.com/penticons&#34;&gt;Penticons&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;penticons-what&#34;&gt;Penticons. What?&lt;/h3&gt;
+
+&lt;p&gt;Remember those &lt;a href=&#34;http://a0.twimg.com/sticky/default_profile_images/default_profile_6_normal.png&#34;&gt;egg shaped profile pictures&lt;/a&gt; on Twitter? They are automaticaly linked to your profile, when you forget to upload your custom profile picture.&lt;/p&gt;
+
+&lt;p&gt;Different services uses different default profile pictures. For example, Quora uses &lt;a href=&#34;http://qph.is.quoracdn.net/main-qimg-caf2e843c5e4c9dfec11bf60f9e82ccb?convert_to_webp=true&#34;&gt;this image&lt;/a&gt; of their co-founder Charlie Cheever.&lt;/p&gt;
+
+&lt;p&gt;In Internet&amp;rsquo;s language, these profile pictures are called &lt;em&gt;Avatars&lt;/em&gt;. They represents a particular user or object on the Internet.&lt;/p&gt;
+
+&lt;p&gt;As we have seen, Quora provides a single image as the default avatar. What if, you want to distinguish between users on the basis of their &lt;em&gt;avatars&lt;/em&gt;?&lt;/p&gt;
+
+&lt;p&gt;This particular problem to recognize users or objects according to their &lt;em&gt;avatar&lt;/em&gt; images was the main force behind the invention of &lt;a href=&#34;http://en.wikipedia.org/wiki/Identicon&#34;&gt;Identicons&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;An Identicon is a visual representation of a &lt;strong&gt;hash value&lt;/strong&gt;, uniquely* mapped to any object on the internet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Penticons&lt;/em&gt; are just another implementation of identicons. But it tries to solve a key problem with available identicons. Let&amp;rsquo;s see how.&lt;/p&gt;
+
+&lt;h3 id=&#34;hash-value-what&#34;&gt;Hash value. What?&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s put this identicon thingy in the left and talk on something interesting.&lt;/p&gt;
+
+&lt;p&gt;Do you know, How do they store your password in the Facebook? Obviously you do, but in case you don&amp;rsquo;t, let me confess something.&lt;/p&gt;
+
+&lt;p&gt;They have some guys sitting there, they remember all your passwords and match it to your input whenever you log in to the service. That simple it is.&lt;/p&gt;
+
+&lt;p&gt;Facebook also keeps a &lt;em&gt;hashed&lt;/em&gt; version of your passwords, in case all those smart guys are on leave, they just &lt;em&gt;hash&lt;/em&gt; your input again to match with their stored value. They log you in, if both of the values are same.&lt;/p&gt;
+
+&lt;p&gt;In case you are thinking, why do they &lt;em&gt;hash&lt;/em&gt; your passwords? They do it to make sure that nobody really knows your passwords except those &lt;em&gt;smart and loyal&lt;/em&gt; guys.&lt;/p&gt;
+
+&lt;h3 id=&#34;hash-hash-what-the-hash&#34;&gt;Hash.. Hash.. What the Hash?&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s fly back to the junior mathematics class and consider this tiny function.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/function.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, if I ask, what is the value of x when the value of function is 0? You can answer this easily by solving this simple quadratic equation. The values will be 2 and 1.&lt;/p&gt;
+
+&lt;p&gt;What if I change the function to a bit more horrible one. For example, take this.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/hard-function.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Feeling cold, huh? Well! you can still find the roots but with a bit more effort. One simple effort you can do is to &lt;em&gt;google&lt;/em&gt; this equation and you&amp;rsquo;ll find it on the very first result page.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;Hash Function&lt;/em&gt; we were talking about is one similar function that takes a value and returns the mapped value.&lt;/p&gt;
+
+&lt;p&gt;But in case of the &lt;em&gt;Cryptographic Hash Functions&lt;/em&gt;, it&amp;rsquo;s pretty hard to get back the &lt;em&gt;pre-image&lt;/em&gt; of a function value, somewhat like the second function above.&lt;/p&gt;
+
+&lt;p&gt;Additionally, these &lt;em&gt;Hash Functions&lt;/em&gt; are supposed to be &lt;em&gt;injective&lt;/em&gt; in nature. Unlike the first function above, which has two roots 2 and 1. In reality they are not totally injetive, though.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/MD5&#34;&gt;MD5&lt;/a&gt; and &lt;a href=&#34;http://en.wikipedia.org/wiki/SHA-1&#34;&gt;SHA-1&lt;/a&gt; are two such &lt;em&gt;Cryptographic Hash Functions&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;any-wrong-with-these-hash-functions&#34;&gt;Any wrong with these Hash Functions?&lt;/h3&gt;
+
+&lt;p&gt;Yeah! Let&amp;rsquo;s consider the MD5 hash function.&lt;/p&gt;
+
+&lt;p&gt;It generates a 128 bit hash-value for any argument. In the text format, it&amp;rsquo;s written as a 32 digit hexadecimal number.&lt;/p&gt;
+
+&lt;p&gt;For example, the word &amp;ldquo;alpha&amp;rdquo; results in, &lt;em&gt;2c1743a391305fbf367df8e4f069f9f9&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Can you guess, what is the maximum possible hash count MD5 can generate?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/md5-count.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;So if you have more elements than this count to hash, MD5 would be producing similar hashes for all the extra elements.&lt;/p&gt;
+
+&lt;p&gt;This is the case when MD5 is pure as hell, but it&amp;rsquo;s not actually.&lt;/p&gt;
+
+&lt;p&gt;There are many reports showing cryptographic weakness of MD5. For example, consider &lt;a href=&#34;http://www.mathstat.dal.ca/~selinger/md5collision/&#34;&gt;this report&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;why-penticons&#34;&gt;Why Penticons?&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Penticons tries to solve one key problem with available identicons.&lt;/em&gt; Let me explain.&lt;/p&gt;
+
+&lt;p&gt;They are developed on top of the identicons that &lt;a href=&#34;https://github.com/blog/1586-identicons&#34;&gt;GitHub provides&lt;/a&gt;. There are &lt;a href=&#34;https://github.com/search?utf8=%E2%9C%93&amp;amp;q=identicon&#34;&gt;many other&lt;/a&gt; similar identicon implementations available on GitHub.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take an inside on How these identicons works.&lt;/p&gt;
+
+&lt;p&gt;They generates a 5x5 pixel sprites, where they choose to color some of the pixel and left rest pixels as blank, according to the hash of user&amp;rsquo;s handle. They also have a vertical axis of symmetry, so the identicon is similar from left to right. Finally they color non-blank pixels with a color.&lt;/p&gt;
+
+&lt;p&gt;Now, what is the maximum number of identicons generated this way?&lt;/p&gt;
+
+&lt;p&gt;Suppose they are using 20 colors to fill in the non-blank pixels, they are &lt;a href=&#34;https://github.com/cupcake/sigil/blob/6bf9722f2ae82f58a0c7d48daeb40ec844b78eae/server.go#L20-L29&#34;&gt;not using&lt;/a&gt; this much colors, though. Then total possible identicon count will be :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/total-identicon.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;On the other hand, &lt;em&gt;Penticons&lt;/em&gt; uses &lt;a href=&#34;https://github.com/penticons/penticons.go/blob/master/utils/utils.go#L21-L25&#34;&gt;5 colors&lt;/a&gt; only, from GitHub&amp;rsquo;s contribution calendar. They also have a vertical axis of symmetry.&lt;/p&gt;
+
+&lt;p&gt;But instead of using a fix color to fill in, it uses any one of the 5, according to the hash value. This way, total number of identicons will be the following.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://pravj.github.io/images/total-penticons.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Which is way more than other implementations, so the rate of collision is also less here.&lt;/p&gt;
+
+&lt;h3 id=&#34;now-what&#34;&gt;Now what?&lt;/h3&gt;
+
+&lt;p&gt;I made an organization for &lt;a href=&#34;https://github.com/penticons&#34;&gt;Penticons&lt;/a&gt;; just to look cool, though. I think so.&lt;/p&gt;
+
+&lt;p&gt;Last night, I wrote the &lt;a href=&#34;https://github.com/penticons/penticons.go&#34;&gt;golang implementation&lt;/a&gt; for &lt;em&gt;Penticons&lt;/em&gt;. My friend &lt;a href=&#34;https://github.com/nkman&#34;&gt;Nairitya&lt;/a&gt; will be writing some more very soon, at-least he promised me. Let&amp;rsquo;s see.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Avatar&lt;/em&gt; for the organization is a penticon itself, of the word &amp;ldquo;Penticons&amp;rdquo;.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/avatar.png&#34;&gt; 
+    &lt;figcaption&gt;Penticon Avatar for the word &#34;Penticons&#34;&lt;/figcaption&gt;
+&lt;/figure&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Open Source Presence Infographic of Indian Startups</title>
+      <link>https://pravj.github.io/blog/open-source-presence-infographic/</link>
+      <pubDate>Sat, 17 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/blog/open-source-presence-infographic/</guid>
+      <description>
+
+&lt;p&gt;Technically speaking, organizations used in this report are no more only a &lt;em&gt;startup&lt;/em&gt; now, but I hope you people won&amp;rsquo;t mind this and aren&amp;rsquo;t gonna launch a drone on me.&lt;/p&gt;
+
+&lt;h3 id=&#34;abstract&#34;&gt;Abstract&lt;/h3&gt;
+
+&lt;p&gt;I think, &lt;em&gt;something&lt;/em&gt; is clear from the name itself, is it? Well! it should.&lt;/p&gt;
+
+&lt;p&gt;This report tries to plot all the involved organizations on the Open-Source portal. It tries to tell that, in the race to achieve their goals, what different organizations are doing there, for/in the community.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s pretty biased though, because this report uses only one platform of the Open-Source community, GitHub.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This report doesn&amp;rsquo;t measure the success of involved organizations; it simply can&amp;rsquo;t. They all are doing good in their fields, that&amp;rsquo;s why they are here.&lt;/em&gt; :tophat:&lt;/p&gt;
+
+&lt;h3 id=&#34;motive&#34;&gt;Motive&lt;/h3&gt;
+
+&lt;p&gt;I think it was almost mid of the December last year when I saw the &lt;a href=&#34;http://yourstory.com/2014/12/techie-tuesdays-amod-malviya-cto-flipkart/&#34;&gt;interview&lt;/a&gt; of Flipkart&amp;rsquo;s CTO &lt;em&gt;Amod Malviya&lt;/em&gt; in a YourStory article. I started reading that and kept reading till the end. At the end my reaction was, &lt;em&gt;wow! this man is awesome&lt;/em&gt; and he is indeed. I have seen many of his talks after reading that interview.&lt;/p&gt;
+
+&lt;p&gt;That interview made a different impression on me. I liked his words where he was talking about building a top class internet infrastructure in India. I don&amp;rsquo;t know what you people think of Flipkart, Myntra etc. but what I think is that they are evolving continuously, at least in the technical aspect. That&amp;rsquo;s why they are in the marathon and Amazon itself is in the race with them.&lt;/p&gt;
+
+&lt;p&gt;So, after a while I found myself on the GitHub organization of Flipkart and I was scrolling through their projects there. Then the idea of this report popped-up in my mind and here I&amp;rsquo;m, struggling with it.&lt;/p&gt;
+
+&lt;h3 id=&#34;for-what-joy-is-there-a-need&#34;&gt;For What Joy? Is there a need?&lt;/h3&gt;
+
+&lt;p&gt;The earth will keep rotating without this report but it&amp;rsquo;s kinda necessary for technical organizations to be a part of current Open-Source era. I mean as they say in the &lt;em&gt;Group Dynamics&lt;/em&gt;, If you&amp;rsquo;re part of a group then you learn for other members and they learn from you.&lt;/p&gt;
+
+&lt;p&gt;Do you remember something named Facebook? Lets take an example from them.&lt;/p&gt;
+
+&lt;p&gt;Maybe that you take PHP as &lt;em&gt;a language for the kids&lt;/em&gt; but keep in mind that &lt;em&gt;The Social Network&lt;/em&gt; was initially developed in that same PHP. But as they started growing and feeling glitch using it; seeing that the :santa: was not coming to help them, they attempted building something on their own. Finally today, we know the inventions as &lt;a href=&#34;http://hhvm.com/&#34;&gt;HHVM&lt;/a&gt; and &lt;a href=&#34;http://hacklang.org/&#34;&gt;Hack language&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, the thing is &lt;em&gt;don&amp;rsquo;t wait for santa and build cool things that matters&lt;/em&gt;. Big organizations are already doing it, be it &lt;a href=&#34;https://github.com/facebook/hhvm&#34;&gt;hhvm&lt;/a&gt;, &lt;a href=&#34;https://github.com/facebook/react&#34;&gt;react&lt;/a&gt; by Facebook or &lt;a href=&#34;https://github.com/twitter/typeahead.js&#34;&gt;typeahead.js&lt;/a&gt; by Twitter or &lt;a href=&#34;https://github.com/google/web-starter-kit&#34;&gt;web-starter-kit&lt;/a&gt; by Google and many more by others.&lt;/p&gt;
+
+&lt;h3 id=&#34;involved-organizations&#34;&gt;Involved Organizations&lt;/h3&gt;
+
+&lt;p&gt;I do believe that the organization selection part was a bit biased as I wanted to have my favorite organizations first on the list, like HackerEarth, Hasgeek, Housing, Flipkart, Wingify and Zomato etc.&lt;/p&gt;
+
+&lt;p&gt;It was disappointing to see that Housing was not on the GitHub by that time and Zomato&amp;rsquo;s organization was having zero public activities.&lt;/p&gt;
+
+&lt;p&gt;Finally, I selected 15 startups, giving priority to my favorite ones.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cucumbertown.com/&#34;&gt;Cucumbertown&lt;/a&gt; - Follow great cooks, showcase your cooking, build a following&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://exotel.in/&#34;&gt;Exotel&lt;/a&gt; - Reliable Cloud Telephony System for your business&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.flipkart.com/&#34;&gt;Flipkart&lt;/a&gt; - Online Shopping India&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://freshdesk.com/&#34;&gt;Freshdesk&lt;/a&gt; - Online customer support software and helpdesk solution&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.hackerearth.com/&#34;&gt;HackerEarth&lt;/a&gt; - Programming challenges and Developer jobs&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hasgeek.com/&#34;&gt;HasGeek&lt;/a&gt; - HasGeek organises events for geeks&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.instamojo.com/v2/&#34;&gt;Instamojo&lt;/a&gt; - Easiest Way to Collect Payments Online&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.myntra.com/&#34;&gt;Myntra&lt;/a&gt; - Online Shopping India&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.mysmartprice.com/&#34;&gt;MySmartPrice&lt;/a&gt; - Compare the best prices from online retailers&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.practo.com/&#34;&gt;Practo&lt;/a&gt; - Find Best Doctors and Book Appointments Online&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.shephertz.com/&#34;&gt;ShepHertz&lt;/a&gt; - Complete Cloud Ecosystem for App/Game Developers&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.urbanladder.com/&#34;&gt;Urban Ladder&lt;/a&gt; - Furniture Online Shopping Store&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://webengage.com/&#34;&gt;WebEngage&lt;/a&gt; - On-Site Customer Engagement Suite&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wingify.com/&#34;&gt;Wingify&lt;/a&gt; - Website Optimization tools that simply work&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.zomato.com/&#34;&gt;Zomato&lt;/a&gt; - Discover great places to eat around you&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There is a section here in this report, which uses last year&amp;rsquo;s GitHub activity of organizations, so I killed my idea of replacing Zomato by someone else as the year was gone and it was kinda tough to jump traditional API &lt;a href=&#34;https://developer.github.com/v3/repos/statistics/#participation&#34;&gt;bumper&lt;/a&gt; and collect data.&lt;/p&gt;
+
+&lt;p&gt;As I said Zomato have zero public activity last year but it doesn&amp;rsquo;t mean they are not good, they are doing pretty good; aquiring it all, at a rate of hurricane wind speed and serving in cities more than you&amp;rsquo;ve ever been in your life. Maybe they are using some other platform, a local Git hosting or something.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;You better zoom-in the images or open them in a different tab.&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;1-appearance-timeline-of-organizations&#34;&gt;1. Appearance Timeline of Organizations&lt;/h4&gt;
+
+&lt;p&gt;Do you know, when all of these organizations were found? Not sure?&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/appearance-timeline.png&#34;&gt; 
+    &lt;figcaption&gt;Apperance Timeline&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This plot shows &lt;em&gt;relative appearance&lt;/em&gt; of selected organizations both in the public world as well as in the open-source world.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Add legend text in the image.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I didn&amp;rsquo;t know that Myntra was founded a bit earlier than Flipkart, who &lt;a href=&#34;http://timesofindia.indiatimes.com/tech/tech-news/Flipkart-acquires-Myntra/articleshow/35472797.cms&#34;&gt;aquired&lt;/a&gt; the older player recently.&lt;/li&gt;
+&lt;li&gt;Myntra and Flipkart came in existance before the GitHub itself.&lt;/li&gt;
+&lt;li&gt;We can see a large gap between apperance on these two portals for Flipkart, Myntra and Zomato, Myntra being the slowest one to join.&lt;/li&gt;
+&lt;li&gt;Some organizations like Instamojo, HackerEarth and HasGeek felt the need of time and took no significant time in this.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Well! in case if you&amp;rsquo;re thinking that this information is all chatter, let me present something interesting.&lt;/p&gt;
+
+&lt;p&gt;Go back and see the image carefully and you&amp;rsquo;ll notice something different from others for Cucumbertown and HasGeek.&lt;/p&gt;
+
+&lt;p&gt;Yes! the GitHub organizations for these two were created before their public launching itself. &lt;em&gt;Sounds interesting, right?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I can&amp;rsquo;t say for Cucumbertown now but I can present a supporting theory to prove this for the HasGeek.&lt;/p&gt;
+
+&lt;p&gt;Do you guys remeber what was the first event that HasGeek organised? It was &lt;a href=&#34;http://wiki.hasgeek.in/DocType_HTML5&#34;&gt;DocType HTML5&lt;/a&gt;, you silly. The event was held on October, 2010 and HasGeek was pubilcally launched in December, 2010. You can fly to their GitHub account and check that they are developing &lt;a href=&#34;https://github.com/hasgeek/doctypehtml5&#34;&gt;hasgeek/doctypehtml5&lt;/a&gt; since then.&lt;/p&gt;
+
+&lt;p&gt;Maybe organising this event was the inspiration behind launching the HasGeek, I need to hear HasGeek founder &lt;a href=&#34;https://twitter.com/jackerhack&#34;&gt;Kiran&lt;/a&gt;&amp;rsquo;s words on it, though.&lt;/p&gt;
+
+&lt;h4 id=&#34;2-repository-status&#34;&gt;2. Repository Status&lt;/h4&gt;
+
+&lt;p&gt;As we all know, repository is an important component of GitHub&amp;rsquo;s ecosystem.&lt;/p&gt;
+
+&lt;h5 id=&#34;2-1-public-repository-status&#34;&gt;2.1. Public Repository Status&lt;/h5&gt;
+
+&lt;p&gt;This section deals with no. of public repositories for each involved organization.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/repository-status.png&#34;&gt; 
+    &lt;figcaption&gt;Public Repository Count&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Cloud services provider ShepHertz has maximum no. of public repositories there, mainly based on their &lt;em&gt;App42&lt;/em&gt; service stack. Flipkart and HasGeek also have significant no. of repositories, rest are the organizations are building their store gradually.&lt;/p&gt;
+
+&lt;p&gt;No. of repositories on GitHub is not the right thing to measure about, though.&lt;/p&gt;
+
+&lt;h5 id=&#34;2-2-stars-distribution&#34;&gt;2.2. Stars Distribution&lt;/h5&gt;
+
+&lt;p&gt;As I said, having more number of repositories doesn&amp;rsquo;t explicitly show your popularity. It&amp;rsquo;s not an old wars between states where king with more elephants was supposed to be the winner.&lt;/p&gt;
+
+&lt;p&gt;But no. of stars on any GitHub repository can represent its vogue, &lt;em&gt;leave the case where they&amp;rsquo;re fake.&lt;/em&gt;&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/stars-distribution.png&#34;&gt; 
+    &lt;figcaption&gt;Stars Distribution&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This graph represents the stars distribution on all the repositories of involved organizations.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Top 10 repositories according to no. of stars&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wingify/please.js&#34;&gt;wingify/please.js&lt;/a&gt; &amp;#183; 211 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/flipkart/hostdb&#34;&gt;flipkart/HostDB&lt;/a&gt; 190 &amp;#183; &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/myntra/MYNStickyFlowLayout&#34;&gt;myntra/MYNStickyFlowLayout&lt;/a&gt; &amp;#183; 133 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wingify/dom-comparator&#34;&gt;wingify/dom-comparator&lt;/a&gt; &amp;#183; 129 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hasgeek/lastuser&#34;&gt;hasgeek/lastuser&lt;/a&gt; &amp;#183; 113 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/flipkart/phantom&#34;&gt;flipkart/phantom&lt;/a&gt; &amp;#183; 71 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hasgeek/hasjob&#34;&gt;hasgeek/hasjob&lt;/a&gt; &amp;#183; 70 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wingify/agentredrabbit&#34;&gt;wingify/agentredrabbit&lt;/a&gt; &amp;#183; 49 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wingify/lua-resty-rabbitmqstomp&#34;&gt;wingify/lua-resty-rabbitmqstomp&lt;/a&gt; &amp;#183; 45 &amp;#x2606;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hackerearth/hackerearth.vim&#34;&gt;hackerearth/hackerearth.vim&lt;/a&gt; &amp;#183; 28 &amp;#x2606;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can see Wingify, Flipkart and HasGeek are ruling the leader-board here.&lt;/p&gt;
+
+&lt;h5 id=&#34;2-3-relative-repository-attributes&#34;&gt;2.3. Relative Repository Attributes&lt;/h5&gt;
+
+&lt;p&gt;GitHub provides a feature named &lt;em&gt;fork&lt;/em&gt;, using that you can contribute to awesome projects of others like it was your own project.&lt;/p&gt;
+
+&lt;p&gt;This section deals with attributes of repositories, counting which one of them is a &lt;em&gt;forked&lt;/em&gt; repository or which one is a &lt;em&gt;source&lt;/em&gt; repository.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/repository-attributes.png&#34;&gt; 
+    &lt;figcaption&gt;Repository Attributes&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This plot shows which organization have all their own &lt;em&gt;source&lt;/em&gt; repositories and which one is having &lt;em&gt;forked&lt;/em&gt; repositories.&lt;/p&gt;
+
+&lt;p&gt;During the development, I also calculated &lt;em&gt;active&lt;/em&gt; and &lt;em&gt;inactive&lt;/em&gt; percentage of the &lt;em&gt;forked&lt;/em&gt; repositories. You can have a look &lt;a href=&#34;https://github.com/pravj/ospi/blob/master/Terms-and-conditions.md#section-7&#34;&gt;here&lt;/a&gt; at &lt;em&gt;how this was calculated&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;We can see that HasGeek is doing fairly good here, having more share of &lt;em&gt;source&lt;/em&gt; repositories than &lt;em&gt;forked&lt;/em&gt;. A large portion of Flipkart and Freshdesk&amp;rsquo;s repositories are &lt;em&gt;inactive-forked&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;3-development-activity&#34;&gt;3. Development Activity&lt;/h4&gt;
+
+&lt;p&gt;All the involved organizations have somewhat for the community; projects born as solutions of some problems, projects born in some hackathons and so on. They&amp;rsquo;re gradually building things to enhance their infrastucture and market position.&lt;/p&gt;
+
+&lt;h5 id=&#34;3-1-repository-creation&#34;&gt;3.1. Repository Creation&lt;/h5&gt;
+
+&lt;p&gt;This section deals with creation of repositories of all the organizations.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/repository-creation.png&#34;&gt; 
+    &lt;figcaption&gt;Repository Creation Frequency&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You can see that Urban Ladder, HasGeek and Exotel created their first repository almost at the same time of their GitHub organization creation.&lt;/li&gt;
+&lt;li&gt;ShepHertz, HasGeek and Flipkart have kinda continuous repository creation events through out the timeline.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Again, if you think that it&amp;rsquo;s &lt;em&gt;general knowledge&lt;/em&gt;, then let me show you the &lt;em&gt;magic&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Go back and watch the image carefully and you&amp;rsquo;ll notice something weird for HackerEarth, are you?&lt;/p&gt;
+
+&lt;p&gt;Yes! you see there, HackerEarth&amp;rsquo;s first repository was created before creation of their GitHub organization itself. &lt;em&gt;How is this even possible?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Well! ladies and gentlemen, this is possible. Let me introduce a new theory in support of this.&lt;/p&gt;
+
+&lt;p&gt;HackerEarth&amp;rsquo;s oldest repository in the time series is &lt;a href=&#34;https://github.com/hackerearth/django-storages&#34;&gt;django-storages&lt;/a&gt;. It&amp;rsquo;s the same repository, which is creating the confusion. But the fact is that this repository was initially &lt;em&gt;forked&lt;/em&gt; by HackerEarth&amp;rsquo;s Co-founder &lt;em&gt;Vivek&lt;/em&gt; on his GitHub &lt;a href=&#34;https://github.com/vivekp&#34;&gt;account&lt;/a&gt;. After the creation of a separate organization for HackerEarth, he merged that repository to the organization.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s why this repository&amp;rsquo;s creation date is before creation of their organization. Well! again, I need &lt;a href=&#34;https://github.com/vivekp&#34;&gt;Vivek&lt;/a&gt;&amp;rsquo;s approval on this.&lt;/p&gt;
+
+&lt;h5 id=&#34;3-2-commit-activity&#34;&gt;3.2. Commit Activity&lt;/h5&gt;
+
+&lt;p&gt;This section deals with the commit activity of all the organizations.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/commit-activity-zoom.png&#34;&gt; 
+    &lt;figcaption&gt;Commit Activity&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This plot shows weekly commit activity of all the organizations. This is pretty much mixed-up though, but this was the only plot-type in my mind at the time, when I was developing this.&lt;/p&gt;
+
+&lt;p&gt;You can see a relatively more development activity in the start of the year.&lt;/p&gt;
+
+&lt;p&gt;Flipkart development team &lt;a href=&#34;https://github.com/Flipkart/linux&#34;&gt;keeps&lt;/a&gt; a &lt;em&gt;fork&lt;/em&gt; of the &lt;em&gt;linux&lt;/em&gt;, it&amp;rsquo;s not a &lt;em&gt;forked repo&lt;/em&gt; though. I removed its activities because this was making the plot even more cluttered. You can check &lt;a href=&#34;{{site.url}}/assets/ospi/commit-activity.png&#34;&gt;that plot&lt;/a&gt; also, though.&lt;/p&gt;
+
+&lt;h4 id=&#34;4-technology-stack&#34;&gt;4. Technology Stack&lt;/h4&gt;
+
+&lt;p&gt;Different organization are working in different fields of the technology; be it medical services, developer events, online shopping, food, cloud services, online payments etc., so they&amp;rsquo;re encountering different problems in the path and managing it accordingly.&lt;/p&gt;
+
+&lt;h5 id=&#34;4-1-programming-languages-in-production&#34;&gt;4.1. Programming Languages in Production&lt;/h5&gt;
+
+&lt;p&gt;This section deals with use of different programming languages in the involved organizations&amp;rsquo;s infrastructure.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/language-uses.png&#34;&gt; 
+    &lt;figcaption&gt;Language Used&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This plot uses colors from GitHub&amp;rsquo;s &lt;a href=&#34;https://github.com/linguist&#34;&gt;linguist&lt;/a&gt; for different programming languages.&lt;/p&gt;
+
+&lt;p&gt;This helps us understanding tech-stack of all the organizations.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Flipkart uses Java, HasGeek uses Python, Practo uses PHP and Freshdesk uses Ruby as their major programming language.&lt;/li&gt;
+&lt;li&gt;Organizations have started using &lt;em&gt;non-traditional&lt;/em&gt; languages like Lua, Erlang and Scala etc.&lt;/li&gt;
+&lt;li&gt;ShepHertz uses maximum no. of programming languages(14), in their quest to serve all &lt;em&gt;in-demand&lt;/em&gt; programming language in their service.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;4-2-field-of-work&#34;&gt;4.2. Field of work&lt;/h5&gt;
+
+&lt;p&gt;This section deals with the fields, different organization are working in.&lt;/p&gt;
+
+&lt;p&gt;To calculate the results, I have used &lt;em&gt;repository names&lt;/em&gt; and &lt;em&gt;their description&lt;/em&gt; here.
+Actually I wanted to have relative sharing in fields of working of all the organizations.&lt;/p&gt;
+
+&lt;p&gt;So, initially, my plan was to use &lt;a href=&#34;http://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&#34;&gt;Latent Dirichlet Allocation&lt;/a&gt; on the &lt;em&gt;repository-description-text&lt;/em&gt; corpus for &lt;em&gt;Topic Modeling&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Where I had use &lt;em&gt;concatenated repository descriptions&lt;/em&gt; of organizations as a &lt;em&gt;document&lt;/em&gt; but then I droped this idea because of asymmetrical repository distribution. It was resulting in a corpus of 14 documents only (Zomato excluded).&lt;/p&gt;
+
+&lt;p&gt;You can have a brief knowledge about LDA, &lt;a href=&#34;http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then I changed the plan and moved towards &lt;em&gt;Naive Bayes Classifier&lt;/em&gt; and used word frequencies only.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You can check the &lt;a href=&#34;https://github.com/pravj/ospi/tree/master/classifier&#34;&gt;classifier&lt;/a&gt; topic results based on probability or frequency, &lt;a href=&#34;https://github.com/pravj/ospi/blob/master/results/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, some of the topic results from Classifier for organizations are :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Cucumbertown : &lt;em&gt;Django, Gearman, Email, Commit, Notifier&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Exotel : &lt;em&gt;Audio, IVR, Music, SMS&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Flipkart : &lt;em&gt;REST API&amp;rsquo;s, MySQL, lucence, Redis, HTTP proxy, load balancer&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Freshdesk : &lt;em&gt;Databases, Rails, API, Websockets, Socket.io, YUI, Resque&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;HasGeek : &lt;em&gt;Workshop, Lastuser, App management, TV, Job, GitHub&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;HackerEarth : &lt;em&gt;Django, API documentation and clients, extensions and editors&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Instamojo : &lt;em&gt;API clients, Wordpress, Frameworks, Huxley&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Myntra : &lt;em&gt;iOS, Cocoa, Android, ElasticSearch, Docker, Librato&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;MySmartPrice : &lt;em&gt;Technology Blog, Gearman workers, Cookbook&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Practo : &lt;em&gt;OpenID, Flask, Sentry, Symfony, Raven, Mail clients, Messages&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;ShepHertz : &lt;em&gt;App42, PaaS, SDK, API clients, MongoDB, MySQL, Redis&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;WebEngage : &lt;em&gt;Message, API, Website, Speech&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Wingify : &lt;em&gt;Angular.js, DOM, RabbitMQ, iOS, Data, Bootstrap, VWO&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here we can see that Flipkart&amp;rsquo;s stack includes things related to distributed computing, Networking, Databases on the other hand Wingify&amp;rsquo;s stack includes things related to Frontend, Data, Networking.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;So, this is it. Open Source Presence Infographic of Indian Startups. :octocat:.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re thinking that &lt;em&gt;santa&lt;/em&gt; helped me in all this; then you are wrong, my friend.
+I was all alone everytime, thinking about it, collecting the data, managing R source files in Rstudio, writing Python for it and all that.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re feeling that you can do &lt;em&gt;something&lt;/em&gt; much more awesome than this.
+&amp;gt; You can do whatever you want; It&amp;rsquo;s hosted on GitHub, &lt;a href=&#34;https://github.com/pravj/ospi&#34;&gt;pravj/ospi&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Open Source Presence Infograohic : &lt;a href=&#34;https://github.com/pravj/ospi/blob/master/Terms-and-conditions.md&#34;&gt;Terms and Conditions&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The git-game Write-up</title>
+      <link>https://pravj.github.io/blog/the-git-game-writeup/</link>
+      <pubDate>Thu, 15 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/blog/the-git-game-writeup/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Spoiler Alert&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You should go and check this out, &lt;a href=&#34;https://github.com/hgarc014/git-game&#34;&gt;git-game&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s a nice little &lt;em&gt;complete-a-task-and-upgrade-level&lt;/em&gt; type of game layered on top of Git.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;It is a terminal game designed to test your knowledge of git commands. Each level in the game is a task to perform on this repo. Once you perform that task, you will be given your next task. There are a total of ten levels, each one harder than last!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I saw the reference to this game floating around in my GitHub feed yesterday. The concept is awesome as there are already &lt;a href=&#34;http://pcottle.github.io/learnGitBranching/&#34;&gt;many&lt;/a&gt; online tutorial courses on the Internet that uses interactive &lt;em&gt;learning-with-doing&lt;/em&gt; methods for Git.&lt;/p&gt;
+
+&lt;p&gt;According to the repository, I started the adventure with cloning the repository using &lt;code&gt;git clone git@github.com:hgarc014/git-game.git&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;default branch&lt;/em&gt; was &lt;em&gt;master&lt;/em&gt; and there were only two files in repository&amp;rsquo;s &lt;em&gt;working directory&lt;/em&gt;, README.md and LICENSE.&lt;/p&gt;
+
+&lt;p&gt;I started with the README.md file and &lt;code&gt;cat README.md&lt;/code&gt; revealed all its content.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You should always check the README.md file for your next clue!&lt;/p&gt;
+
+&lt;p&gt;Your first task is to checkout the commit whose commit message is the answer to this question:&lt;/p&gt;
+
+&lt;p&gt;When a programmer is born, what is the first thing he/she learns to say?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Well! a programmer is also a boy/girl, so first thing they do is &lt;em&gt;cry&lt;/em&gt; but in the current context that thing will be &lt;em&gt;Hello, World!&lt;/em&gt; :grinning:&lt;/p&gt;
+
+&lt;p&gt;Now I had to find the commit whose commit message was &lt;em&gt;Hello World&lt;/em&gt;, so the command &lt;code&gt;git log --graph --online&lt;/code&gt; resulted this commit history.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;* 25bfa08 added information for people that don&amp;rsquo;t know git&lt;/p&gt;
+
+&lt;p&gt;*   27e9786 Merge pull request #6 from riqpe/master&lt;/p&gt;
+
+&lt;p&gt;|&lt;/p&gt;
+
+&lt;p&gt;| * 3893960 Corrected description of difficulty progression&lt;/p&gt;
+
+&lt;p&gt;|/&lt;/p&gt;
+
+&lt;p&gt;* bc9641f updated README&lt;/p&gt;
+
+&lt;p&gt;* 9b9380b Hello World!&lt;/p&gt;
+
+&lt;p&gt;* 8cafb7c Initial commit&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Can you see the &lt;em&gt;Hello World! commit&lt;/em&gt; now? Yeah! we can represent it by HEAD~3.
+As that commit is &lt;em&gt;directly at level 3&lt;/em&gt; or we can say &lt;em&gt;great-grandparent&lt;/em&gt; of the HEAD commit.&lt;/p&gt;
+
+&lt;p&gt;So all I needed to do was the command &lt;code&gt;git checkout HEAD~3&lt;/code&gt;, doing so we&amp;rsquo;re now done with the first task.&lt;/p&gt;
+
+&lt;p&gt;After completing the first task when the HEAD is at that particular commit, the README.md file was ready with its new task.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;git-game&lt;/p&gt;
+
+&lt;p&gt;========&lt;/p&gt;
+
+&lt;p&gt;Hello World!&lt;/p&gt;
+
+&lt;p&gt;It looks like you have some knowledge about traversing commits!&lt;/p&gt;
+
+&lt;p&gt;Well, let&amp;rsquo;s get this party started!&lt;/p&gt;
+
+&lt;p&gt;We want to get to a branch whose name is the answer to this riddle:&lt;/p&gt;
+
+&lt;p&gt;I am a creature that is smaller than man, but many times more in number.&lt;/p&gt;
+
+&lt;p&gt;In code, my appearance can be subtle and no matter where I am found, I am unwanted.&lt;/p&gt;
+
+&lt;p&gt;What am I?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Easy Peasy? Yeah, the answer is &lt;em&gt;bug&lt;/em&gt; obviously, so lets fly to same &lt;em&gt;branch&lt;/em&gt; using the &lt;code&gt;git checkout bug&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;In this &lt;em&gt;branch&lt;/em&gt;&amp;rsquo;s &lt;em&gt;working directory&lt;/em&gt; there were two extra files, &lt;em&gt;cool.cpp&lt;/em&gt; and &lt;em&gt;remember&lt;/em&gt; and the README.md was saying that :&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;git-game&lt;/p&gt;
+
+&lt;p&gt;========&lt;/p&gt;
+
+&lt;p&gt;Congratulations, it looks like you found the &amp;ldquo;bug.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;When you work with other programmers on the same project, bugs are bound to appear.&lt;/p&gt;
+
+&lt;p&gt;One way to create bugs is by changing code that you did not write without understanding what the code is doing.&lt;/p&gt;
+
+&lt;p&gt;Sometimes we like to blame others for introducing bugs in our code.&lt;/p&gt;
+
+&lt;p&gt;Think you can find out who introduced a bug into our file cool.cpp?&lt;/p&gt;
+
+&lt;p&gt;We think he had something to do with the development of git.&lt;/p&gt;
+
+&lt;p&gt;And from what we hear he also made a branch under his name.&lt;/p&gt;
+
+&lt;p&gt;Checkout to that branch after you find out who the culprit is.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It says that there is a bug in the file &lt;em&gt;cool.cpp&lt;/em&gt;, lets see.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+using namespace std;
+
+int main()
+{
+   string mesg = &amp;quot;Hello! Who are you?&amp;quot;;
+   string input;
+   cout &amp;lt;&amp;lt; mesg &amp;lt;&amp;lt; endl;
+   cin &amp;gt;&amp;gt; input;
+   cout &amp;lt;&amp;lt; &amp;quot;Loops are fun!&amp;quot; &amp;lt;&amp;lt; endl;
+   while(1);
+   string reply = &amp;quot;Well, &amp;quot; + input + &amp;quot;, we hope you are having fun with our git-game!&amp;quot;;
+   cout &amp;lt;&amp;lt; reply &amp;lt;&amp;lt; endl;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yeah! there is one; the &lt;em&gt;while loop&lt;/em&gt; will refuse the program from terminating.&lt;/p&gt;
+
+&lt;p&gt;So, who did this? Well! that&amp;rsquo;s what we have to answer now.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;git blame - Helps you finding who committed what.&lt;/p&gt;
+
+&lt;p&gt;Show what revision and author last modified each line of a file&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;git blame cool.cpp&lt;/code&gt; is here for our rescue. It says that :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ce59bbfd (Henry Garcia      2014-12-08 18:22:35 -0800 10)    cin &amp;gt;&amp;gt; input;
+3922a6d8 (LinusTorvalds2014 2014-12-09 12:37:10 -0800 11)    cout &amp;lt;&amp;lt; &amp;quot;Loops are fun!&amp;quot; &amp;lt;&amp;lt; endl;
+3922a6d8 (LinusTorvalds2014 2014-12-09 12:37:10 -0800 12)    while(1);
+ce59bbfd (Henry Garcia      2014-12-08 18:22:35 -0800 13)    string reply = &amp;quot;Well, &amp;quot; + input + &amp;quot;, ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Damn! someone with a similar name to the great &lt;em&gt;Linus Torvalds&lt;/em&gt; is the culprit, he wrote that buggy line in the file. OK, lets move to his &lt;em&gt;branch&lt;/em&gt; as the README says, using &lt;code&gt;git checkout LinusTorvalds2014&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;This time the README.md file was not explicitly directing anywhere.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git-game
+========
+
+Looks like you found the branch of the evil Mastermind.
+Things may start to get a little more challenging...
+
+The next clue you are looking for --
+   is in a file you choose to ignore!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When I was doing this I thought may be it&amp;rsquo;s pointing to that useless file named &lt;em&gt;remember&lt;/em&gt; which was back there in the branch &lt;em&gt;bug&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;So I &lt;em&gt;checked-out&lt;/em&gt; again to the branch &lt;em&gt;bug&lt;/em&gt; and tried to find any clue in the file &lt;em&gt;remember&lt;/em&gt;. Its content looked like RSA Public keys to me.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cweJIY8GOo18Usi5ykA4nmhBR0h 6mMpyy4nFY71IhgjGGr0rkY3uE tVTo j5XlwgLZZ PpRK Pwbnd7Z4bpQWc6sU700xfLTI63FbD DsKCQbUKG KS02qfurxMJ3mHHD8f6VhFUmY2rPD NjznQ8mnQvlNwAR1QsLDK Zjl1kGbWQBeGoOBwVMfa790ATCNg fR OLPA0hi7OW N4jUN26mBIwQVhVtteDSDSr OVfhvUwb7ydODX7R2no xxTmrD5IFUXIB8dDhR lpSFaRcbF2up wrWA J2acmA28c2 NhE Bqj7ntV67GTHpVBSwO
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I gave up after scrolling through the lengthy &lt;em&gt;remember&lt;/em&gt; file and &lt;em&gt;checked-out&lt;/em&gt; again to the branch &lt;em&gt;LinusTorvalds2014&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have a strange habit to use &lt;code&gt;ls -a&lt;/code&gt; instead of &lt;code&gt;ls&lt;/code&gt; to list content of a directory so I did it and Boy! there it was, hiding all this time.&lt;/p&gt;
+
+&lt;p&gt;Guess what? there was a file named &lt;em&gt;.gitignore&lt;/em&gt; and it said :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# welcome to the ignore file!!
+
+# This file is hidden by default,
+# but did you know you have some branches that aren&#39;t shown to you,
+# when you check the list of branches?
+#
+# For your next clue...
+# Which abstract data type tends to implement sets and maps??
+# The answer is the same answer to this riddle:
+#
+#   I am both mother and father.
+#   I am seldom still
+#   yet I never wander.
+#   I never birth nor nurse.
+#
+#   What am I?
+#
+# Afterwards... well, you
+# know, checkout to the answer.
+
+*.rem
+a.out
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This time the answer of riddle is &lt;em&gt;Tree&lt;/em&gt;, simple. Don&amp;rsquo;t you know? You can &lt;em&gt;google&lt;/em&gt; it any time, I did the same. :wink:&lt;/p&gt;
+
+&lt;p&gt;So the next thing to do was, &lt;code&gt;git checkout tree&lt;/code&gt; and the README.md file there said :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git-game
+========
+
+Welcome to the &amp;quot;tree&amp;quot; branch.
+Looks like good ol&#39; Linus modified the &amp;quot;nextclue_input.cpp&amp;quot; file.
+Normally, when ran with the shell script &amp;quot;outputclue.sh&amp;quot;, the &amp;quot;nextclue_input.cpp&amp;quot; file would give us the next hint.
+
+Maybe, you should try running the shell script with the &amp;quot;nextclue_input.cpp&amp;quot; file and see what happens...
+
+You can run the script by running the command &amp;quot;./outputclue.sh FILE&amp;quot; .
+If you are on Windows, it&#39;s okey to use `git-bash` that is installed with [msysgit](https://msysgit.github.io/).
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On executing the shell script with the &lt;em&gt;nextclue_input.cpp&lt;/em&gt;, printed something on the STDOUT.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Linus has been here...
+I love messing with these amateur programmers!!
+If you want some real fun, then you should try resolving a conflict between this branch (tree) and code4life.
+I introduced a little bug that you should fix in the conflict. &amp;gt;:)
+After you merge these 2 files you should run the shell script again!!
+
+Good Luck!!!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The file &lt;em&gt;outputclue.sh&lt;/em&gt; is a &lt;em&gt;bash&lt;/em&gt; source file and matches the &lt;em&gt;md5sum&lt;/em&gt; of each word in the &lt;em&gt;nextclue_input.cpp&lt;/em&gt; to a local &lt;em&gt;checksum&lt;/em&gt; variable named &lt;em&gt;bug&lt;/em&gt;.
+It keeps asking to fix &lt;em&gt;merge conflicts&lt;/em&gt; until the word matching that checksum is present in the file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+if [ -z $1 ]; then
+  echo &amp;quot;well, someone didn&#39;t want to run the script with a file...&amp;quot;;
+  exit;
+fi
+
+file=$1
+bug=7c85d987a917c2a555d1391426978f05
+mesg=&amp;quot;Linus has been here...\nI love messing with these amateur programmers!!\nIf you want some real fun, then you should try resolving a conflict between this branch (tree) and code4life.\nI introduced a little bug that you should fix in the conflict. &amp;gt;:)\nAfter you merge these 2 files you should run the shell script again!!\n\nGood Luck!!!&amp;quot;
+merges=$(git log --format=%h --merges | head -1)
+csum=&amp;quot;md5sum&amp;quot;
+if [ $(echo &amp;quot;$OSTYPE&amp;quot; | grep darwin) ];then
+    csum=&amp;quot;md5&amp;quot;
+fi
+
+if [ &amp;quot;$file&amp;quot; = &amp;quot;nextclue_input.cpp&amp;quot; ];then
+  if [ ${merges} ]; then
+    while read p; do
+      for w in $p;do
+        if [ `echo $w | $csum | awk &#39;{print $1}&#39;` = $bug ];then
+          echo -e $mesg;
+          exit;
+        fi;
+      done;
+    done &amp;lt; $file ;
+    echo -e &amp;quot;Well, congratulations!! You fixed my conflict!!\nIf you would like to continue, then you should checkout to the $(echo 90mP8ouQHsNe | tr -d &#39;0-9A-Z&#39;) branch!!\n&amp;quot; ;
+   else
+     echo -e $mesg;
+     exit;
+   fi;
+else
+  echo &amp;quot;Looks like you passed in the wrong file&amp;quot;;
+fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I saw that the &lt;em&gt;nextclue_input.cpp&lt;/em&gt; file was having a line with an &lt;em&gt;infinite while loop&lt;/em&gt; and my guess was right, the &lt;em&gt;checksum&lt;/em&gt; variable matched the &lt;em&gt;md5sum&lt;/em&gt; of the term &lt;em&gt;while(1);&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;So to fix the &lt;em&gt;merge conflict&lt;/em&gt;, I did &lt;code&gt;git merge code4life&lt;/code&gt; and removed the faulty line; It worked like a charm.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Well, congratulations!! You fixed my conflict!!
+If you would like to continue, then you should checkout to the mouse branch!!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;BTW! It was way more easy. As the answer branch was, mouse.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ echo 90mP8ouQHsNe | tr -d &#39;0-9A-Z&#39;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;When I &lt;em&gt;checked-out&lt;/em&gt; to the branch &lt;em&gt;mouse&lt;/em&gt;, it said :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;nextclue_input.cpp: needs merge
+error: you need to resolve your current index first
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But you can get away without merging by &lt;em&gt;stashing the changes&lt;/em&gt;, I did this with &lt;code&gt;git add nextclue_input.cpp &amp;amp;&amp;amp; git stash&lt;/code&gt;.
+Now the README.md file in branch &lt;em&gt;mouse&lt;/em&gt; said :&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;h1 id=&#34;git-game&#34;&gt;git-game&lt;/h1&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Looks like you resolved your conflict and found our branch, congrats!!&lt;/p&gt;
+
+&lt;p&gt;Hmm&amp;hellip;it seems this branch has a file that was seen before in another branch.
+Do you &amp;ldquo;remember&amp;rdquo; what it is?
+I think this file has something to do with the next clue, but it seems to be very ugly looking.
+Maybe if we compare the &amp;ldquo;diff&amp;rdquo;erences between this file and the file from before we&amp;rsquo;ll know where to go next&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+Yeah! I do remember that the file *remember* was there in the branch *bug* as I wasted 10 minutes on it.
+
+I did ```git diff mouse bug -- remember``` to see the difference between these two files accross branches and the difference in the files was this one line :
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;-Sn The next clue is: YtrydjKsYqebDoI3h bTINUeV6 pTVY8jnK2re HRwwNy25Ps6 u0YChCo5Jtw N3xkH3G nx aGo6yQTW RVZMsf3xk tBL0sG9GAR HQbyGYdqs i6dx1fyIPGJVci
++Sn In a branch named: Henry YtrydjKsYqebDoI3h bTINUeV6 pTVY8jnK2re HRwwNy25Ps6 u0YChCo5Jtw N3xkH3G nx aGo6yQTW RVZMsf3xk tBL0sG9GAR HQbyGYdqs i6dx1fy&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+So, the next *branch* to move was *Henry*, but ```git checkout Henry``` was a trap.
+
+On *checking-out* it said, *You are in &#39;detached HEAD&#39; state*; means we were not in a *branch* but *tag*. The README.md file was saying the same.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;git-game-1&#34;&gt;git-game&lt;/h1&gt;
+
+&lt;p&gt;Welcome to my Tag!!!&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re looking for my branch then you have gone the wrong way!!&lt;/p&gt;
+
+&lt;p&gt;How do you checkout to a branch that has the same name as a tag???
+Deal with the tag first!!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+The problem was that there was a *branch* with exactly same name as a tag, *Henry*.
+So I *renamed* the *tag*, because *who knows when you&#39;re gonna need something?*
+
+```git tag Henry-v0.1 Henry &amp;amp;&amp;amp; git tag -d Henry``` made a new tag pointing to old&#39;s commit and deleted the old one.
+
+Now after *checking-out* to the branch *Henry*, the README said :
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;git-game-2&#34;&gt;git-game&lt;/h1&gt;
+
+&lt;p&gt;Welcome!! It looks like you made it to my Branch!!!
+Generally you want to refrain from making tags the same name as branches, unless you have a good reason.
+The tag is more like the stable release.
+While the branch is more like the in progress feature, which will be added soon.&lt;/p&gt;
+
+&lt;p&gt;You&amp;rsquo;re almost done!! Excited?? Hope you are! You have one more thing to do!&lt;/p&gt;
+
+&lt;p&gt;Now its time to update the master branch, updating is really useful when you fork a repository and your forked repo starts to get behind on commits. The repository to update from is: &lt;a href=&#34;https://github.com/drami025/git-game.git&#34;&gt;https://github.com/drami025/git-game.git&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Don&amp;rsquo;t cheat!!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+So, according to the task, to update the *master branch* I *checked-out* to it.
+
+With ```git remote add updater git@github.com:drami025/git-game.git``` command, I added the new *remote* to update from, as the README.md said.
+
+Then a simple ```git pull updater master``` did rest of the work and the *master branch* was equal with the new *remote*, all updated. \o/.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;git-game-finish-line&#34;&gt;Git Game Finish Line&lt;/h1&gt;
+
+&lt;h1 id=&#34;if-you-did-not-fork-this-repository-from-the-terminal-then-we-are-disappointed-in-you&#34;&gt;If you did not fork this repository from the terminal, then we are disappointed in you!!&lt;/h1&gt;
+
+&lt;p&gt;However, if you did, then great Job!!
+You completed our Git Game!
+```&lt;/p&gt;
+
+&lt;p&gt;They have also implemented an &lt;a href=&#34;http://openbadges.org/&#34;&gt;Open-Badge&lt;/a&gt; for this, I got one.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Finally, it&amp;rsquo;s complete. And this Write-up too.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m feeling pain in my fingers now.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;behind-the-scene&#34;&gt;Behind the scene :&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Each level was somewhat harder than the previous one but overall it wasn&amp;rsquo;t.&lt;/li&gt;
+&lt;li&gt;Yeah! I completed all tasks &lt;em&gt;twice&lt;/em&gt;, the extra one while writing this Write-up.&lt;/li&gt;
+&lt;li&gt;It took me almost 30 minutes to complete all tasks but 2 hours to write this.&lt;/li&gt;
+&lt;li&gt;Today, it&amp;rsquo;s an awesome sunny, winter day here. :sunny:&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Post-mortem of an Internet Accident</title>
+      <link>https://pravj.github.io/blog/post-mortem-of-an-internet-accident/</link>
+      <pubDate>Sun, 11 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/blog/post-mortem-of-an-internet-accident/</guid>
+      <description>
+
+&lt;p&gt;Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination &lt;em&gt;Internet Accident&lt;/em&gt; confuse you, let me decode its meaning in the context of this post.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Encounter with something on an edge node of the Holy Internet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So this post is all about my attempt to solve a question, I saw on &lt;em&gt;Quora&lt;/em&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.quora.com/What-good-known-project-on-GitHub-uses-the-largest-number-of-programming-languages&#34;&gt;What good known projects on GitHub uses the largest number of programming languages?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And I think that my answer is 98.76% correct, respecting the &lt;em&gt;No-Zero-Redundancy&lt;/em&gt; law.&lt;/p&gt;
+
+&lt;p&gt;I saw this question while jumping between my chrome tabs when I was struggling with old drafts of my blog.
+I clicked the link to give it a separate tab; &lt;em&gt;even questions have self respect&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I stumbled upon it as I saw that the question had a topic named &lt;em&gt;GitHub&lt;/em&gt; also.&lt;/p&gt;
+
+&lt;p&gt;So, to answer this, all I had to do was to find a repository which uses highest number of programming languages in it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Wait, the question also says a &lt;em&gt;&amp;ldquo;good known project&amp;rdquo;&lt;/em&gt;.
+Now that&amp;rsquo;s a plot twist.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;GitHub&lt;/em&gt; provides an excellent &lt;a href=&#34;https://developer.github.com/v3/&#34;&gt;REST API&lt;/a&gt;, so excellent that it powers some awesome services also, like the &lt;a href=&#34;https://gitter.im&#34;&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, to look for languages statistics of a repository you need the names of the repository and its owner. Then you can check a repo&amp;rsquo;s languages statistics using.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://api.github.com/repos/{owner}/{repo}/languages&#34;&gt;https://api.github.com/repos/{owner}/{repo}/languages&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;As far as a I know, there is not any way to do a reverse lookup, where you just provide number of programming languages and it gives you all the associated repositories.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;So I thought, lets give up on it and enjoy the coffee, &lt;em&gt;I had one on my desk&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I closed the question tab and started enjoying the coffee but then I opened it again because I felt that there may be a chance, if I use the &lt;em&gt;GitHub Archive&lt;/em&gt; project.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;GitHub Archive is a project to record the public GitHub timeline, archive it, and make it easily accessible for further analysis.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This shift in plan was also not enough as &lt;em&gt;GitHub Archive&lt;/em&gt; gives only the major programming language for a project.
+Now it was the time to shift to coffee &lt;em&gt;full time&lt;/em&gt; but &lt;em&gt;Nope! I had another idea&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The idea was to collect &lt;em&gt;good and known&lt;/em&gt; projects of &lt;em&gt;GitHub&lt;/em&gt; and rank them according to no. of programming languages in them. This sounds like &lt;em&gt;Brute Force&lt;/em&gt; but it was the only way left.&lt;/p&gt;
+
+&lt;p&gt;I headed towards the &lt;em&gt;GitHub API&lt;/em&gt; for it but found that they gives you the first 1000 search results only.&lt;/p&gt;
+
+&lt;p&gt;So I moved to &lt;em&gt;GitHub Archive&lt;/em&gt; finally and &lt;a href=&#34;https://github.com/pravj/Post-mortem/blob/master/bigquery.sql&#34;&gt;downloaded a .csv file&lt;/a&gt; of all the repositories with greater than equal to 500 stars. Now, I think it covers most of your &lt;em&gt;good and known projects&lt;/em&gt;, happy now?&lt;/p&gt;
+
+&lt;p&gt;I &lt;em&gt;Vimed&lt;/em&gt; the .csv file and found that some URLs were missing the owner&amp;rsquo;s name.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/vim-screenshot.png&#34;&gt; 
+    &lt;figcaption&gt;Vim Screenshot&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;:g/https:\/\/github.com\/\//d&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I removed all the corrupted lines using this command.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If you&amp;rsquo;re thinking that by removing lines, we won&amp;rsquo;t consider these repositories then take a deep breath and don&amp;rsquo;t think so, we will consider them, keep reading.&lt;/p&gt;
+
+&lt;p&gt;Then I wrote a &lt;em&gt;Python module&lt;/em&gt; to interact with the &lt;em&gt;GitHub API&lt;/em&gt;, named it &lt;em&gt;&lt;a href=&#34;https://github.com/pravj/Post-mortem/blob/master/postman.py&#34;&gt;postman&lt;/a&gt;&lt;/em&gt;.
+The &lt;em&gt;postman&lt;/em&gt; uses &lt;em&gt;Authentication Token&lt;/em&gt; from &lt;em&gt;GitHub&lt;/em&gt; to prevent the &lt;em&gt;rate-limiting&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t know how much did &lt;em&gt;postman&lt;/em&gt; take in its task as I was attending my classes then.
+But when I came back from class in the evening, I saw that &lt;em&gt;postman&lt;/em&gt; was done with the task. &lt;em&gt;Wow, an obedient postman&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Right now if you search in GitHub for repositories having 500 or more stars, you will see around 7,200 results. So we have been doing this right so far as GitHub Archive &lt;a href=&#34;http://git.io/78eKDg&#34;&gt;don&amp;rsquo;t have&lt;/a&gt; all the data&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once all the data is available, it&amp;rsquo;s time to &lt;em&gt;rock &amp;lsquo;n&amp;rsquo; roll&lt;/em&gt;. &lt;a href=&#34;http://www.rstudio.com&#34;&gt;Rstudio&lt;/a&gt; is always there to help us.&lt;/p&gt;
+
+&lt;p&gt;Plotting the stars and languages distribution over all the repositories, we get this graph.&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/stars-and-languages.png&#34;&gt; 
+    &lt;figcaption&gt;Stars and Language distribution&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;You can see that most of our good and known projects are in the bottom-left corner. Almost 90% of our repositories have less than 20,000 stars and 20 languages.&lt;/p&gt;
+
+&lt;p&gt;There is only one repository with more than 40,000 stars, which is the &lt;a href=&#34;https://github.com/twbs/bootstrap&#34;&gt;twbs/bootstrap&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;OK, let&amp;rsquo;s come to the question again. I think ordering repositories according to their no. of programming languages will work.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Top 25 projects by their no. of programming languages&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/leachim6/hello-world&#34;&gt;leachim6/hello-world&lt;/a&gt;, languages : 82&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ajaxorg/ace&#34;&gt;ajaxorg/ace&lt;/a&gt;, languages : 58&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ajaxorg/ace-builds&#34;&gt;ajaxorg/ace-builds&lt;/a&gt;, languages : 58&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/freebsd/freebsd&#34;&gt;RMerl/asuswrt-merlin&lt;/a&gt;, languages : 57&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/freebsd/freebsd&#34;&gt;freebsd/freebsd&lt;/a&gt;, languages : 39&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/geany/geany&#34;&gt;geany/geany&lt;/a&gt;, languages : 36&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/xbmc/xbmc&#34;&gt;xbmc/xbmc&lt;/a&gt;, languages : 30&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/dspinellis/unix-history-repo&#34;&gt;dspinellis/unix-history-repo&lt;/a&gt;, languages : 30&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/TechEmpower/FrameworkBenchmarks&#34;&gt;TechEmpower/FrameworkBenchmarks&lt;/a&gt;, languages : 28&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/imatix/zguide&#34;&gt;imatix/zguide&lt;/a&gt;, languages : 28&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/apache/thrift&#34;&gt;apache/thrift&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/msysgit/msysgit&#34;&gt;msysgit/msysgit&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kennyledet/Algorithm-Implementations&#34;&gt;kennyledet/Algorithm-Implementations&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/flycheck/flycheck&#34;&gt;flycheck/flycheck&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aichallenge/aichallenge&#34;&gt;aichallenge/aichallenge&lt;/a&gt;, languages : 27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/triAGENS/ArangoDB&#34;&gt;triAGENS/ArangoDB&lt;/a&gt;, languages : 26&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/offensive-security/exploit-database&#34;&gt;offensive-security/exploit-database&lt;/a&gt;, languages : 25&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JuliaLang/julia&#34;&gt;JuliaLang/julia&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JetBrains/intellij-community&#34;&gt;JetBrains/intellij-community&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/facebook/pfff&#34;&gt;facebook/pfff&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ornicar/lila&#34;&gt;ornicar/lila&lt;/a&gt;, languages : 23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/WebKit/webkit&#34;&gt;WebKit/webkit&lt;/a&gt;, languages : 22&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ariya/phantomjs&#34;&gt;ariya/phantomjs&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ruby/ruby&#34;&gt;ruby/ruby&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/coolwanglu/vim.js&#34;&gt;coolwanglu/vim.js&lt;/a&gt;, languages : 21&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;So, is that all? &lt;em&gt;Not at all! We have a lot to talk about my friend.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets talk about something interesting I found in the data there.&lt;/p&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;1-there-were-382-repositories-without-any-programming-language&#34;&gt;1. There were 382 repositories without any programming language.&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Most of them are documentations, list of resources for a field.&lt;/li&gt;
+&lt;li&gt;For example &lt;a href=&#34;https://github.com/vhf/free-programming-books&#34;&gt;vhf/free-programming-books&lt;/a&gt;, List of free learning resources.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/zero-language-repository.png&#34;&gt; 
+    &lt;figcaption&gt;Zero Language Repositories&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Subject to the detection of language by GitHub.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Along with the required dataset, I was also collecting the &lt;a href=&#34;https://github.com/pravj/Post-mortem/blob/master/log/postman.log&#34;&gt;logs&lt;/a&gt; data.
+So, there is something more interesting.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;2-the-log-file-shows-error-status-404-in-some-lines&#34;&gt;2. The log file shows &amp;lsquo;ERROR : status 404&amp;rsquo; in some lines.&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;There are 214 such lines, it means these projects have shifted their owners as it&amp;rsquo;s unusual to delete such popular repository.&lt;/li&gt;
+&lt;li&gt;They have evolved to much larger projects and have their own organizations now. For example the projects &lt;a href=&#34;https://github.com/homebrew/homebrew&#34;&gt;Homebrew&lt;/a&gt;, &lt;a href=&#34;https://github.com/docker/docker&#34;&gt;Docker&lt;/a&gt; and &lt;a href=&#34;https://github.com/jekyll/jekyll&#34;&gt;Jekyll&lt;/a&gt;, earlier they were &lt;a href=&#34;https://github.com/mxcl/homebrew&#34;&gt;mxcl/homebrew&lt;/a&gt;, &lt;a href=&#34;https://github.com/dotcloud/docker&#34;&gt;dotcloud/docker&lt;/a&gt; and &lt;a href=&#34;https://github.com/mojombo/jekyll&#34;&gt;mojombo/jekyll&lt;/a&gt; respectively.&lt;/li&gt;
+&lt;li&gt;The maximum-star-holder-and-ultra-awesome project &lt;a href=&#34;https://github.com/twbs/bootstrap&#34;&gt;twbs/bootstrap&lt;/a&gt; was earlier at &lt;em&gt;Twitter&lt;/em&gt; by the address, &lt;a href=&#34;https://github.com/twitter/bootstrap&#34;&gt;twitter/bootstrap&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The one-and-only TJ Holowaychuk have changed his username from &lt;a href=&#34;https://github.com/visionmedia&#34;&gt;visionmedia&lt;/a&gt; to &lt;a href=&#34;https://github.com/tj&#34;&gt;tj&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;3-the-log-file-shows-error-status-403-in-some-lines&#34;&gt;3. The log file shows &amp;lsquo;ERROR : status 403&amp;rsquo; in some lines.&lt;/h3&gt;
+
+&lt;p&gt;Now this is weird, as status 403 denotes the Forbidden state. But underlying secrets are much more awesome here.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;There were two repositories, disabled due to a DMCA takedown notice.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/popcorn-official/popcorn-app&#34;&gt;popcorn-official/popcorn-app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Bukkit/CraftBukkit&#34;&gt;Bukkit/CraftBukkit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;There was one repositories which is disabled by GitHub staff.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mandatoryprogrammer/Octodog_Invasion&#34;&gt;mandatoryprogrammer/Octodog_Invasion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;There was one repository which is deleted.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/NULLPointerDz/test&#34;&gt;NULLPointerDz/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t know how but this repository had more than 500 stars once.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The code for this report is on GitHub, &lt;a href=&#34;https://github.com/pravj/Post-mortem&#34;&gt;pravj/Post-mortem&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you feel that you can do more after going through this post-mortem report, you are welcome to show your medical skills.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>geopattern : going on the Go path</title>
+      <link>https://pravj.github.io/blog/going-on-the-go-path/</link>
+      <pubDate>Sat, 01 Nov 2014 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/blog/going-on-the-go-path/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;You should have a look at &lt;a href=&#34;https://github.com/pravj/geopattern&#34;&gt;geopattern&lt;/a&gt;, if you haven&amp;rsquo;t yet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;what-s-the-buzz-all-about&#34;&gt;What&amp;rsquo;s the buzz all about?&lt;/h3&gt;
+
+&lt;p&gt;This blog post is about development of &lt;em&gt;geopattern&lt;/em&gt; library in &lt;em&gt;golang&lt;/em&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;What do you think about this my favorite colored &lt;em&gt;concentric circle&lt;/em&gt; pattern?&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;https://pravj.github.io/images/concentric-circle.png&#34;&gt; 
+    &lt;figcaption&gt;Concentric Circle Pattern&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;geopattern-what&#34;&gt;geopattern. What?&lt;/h3&gt;
+
+&lt;p&gt;Umm, actually I don&amp;rsquo;t know exactly why the name is &lt;em&gt;geopattern&lt;/em&gt; but I know what it is.&lt;/p&gt;
+
+&lt;p&gt;It is a &lt;em&gt;golang&lt;/em&gt; library that generates pretty image patterns. It comes with awesome pattern types like nested squares, tessellation, concentric circles, and &lt;a href=&#34;https://github.com/pravj/geopattern#available-pattern&#34;&gt;13 more&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now if you are thinking, why I don&amp;rsquo;t know the reason behind its naming. It&amp;rsquo;s because &lt;em&gt;geopattern&lt;/em&gt; is actually the golang port of &lt;em&gt;my friend and GitHubber&lt;/em&gt; &lt;a href=&#34;https://github.com/jasonlong&#34;&gt;Jason Long&lt;/a&gt;&amp;rsquo;s &lt;a href=&#34;https://github.com/jasonlong&#34;&gt;GeoPattern&lt;/a&gt; Ruby library.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Jason&lt;/em&gt; created the original Ruby library to power GitHub&amp;rsquo;s &lt;a href=&#34;https://guides.github.com/&#34;&gt;Guides&lt;/a&gt; and &lt;a href=&#34;https://github.com/explore&#34;&gt;Explore&lt;/a&gt; sections.&lt;/p&gt;
+
+&lt;h3 id=&#34;another-geopattern-why&#34;&gt;Another geopattern. Why?&lt;/h3&gt;
+
+&lt;p&gt;As you can see the original &lt;em&gt;geopattern&lt;/em&gt; is being used at GitHub itself. &lt;em&gt;What else do you want, huh?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;There are many other &lt;a href=&#34;https://github.com/jasonlong/geopattern#ports&#34;&gt;implemetations&lt;/a&gt; in different programming languages, trying to help users of each language choice.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;But this was not the real force for me to develop one more in golang.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Before &lt;em&gt;geopattern&lt;/em&gt;, the last thing I worked on was &lt;a href=&#34;https://github.com/pravj/Doga&#34;&gt;Doga: HTTP log monitoring console for Humans&lt;/a&gt;. I really loved developing it and still love to just watch it working.&lt;/p&gt;
+
+&lt;p&gt;The reason behind this special attraction is that :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;It helped me landing a summer internship at &lt;a href=&#34;https://www.datadoghq.com/&#34;&gt;Datadog&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;It is written in Python. &lt;strong&gt;&amp;lt;3&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then I started writing blog for an old project &lt;a href=&#34;https://github.com/pravj/teamwork&#34;&gt;teamwork&lt;/a&gt;, just for the sake of adding an entry to my archives but it&amp;rsquo;s still in drafts.&lt;/p&gt;
+
+&lt;p&gt;I tried many things to kill my time :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;watched too much movies, more than too much &lt;em&gt;Animation movies&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;tried to read one seventh of the entire internet; I just missed it, though.&lt;/li&gt;
+&lt;li&gt;collected some best music and shaped it in a playlist named &lt;em&gt;confusion&lt;/em&gt; on Muzi, so was I.&lt;/li&gt;
+&lt;li&gt;managed to complete reading one entire research paper, &lt;em&gt;first time \o/.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;attempted watching Coursera content for two courses.&lt;/li&gt;
+&lt;li&gt;tried to work on something new but got stuck somewhere and paused the work.&lt;/li&gt;
+&lt;li&gt;managed to contribute to term2048, &lt;em&gt;only one right thing.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In short I was doing everything but there was no sign of satisfaction; &lt;em&gt;getting philosophical, lol.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That&amp;rsquo;s why I decided to write something. And here comes the &lt;em&gt;geopattern.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;golang-why&#34;&gt;Golang. Why?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Please don&amp;rsquo;t kill me, if you use &amp;lsquo;go&amp;rsquo; more than &amp;lsquo;golang&amp;rsquo;. I&amp;rsquo;m just being formal.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Since this summer I was collecting talks, blogs and other sources etc. about use of different programming languages in the wild. I hope someday I&amp;rsquo;ll be able to convert that all in something readable.&lt;/p&gt;
+
+&lt;p&gt;Golang was on my list ever since.&lt;/p&gt;
+
+&lt;p&gt;I have seen many awesome products shifting their infrastructure from &lt;a href=&#34;https://www.spacemonkey.com/blog/posts/go-space-monkey&#34;&gt;Python&lt;/a&gt;, &lt;a href=&#34;http://www.quora.com/Why-did-Koding-switch-from-Node-js-to-Go&#34;&gt;Node.js&lt;/a&gt; to &lt;em&gt;golang&lt;/em&gt;. Even Dropbox &lt;a href=&#34;https://tech.dropbox.com/2014/07/open-sourcing-our-go-libraries/&#34;&gt;migrated&lt;/a&gt; part of their code stack to golang from Python. Also I have read the &lt;em&gt;TJ holowaychuk&lt;/em&gt; &lt;a href=&#34;https://medium.com/code-adventures/farewell-node-js-4ba9e7f3e52b&#34;&gt;praising&lt;/a&gt; golang.&lt;/p&gt;
+
+&lt;p&gt;All this made me to take a walk in the &lt;em&gt;golang&lt;/em&gt; land.&lt;/p&gt;
+
+&lt;h3 id=&#34;learning-golang-developing-geopattern&#34;&gt;Learning Golang. Developing geopattern.&lt;/h3&gt;
+
+&lt;p&gt;In starting I spend two evenings reading about formal language convention stuff on the &lt;a href=&#34;http://www.golang-book.com/&#34;&gt;Golang-Book&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After playing for a while in my &lt;em&gt;~/projects/learn.go/&lt;/em&gt; directory, I started working on &lt;em&gt;geopattern&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I love to read source code of every readable thing in any language except assembly, &lt;em&gt;as far as I can understand it&lt;/em&gt;. So I started reading source code of original &lt;em&gt;library&lt;/em&gt; and it was fun. The most helpful thing was Jason&amp;rsquo;s blog &lt;a href=&#34;https://medium.com/@jasonlong/generating-visual-designs-with-code-62e59c4881ca&#34;&gt;Generating visual designs with code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In starting I was having problems that I even googled &lt;em&gt;go sucks&lt;/em&gt;. Because I found that &lt;em&gt;golang&lt;/em&gt; is a bit more verbose language. It doesn&amp;rsquo;t have some generic things so you have to write some work around like absense of optional arguments in functions and a better way to manage classes and stay object oriented.&lt;/p&gt;
+
+&lt;p&gt;But the more I worked with it I found that I&amp;rsquo;m more aware about what I&amp;rsquo;m writing, debugging is hell lot easy and what not.&lt;/p&gt;
+
+&lt;p&gt;Things that helped me from not giving up, are :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gobyexample.com/&#34;&gt;Go by Example&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://jordanorelli.com/post/32665860244/how-to-use-interfaces-in-go&#34;&gt;How to use interfaces in Go&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.golang.org/godoc-documenting-go-code&#34;&gt;Godoc: documenting Go code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;And the &lt;em&gt;Holy Internet&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I mailed Jason asking permission to port it and some other stuff related to licensing. His reply was positive. &lt;em&gt;That&amp;rsquo;s the ideal way you port something.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Then I called an astrologer for the right time to post about &lt;em&gt;geopattern&lt;/em&gt; on &lt;a href=&#34;https://news.ycombinator.com/item?id=8520961&#34;&gt;Hacker News&lt;/a&gt; and Holy, mother of bull!, He was perfect. It went to 2nd rank on the front page. #ThanksHN \o/.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;All this happened a bit fast. In a week or so.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;now-what&#34;&gt;Now What?&lt;/h3&gt;
+
+&lt;p&gt;I hated and then loved working with &lt;em&gt;golang; still loving&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;As you can see, people are using &lt;em&gt;golang&lt;/em&gt; to speed up their projects and scale them upto higher levels. So now I wish to understand more about it. I haven&amp;rsquo;t smoked &lt;em&gt;golang&amp;rsquo;s concurrency primitives - Go routines and Channels yet&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;It was awesome to see &lt;em&gt;geopattern&lt;/em&gt; &lt;a href=&#34;https://twitter.com/jasonlong/status/527465160253132803&#34;&gt;leading&lt;/a&gt; GitHub&amp;rsquo;s trending repositories.&lt;/p&gt;
+
+&lt;p&gt;I have noticed that I&amp;rsquo;m not good in managing my past works like some inspiring people do in the GitHub community. It&amp;rsquo;s mainly because I move myself to some other stuff &lt;em&gt;totally&lt;/em&gt; and don&amp;rsquo;t pay much attention to older ones.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll try to work on this and learn more things about &lt;em&gt;golang&lt;/em&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you want to answer the question I asked in the start, you can use the &lt;em&gt;Internet of things&lt;/em&gt; to catch me. \o/.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
