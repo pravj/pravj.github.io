@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust on hack(pravj)</title>
+    <link>https://pravj.github.io/tags/rust/</link>
+    <description>Recent content in Rust on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Oct 2014 12:34:58 +0300</lastBuildDate>
+    
+	<atom:link href="https://pravj.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Armin on Rust</title>
+      <link>https://pravj.github.io/articles/armin-on-rust/</link>
+      <pubDate>Wed, 01 Oct 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/articles/armin-on-rust/</guid>
+      <description>I&amp;rsquo;ve been trying out Rust for some time and have been totally loving it so far. Glad to see that Armin Ronacher, one of the programmers I highly respect feels the same!
+ Rust is inspiring for many reasons. The biggest reason I like it is because it&amp;rsquo;s practical. I tried Haskell, I tried Erlang and neither of those languages spoke &amp;ldquo;I am a practical language&amp;rdquo; to me. I know there are many programmers that adore them, but they are not for me.</description>
+    </item>
+    
+  </channel>
+</rss>

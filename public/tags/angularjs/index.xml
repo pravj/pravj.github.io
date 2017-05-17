@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Angularjs on hack(pravj)</title>
+    <link>https://pravj.github.io/tags/angularjs/</link>
+    <description>Recent content in Angularjs on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 Aug 2014 12:34:58 +0300</lastBuildDate>
+    
+	<atom:link href="https://pravj.github.io/tags/angularjs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Organizing Angular Apps for Testing</title>
+      <link>https://pravj.github.io/articles/organizing-angular-apps-for-testing/</link>
+      <pubDate>Sat, 02 Aug 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/articles/organizing-angular-apps-for-testing/</guid>
+      <description>In the last post, I talked about how we moved away from jQuery to Angularjs to power our single page application. To recap, the major problems with our existing code which convinced us to do a rewrite -
+ The existing code was written by a team which was no longer with the project. No one on the existing team had a strong understanding of how the code worked. Without any structure, the code was extremely hard to maintain and understand.</description>
+    </item>
+    
+    <item>
+      <title>Choosing Angular</title>
+      <link>https://pravj.github.io/articles/choosing-angular/</link>
+      <pubDate>Sun, 06 Jul 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/articles/choosing-angular/</guid>
+      <description>For the last couple of weeks I&amp;rsquo;ve spent a good deal of time on building a brand new checkout for Xcite.com. Like other ecommerce websites, our website has a conventional 3 step checkout - login/signup, delivery and finally, payment. As a part of new project our goal is to allow customers to checkout as guests i.e. without the need of creating an account with Xcite. This allows us to reduce a step for customers who just want quickly purchase something off the website and be on their way.</description>
+    </item>
+    
+  </channel>
+</rss>

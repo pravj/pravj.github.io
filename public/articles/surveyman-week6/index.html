@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Week 6 - Surveyman - hack(pravj) | Pravendra Singh
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
+
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="Week 6 - Surveyman" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://pravj.github.io/articles/surveyman-week6/" />
+<meta property="og:description" content="So I started this week with the primary goal of re-writing my stores and migrating them to use Immutable collections. In the last week&rsquo;s post, I laid out the motivation on why this is a good idea and how it will speed up the React application.
+While the benefits were clear, I was still not sure on how I could implement and exploit the collections provided by Immutable to my advantage." />
+
+<meta property="og:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="Week 6 - Surveyman" />
+<meta name="twitter:description" content="So I started this week with the primary goal of re-writing my stores and migrating them to use Immutable collections. In the last week&rsquo;s post, I laid out the motivation on why this is a good idea and how it will speed up the React application.
+While the benefits were clear, I was still not sure on how I could implement and exploit the collections provided by Immutable to my advantage." />
+
+
+<meta property="twitter:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="https://pravj.github.io/styles.min.css">
+
+  
+
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/surveyman-week6/">Week 6 - Surveyman</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">June</span> 
+                <span class="post-date-day"> 1, </span>
+                <span class="post-date-year">2015</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-react" href="https://pravj.github.io/tags/react">
+                  <i class="icon-tag"></i>react</a>
+                
+                <a class="post-tag post-tag-surveyman" href="https://pravj.github.io/tags/surveyman">
+                  <i class="icon-tag"></i>surveyman</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        
+
+<p>So I started this week with the primary goal of re-writing my stores and migrating them to use Immutable collections. In the last week&rsquo;s post, I laid out the motivation on why this is a good idea and how it will speed up the React application.</p>
+
+<p>While the benefits were clear, I was still not sure on how I could implement and exploit the collections provided by <a href="http://facebook.github.io/immutable-js/">Immutable</a> to my advantage. After numerous posts on <a href="https://discuss.reactjs.org/t/benefits-of-immutable-js/435">forums</a>, <a href="https://github.com/jurassix/react-immutable-render-mixin/issues/6">Github issues</a> and IRC discussions I realized that I was looking at it from the wrong direction.</p>
+
+<p>The key idea was explained to by <a href="http://www.mattgreer.org/">Matt Greer</a> whose extremely long and clear email helped me really understand the issue. With that out of the way, slowly and steadily I was able to migrate the store piece by piece to Immutable.</p>
+
+<p>Initially it was a bit frustrating to keep updating nested structures using <code>set</code> but after finding the <code>updateIn</code> method, things got really good.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="c1">// on question dropped</span>
+<span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getBlockIndex</span><span class="p">(</span><span class="nx">questionObj</span><span class="p">.</span><span class="nx">parentID</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">newSurvey</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">surveyData</span><span class="p">.</span><span class="nx">updateIn</span><span class="p">([</span><span class="nx">index</span><span class="p">,</span> <span class="s1">&#39;questions&#39;</span><span class="p">],</span> <span class="nx">list</span> <span class="p">=&gt;</span>
+    <span class="nx">list</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">newQuestion</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">updateSurveyData</span><span class="p">(</span><span class="nx">newSurvey</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>Throughout the store, I also keep track of two maps namely, <code>_optionMap</code> and <code>_questionMap</code> which are basically mappings from the option ID to the question ID and from the question ID to the block ID respectively.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="c1">// on question dropped - update question map with new question</span>
+<span class="kd">var</span> <span class="nx">block</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">surveyData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">index</span><span class="p">);</span>
+<span class="nx">_questionMap</span> <span class="o">=</span> <span class="nx">_questionMap</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">newQuestion</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">),</span> <span class="nx">block</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">));</span>
+</code></pre></div>
+
+
+<h3 id="adding-undo">Adding Undo</h3>
+
+<p>After finishing up integrating Immutable and adding <code>PureRenderMixin</code> in all my components, my next goal was to quickly add a <code>undo</code> feature that would allow users to undo a destructive action.</p>
+
+<p>The idea here is simple - at each stage cache the application state in a <code>history</code> object and use that to go back when the user clicks on <code>undo</code></p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="c1">// mananging history</span>
+<span class="kd">var</span> <span class="nx">_history</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="c1">// in the store</span>
+<span class="nx">updateSurveyData</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">cache</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cache</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">_history</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+            <span class="nx">data</span>        <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">surveyData</span><span class="p">,</span>
+            <span class="nx">optionMap</span>   <span class="o">:</span> <span class="nx">_optionMap</span><span class="p">.</span><span class="nx">toJS</span><span class="p">(),</span>
+            <span class="nx">questionMap</span> <span class="o">:</span> <span class="nx">_questionMap</span><span class="p">.</span><span class="nx">toJS</span><span class="p">()</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">surveyData</span> <span class="o">=</span> <span class="nx">data</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">},</span>
+</code></pre></div>
+
+
+<p>The other side benefit that this allowed me was to add an <em>undo</em> feature which made sure users are allowed to go back any destructive action they carry out in the UI.
+To make sure only <strong>destructive</strong> actions are cached, the <code>updateSurveyData</code> takes an extra <code>cache</code> param which when <code>true</code> pushes the data into the history. After this, the undo operation is simple to implement.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">onUndoSurvey</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// retrieve cached data</span>
+    <span class="kd">var</span> <span class="p">{</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">optionMap</span><span class="p">,</span> <span class="nx">questionMap</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">_history</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+    <span class="nx">_questionMap</span> <span class="o">=</span> <span class="nx">Immutable</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="nx">questionMap</span><span class="p">);</span>
+    <span class="nx">_optionMap</span> <span class="o">=</span> <span class="nx">Immutable</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="nx">optionMap</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">updateSurveyData</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>That finally sums up the work that went in this week to finish two key features. With the architecture now stable, I feel much more confident in adding more features without impacting the performance. However, now that the codebase has grown to roughly ~1500 lines of code, it is high time to add a test suite so that refactoring becomes more managable and less scary.</p>
+
+<p>The plan for this week, then, is to add tests and make the codebase more robust. Till next time.</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/articles/surveyman-week5/"><i class="icon-left-open"></i> Week 5 - Surveyman</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/surveyman-week7/">Week 7 - Surveyman <i class="icon-right-open"></i></a>
+          </div>
+          
+
+      
+       </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://pravj.github.io/main.js"></script>
+
+
+
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+</body>
+</html>

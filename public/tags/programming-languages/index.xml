@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming Languages on hack(pravj)</title>
+    <link>https://pravj.github.io/tags/programming-languages/</link>
+    <description>Recent content in Programming Languages on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Jun 2014 12:34:58 +0300</lastBuildDate>
+    
+	<atom:link href="https://pravj.github.io/tags/programming-languages/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Swift - First Impressions</title>
+      <link>https://pravj.github.io/articles/swift-first-impressions/</link>
+      <pubDate>Mon, 09 Jun 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/articles/swift-first-impressions/</guid>
+      <description>Last week at WWDC Apple made the most exciting announcement (for developers at least) of launching a new programming language - Swift. Although I have never written a single line of code for iOS (in Objective C) I got so excited that within no time I was installing Xcode 6 to give playground &amp;amp; Swift a shot.
+After spending a week with Swift I&amp;rsquo;ve come to the conclusion that it is a very well designed programming language.</description>
+    </item>
+    
+  </channel>
+</rss>

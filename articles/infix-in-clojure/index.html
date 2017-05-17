@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Parsing Infix in Clojure - hack(pravj) | Pravendra Singh
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
+
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="Parsing Infix in Clojure" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://pravj.github.io/articles/infix-in-clojure/" />
+<meta property="og:description" content="I&rsquo;ve been spending a good amount of time lately working on 4clojure in my free time. For those who don&rsquo;t know, 4clojure is archive of problems for practicing Clojure. It accepts solutions in Clojure, runs the test cases and gives you feedback right in the browser.
+Today I&rsquo;ll share my experience on solving an interesting problem and seeing how we can use Clojure&rsquo;s vast repertoire of functions in the standard library to make the code elegant and idiomatic." />
+
+<meta property="og:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="Parsing Infix in Clojure" />
+<meta name="twitter:description" content="I&rsquo;ve been spending a good amount of time lately working on 4clojure in my free time. For those who don&rsquo;t know, 4clojure is archive of problems for practicing Clojure. It accepts solutions in Clojure, runs the test cases and gives you feedback right in the browser.
+Today I&rsquo;ll share my experience on solving an interesting problem and seeing how we can use Clojure&rsquo;s vast repertoire of functions in the standard library to make the code elegant and idiomatic." />
+
+
+<meta property="twitter:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="https://pravj.github.io/styles.min.css">
+
+  
+
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/infix-in-clojure/">Parsing Infix in Clojure</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">January</span> 
+                <span class="post-date-day"> 19, </span>
+                <span class="post-date-year">2015</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-clojure" href="https://pravj.github.io/tags/clojure">
+                  <i class="icon-tag"></i>clojure</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        
+
+<p>I&rsquo;ve been spending a good amount of time lately working on <a href="https://www.4clojure.com">4clojure</a> in my free time. For those who don&rsquo;t know, 4clojure is archive of problems for practicing Clojure. It accepts solutions in Clojure, runs the test cases and gives you feedback right in the browser.</p>
+
+<p>Today I&rsquo;ll share my experience on solving an interesting problem and seeing how we can use Clojure&rsquo;s vast repertoire of functions in the standard library to make the code elegant and idiomatic. I&rsquo;ll start with how I solved the problem and then contrast it with how knowing the standard library (&amp; being clever) helps.</p>
+
+<p>An excerpt of the <a href="https://www.4clojure.com/problem/135">problem</a> is stated below -</p>
+
+<blockquote>
+<p>Your friend Joe is always whining about Lisps using the prefix notation for math. Show him how you could easily write a function that does math using the infix notation. Assume a simple calculator that does not do precedence and instead just calculates left to right.</p>
+</blockquote>
+
+<p>Quite simply, you need to write a calculator which takes an infix expression in a language that evaluates only prefix or polish notation by default.</p>
+
+<p>Here are a few test cases for the same -</p>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="nb">= </span><span class="mi">42</span> <span class="p">(</span><span class="nf">__</span> <span class="mi">38</span> <span class="nb">+ </span><span class="mi">48</span> <span class="nb">- </span><span class="mi">2</span> <span class="nb">/ </span><span class="mi">2</span><span class="p">))</span>
+<span class="p">(</span><span class="nb">= </span><span class="mi">72</span> <span class="p">(</span><span class="nf">__</span> <span class="mi">20</span> <span class="nb">/ </span><span class="mi">2</span> <span class="nb">+ </span><span class="mi">2</span> <span class="nb">+ </span><span class="mi">4</span> <span class="nb">+ </span><span class="mi">8</span> <span class="nb">- </span><span class="mi">6</span> <span class="nb">- </span><span class="mi">10</span> <span class="nb">* </span><span class="mi">9</span><span class="p">))</span>
+</code></pre></div>
+
+
+<h3 id="loop-recur">Loop/Recur</h3>
+
+<p>Let&rsquo;s start with a naive solution. We&rsquo;ll use what I like to call the Swiss Army knife of flow control in Clojure - <code>loop</code> and <code>recur</code>.</p>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">infix</span> <span class="p">[</span><span class="o">&amp;</span> <span class="nv">exprs</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">loop </span><span class="p">[[</span><span class="nv">x</span> <span class="o">&amp;</span> <span class="nv">xs</span><span class="p">]</span> <span class="nv">exprs</span> 
+         <span class="nv">acc</span> <span class="mi">0</span> 
+         <span class="nv">oper</span> <span class="nv">+</span><span class="p">]</span>
+     <span class="p">(</span><span class="nb">cond </span>
+        <span class="p">(</span><span class="nb">nil? </span><span class="nv">x</span><span class="p">)</span> <span class="nv">acc</span>
+        <span class="p">(</span><span class="nf">number?</span> <span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="nf">recur</span> <span class="nv">xs</span> <span class="p">(</span><span class="nf">oper</span> <span class="nv">acc</span> <span class="nv">x</span><span class="p">)</span> <span class="nv">nil</span><span class="p">)</span>
+        <span class="ss">:else</span> <span class="p">(</span><span class="nf">recur</span> <span class="nv">xs</span> <span class="nv">acc</span> <span class="nv">x</span><span class="p">))))</span>
+  
+<span class="c1">; testing the function        </span>
+<span class="p">(</span><span class="nf">infix</span> <span class="mi">38</span> <span class="nb">+ </span><span class="mi">48</span> <span class="nb">- </span><span class="mi">2</span> <span class="nb">/ </span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">;=&gt; 42</span>
+</code></pre></div>
+
+
+<p>The solution is quite self-explanatory. We start with defining our <a href="http://en.wikipedia.org/wiki/Variadic_function">variadic function</a> using <code>&amp;</code>. Next, we provide a set of bindings to <code>loop</code> to begin the recursion. We use the <code>[x &amp; xs]</code> syntax to bind the first and the rest of the expression list. Lastly, we set up conditions using <code>cond</code>. When we encounter a number, we <code>recur</code>se by updating the binding for <code>acc</code>. The <code>else</code> clause indicates the case where we get a operator wherein we simply update the <code>oper</code> binding.</p>
+
+<h3 id="apply">Apply</h3>
+
+<p>Another interesting way to do it is by noticing that an infix expression is actually made up of sub-expressions, which could be converted to prefix and evaluated one by one. For example
+<code>32 + 42 - 4</code> is <code>((32 + 42) - 4)</code>. Our strategy here can be to pick first 3 tokens, evaluate them and recursively evaluate the rest of the expression. The code for that is below -</p>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">infix</span> 
+  <span class="p">([</span><span class="nv">x</span> <span class="nv">op</span> <span class="nv">y</span><span class="p">]</span> <span class="p">(</span><span class="nf">op</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">))</span>
+  <span class="p">([</span><span class="nv">x</span> <span class="nv">op</span> <span class="nv">y</span> <span class="o">&amp;</span> <span class="nv">xs</span><span class="p">]</span>
+    <span class="p">(</span><span class="nb">apply </span><span class="nv">infix</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nf">infix</span> <span class="nv">x</span> <span class="nv">op</span> <span class="nv">y</span><span class="p">)</span> <span class="nv">xs</span><span class="p">))))</span>
+</code></pre></div>
+
+
+<p>Here we define two sets of expressions that will be returned by the function depending on whether it is passed 3 or more arguments. The case when we have more than 3, we simply extract first three, recursively call the function with those three and build a list out of the result. The clever trick here is <code>apply</code> which is required to make <code>infix</code> work on a list. To demonstrate, <code>(apply (infix '(34 + 53))</code> is same as <code>(infix 34 + 53)</code>.</p>
+
+<h3 id="partition">Partition</h3>
+
+<p>This is a really neat way of solving the problem. To lead you to the insight, lets look at infix expressions from another perspective - <code>38 (+ 48) (- 2) (/ 2)</code>. If you set aside the first element, you can see that each sub-expression is one third of a prefix expression. So somehow if we can get the <code>38</code> to evaluate with <code>(+ 48)</code> and use that result to carry out this operation recursively, we are done!</p>
+
+<p>To split into groups of two, we can use <a href="https://clojuredocs.org/clojure.core/partition">partition</a>.</p>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="nf">partition</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">rest </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">38</span> <span class="nb">+ </span><span class="mi">48</span> <span class="nb">- </span><span class="mi">2</span> <span class="nb">/ </span><span class="mi">2</span><span class="p">)))</span>
+<span class="c1">; =&gt; ((+ 48) (- 2) (/ 2))</span>
+</code></pre></div>
+
+
+<p>Ok, now lets use the immensely powerful reduce to evaluate the list. But what about the <code>first</code> element? Remember, <code>reduce</code> also takes an accumulator as the starting point for reduction so that&rsquo;s where we can accommodate the first elem. With that, we have our function.</p>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">infix</span> <span class="p">[</span><span class="nv">x</span> <span class="o">&amp;</span> <span class="nv">expr</span><span class="p">]</span> 
+  <span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">acc</span> <span class="p">[</span><span class="nv">oper</span> <span class="nv">y</span><span class="p">]]</span> <span class="p">(</span><span class="nf">oper</span> <span class="nv">acc</span> <span class="nv">y</span><span class="p">))</span>
+           <span class="nv">x</span> <span class="p">(</span><span class="nf">partition</span> <span class="mi">2</span> <span class="nv">expr</span><span class="p">)))</span>
+</code></pre></div>
+
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>I hope this demonstrates the power of functions available in <code>clojure.core</code>. Using them you can build elegant and idiomatic solutions to most of your problems. Having a good handle on the standard library would mean that you would rarely have to resort to primitives such as <code>loop</code> and <code>recur</code>. Till next time!</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/blog/open-source-presence-infographic/"><i class="icon-left-open"></i> Open Source Presence Infographic of Indian Startups</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/the-compile-function/">Compile - A Python Builtin <i class="icon-right-open"></i></a>
+          </div>
+          
+
+      
+       </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://pravj.github.io/main.js"></script>
+
+
+
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+</body>
+</html>

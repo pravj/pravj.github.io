@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Courses on hack(pravj)</title>
+    <link>https://pravj.github.io/tags/courses/</link>
+    <description>Recent content in Courses on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Jul 2015 20:33:29 +0300</lastBuildDate>
+    
+	<atom:link href="https://pravj.github.io/tags/courses/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Scalable Machine Learning</title>
+      <link>https://pravj.github.io/articles/scalable-machine-learning/</link>
+      <pubDate>Fri, 31 Jul 2015 20:33:29 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/articles/scalable-machine-learning/</guid>
+      <description>A couple of days ago I finally finished the last assignment of the Scalable Machine Learning course. The last few days in Kuwait were a bit tough as I had tons of stuff to do before leaving the country. It turns out leaving Kuwait is even harder than getting there in the first place. Additionally I had set a personal deadline of finishing the course a week before the actual deadline so that I when I reach home I could focus on other work.</description>
+    </item>
+    
+    <item>
+      <title>Intro to Big Data with Apache Spark</title>
+      <link>https://pravj.github.io/articles/big-data-with-spark/</link>
+      <pubDate>Sat, 27 Jun 2015 20:33:29 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/articles/big-data-with-spark/</guid>
+      <description>Last night I finished the final assignment for the new course that I had been working on in the past week called Intro to Big Data with Apache Spark or CS100.1 x. With the course over, I decided to write down a quick review in the hope that it will help others get an idea of what they can expect by enrolling in this popular MOOC by UC Berkeley.</description>
+    </item>
+    
+    <item>
+      <title>University Courses</title>
+      <link>https://pravj.github.io/articles/university-courses/</link>
+      <pubDate>Tue, 23 Dec 2014 20:33:29 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/articles/university-courses/</guid>
+      <description>It would be an understatement to say that one of my favorite pastime is hoarding (no not the kind where I can hoard physical goods to drive up prices). I hoard blog posts, videos, E-books, Dribbble screenshots and almost anything I can lay my hands on in the hope that one day I&amp;rsquo;ll have to time to actually go through it.
+While working through recent MOOCs and frequently stumbling on academic papers, I felt that there&amp;rsquo;s a whole load of treasure hidden deep within university pages.</description>
+    </item>
+    
+    <item>
+      <title>Mining of Massive DataSets - A Review</title>
+      <link>https://pravj.github.io/articles/mining-of-massive-datasets---a-review/</link>
+      <pubDate>Wed, 10 Dec 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/articles/mining-of-massive-datasets---a-review/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;ve been keeping track, I&amp;rsquo;ve hardly published a single article in the last month. In my defense, the last 7 months have been extremely hectic. High work pressure and a rather dense online course kept most of the drafts from seeing the light of day.   Before I jump in reviewing the course i.e. &lt;a href=&#34;https://www.coursera.org/course/mmds&#34;&gt;Mining Massive DataSets (MMDS)&lt;/a&gt;, here&amp;rsquo;s a quick short story for some context.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

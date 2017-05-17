@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Week 8 - Surveyman - hack(pravj) | Pravendra Singh
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
+
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="Week 8 - Surveyman" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://pravj.github.io/articles/surveyman-week8/" />
+<meta property="og:description" content="If you&rsquo;ve read the previous blog post, you would be aware that I&rsquo;m right now back to my home country on a vacation. This week has been quite hectic and filled with anxiety owing to the visa interview that I had scheduled during the start of the week. Since this was my first time appearing for a US Visa interview, I was quite in awe of how the smooth and planned the entire process was, especially compared to the other interview processes I&rsquo;d been in (I&rsquo;m looking at you Kuwait)." />
+
+<meta property="og:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="Week 8 - Surveyman" />
+<meta name="twitter:description" content="If you&rsquo;ve read the previous blog post, you would be aware that I&rsquo;m right now back to my home country on a vacation. This week has been quite hectic and filled with anxiety owing to the visa interview that I had scheduled during the start of the week. Since this was my first time appearing for a US Visa interview, I was quite in awe of how the smooth and planned the entire process was, especially compared to the other interview processes I&rsquo;d been in (I&rsquo;m looking at you Kuwait)." />
+
+
+<meta property="twitter:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="https://pravj.github.io/styles.min.css">
+
+  
+
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/surveyman-week8/">Week 8 - Surveyman</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">June</span> 
+                <span class="post-date-day"> 15, </span>
+                <span class="post-date-year">2015</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-react" href="https://pravj.github.io/tags/react">
+                  <i class="icon-tag"></i>react</a>
+                
+                <a class="post-tag post-tag-surveyman" href="https://pravj.github.io/tags/surveyman">
+                  <i class="icon-tag"></i>surveyman</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        <p>If you&rsquo;ve read the previous blog post, you would be aware that I&rsquo;m right now back to my home country on a <em>vacation</em>. This week has been quite hectic and filled with anxiety owing to the visa interview that I had scheduled during the start of the week. Since this was my first time appearing for a US Visa interview, I was quite in awe of how the smooth and planned the entire process was, especially compared to the other interview processes I&rsquo;d been in (I&rsquo;m looking at you Kuwait). Thankfully, my visa got approved and now I just can&rsquo;t wait for grad school to start!</p>
+
+<p>So circling back to Surveyman, this week, I deployed a relatively straight forward but important <a href="https://github.com/prakhar1989/react-surveyman/issues/21">feature</a> that allows users to clone or duplicate existing blocks / questions. While interacting with the survey I constantly felt that need to build similar blocks. For example, if you have a block having 3 questions and the next block that you want to add has the same number of questions in a similar configuration, building it incrementally can be exhausting.</p>
+
+<p>In cases like these, which I am hoping would be quite common, a simple click that clones the entire block or question would be helpful. That was the primary motivation for building this feature. As far as writing the code goes, this feature was quite simple (at least in theory). The idea was simply deep clone the question or block object and update the survey <code>JSON</code> when required. What you would also need to ensure is to keep the two maps i.e. <code>OptionMap</code> and <code>QuestionMap</code> aware of the new items so that the mappings are in sync with the app state</p>
+
+<p>The most fun I had while building this feature was working with the Immutable API. Having a brief stint with ClojureScript before, the idea of returning new collections after every mutable operation and subsequently then chaining operations was not new to me. This is how, for example, the code for cloning the <code>Question</code> looked like -</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="cm">/**</span>
+<span class="cm"> * Returns a clone of Question with new ID of itself</span>
+<span class="cm"> * and all options.</span>
+<span class="cm"> * @param question - type of Immutable.Map. The question to be cloned</span>
+<span class="cm"> */</span>
+<span class="nx">cloneQuestion</span><span class="p">(</span><span class="nx">question</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">question</span>
+            <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">getNewId</span><span class="p">(</span><span class="nx">ItemTypes</span><span class="p">.</span><span class="nx">QUESTION</span><span class="p">))</span> <span class="c1">// generate new ID</span>
+            <span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s1">&#39;options&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">=&gt;</span>                  <span class="c1">// do the same for all options</span>
+                        <span class="nx">list</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span>
+                            <span class="nx">o</span> <span class="p">=&gt;</span> <span class="nx">Immutable</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+                                <span class="nx">id</span><span class="o">:</span> <span class="nx">self</span><span class="p">.</span><span class="nx">getNewId</span><span class="p">(</span><span class="nx">ItemTypes</span><span class="p">.</span><span class="nx">OPTION</span><span class="p">),</span>
+                                <span class="nx">otext</span><span class="o">:</span> <span class="nx">o</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;otext&#39;</span><span class="p">)</span>
+                            <span class="p">})</span>
+                        <span class="p">)</span>
+                    <span class="p">);</span>
+<span class="p">},</span>
+</code></pre></div>
+
+
+<p>After getting the new <code>clonedQuestion</code>, I just needed to append it to the parent container and update the relevant <code>OptionMap</code> and <code>QuestionMap</code>.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kd">let</span> <span class="nx">newQuestion</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">cloneQuestion</span><span class="p">(</span><span class="nx">question</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">newSurvey</span> <span class="o">=</span> <span class="nx">survey</span><span class="p">.</span><span class="nx">updateIn</span><span class="p">([</span><span class="nx">blockIndex</span><span class="p">,</span> <span class="s1">&#39;questions&#39;</span><span class="p">],</span> <span class="nx">list</span> <span class="p">=&gt;</span>
+    <span class="nx">list</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">questionIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">newQuestion</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="c1">// update the maps</span>
+<span class="nx">_questionMap</span> <span class="o">=</span> <span class="nx">_questionMap</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">qId</span><span class="p">,</span> <span class="nx">block</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">));</span>
+<span class="nx">newQuestion</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;options&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">o</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">_optionMap</span> <span class="o">=</span> <span class="nx">_optionMap</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">),</span> <span class="nx">qId</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<p>Similarly, the code for adding blocks was also pretty simple. However, since it was one level up the chain what required was all child questions should be also be updated with the mappings. If you&rsquo;re looking at diving deeper, feel free to browse through the <a href="https://github.com/prakhar1989/react-surveyman/issues/21">commits</a> tagged with this issue.</p>
+
+<p>Until next time!</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/articles/surveyman-week7/"><i class="icon-left-open"></i> Week 7 - Surveyman</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/surveyman-week9/">Week 9 - Surveyman <i class="icon-right-open"></i></a>
+          </div>
+          
+
+      
+       </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://pravj.github.io/main.js"></script>
+
+
+
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+</body>
+</html>

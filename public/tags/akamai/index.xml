@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Akamai on hack(pravj)</title>
+    <link>https://pravj.github.io/tags/akamai/</link>
+    <description>Recent content in Akamai on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 07 Feb 2014 12:34:58 +0300</lastBuildDate>
+    
+	<atom:link href="https://pravj.github.io/tags/akamai/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Debugging Akamai Headers</title>
+      <link>https://pravj.github.io/articles/debugging-akamai/</link>
+      <pubDate>Fri, 07 Feb 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/articles/debugging-akamai/</guid>
+      <description>If you&amp;rsquo;ve got anything to do with Akamai&amp;rsquo;s caching, surely there must have come a time where you needed to find out whether your content is being cached at Akamai.
+Pragma Headers The easiest way to test whether your content is cached at Akamai is to do via custom Pragma headers. What are Pragma headers you might say? The HTTP Specification has a simple definition of Pragma headers.
+ The Pragma general-header field is used to include implementation-specific directives that might apply to any recipient along the request/response chain.</description>
+    </item>
+    
+  </channel>
+</rss>

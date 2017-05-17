@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on hack(pravj)</title>
+    <link>https://pravj.github.io/tags/</link>
+    <description>Recent content in Tags on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Apr 2015 00:00:00 +0530</lastBuildDate>
+    
+	<atom:link href="https://pravj.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ai</title>
+      <link>https://pravj.github.io/tags/ai/</link>
+      <pubDate>Thu, 23 Apr 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Akamai</title>
+      <link>https://pravj.github.io/tags/akamai/</link>
+      <pubDate>Fri, 07 Feb 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/akamai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algorithms</title>
+      <link>https://pravj.github.io/tags/algorithms/</link>
+      <pubDate>Sun, 19 Oct 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/algorithms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Angularjs</title>
+      <link>https://pravj.github.io/tags/angularjs/</link>
+      <pubDate>Sat, 02 Aug 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/angularjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clojure</title>
+      <link>https://pravj.github.io/tags/clojure/</link>
+      <pubDate>Mon, 19 Jan 2015 14:41:27 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/clojure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coffeescript</title>
+      <link>https://pravj.github.io/tags/coffeescript/</link>
+      <pubDate>Sun, 27 Jul 2014 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/coffeescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Courses</title>
+      <link>https://pravj.github.io/tags/courses/</link>
+      <pubDate>Fri, 31 Jul 2015 20:33:29 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/courses/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cs</title>
+      <link>https://pravj.github.io/tags/cs/</link>
+      <pubDate>Fri, 14 Feb 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/cs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data</title>
+      <link>https://pravj.github.io/tags/data/</link>
+      <pubDate>Wed, 08 Feb 2017 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deployment</title>
+      <link>https://pravj.github.io/tags/deployment/</link>
+      <pubDate>Fri, 07 Mar 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/deployment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distributed Systems</title>
+      <link>https://pravj.github.io/tags/distributed-systems/</link>
+      <pubDate>Thu, 24 Sep 2015 20:33:29 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/distributed-systems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Django</title>
+      <link>https://pravj.github.io/tags/django/</link>
+      <pubDate>Thu, 09 May 2013 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flask</title>
+      <link>https://pravj.github.io/tags/flask/</link>
+      <pubDate>Fri, 23 Jan 2015 14:37:44 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/flask/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Founders</title>
+      <link>https://pravj.github.io/tags/founders/</link>
+      <pubDate>Thu, 20 Feb 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/founders/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fun</title>
+      <link>https://pravj.github.io/tags/fun/</link>
+      <pubDate>Sat, 07 Feb 2015 10:44:08 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/fun/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Functional Programming</title>
+      <link>https://pravj.github.io/tags/functional-programming/</link>
+      <pubDate>Wed, 30 Jul 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/functional-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Game</title>
+      <link>https://pravj.github.io/tags/game/</link>
+      <pubDate>Thu, 23 Apr 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/game/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Geopattern</title>
+      <link>https://pravj.github.io/tags/geopattern/</link>
+      <pubDate>Sat, 01 Nov 2014 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/geopattern/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://pravj.github.io/tags/git/</link>
+      <pubDate>Thu, 15 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>https://pravj.github.io/tags/github/</link>
+      <pubDate>Wed, 08 Feb 2017 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://pravj.github.io/tags/golang/</link>
+      <pubDate>Thu, 23 Apr 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hack</title>
+      <link>https://pravj.github.io/tags/hack/</link>
+      <pubDate>Thu, 23 Apr 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/hack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hacker News</title>
+      <link>https://pravj.github.io/tags/hacker-news/</link>
+      <pubDate>Wed, 08 Feb 2017 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/hacker-news/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hash</title>
+      <link>https://pravj.github.io/tags/hash/</link>
+      <pubDate>Sun, 08 Feb 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/hash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Identicon</title>
+      <link>https://pravj.github.io/tags/identicon/</link>
+      <pubDate>Sun, 08 Feb 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/identicon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image</title>
+      <link>https://pravj.github.io/tags/image/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/image/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inspiration</title>
+      <link>https://pravj.github.io/tags/inspiration/</link>
+      <pubDate>Mon, 16 Feb 2015 12:06:43 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/inspiration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Intros</title>
+      <link>https://pravj.github.io/tags/intros/</link>
+      <pubDate>Mon, 06 May 2013 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/intros/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://pravj.github.io/tags/javascript/</link>
+      <pubDate>Sat, 02 Aug 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jekyll</title>
+      <link>https://pravj.github.io/tags/jekyll/</link>
+      <pubDate>Fri, 23 May 2014 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lanyon</title>
+      <link>https://pravj.github.io/tags/lanyon/</link>
+      <pubDate>Fri, 23 May 2014 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/lanyon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mapbox</title>
+      <link>https://pravj.github.io/tags/mapbox/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/mapbox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Math</title>
+      <link>https://pravj.github.io/tags/math/</link>
+      <pubDate>Sat, 07 Feb 2015 10:44:08 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Newman</title>
+      <link>https://pravj.github.io/tags/newman/</link>
+      <pubDate>Mon, 05 May 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/newman/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>https://pravj.github.io/tags/nginx/</link>
+      <pubDate>Fri, 07 Mar 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node.Js</title>
+      <link>https://pravj.github.io/tags/node.js/</link>
+      <pubDate>Sun, 27 Jul 2014 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/node.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nodejs</title>
+      <link>https://pravj.github.io/tags/nodejs/</link>
+      <pubDate>Sat, 24 May 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open Source</title>
+      <link>https://pravj.github.io/tags/open-source/</link>
+      <pubDate>Wed, 08 Feb 2017 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/open-source/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Papers</title>
+      <link>https://pravj.github.io/tags/papers/</link>
+      <pubDate>Thu, 24 Sep 2015 20:33:29 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/papers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Plugin</title>
+      <link>https://pravj.github.io/tags/plugin/</link>
+      <pubDate>Fri, 23 May 2014 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/plugin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Postman</title>
+      <link>https://pravj.github.io/tags/postman/</link>
+      <pubDate>Sat, 24 May 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/postman/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming Languages</title>
+      <link>https://pravj.github.io/tags/programming-languages/</link>
+      <pubDate>Mon, 09 Jun 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/programming-languages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://pravj.github.io/tags/python/</link>
+      <pubDate>Fri, 11 Dec 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quora</title>
+      <link>https://pravj.github.io/tags/quora/</link>
+      <pubDate>Sun, 11 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/quora/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://pravj.github.io/tags/r/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rant</title>
+      <link>https://pravj.github.io/tags/rant/</link>
+      <pubDate>Fri, 01 Jan 2016 12:15:24 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/rant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React</title>
+      <link>https://pravj.github.io/tags/react/</link>
+      <pubDate>Wed, 01 Jul 2015 15:50:49 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rethinkdb</title>
+      <link>https://pravj.github.io/tags/rethinkdb/</link>
+      <pubDate>Fri, 11 Dec 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/rethinkdb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rust</title>
+      <link>https://pravj.github.io/tags/rust/</link>
+      <pubDate>Wed, 01 Oct 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/rust/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Side Project</title>
+      <link>https://pravj.github.io/tags/side-project/</link>
+      <pubDate>Mon, 11 Aug 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/side-project/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Side Projects Nodejs</title>
+      <link>https://pravj.github.io/tags/side-projects-nodejs/</link>
+      <pubDate>Mon, 14 Jul 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/side-projects-nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Startup</title>
+      <link>https://pravj.github.io/tags/startup/</link>
+      <pubDate>Sat, 17 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/startup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Startups</title>
+      <link>https://pravj.github.io/tags/startups/</link>
+      <pubDate>Sat, 19 Jul 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/startups/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Surveyman</title>
+      <link>https://pravj.github.io/tags/surveyman/</link>
+      <pubDate>Wed, 01 Jul 2015 15:50:49 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/surveyman/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Swift</title>
+      <link>https://pravj.github.io/tags/swift/</link>
+      <pubDate>Mon, 09 Jun 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/swift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terminal</title>
+      <link>https://pravj.github.io/tags/terminal/</link>
+      <pubDate>Thu, 23 Apr 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/terminal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vim</title>
+      <link>https://pravj.github.io/tags/vim/</link>
+      <pubDate>Sat, 22 Feb 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visualization</title>
+      <link>https://pravj.github.io/tags/visualization/</link>
+      <pubDate>Mon, 11 Aug 2014 12:34:58 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/tags/visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Writeup</title>
+      <link>https://pravj.github.io/tags/writeup/</link>
+      <pubDate>Thu, 15 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/tags/writeup/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

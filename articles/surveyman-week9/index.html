@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Week 9 - Surveyman - hack(pravj) | Pravendra Singh
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
+
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="Week 9 - Surveyman" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://pravj.github.io/articles/surveyman-week9/" />
+<meta property="og:description" content="This is my last week at home (India) and the fact that I had a pretty productive week shows that I&rsquo;m ensconced within the comforts of my home. After the hectic last week which involved traveling, meeting relatives and getting documentation ready for the Visa interview this week was just me sitting at home working on this project without any distractions.
+So there were three key features that I tackled this week, namely - TreeView, Option Lists and React transitions." />
+
+<meta property="og:image" content="http://prakhar.me/images/treeview.png"/>
+
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="Week 9 - Surveyman" />
+<meta name="twitter:description" content="This is my last week at home (India) and the fact that I had a pretty productive week shows that I&rsquo;m ensconced within the comforts of my home. After the hectic last week which involved traveling, meeting relatives and getting documentation ready for the Visa interview this week was just me sitting at home working on this project without any distractions.
+So there were three key features that I tackled this week, namely - TreeView, Option Lists and React transitions." />
+
+
+<meta property="twitter:image" content="http://prakhar.me/images/treeview.png"/>
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="https://pravj.github.io/styles.min.css">
+
+  
+
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/surveyman-week9/">Week 9 - Surveyman</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">June</span> 
+                <span class="post-date-day"> 21, </span>
+                <span class="post-date-year">2015</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-react" href="https://pravj.github.io/tags/react">
+                  <i class="icon-tag"></i>react</a>
+                
+                <a class="post-tag post-tag-surveyman" href="https://pravj.github.io/tags/surveyman">
+                  <i class="icon-tag"></i>surveyman</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        
+
+<p>This is my last week at home (India) and the fact that I had a pretty productive week shows that I&rsquo;m ensconced within the comforts of my home. After the hectic last week which involved traveling, meeting relatives and getting documentation ready for the Visa interview this week was just me sitting at home working on this project without any distractions.</p>
+
+<p>So there were three key features that I tackled this week, namely - TreeView, Option Lists and React transitions. Cumulatively, these changed the UI considerably. The app has finally started to look much more polished.</p>
+
+<h3 id="treeview">TreeView</h3>
+
+<figure>
+    <img data-action="zoom" src="/images/treeview.png"></img>
+    <figcaption>TreeView and OptionList in action</figcaption>
+</figure>
+
+<p>TreeView makes it easy for users to navigate the survey easily. The idea is inspired by Sublime Text&rsquo;s minimap that allows you to conveniently navigate the file. Having the ability to collapse and expand blocks and questions will be useful in getting a particular item in focus just by clicking on it.</p>
+
+<p>To get started with the feature, I surveyed the landscape to check if there already existing a customizable TreeView component. After checking out a few examples on <a href="http://react.rocks">react.rocks</a> I didn&rsquo;t find anything that met my requirements so I decided to build my own. More importantly, since the structure of the <code>JSON</code> was simple building a tree view didn&rsquo;t seem too time consuming.</p>
+
+<p>Before I started writing any code, I read through Cheng Lou&rsquo;s <a href="https://github.com/chenglou/react-treeview">React Treeview</a> to get an idea of how to approach the problem. So at the end, I just ended up creating two new components - one called <code>TreeNode</code> and another called <code>TreeView</code>. This is how the <a href="https://github.com/prakhar1989/react-surveyman/blob/5e95b8dccb50324b75f3d4cf6c64d759eaa1dea6/js/components/TreeView.js">render function</a> of <code>TreeView</code> looked like.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kd">var</span> <span class="nx">TreeView</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">TreeNode</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">i</span><span class="p">}</span>
+              <span class="nx">label</span><span class="o">=</span><span class="p">{</span><span class="nx">blockLabel</span><span class="p">}</span>
+              <span class="nx">type</span><span class="o">=</span><span class="p">{</span><span class="nx">ItemTypes</span><span class="p">.</span><span class="nx">BLOCK</span><span class="p">}</span>
+              <span class="nx">handleClick</span><span class="o">=</span><span class="p">{</span><span class="nx">self</span><span class="p">.</span><span class="nx">focusOnItem</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">block</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">))}</span><span class="o">&gt;</span>
+
+                 <span class="p">{</span><span class="nx">questions</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">ques</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                     <span class="k">return</span> <span class="p">(</span>
+                         <span class="o">&lt;</span><span class="nx">TreeNode</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">j</span><span class="p">}</span>
+                             <span class="nx">label</span><span class="o">=</span><span class="p">{</span><span class="nx">label</span><span class="p">}</span>
+                             <span class="nx">type</span><span class="o">=</span><span class="p">{</span><span class="nx">ItemTypes</span><span class="p">.</span><span class="nx">QUESTION</span><span class="p">}</span>
+                             <span class="nx">handleClick</span><span class="o">=</span><span class="p">{</span><span class="nx">self</span><span class="p">.</span><span class="nx">focusOnItem</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">ques</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">))}</span> <span class="o">/&gt;</span>
+                     <span class="p">)})}</span>
+        <span class="o">&lt;</span><span class="err">/TreeNode&gt;</span>
+      <span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+</code></pre></div>
+
+
+<p>To add the additional functionality of bringing the object in focus just required a simple change to <code>window.location</code> like so -</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="c1">// inside the TreeView component</span>
+<span class="nx">focusOnItem</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+       <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h3 id="option-lists">Option Lists</h3>
+
+<p>If you&rsquo;ve ever built a survey before, you know that most of the questions will end up having the same set of options. For example <a href="https://en.wikipedia.org/wiki/Likert_scale">likert scales</a> are very common, especially in market research surveys. Having to type all the options multiple times can get frustrating and hence providing an easy way to reuse a common set of options would be much better.</p>
+
+<p>That is where OptionLists come in. Options List make it very convenient to re-use an existing set of common options or add your own. In order to use them, you just to drag and drop them on your question.</p>
+
+<p>Technically, option lists were quite simple to build. At the <code>Store</code> I maintain an array of option lists which can later be persisted in <a href="http://diveintohtml5.info/storage.html">LocalStorage</a>. When the user selects an option list from the dropdown I remember that state in the <code>Store</code>. Lastly, when an <code>DraggableOptionList</code> is dropped on a <code>Question</code> I read the index from the <code>Store</code> and add the options to the questions. It&rsquo;s just that simple.</p>
+
+<h3 id="transitions">Transitions</h3>
+
+<p>The last improvement that had been on my mind for a while was to add transitions in the application. If you interact with the items for example - try deleting an item you&rsquo;ll notice that it just disappears out of the survey. The result can feel quite jarring. What I wanted to do was find a way to add subtle animations so that the UI feels much more pleasant.</p>
+
+<p>Unsurprisingly, for transitions I used <code>ReactCSSTransitionGroup</code> which is explained quite clearly in the <a href="https://facebook.github.io/react/docs/animation.html">documentation</a>.</p>
+
+<blockquote>
+<p><code>ReactCSSTransitionGroup</code> is based on <code>ReactTransitionGroup</code> and is an easy way to perform CSS transitions and animations when a React component enters or leaves the DOM. It&rsquo;s inspired by the excellent ng-animate library.</p>
+</blockquote>
+
+<p>Basically, you just wrap your container in <code>ReactCSSTransitionGroup</code> and provide the CSS class that you want to apply on entry and exit of any child component.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">ReactCSSTransitionGroup</span> <span class="nx">transitionName</span><span class="o">=</span><span class="s2">&quot;itemTransition&quot;</span> <span class="nx">transitionEnter</span><span class="o">=</span><span class="p">{</span><span class="kc">false</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="p">{</span> <span class="nx">blocks</span> <span class="p">}</span>
+<span class="o">&lt;</span><span class="err">/ReactCSSTransitionGroup&gt;</span>
+</code></pre></div>
+
+
+<p>The best part of building this was when I learnt that there exists a CSS pseudo class called <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/%3Atarget"><code>target</code></a>.</p>
+
+<blockquote>
+<p>The :target pseudo-class represents the unique element, if any, with an id matching the fragment identifier of the URI of the document.</p>
+</blockquote>
+
+<p>So you want to animate a subtle effect when the browser focuses on an item? Try this -</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span></span><span class="p">:</span><span class="nd">target</span> <span class="p">{</span>
+  <span class="k">animation</span><span class="p">:</span> <span class="n">highlight</span> <span class="mi">1</span><span class="kt">s</span> <span class="kc">ease-in</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">keyframes</span> <span class="nt">highlight</span> <span class="p">{</span>
+  <span class="nt">0</span><span class="o">%</span> <span class="p">{</span> <span class="k">background-color</span><span class="p">:</span> <span class="mh">#fcf1bb</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nt">100</span><span class="o">%</span> <span class="p">{</span> <span class="k">background-color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Wicked cool, right?</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/articles/surveyman-week8/"><i class="icon-left-open"></i> Week 8 - Surveyman</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/big-data-with-spark/">Intro to Big Data with Apache Spark <i class="icon-right-open"></i></a>
+          </div>
+          
+
+      
+       </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://pravj.github.io/main.js"></script>
+
+
+
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+</body>
+</html>

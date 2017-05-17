@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fun on hack(pravj)</title>
+    <link>https://pravj.github.io/tags/fun/</link>
+    <description>Recent content in Fun on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Feb 2015 10:44:08 +0300</lastBuildDate>
+    
+	<atom:link href="https://pravj.github.io/tags/fun/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>High school calculus</title>
+      <link>https://pravj.github.io/articles/differential/</link>
+      <pubDate>Sat, 07 Feb 2015 10:44:08 +0300</pubDate>
+      
+      <guid>https://pravj.github.io/articles/differential/</guid>
+      <description>I spent a good part of the morning going through KhanAcademy high school calculus series. Why? Well, I had a differential equation to solve.
+During this week&amp;rsquo;s lecture on Gossip protocols the Prof gave an interesting challenge of solving a differential equation. Now generally, I suck at proofs and I used to be the student who directly jumps at the proofs rather than working through them on his/her own. But today was different from school days - I had no fear of exams, or pressure of deadlines or the need to quickly finish homework before it gets dark outside (which would ruin the little playtime I earned in the evenings).</description>
+    </item>
+    
+  </channel>
+</rss>

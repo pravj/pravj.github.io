@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Checksum - hack(pravj) | Pravendra Singh
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
+
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="Checksum" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://pravj.github.io/articles/kuwait-civil-id-checksum/" />
+<meta property="og:description" content="It&rsquo;s been around 8 months since I&rsquo;ve started working in Kuwait &amp; I can still vividly remember the hoopla we had to go through in order to get our Civil IDs. The Kuwaiti Government assigns a unique identification number to each and every resident of Kuwait which is called the Civil ID. This is quite similar to how it works in all the countries, however, the process in Kuwait is protracted and quite laborious for expats." />
+
+<meta property="og:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="Checksum" />
+<meta name="twitter:description" content="It&rsquo;s been around 8 months since I&rsquo;ve started working in Kuwait &amp; I can still vividly remember the hoopla we had to go through in order to get our Civil IDs. The Kuwaiti Government assigns a unique identification number to each and every resident of Kuwait which is called the Civil ID. This is quite similar to how it works in all the countries, however, the process in Kuwait is protracted and quite laborious for expats." />
+
+
+<meta property="twitter:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="https://pravj.github.io/styles.min.css">
+
+  
+
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/kuwait-civil-id-checksum/">Checksum</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">February</span> 
+                <span class="post-date-day"> 14, </span>
+                <span class="post-date-year">2014</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-cs" href="https://pravj.github.io/tags/cs">
+                  <i class="icon-tag"></i>cs</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        
+
+<p>It&rsquo;s been around 8 months since I&rsquo;ve started working in Kuwait &amp; I can still vividly remember the hoopla we had to go through in order to get our Civil IDs. The Kuwaiti Government assigns a unique identification number to each and every resident of Kuwait which is called the Civil ID. This is quite similar to how it works in all the countries, however, the process in Kuwait is protracted and quite laborious for expats.</p>
+
+<p>Recently, we were building an application that required the user to enter his or her civil id. The app was supposed to be a mobile app and the Civil ID being a long <strong>12 digit</strong> number, we were certain that typos would be quite common. To our luck, we discovered that the Kuwaiti system uses a Checksum to validate for correctness.</p>
+
+<h3 id="what">What?</h3>
+
+<p>Checksums are simply an arbitary size of digital data that is meant for the purpose of detecting errors in storage or transmission of the original data.</p>
+
+<p>By comparing the checksum of the original and the transmitted data checksums can be used to verify whether the transmitted data is indeed correct. Checksums are quite common whenever numbers are being transmitted or stored.</p>
+
+<p>Credit card number follow a famous checksum algorigthm called <a href="http://en.wikipedia.org/wiki/Luhn_algorithm">Luhn Check</a> which was created by an IBM scientist - Peter Luhn. The ISBN or the <a href="http://en.wikipedia.org/wiki/International_Standard_Book_Number">International Standard Book Number</a>, which is an identification scheme used for books uses a very simple 10 digit checksum for the very same purpose.</p>
+
+<h3 id="civil-id-checksum">Civil ID Checksum</h3>
+
+<p>The formula for checksum for the Kuwaiti Civil ID goes like this -</p>
+
+<pre><code>11 – Mod(( c1 * 2 ) + ( c2 * 1 ) + ( c3 * 6 ) + ( c4 * 3 ) + ( c5 * 7 ) +
+( c6 * 9 ) + ( c7 * 10 ) + ( c8 * 5 ) + ( c9 * 8 ) + ( c10 * 4 ) + ( c11 * 2 )),11) = 
+The 12th Digit
+</code></pre>
+
+<p>For the more, mathematically oriented here&rsquo;s the formula (where c1, c2 etc are the 12 digits of the civil ID number)</p>
+
+<pre><code>(2,1,6,3,7,9,10,5,8,4,2)⋅c1 … 11+ c12 = 0 (mod11)
+</code></pre>
+
+<p>The checksum is quite simple, it just uses the modulus 11 (since 11 is a prime number) and a set of a coefficients to compute the 12th digit. Basically, the last digit in the Civil ID holds the checkum value.</p>
+
+<p>The javascript code to test the checksum is quite straightforward -</p>
+
+<pre><code>var calculate = function(number) {
+  var coeff  = [2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2],
+      sum = 0;
+  for (var i = 0; i &lt; number.length - 1; i++) {
+    // assuming number is a 12 character string
+    sum += parseInt(number[i]) * coeff[i];
+  }
+  return (number.length == 12) &amp;&amp; 
+         (11 - (sum % 11) == number[number.length-1]);
+}
+</code></pre>
+
+<p>If you&rsquo;re like me you probably are wondering about those coefficients in the above formula. Thanks to the wonderful stackexchange network, I got the answer almost instantly by a few math nerds over <a href="http://math.stackexchange.com/questions/672303/logic-behind-the-id-checksum/672374#672374">here</a>.</p>
+
+<p>It turns out the coefficients are (2^N modulus 11)</p>
+
+<pre><code>2 = 2^1 % 11
+
+1 = 2^0 % 11 
+
+6 = 2^9 % 11
+
+3 = 2^8 % 11
+
+7 = 2^7 % 11
+...
+</code></pre>
+
+<p>You are encouraged to follow up the thread on math.stackexchange and learn more about how this order comes from computing the <a href="http://en.wikipedia.org/wiki/First_difference">first differences</a>.</p>
+
+<p>See you next time!</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/articles/quantity/"><i class="icon-left-open"></i> Quantity</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/why-we-dont-sell-ads/">Why We Dont Sell Ads <i class="icon-right-open"></i></a>
+          </div>
+          
+
+      
+       </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://pravj.github.io/main.js"></script>
+
+
+
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+</body>
+</html>

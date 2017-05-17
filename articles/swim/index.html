@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    The SWIM Membership Protocol - hack(pravj) | Pravendra Singh
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
+
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="The SWIM Membership Protocol" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://pravj.github.io/articles/swim/" />
+<meta property="og:description" content="Let&rsquo;s say that you asked to build a distributed database similar to Cassandra. Your storage system will store and process large amounts of data running on a huge number of commodity servers. In other words, your system will rely on the power of 100s of nodes to manage data.
+At this scale, failures will be the norm rather than the exception. Even if we assume that one node lasts for 1000 days (roughly 3 years), in a cluster of 500 nodes there will be a failure once every 2 days." />
+
+<meta property="og:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="The SWIM Membership Protocol" />
+<meta name="twitter:description" content="Let&rsquo;s say that you asked to build a distributed database similar to Cassandra. Your storage system will store and process large amounts of data running on a huge number of commodity servers. In other words, your system will rely on the power of 100s of nodes to manage data.
+At this scale, failures will be the norm rather than the exception. Even if we assume that one node lasts for 1000 days (roughly 3 years), in a cluster of 500 nodes there will be a failure once every 2 days." />
+
+
+<meta property="twitter:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="https://pravj.github.io/styles.min.css">
+
+  
+
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/swim/">The SWIM Membership Protocol</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">February</span> 
+                <span class="post-date-day"> 13, </span>
+                <span class="post-date-year">2015</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-distributed-systems" href="https://pravj.github.io/tags/distributed-systems">
+                  <i class="icon-tag"></i>distributed-systems</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        
+
+<p>Let&rsquo;s say that you asked to build a distributed database similar to <a href="http://cassandra.apache.org/">Cassandra</a>. Your storage system will store and process large amounts of data running on a huge number of commodity servers. In other words, your system will rely on the power of 100s of nodes to manage data.</p>
+
+<p>At this scale, failures will be the norm rather than the exception. Even if we assume that one node lasts for 1000 days (roughly 3 years), in a cluster of 500 nodes there will be a failure once every 2 days.</p>
+
+<p>To deal with this scenario, you would require a failure detection service, which apart from detecting faulty nodes also keeps all non-faulty processes in sync about the processes that are alive. In this blog post, we&rsquo;ll cover one such protocol called SWIM and understand its inner workings.</p>
+
+<h3 id="swim">SWIM</h3>
+
+<p>The SWIM or the <strong>S</strong>calable <strong>W</strong>eakly-consistent <strong>I</strong>nfection-style process group <strong>M</strong>embership protocol is a protocol used for maintaining membership amongst processes in a distributed system.</p>
+
+<blockquote>
+<p>A membership protocol provides each process of the group with a locally maintained list, called a <strong>membership list</strong>, of other non-faulty processes in the group.</p>
+</blockquote>
+
+<p>The protocol, hence, carries out two important tasks -</p>
+
+<ul>
+<li>detecting failures i.e. how to identify which process has failed and</li>
+<li>disseminating information i.e. how to notify other processes in the system about these failures.</li>
+</ul>
+
+<p>It goes without saying that a membership protocol should be scalable, reliable and fast in detecting failures. The scalability and efficiency of membership protocols is primarily determined by the following properties</p>
+
+<ul>
+<li>Completeness: Does every failed process <strong>eventually</strong> get detected?</li>
+<li>Speed of failure detection: What is the average time interval between a failure and its detection by a non-faulty process?</li>
+<li>Accuracy: How often are processes classified as failed, actually non-faulty (called the false positive rate)?</li>
+<li>Message Load: How much network load is generated per node and is it equally distributed?</li>
+</ul>
+
+<p>Ideally, one would want a protocol that is strongly complete 100% accurate which means that every faulty process is detected, with <em>no</em> false positives. However, like other trade-offs in distributed systems there exists an <a href="http://www.ecommons.cornell.edu/bitstream/1813/7192/1/95-1535.pdf">impossibility result</a> which states that 100% completeness and accuracy cannot be guaranteed over an asynchronous network. Hence, most membership protocols (including SWIM) trade in accuracy for completeness and try to keep the false positive rate as low as possible.</p>
+
+<h3 id="swim-failure-detector">SWIM Failure Detector</h3>
+
+<p>The SWIM failure detector uses two parameters - a protocol period <code>T</code> and an integer <code>k</code> which is the size of failure detection sub-groups.</p>
+
+<figure> 
+  <img src="/images/swim.png" height="100px"> 
+    <figcaption>SWIM Failure Detection</figcaption>
+</figure>
+
+<p>The figure above shows how the protocol works. After every <code>T</code> time units, a process M<sub>i</sub> selects a random process from its membership list - say M<sub>j</sub> - and sends a <em>ping</em> to it. It then waits from an <em>ack</em> from M<sub>j</sub>. If it does not receive the <em>ack</em> within the pre-specified timeout, M<sub>i</sub> indirectly probes M<sub>j</sub> by randomly selecting <code>k</code> targets and uses them to send a <em>ping</em> to M<sub>j</sub>. Each of these <code>k</code> targets then sends a <em>ping</em> to M<sub>j</sub> on behalf of M<sub>i</sub> and on receiving an <em>ack</em> notifies M<sub>i</sub>. If, for some reason, none of these processes receive an <em>ack</em>, M<sub>i</sub> declares M<sub>j</sub> as failed and hands off the update to the dissemination component (discussed below).</p>
+
+<p>The key differentiating factor between SWIM and other heart-beating / gossip protocols is how SWIM uses other targets to reach M<sub>j</sub> so as to avoid any congestion on the network path between M<sub>i</sub> and M<sub>j</sub>.</p>
+
+<h3 id="swim-dissemination-component">SWIM Dissemination Component</h3>
+
+<p>The dissemination component simply multicasts failure updates to the rest of the group. All members receiving this message delete M<sub>j</sub> from its local membership list. Information about new members or voluntarily leaving is multicast members in a similar manner. Information about newly joined members or voluntarily leaving members are multicast in a similar manner.</p>
+
+<h3 id="improvements">Improvements</h3>
+
+<p><strong>Infection-Style Dissemination</strong> - In a more robust version of SWIM, instead of relying on the unreliable and inefficient multicast, the dissemination component piggybacks membership updates on the <em>ping</em> and <em>ack</em> messages sent by the failure detector protocol. This approach is called the <em>infection-style</em> (as this is similar to the spread of gossip, or epidemic in a population) of dissemination which has the benefits of lower packet loss and better latency.</p>
+
+<p><strong>Suspicion Mechanism</strong> - Even though the SWIM protocol guards against the scenario where there&rsquo;s congestion between two nodes by pinging <code>k</code> nodes, there is still a possibility where a perfectly healthy process M<sub>j</sub> becomes slow (high load) or becomes temporarily unavailable due to a network partition around itself and hence is marked failed by the protocol.</p>
+
+<p>SWIM mitigates this by running a subprotocol called the Suspicion subprotocol whenever a failure is detected by the basic SWIM. In this protocol, when M<sub>i</sub> finds M<sub>j</sub> to be non-responsive (directly and indirectly) it marks M<sub>j</sub> as a <em>suspect</em> instead of marking it as failed. It then uses the dissemination component to send this message M<sub>j</sub>: <code>suspect</code> to other nodes (infection-style). Any process that later finds M<sub>j</sub> responding to <em>ping</em> un-marks the suspicion and infects the system with the M<sub>j</sub>: <code>alive</code> message.</p>
+
+<p><strong>Time-bounded Completeness</strong> - The basic SWIM protocol detects failures in an average constant number of protocol periods. While every faulty process is guaranteed to be detected <em>eventually</em>, there is a small probability that due to the random selection of target nodes there might be a considerable delay before a ping is sent to faulty node.</p>
+
+<p>A simple improvement suggested by SWIM to mitigate this is by maintaining an array of known members and selecting <em>ping</em> targets in a round-robin fashion. After the array is completely traversed, it is randomly shuffled and the process continues. This provides a finite upper bound on the time units between successive selections of the same target.</p>
+
+<h3 id="conclusion">CONCLUSION</h3>
+
+<p>The SWIM protocol has found its use in many distributed systems. One popular open-source system that uses SWIM is <a href="https://www.serfdom.io/">Serf</a>, which is a decentralized solution for cluster membership by <a href="https://www.hashicorp.com/">Hashicorp</a>. The <a href="https://www.serfdom.io/docs/internals/gossip.html">documentation</a> has a reasonably clear walkthrough of the underlying architecture. The good people at Hashicorp have also open-sourced their implementation on <a href="https://github.com/hashicorp/memberlist">Github</a>. For the ones who understand better by reading code, be sure to check that out.</p>
+
+<p>Lastly, this blog post deliberately keeps out the math to make the high-level ideas simple, but if you&rsquo;re interested in diving deeper be sure to read the <a href="http://www.cs.cornell.edu/~asdas/research/dsn02-SWIM.pdf">paper</a> to better understand upper bounds on false positive rate, average time for detecting failures and network load.</p>
+
+<p>I hope this blog post gave you a glimpse into how SWIM, a popular membership protocol works. If you have questions, do let me know in the comments below.</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/blog/penticons-the-hash-game/"><i class="icon-left-open"></i> Introducing Penticons : The Hash Game</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/a-better-developer/">Becoming a Better Developer <i class="icon-right-open"></i></a>
+          </div>
+          
+
+      
+       </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://pravj.github.io/main.js"></script>
+
+
+
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+</body>
+</html>

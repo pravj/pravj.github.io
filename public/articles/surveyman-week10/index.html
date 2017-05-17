@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Week 10 - Surveyman - hack(pravj) | Pravendra Singh
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
+
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="Week 10 - Surveyman" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://pravj.github.io/articles/surveyman-week10/" />
+<meta property="og:description" content="After a fun and productive two weeks at home, I have now rejoined office back in Kuwait. As all good things in life, the vacation has come to an end and it&rsquo;s now time to head back to the usual humdrum of 9 to 5. What also didn&rsquo;t help was the fact that since most of easy (low hanging fruits, if you will) features had already been built, I had no option but to start work on the feature which I most dreaded - implementing sortable on blocks / questions." />
+
+<meta property="og:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="Week 10 - Surveyman" />
+<meta name="twitter:description" content="After a fun and productive two weeks at home, I have now rejoined office back in Kuwait. As all good things in life, the vacation has come to an end and it&rsquo;s now time to head back to the usual humdrum of 9 to 5. What also didn&rsquo;t help was the fact that since most of easy (low hanging fruits, if you will) features had already been built, I had no option but to start work on the feature which I most dreaded - implementing sortable on blocks / questions." />
+
+
+<meta property="twitter:image" content=" http://pravj.github.io/images/pravj-monu-art.jpg "/>
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="https://pravj.github.io/styles.min.css">
+
+  
+
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/surveyman-week10/">Week 10 - Surveyman</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">July</span> 
+                <span class="post-date-day"> 1, </span>
+                <span class="post-date-year">2015</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-react" href="https://pravj.github.io/tags/react">
+                  <i class="icon-tag"></i>react</a>
+                
+                <a class="post-tag post-tag-surveyman" href="https://pravj.github.io/tags/surveyman">
+                  <i class="icon-tag"></i>surveyman</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        <p>After a fun and productive two weeks at home, I have now rejoined office back in Kuwait. As all good things in life, the vacation has come to an end and it&rsquo;s now time to head back to the usual humdrum of 9 to 5. What also didn&rsquo;t help was the fact that since most of easy (low hanging fruits, if you will) features had already been built, I had no option but to start work on the feature which I most dreaded - <a href="https://github.com/prakhar1989/react-surveyman/issues/3">implementing sortable on blocks / questions</a>.</p>
+
+<p>The primary idea behind this feature is to allow users to reorder questions and blocks in the survey. Instead of manipulating the survey directly (which can be arbitrarily long) the user interacts with the minimap (or the treeview) and the changes are reflected in the survey when the drag-and-drop is over.</p>
+
+<p>Since this feature was particularly hard to tackle I decide to chalk out a rough plan on what are the <em>sub-problems</em> that I need to solve in order to ship this feature. The <a href="https://github.com/prakhar1989/react-surveyman/issues/3">github issue</a> lays this out quite clearly. To begin with, I thought long and hard on what this feature and why this is required. I then broke this down into tasks or <code>todos</code> which I could tackle one by one. This was done primarily so that I stop feeling overwhelmed and just concentrate on the task at hand.</p>
+
+<p>I&rsquo;ve been tagging commits very religiously in this project so the best way to understand the code would be to checkout the commits tagged in the issue above. Piece by piece it&rsquo;ll start to make sense. In the remaining part of this blog post I quickly touch upon two key things that I struggled with and how I found a solution.</p>
+
+<p>The first issue that I spent quite a long time breaking my head had to do with drag-and-drop. The initial drag and drop that I implemented was not behaving at all like the <a href="http://gaearon.github.io/react-dnd/examples-sortable-simple.html">version</a> done by Dan Abramov. However, after comparing the code and spending hours seeing the DOM behavior the issue seemed to be with non-index keys passed to the React component because of which React was unable to reconcile the virtual DOM.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="c1">// changing the value of key from index i to</span>
+<span class="o">&lt;</span><span class="nx">BlockNode</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">i</span><span class="p">}</span> <span class="nx">id</span><span class="o">=</span><span class="p">{</span><span class="nx">block</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)}</span> <span class="o">&gt;</span>
+
+<span class="c1">// below</span>
+<span class="o">&lt;</span><span class="nx">BlockNode</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">block</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)}</span> <span class="nx">id</span><span class="o">=</span><span class="p">{</span><span class="nx">block</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)}</span> <span class="o">&gt;</span>
+</code></pre></div>
+
+
+<p>The second issue was with implementing the state propagation where the idea was to allow the treeview to be manipulated and <em>when</em> the drag-and-drop operation finished <em>then</em> propogate and update the actual survey. Since the treeview recieved the json survey as a <code>prop</code> I had to create a replica of it in the local <code>state</code> and let the component re-render when the props changed. After looking around the documentation I found that there&rsquo;s indeed a lifecycle method that takes care of this  -</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kd">var</span> <span class="nx">TreeView</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+    <span class="nx">propTypes</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">survey</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">instanceOf</span><span class="p">(</span><span class="nx">List</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="nx">getInitialState</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">survey</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">survey</span><span class="p">,</span>
+            <span class="nx">finalIndex</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">componentWillReceiveProps</span><span class="p">(</span><span class="nx">nextProps</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+            <span class="nx">survey</span><span class="o">:</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">survey</span><span class="p">,</span>
+            <span class="nx">finalIndex</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
+<span class="p">...</span>
+</code></pre></div>
+
+
+<p>The <code>finalIndex</code> above is used to keep track of the final location of where the item is dropped. This value is then sent to the <code>store</code> so that it can make the necessary changes. Below is the code for reordering <code>Blocks</code> for example -</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">reorderBlock</span><span class="p">(</span><span class="nx">draggedBlockId</span><span class="p">,</span> <span class="nx">overBlockId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">survey</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">survey</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">draggedBlockIndex</span> <span class="o">=</span> <span class="nx">survey</span><span class="p">.</span><span class="nx">findIndex</span><span class="p">(</span><span class="nx">b</span> <span class="p">=&gt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="nx">draggedBlockId</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">overBlockIndex</span> <span class="o">=</span> <span class="nx">survey</span><span class="p">.</span><span class="nx">findIndex</span><span class="p">(</span><span class="nx">b</span> <span class="p">=&gt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="nx">overBlockId</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">survey</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">draggedBlockIndex</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">newSurvey</span> <span class="o">=</span> <span class="nx">survey</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">draggedBlockIndex</span><span class="p">).</span><span class="nx">splice</span><span class="p">(</span><span class="nx">overBlockIndex</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">block</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+        <span class="nx">survey</span><span class="o">:</span> <span class="nx">newSurvey</span><span class="p">,</span>
+        <span class="nx">finalIndex</span><span class="o">:</span> <span class="nx">overBlockIndex</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>So with that feature shipped the drag-and-drop sortable is now complete. Go and <a href="http://prakhar.me/react-surveyman">try it out</a>!</p>
+
+<p>Until next time!</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/articles/big-data-with-spark/"><i class="icon-left-open"></i> Intro to Big Data with Apache Spark</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/scalable-machine-learning/">Scalable Machine Learning <i class="icon-right-open"></i></a>
+          </div>
+          
+
+      
+       </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://pravj.github.io/main.js"></script>
+
+
+
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+</body>
+</html>
