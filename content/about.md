@@ -17,7 +17,7 @@ I'm Pravendra Singh, passionate about solving real life problems.
 
 I obtained my undergraduate degree from the <a href="http://www.iitr.ac.in">Indian Institute of Technology, Roorkee</a> (Computer Science and Engineering, 2016).
 
-My interests are Data Analysis and Visualization, Information Retrieval, and Distributed Systems.
+My interests are Data Analysis and Visualization, Information Retrieval, Programming Languages, and Distributed Systems.
 I'm eager to work on a combination of these areas to build products having an impact on someone's daily life.
 
 People say that I am good at [clicking pictures](https://instagram.com/pravj). I have won a <em>Mobile Photography Competition</em> but can't show you the certificate because I have lost it.

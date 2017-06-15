@@ -1,3 +1,2 @@
-New Blog. Powered by [Hugo](http://gohugo.io/).
+My [Hugo](http://gohugo.io/) powered real-estate in webspace.
 
-**Note**: For code blocks to syntax highlight correctly, make sure you have [pygments](http://pygments.org/) installed on your system.
