@@ -3,7 +3,7 @@ date = "2017-06-15T00:00:00+05:30"
 title = "Contributing to the Go programming language"
 description = "A gopher's guide for contributing to the Go programming language"
 tags = ["Golang", "Open Source"]
-socialsharing = false
+socialsharing = true
 +++
 
 > This article describes my experience contributing the [first commit](https://github.com/golang/go/commit/538b3a5f37a5316a4ba081fd5a8eb5fb09992ba7) to the Go programming language. It might be one small step for you, but it's one giant leap for the gopher inside me.
