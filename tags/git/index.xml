@@ -23,15 +23,5 @@ It&amp;rsquo;s a nice little complete-a-task-and-upgrade-level type of game laye
  It is a terminal game designed to test your knowledge of git commands. Each level in the game is a task to perform on this repo. Once you perform that task, you will be given your next task. There are a total of ten levels, each one harder than last!</description>
     </item>
     
-    <item>
-      <title>A Few Git Tricks</title>
-      <link>https://pravj.github.io/articles/a-few-git-tricks/</link>
-      <pubDate>Thu, 27 Feb 2014 12:34:58 +0300</pubDate>
-      
-      <guid>https://pravj.github.io/articles/a-few-git-tricks/</guid>
-      <description>I just finished reading the Think Like (a) Git book which is a advanced beginners introduction to Git. Below is a quick rundown of a few cool git commands I learned about. Read on below to level up your Git skillz!
-git add file &amp;ndash;patch Touted as the most powerful feature that you will ever use the patch mode allows you to selectively move changes from your working copy into the staging area.</description>
-    </item>
-    
   </channel>
 </rss>

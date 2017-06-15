@@ -6,10 +6,21 @@
     <description>Recent content in Golang on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Apr 2015 00:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 15 Jun 2017 00:00:00 +0530</lastBuildDate>
     
 	<atom:link href="https://pravj.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Contributing to the Go programming language</title>
+      <link>https://pravj.github.io/blog/first-golang-contribution-experience/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0530</pubDate>
+      
+      <guid>https://pravj.github.io/blog/first-golang-contribution-experience/</guid>
+      <description>This article describes my experience contributing the first commit to the Go programming language. It might be one small step for you, but it&amp;rsquo;s one giant leap for the gopher inside me.
+ Along with my experience, I will outline the article as a (beginner&amp;rsquo;s) gopher&amp;rsquo;s guide for contributing to an open source project (the Go project in this case).
+I have started learning Go in the late 2014 and I was lucky enough to receive a healthy appreciation from the community for my very first project in the language.</description>
+    </item>
     
     <item>
       <title>Development story of puzzl</title>
