@@ -90,4 +90,4 @@ Github Pages don't allow you to use plugins because of security reasons, so I am
 ### Depreciation
 By the way, the theme that you are seeing right now, isn't the *modified-lanyon* theme.
 
-You can read about the current theme's development, here. [A little paint over my webspace's design](http://pravj.github.io).
+You can read about the current theme's development, here. [A little paint over my webspace's design](https://hackpravj.com).

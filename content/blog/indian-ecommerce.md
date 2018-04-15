@@ -33,7 +33,7 @@ Being a *pessimistic* person, as one of my friends calls me. I end up thinking t
 
 As the saying goes, **"A thief believes everybody steals"**. I was afraid that my collection signatures(IP) will be blocked.
 
-If you have read my last post [Jump in to ride all the Bangalore taxis, at once](http://pravj.github.io/blog/bangalore-taxis/); I said that you should not hit the resource at a constant time period, it's a basic heuristic to identify bots. I considered that, it was a simple thing.
+If you have read my last post [Jump in to ride all the Bangalore taxis, at once](https://hackpravj.com/blog/bangalore-taxis/); I said that you should not hit the resource at a constant time period, it's a basic heuristic to identify bots. I considered that, it was a simple thing.
 
 Now comes the main thing I was afraid of, *"What if they catch me while trying to collect all the orders in a sequential manner (alphabetically increasing uid)"?*
 

@@ -26,8 +26,8 @@ I love Pan Pizzas, Graphs, and Octocat.
 
 <p>If you’d like to connect, feel free to <a href="mailto:hackpravj@gmail.com">email</a> or visit my other properties on the Holy Internet.
 <h1 class="social-me">
-  <a title="Github" href="http://github.com/pravj"><i class="icon-github-circled"></i></a> 
-  <a title="Hacker News" href="https://news.ycombinator.com/user?id=hackpravj"><i class="icon-hacker-news"></i></a>
+  <a title="Github" href="https://github.com/pravj"><i class="icon-github-circled"></i></a>
+  <a title="Hacker News" href="https://news.ycombinator.com/user?id=pravj"><i class="icon-hacker-news"></i></a>
   <a title="Twitter" href="https://twitter.com/hackpravj"><i class="icon-twitter"></i></a> 
   <a title="LinkedIn" href="https://www.linkedin.com/in/pravj"><i class="icon-linkedin"></i></a> 
 </h1></p>

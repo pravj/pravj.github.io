@@ -226,5 +226,5 @@ That's it, get out of the cab now.
 
 I have decided not to release the collected data and code for the data retrieval. Everything else including the data processing part can be found at [pravj/bangalore-taxis](https://github.com/pravj) repository. Thanks to *RethinkDB* and *Mapbox*, you guys are really amazing.
 
-<script src='{{http://localhost:4000}}/public/lib/taxis.js'></script>
+<script src='https://cdn.rawgit.com/pravj/pravj.github.io/8d913abaf8bbe8dab7d05a1a918760af6ac423df/public/lib/taxis.js'></script>
 

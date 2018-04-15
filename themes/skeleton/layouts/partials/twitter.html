@@ -5,9 +5,9 @@
 <meta name="twitter:description" content="{{if .IsPage}}{{ .Summary }}{{else}}{{.Site.Params.description}}{{end}}" />
 
 {{ if ne .Title .Site.Params.github_post_title }}
-<meta property="twitter:image" content="{{ if .Params.mastimage }}{{ .Params.mastimage }}{{ else }} {{"http://pravj.github.io/images/pravj-monu-art.jpg" }} {{ end }}"/>
+<meta property="twitter:image" content="{{ if .Params.mastimage }}{{ .Params.mastimage }}{{ else }} {{"https://hackpravj.com/images/pravj-monu-art.jpg" }} {{ end }}"/>
 {{ end }}
 
 {{ if eq .Title .Site.Params.github_post_title }}
-<meta property="twitter:image" content="{{ if .Params.mastimage }}{{ .Params.mastimage }}{{ else }} {{"http://pravj.github.io/images/github-dynamics.png"}} {{ end }}"/>
+<meta property="twitter:image" content="{{ if .Params.mastimage }}{{ .Params.mastimage }}{{ else }} {{"https://hackpravj.com/images/github-dynamics.png"}} {{ end }}"/>
 {{ end }}
