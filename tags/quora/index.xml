@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quora on hack(pravj)</title>
+    <link>https://hackpravj.com/tags/quora/</link>
+    <description>Recent content in Quora on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 Jan 2015 00:00:00 +0530</lastBuildDate>
+    
+	<atom:link href="https://hackpravj.com/tags/quora/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Post-mortem of an Internet Accident</title>
+      <link>https://hackpravj.com/blog/post-mortem-of-an-internet-accident/</link>
+      <pubDate>Sun, 11 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/post-mortem-of-an-internet-accident/</guid>
+      <description>Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination Internet Accident confuse you, let me decode its meaning in the context of this post.
+ Encounter with something on an edge node of the Holy Internet.
+ So this post is all about my attempt to solve a question, I saw on Quora.
+ What good known projects on GitHub uses the largest number of programming languages?</description>
+    </item>
+    
+  </channel>
+</rss>

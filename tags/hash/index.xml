@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hash on hack(pravj)</title>
+    <link>https://hackpravj.com/tags/hash/</link>
+    <description>Recent content in Hash on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 08 Feb 2015 00:00:00 +0530</lastBuildDate>
+    
+	<atom:link href="https://hackpravj.com/tags/hash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introducing Penticons : The Hash Game</title>
+      <link>https://hackpravj.com/blog/penticons-the-hash-game/</link>
+      <pubDate>Sun, 08 Feb 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/penticons-the-hash-game/</guid>
+      <description>Jennifer Lawrence fan, huh? It was The Hash Game by the way. Still in? Kewl.
+What&amp;rsquo;s the buzz all about? Unfortunately, there is no buzz. This post is about development of Penticons.
+Penticons. What? Remember those egg shaped profile pictures on Twitter? They are automaticaly linked to your profile, when you forget to upload your custom profile picture.
+Different services uses different default profile pictures. For example, Quora uses this image of their co-founder Charlie Cheever.</description>
+    </item>
+    
+  </channel>
+</rss>
