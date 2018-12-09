@@ -272,157 +272,186 @@ int main()
 <p>Show what revision and author last modified each line of a file</p>
 </blockquote>
 
-<p><code>git blame cool.cpp</code> is here for our rescue. It says that :</p>
+<pre><code class="language-git">
+</code></pre>
 
-<pre><code>ce59bbfd (Henry Garcia      2014-12-08 18:22:35 -0800 10)    cin &gt;&gt; input;
-3922a6d8 (LinusTorvalds2014 2014-12-09 12:37:10 -0800 11)    cout &lt;&lt; &quot;Loops are fun!&quot; &lt;&lt; endl;
+<p>ce59bbfd (Henry Garcia      2014-12-08 18:22:35 -0800 10)    cin &gt;&gt; input;
+3922a6d8 (LinusTorvalds2014 2014-12-09 12:37:10 -0800 11)    cout &lt;&lt; &ldquo;Loops are fun!&rdquo; &lt;&lt; endl;
 3922a6d8 (LinusTorvalds2014 2014-12-09 12:37:10 -0800 12)    while(1);
-ce59bbfd (Henry Garcia      2014-12-08 18:22:35 -0800 13)    string reply = &quot;Well, &quot; + input + &quot;, ...
+ce59bbfd (Henry Garcia      2014-12-08 18:22:35 -0800 13)    string reply = &ldquo;Well, &rdquo; + input + &ldquo;, &hellip;</p>
+
+<pre><code>
+Damn! someone with a similar name to the great *Linus Torvalds* is the culprit, he wrote that buggy line in the file. OK, lets move to his *branch* as the README says, using ```git checkout LinusTorvalds2014``` command.
+
+This time the README.md file was not explicitly directing anywhere.
+
 </code></pre>
 
-<p>Damn! someone with a similar name to the great <em>Linus Torvalds</em> is the culprit, he wrote that buggy line in the file. OK, lets move to his <em>branch</em> as the README says, using <code>git checkout LinusTorvalds2014</code> command.</p>
+<h1 id="git-game">git-game</h1>
 
-<p>This time the README.md file was not explicitly directing anywhere.</p>
+<p>Looks like you found the branch of the evil Mastermind.
+Things may start to get a little more challenging&hellip;</p>
 
-<pre><code>git-game
-========
+<p>The next clue you are looking for &ndash;
+   is in a file you choose to ignore!</p>
 
-Looks like you found the branch of the evil Mastermind.
-Things may start to get a little more challenging...
+<pre><code>
+When I was doing this I thought may be it's pointing to that useless file named *remember* which was back there in the branch *bug*.
 
-The next clue you are looking for --
-   is in a file you choose to ignore!
+So I *checked-out* again to the branch *bug* and tried to find any clue in the file *remember*. Its content looked like RSA Public keys to me.
+
 </code></pre>
 
-<p>When I was doing this I thought may be it&rsquo;s pointing to that useless file named <em>remember</em> which was back there in the branch <em>bug</em>.</p>
+<p>cweJIY8GOo18Usi5ykA4nmhBR0h 6mMpyy4nFY71IhgjGGr0rkY3uE tVTo j5XlwgLZZ PpRK Pwbnd7Z4bpQWc6sU700xfLTI63FbD DsKCQbUKG KS02qfurxMJ3mHHD8f6VhFUmY2rPD NjznQ8mnQvlNwAR1QsLDK Zjl1kGbWQBeGoOBwVMfa790ATCNg fR OLPA0hi7OW N4jUN26mBIwQVhVtteDSDSr OVfhvUwb7ydODX7R2no xxTmrD5IFUXIB8dDhR lpSFaRcbF2up wrWA J2acmA28c2 NhE Bqj7ntV67GTHpVBSwO</p>
 
-<p>So I <em>checked-out</em> again to the branch <em>bug</em> and tried to find any clue in the file <em>remember</em>. Its content looked like RSA Public keys to me.</p>
+<pre><code>
+I gave up after scrolling through the lengthy *remember* file and *checked-out* again to the branch *LinusTorvalds2014*.
 
-<pre><code>cweJIY8GOo18Usi5ykA4nmhBR0h 6mMpyy4nFY71IhgjGGr0rkY3uE tVTo j5XlwgLZZ PpRK Pwbnd7Z4bpQWc6sU700xfLTI63FbD DsKCQbUKG KS02qfurxMJ3mHHD8f6VhFUmY2rPD NjznQ8mnQvlNwAR1QsLDK Zjl1kGbWQBeGoOBwVMfa790ATCNg fR OLPA0hi7OW N4jUN26mBIwQVhVtteDSDSr OVfhvUwb7ydODX7R2no xxTmrD5IFUXIB8dDhR lpSFaRcbF2up wrWA J2acmA28c2 NhE Bqj7ntV67GTHpVBSwO
+I have a strange habit to use ```ls -a``` instead of ```ls``` to list content of a directory so I did it and Boy! there it was, hiding all this time.
+
+Guess what? there was a file named *.gitignore* and it said :
+
 </code></pre>
 
-<p>I gave up after scrolling through the lengthy <em>remember</em> file and <em>checked-out</em> again to the branch <em>LinusTorvalds2014</em>.</p>
+<h1 id="welcome-to-the-ignore-file">welcome to the ignore file!!</h1>
 
-<p>I have a strange habit to use <code>ls -a</code> instead of <code>ls</code> to list content of a directory so I did it and Boy! there it was, hiding all this time.</p>
+<h1 id="this-file-is-hidden-by-default">This file is hidden by default,</h1>
 
-<p>Guess what? there was a file named <em>.gitignore</em> and it said :</p>
+<h1 id="but-did-you-know-you-have-some-branches-that-aren-t-shown-to-you">but did you know you have some branches that aren&rsquo;t shown to you,</h1>
 
-<pre><code># welcome to the ignore file!!
+<h1 id="when-you-check-the-list-of-branches">when you check the list of branches?</h1>
 
-# This file is hidden by default,
-# but did you know you have some branches that aren't shown to you,
-# when you check the list of branches?
-#
-# For your next clue...
-# Which abstract data type tends to implement sets and maps??
-# The answer is the same answer to this riddle:
-#
-#   I am both mother and father.
-#   I am seldom still
-#   yet I never wander.
-#   I never birth nor nurse.
-#
-#   What am I?
-#
-# Afterwards... well, you
-# know, checkout to the answer.
+<p>#</p>
 
-*.rem
-a.out
+<h1 id="for-your-next-clue">For your next clue&hellip;</h1>
+
+<h1 id="which-abstract-data-type-tends-to-implement-sets-and-maps">Which abstract data type tends to implement sets and maps??</h1>
+
+<h1 id="the-answer-is-the-same-answer-to-this-riddle">The answer is the same answer to this riddle:</h1>
+
+<p>#</p>
+
+<h1 id="i-am-both-mother-and-father">I am both mother and father.</h1>
+
+<h1 id="i-am-seldom-still">I am seldom still</h1>
+
+<h1 id="yet-i-never-wander">yet I never wander.</h1>
+
+<h1 id="i-never-birth-nor-nurse">I never birth nor nurse.</h1>
+
+<p>#</p>
+
+<h1 id="what-am-i">What am I?</h1>
+
+<p>#</p>
+
+<h1 id="afterwards-well-you">Afterwards&hellip; well, you</h1>
+
+<h1 id="know-checkout-to-the-answer">know, checkout to the answer.</h1>
+
+<p>*.rem
+a.out</p>
+
+<pre><code>
+This time the answer of riddle is *Tree*, simple. Don't you know? You can *google* it any time, I did the same. :wink:
+
+So the next thing to do was, ```git checkout tree``` and the README.md file there said :
+
 </code></pre>
 
-<p>This time the answer of riddle is <em>Tree</em>, simple. Don&rsquo;t you know? You can <em>google</em> it any time, I did the same. :wink:</p>
+<h1 id="git-game-1">git-game</h1>
 
-<p>So the next thing to do was, <code>git checkout tree</code> and the README.md file there said :</p>
+<p>Welcome to the &ldquo;tree&rdquo; branch.
+Looks like good ol&rsquo; Linus modified the &ldquo;nextclue_input.cpp&rdquo; file.
+Normally, when ran with the shell script &ldquo;outputclue.sh&rdquo;, the &ldquo;nextclue_input.cpp&rdquo; file would give us the next hint.</p>
 
-<pre><code>git-game
-========
+<p>Maybe, you should try running the shell script with the &ldquo;nextclue_input.cpp&rdquo; file and see what happens&hellip;</p>
 
-Welcome to the &quot;tree&quot; branch.
-Looks like good ol' Linus modified the &quot;nextclue_input.cpp&quot; file.
-Normally, when ran with the shell script &quot;outputclue.sh&quot;, the &quot;nextclue_input.cpp&quot; file would give us the next hint.
+<p>You can run the script by running the command &ldquo;./outputclue.sh FILE&rdquo; .
+If you are on Windows, it&rsquo;s okey to use <code>git-bash</code> that is installed with <a href="https://msysgit.github.io/">msysgit</a>.</p>
 
-Maybe, you should try running the shell script with the &quot;nextclue_input.cpp&quot; file and see what happens...
+<pre><code>
+On executing the shell script with the *nextclue_input.cpp*, printed something on the STDOUT.
 
-You can run the script by running the command &quot;./outputclue.sh FILE&quot; .
-If you are on Windows, it's okey to use `git-bash` that is installed with [msysgit](https://msysgit.github.io/).
 </code></pre>
 
-<p>On executing the shell script with the <em>nextclue_input.cpp</em>, printed something on the STDOUT.</p>
-
-<pre><code>Linus has been here...
+<p>Linus has been here&hellip;
 I love messing with these amateur programmers!!
 If you want some real fun, then you should try resolving a conflict between this branch (tree) and code4life.
 I introduced a little bug that you should fix in the conflict. &gt;:)
-After you merge these 2 files you should run the shell script again!!
+After you merge these 2 files you should run the shell script again!!</p>
 
-Good Luck!!!
+<p>Good Luck!!!</p>
+
+<pre><code>
+The file *outputclue.sh* is a *bash* source file and matches the *md5sum* of each word in the *nextclue_input.cpp* to a local *checksum* variable named *bug*.
+It keeps asking to fix *merge conflicts* until the word matching that checksum is present in the file.
+
 </code></pre>
 
-<p>The file <em>outputclue.sh</em> is a <em>bash</em> source file and matches the <em>md5sum</em> of each word in the <em>nextclue_input.cpp</em> to a local <em>checksum</em> variable named <em>bug</em>.
-It keeps asking to fix <em>merge conflicts</em> until the word matching that checksum is present in the file.</p>
-
-<pre><code>#!/bin/bash
+<p>#!/bin/bash
 if [ -z $1 ]; then
-  echo &quot;well, someone didn't want to run the script with a file...&quot;;
+  echo &ldquo;well, someone didn&rsquo;t want to run the script with a file&hellip;&rdquo;;
   exit;
-fi
+fi</p>
 
-file=$1
+<p>file=$1
 bug=7c85d987a917c2a555d1391426978f05
-mesg=&quot;Linus has been here...\nI love messing with these amateur programmers!!\nIf you want some real fun, then you should try resolving a conflict between this branch (tree) and code4life.\nI introduced a little bug that you should fix in the conflict. &gt;:)\nAfter you merge these 2 files you should run the shell script again!!\n\nGood Luck!!!&quot;
-merges=$(git log --format=%h --merges | head -1)
-csum=&quot;md5sum&quot;
-if [ $(echo &quot;$OSTYPE&quot; | grep darwin) ];then
-    csum=&quot;md5&quot;
-fi
+mesg=&ldquo;Linus has been here&hellip;\nI love messing with these amateur programmers!!\nIf you want some real fun, then you should try resolving a conflict between this branch (tree) and code4life.\nI introduced a little bug that you should fix in the conflict. &gt;:)\nAfter you merge these 2 files you should run the shell script again!!\n\nGood Luck!!!&rdquo;
+merges=$(git log &ndash;format=%h &ndash;merges | head -1)
+csum=&ldquo;md5sum&rdquo;
+if [ $(echo &ldquo;$OSTYPE&rdquo; | grep darwin) ];then
+    csum=&ldquo;md5&rdquo;
+fi</p>
 
-if [ &quot;$file&quot; = &quot;nextclue_input.cpp&quot; ];then
+<p>if [ &ldquo;$file&rdquo; = &ldquo;nextclue_input.cpp&rdquo; ];then
   if [ ${merges} ]; then
     while read p; do
       for w in $p;do
-        if [ `echo $w | $csum | awk '{print $1}'` = $bug ];then
+        if [ <code>echo $w | $csum | awk '{print $1}'</code> = $bug ];then
           echo -e $mesg;
           exit;
         fi;
       done;
     done &lt; $file ;
-    echo -e &quot;Well, congratulations!! You fixed my conflict!!\nIf you would like to continue, then you should checkout to the $(echo 90mP8ouQHsNe | tr -d '0-9A-Z') branch!!\n&quot; ;
+    echo -e &ldquo;Well, congratulations!! You fixed my conflict!!\nIf you would like to continue, then you should checkout to the $(echo 90mP8ouQHsNe | tr -d &lsquo;0-9A-Z&rsquo;) branch!!\n&rdquo; ;
    else
      echo -e $mesg;
      exit;
    fi;
 else
-  echo &quot;Looks like you passed in the wrong file&quot;;
-fi
+  echo &ldquo;Looks like you passed in the wrong file&rdquo;;
+fi</p>
+
+<pre><code>
+I saw that the *nextclue_input.cpp* file was having a line with an *infinite while loop* and my guess was right, the *checksum* variable matched the *md5sum* of the term *while(1);*
+
+So to fix the *merge conflict*, I did ```git merge code4life``` and removed the faulty line; It worked like a charm.
+
 </code></pre>
 
-<p>I saw that the <em>nextclue_input.cpp</em> file was having a line with an <em>infinite while loop</em> and my guess was right, the <em>checksum</em> variable matched the <em>md5sum</em> of the term <em>while(1);</em></p>
+<p>Well, congratulations!! You fixed my conflict!!
+If you would like to continue, then you should checkout to the mouse branch!!</p>
 
-<p>So to fix the <em>merge conflict</em>, I did <code>git merge code4life</code> and removed the faulty line; It worked like a charm.</p>
+<pre><code>
+&gt; BTW! It was way more easy. As the answer branch was, mouse.
+&gt;
+&gt; ```$ echo 90mP8ouQHsNe | tr -d '0-9A-Z'```
 
-<pre><code>Well, congratulations!! You fixed my conflict!!
-If you would like to continue, then you should checkout to the mouse branch!!
+When I *checked-out* to the branch *mouse*, it said :
+
 </code></pre>
 
-<blockquote>
-<p>BTW! It was way more easy. As the answer branch was, mouse.</p>
+<p>nextclue_input.cpp: needs merge
+error: you need to resolve your current index first</p>
 
-<p><code>$ echo 90mP8ouQHsNe | tr -d '0-9A-Z'</code></p>
+<pre><code>
+But you can get away without merging by *stashing the changes*, I did this with ```git add nextclue_input.cpp &amp;&amp; git stash```.
+Now the README.md file in branch *mouse* said :
 
-<p>When I <em>checked-out</em> to the branch <em>mouse</em>, it said :</p>
-
-<pre><code>nextclue_input.cpp: needs merge
-error: you need to resolve your current index first
 </code></pre>
 
-<p>But you can get away without merging by <em>stashing the changes</em>, I did this with <code>git add nextclue_input.cpp &amp;&amp; git stash</code>.
-Now the README.md file in branch <em>mouse</em> said :</p>
-
-<p>```</p>
-
-<h1 id="git-game">git-game</h1>
-</blockquote>
+<h1 id="git-game-2">git-game</h1>
 
 <p>Looks like you resolved your conflict and found our branch, congrats!!</p>
 
@@ -448,7 +477,7 @@ On *checking-out* it said, *You are in 'detached HEAD' state*; means we were not
 
 </code></pre>
 
-<h1 id="git-game-1">git-game</h1>
+<h1 id="git-game-3">git-game</h1>
 
 <p>Welcome to my Tag!!!</p>
 
@@ -467,7 +496,7 @@ Now after *checking-out* to the branch *Henry*, the README said :
 
 </code></pre>
 
-<h1 id="git-game-2">git-game</h1>
+<h1 id="git-game-4">git-game</h1>
 
 <p>Welcome!! It looks like you made it to my Branch!!!
 Generally you want to refrain from making tags the same name as branches, unless you have a good reason.
