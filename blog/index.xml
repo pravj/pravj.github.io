@@ -12,14 +12,14 @@
     
     
     <item>
-      <title>Hacking Semantris: The Google AI Experiment</title>
-      <link>https://hackpravj.com/blog/hacking-semantris/</link>
+      <title>Solving Google Semantris using OpenCV and Word2Vec</title>
+      <link>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</link>
       <pubDate>Sun, 02 Dec 2018 00:00:00 +0530</pubDate>
       
-      <guid>https://hackpravj.com/blog/hacking-semantris/</guid>
-      <description>Semantris is a set of word association games that use semantic search to predict a relevant word in the game based on the player&amp;rsquo;s input.
- ARCADE Arcade mode requires a player to quickly come up with associated words for certain words. You are supposed to think and type as fast as you can before an increasing list of words fills your screen.
-BLOCKS Blocks is a turn-based game mode.</description>
+      <guid>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</guid>
+      <description>Semantris is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.
+ There are 2 modes available in the game.
+ARCADE Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen.</description>
     </item>
     
     <item>
