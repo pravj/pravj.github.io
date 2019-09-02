@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Using GitHub to build a missing GitHub feature - hack(pravj) | Pravendra Singh
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
+
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="Using GitHub to build a missing GitHub feature" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hackpravj.com/blog/building-missing-github-feature/" />
+<meta property="og:description" content="After the Microsoft acquisition, GitHub has been on a roller coaster ride. It has been winning the developer community’s affinity by launching a series of offerings, one after another, starting from the free private repositories to the GitHub Sponsors program.
+Still, there are unmatched expectations that users have from the hub of open-source. This guide is about one such expectation, a feature that is missing from GitHub and my product-first approach to building that as a side-project." />
+
+<meta property="og:image" content=" https://hackpravj.com/images/pravj-monu-art.jpg "/>
+
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="Using GitHub to build a missing GitHub feature" />
+<meta name="twitter:description" content="After the Microsoft acquisition, GitHub has been on a roller coaster ride. It has been winning the developer community’s affinity by launching a series of offerings, one after another, starting from the free private repositories to the GitHub Sponsors program.
+Still, there are unmatched expectations that users have from the hub of open-source. This guide is about one such expectation, a feature that is missing from GitHub and my product-first approach to building that as a side-project." />
+
+
+<meta property="twitter:image" content=" https://hackpravj.com/images/pravj-monu-art.jpg "/>
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="https://hackpravj.com/styles.min.css">
+
+  
+
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/blog/building-missing-github-feature/">Using GitHub to build a missing GitHub feature</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">September</span> 
+                <span class="post-date-day"> 2, </span>
+                <span class="post-date-year">2019</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-github" href="https://hackpravj.com/tags/github">
+                  <i class="icon-tag"></i>GitHub</a>
+                
+                <a class="post-tag post-tag-product" href="https://hackpravj.com/tags/product">
+                  <i class="icon-tag"></i>Product</a>
+                
+                <a class="post-tag post-tag-open-source" href="https://hackpravj.com/tags/open-source">
+                  <i class="icon-tag"></i>Open Source</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        
+
+<p>After the Microsoft acquisition, GitHub has been on a roller coaster ride. It has been winning the developer community’s affinity by launching a series of offerings, one after another, starting from the free private repositories to the GitHub Sponsors program.</p>
+
+<p>Still, there are unmatched expectations that users have from the hub of open-source. This guide is about one such expectation, a feature that is missing from GitHub and my product-first approach to building that as a side-project.</p>
+
+<figure> <img src="/images/follow-github-organization-header.jpeg">
+    <figcaption>Can you listen to the birds chirping in the background?</figcaption>
+</figure>
+
+<h3 id="all-that-is-missing">All that is missing</h3>
+
+<p>Started as a code hosting platform for the Git version control system, GitHub has evolved into a complete software development platform. It fits perfectly in the software development lifecycle that people have started using it in multiple ways (<em>blog for some other day on the wild network effects of GitHub and its use of social incentives</em>).</p>
+
+<p>Isaac&rsquo;s <a href="https://github.com/isaacs/github" target="_blank">repository</a> is one such corner of the platform where people come to request new features, they create an issue for what they want and thumbs up each other&rsquo;s comments, hoping that GitHub will listen to their requests. It does. Support for reactions is my favorite feature that was implemented after getting noticed from here.</p>
+
+<figure> <img src="/images/issues-for-github.png">
+    <figcaption>Snippet from the README document for Isaac's repository</figcaption>
+</figure>
+
+<h3 id="finding-what-to-work-on">Finding what to work on</h3>
+
+<blockquote>
+<p>Know your customers wherever they are.</p>
+</blockquote>
+
+<p><em>Want to know what&rsquo;s wrong with a product, head straight to the user forums or customer feedback channels, and you will get the answer.</em></p>
+
+<p>More than a year ago when I was looking for a side project to work on, this repository was the correct place to find out the missing pieces related to GitHub.</p>
+
+<p>Now comes the much anticipated missing feature, <em>the ability to follow an organization</em>.
+Yes, you can&rsquo;t follow an organization like following a normal user account to receive user-activities. It&rsquo;s the most-commented issue on Issac&rsquo;s repository.</p>
+
+<figure> <img src="/images/github-issue-follow-organization.png">
+    <figcaption>Issue requesting feature to add ability to follow organizations</figcaption>
+</figure>
+
+<p>GitHub shows you user-generated activities (creating, starring, and forking repositories, etc.) in your main feed, which allows people to discover new things (read my other blog <a href="https://hackpravj.com/blog/information-dynamics-on-github/" target="_blank">Information dynamics on the GitHub network</a> for details). But there is no way to subscribe to an organization and receive events when something happens in it (for example, when a new repository is created).</p>
+
+<h3 id="are-you-bored-right-now">Are you bored right now?</h3>
+
+<p>If you don&rsquo;t care to read more about the development process, you can skip this and check out <a href="https://followgithub.org" target="_blank">followgithub.org</a>, browser extension that allows you to follow a GitHub organization. It&rsquo;s <a href="https://github.com/follow-github-organisation/fghx" target="_blank">open-source</a> as well, feel free to hack on it during weekends.</p>
+
+<figure> <img src="/images/follow-github-org-website.png">
+    <figcaption>followgithub.org</figcaption>
+</figure>
+
+<h3 id="the-real-mvp">The real MVP</h3>
+
+<p>Once the idea was shortlisted, it was time to work out a plan to manage risk by prototyping early and cheaply, the risk of shipping the wrong stuff that nobody wanted in the first place.</p>
+
+<p>Given the motive, I aimed to spend as little time as possible on the implementation to get the initial version to validate the hypothesis. One, there weren&rsquo;t enough resources to pull this off as I was working on it on Sundays, that too sporadically. Another, Steve Blank wouldn&rsquo;t agree.</p>
+
+<blockquote>
+<p>Think about cheap hacks to test the goal, keep the eyes on the prize.</p>
+</blockquote>
+
+<p>I found that the solution will involve activity-checker polling for new events at its core, but notifying the users about an event is going to be the major deal.</p>
+
+<p>I was fiddling with some typical and atypical distribution channels such as Email alerts (<em>where the events are being sent to a verified email address</em>) and Twitter bot (<em>to keep updating a thread for an organization OR responding to tagged questions</em>). But none of them was a convincing idea because it would bound the solution in one particular way before even getting buy-in from the potential users.</p>
+
+<p>That&rsquo;s when I realized that I was looking outside, but the real distribution channel was in front of my eyes, GitHub. It&rsquo;s a place to position your product for the right people in itself. It has a social pull that brings a community closer, generating value for each other; for example, <a href="https://github.com/topics/awesome-list" target="_blank">awesome-lists</a>.</p>
+
+<p>And here comes the MVP, a <a href=""https://github.com/follow-github-organisation/follow-github-organisation target="_blank">GitHub repository</a> acting as a user forum.</p>
+
+<figure> <img src="/images/follow-github-org-mvp-version.jpg">
+    <figcaption>Using GitHub as the distribution channel for followgithub.org MVP</figcaption>
+</figure>
+
+<p>This saved me from investing in email notification services or choosing a channel where none of the potential users are (Twitter).</p>
+
+<p>It was <a href="https://news.ycombinator.com/item?id=19261376" target="_blank">shared on Hacker News</a> by my friend Amit, leading to some early adoption.</p>
+
+<h3 id="tweak-it">Tweak it</h3>
+
+<p>After a few days, I started interacting with people using the setup for the next iteration. About both the good and the bad parts; how they are excited to follow an organization, and how the issue thread is adding duplicate comments or missing beats.</p>
+
+<p>For this, I prepared a series of questions aligned with The Mom Test by Rob  Fitzpatrick.</p>
+
+<ul>
+<li>Open-ended questions, what has changed because of this setup</li>
+<li>Daily habits, how exactly do they use GitHub in life</li>
+<li>Specifics from the past, how did they find their (recent) favorite GitHub repository</li>
+</ul>
+
+<p>I realized the current setup was doing a bad job at user experience. Neither the notification delivery (for a new repository) system was providing a native GitHub experience aligned to their browsing habits. It required you to take multiple actions to follow an organization.</p>
+
+<ul>
+<li>Find if there exists an issue for the organization you want to follow</li>
+<li>Create an issue with adding the link for the organization in the comment</li>
+</ul>
+
+<p>Then one day a friend pointed me out to <em>refined-github</em> during a discussion, a famous browser extension that simplifies the GitHub interface and adds useful features. And that&rsquo;s when I found the real distribution channel resonating with all the requirements.</p>
+
+<p>A browser extension that allows you to follow GitHub organizations in your sleep.</p>
+
+<figure> <img src="/images/github-follow-action.gif">
+    <figcaption>Just follow an organization by clicking the follow button, what else?</figcaption>
+</figure>
+
+<figure> <img src="/images/github-new-repo.png">
+    <figcaption>A new repository in the organization will be added to your main GitHub feed</figcaption>
+</figure>
+
+<h3 id="extensions-and-skepticism">Extensions and skepticism</h3>
+
+<p>During my interaction with potential and existing users, I observed that not everyone has a virtuous view of browser extensions. Some of the users have strong opinions against them because of potential security risks.</p>
+
+<p>That&rsquo;s why I decided to <a href="https://github.com/follow-github-organisation/fghx" target="_blank">open-source</a> the extension and it&rsquo;s being built out in the open.</p>
+
+<h3 id="path-to-ramen-success">Path to ramen success</h3>
+
+<p>As mentioned by <a href="https://www.indiehackers.com/interview/sidekiq-6e71309457" target="_blank">Mike Perham</a>, people start something valuable with enthusiasm and give it for free, only to get overwhelmed by support requests and burn out of the project.</p>
+
+<p>I realized that it&rsquo;s the right time to put a price tag on all the time spent on the development, at least to pay the server bills. I will consider this a ramen sustainable success in two possible scenarios:</p>
+
+<ul>
+<li>GitHub builds this feature</li>
+<li>I stop investing on the product from my own pocket to sustain it</li>
+</ul>
+
+<h3 id="putting-the-right-price-tag">Putting the right price tag</h3>
+
+<p>After deciding the path for ramen success, it was time to put the right price tag. I was reading about different pricing mechanisms (The anatomy of SaaS pricing strategy) and found every coin has two sides to it.</p>
+
+<ul>
+<li><strong>Cost-plus pricing</strong>: isn&rsquo;t a calculated decision if the product depends on external factors. Also, your customers don&rsquo;t care about your costs.</li>
+<li><strong>Value-based pricing</strong>: isn&rsquo;t easy all the times to quantify the value being generated by your product. But it validates their willingness to pay, if there is a value in it.</li>
+</ul>
+
+<p>Logically, I decided to go ahead with the value-based freemium pricing structure as it felt like the right move in the given context. But this required me to come up with metrics to define the value generated by users.</p>
+
+<p>In this case, the total number of organizations followed was the fitting value metric.
+I have kept the bar at 10 organizations in the &ldquo;adopter&rdquo; version for the following reasons:</p>
+
+<ul>
+<li>You should not give up too many things for free</li>
+<li>It was close to the following count of some new users (in a small sample set)</li>
+</ul>
+
+<figure> <img src="/images/follow-github-org-pricing-model.png">
+    <figcaption>Pricing model for followgithub.org</figcaption>
+</figure>
+
+<h3 id="incentive-flywheel">Incentive flywheel</h3>
+
+<p>Everyone has their own strategy to get the first 10 or 100 customers, different for the kind of product you are building, this is mine.</p>
+
+<p>Given GitHub has a strong social-capital game in place (<em>might not apply to all the GitHub users</em>), one would want to generate value by creating or contributing to an existing repository, in return for a special status in the topology. Encouraging more members to join the value-generation efforts in the connected network, and bringing more members into the userbase.</p>
+
+<p>And for that, I&rsquo;ve kept an incentive for contributions to the extension. A free supporter license key for <a href="https://allcontributors.org/" target="_blank">any legit contribution</a> you make to it.</p>
+
+<figure> <img src="/images/follow-github-org-contribution-incentive.png">
+    <figcaption>Contribute to the extension and win a supporter license key</figcaption>
+</figure>
+
+<p>All kinds of contributions are welcome as long as it&rsquo;s beneficial for the end users.</p>
+
+<hr>
+
+<p>That&rsquo;s it, please let me know what do you think of the extension.</p>
+
+<p>Reach out to me at <a href="https://twitter.com/hackpravj" target="_blank">@hackpravj</a> (<a href="https://twitter.com/followgithuborg" target=_blank">@followgithuborg</a>) or followgithuborg@gmail if you come across any issue or suggestion for the tool. I would love to make it better for you.</p>
+
+<p>If you want to win the supporter license key, head straight to the <a href="https://github.com/follow-github-organisation/fghx" target="_blank">repository</a>.</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/blog/solving-semantris-opencv-word2vec/"><i class="icon-left-open"></i> Solving Google Semantris using OpenCV and Word2Vec</a>
+          </div>
+          
+
+					
+
+      
+       </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://hackpravj.com/main.js"></script>
+
+
+
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+</body>
+</html>

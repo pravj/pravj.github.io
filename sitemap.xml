@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hackpravj.com/blog/building-missing-github-feature/</loc>
+    <lastmod>2019-09-02T00:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</loc>
     <lastmod>2018-12-02T00:00:00+05:30</lastmod>
   </url>
@@ -121,7 +126,7 @@
   
   <url>
     <loc>https://hackpravj.com/blog/</loc>
-    <lastmod>2018-12-02T00:00:00+05:30</lastmod>
+    <lastmod>2019-09-02T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -186,7 +191,7 @@
   
   <url>
     <loc>https://hackpravj.com/tags/github/</loc>
-    <lastmod>2017-02-08T00:00:00+05:30</lastmod>
+    <lastmod>2019-09-02T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -264,7 +269,7 @@
   
   <url>
     <loc>https://hackpravj.com/tags/open-source/</loc>
-    <lastmod>2017-06-15T00:00:00+05:30</lastmod>
+    <lastmod>2019-09-02T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -277,6 +282,12 @@
   <url>
     <loc>https://hackpravj.com/tags/plugin/</loc>
     <lastmod>2014-05-23T00:00:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hackpravj.com/tags/product/</loc>
+    <lastmod>2019-09-02T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -345,7 +356,7 @@
   
   <url>
     <loc>https://hackpravj.com/</loc>
-    <lastmod>2018-12-02T00:00:00+05:30</lastmod>
+    <lastmod>2019-09-02T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   

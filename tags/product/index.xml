@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Product on hack(pravj)</title>
+    <link>https://hackpravj.com/tags/product/</link>
+    <description>Recent content in Product on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Sep 2019 00:00:00 +0530</lastBuildDate>
+    
+	<atom:link href="https://hackpravj.com/tags/product/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using GitHub to build a missing GitHub feature</title>
+      <link>https://hackpravj.com/blog/building-missing-github-feature/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/building-missing-github-feature/</guid>
+      <description>After the Microsoft acquisition, GitHub has been on a roller coaster ride. It has been winning the developer community’s affinity by launching a series of offerings, one after another, starting from the free private repositories to the GitHub Sponsors program.
+Still, there are unmatched expectations that users have from the hub of open-source. This guide is about one such expectation, a feature that is missing from GitHub and my product-first approach to building that as a side-project.</description>
+    </item>
+    
+  </channel>
+</rss>
