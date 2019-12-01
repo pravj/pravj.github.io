@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hackpravj.com/blog/indian-railways-next-billion-users/</loc>
+    <lastmod>2019-09-02T00:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hackpravj.com/blog/building-missing-github-feature/</loc>
     <lastmod>2019-09-02T00:00:00+05:30</lastmod>
   </url>
@@ -119,6 +124,12 @@
   </url>
   
   <url>
+    <loc>https://hackpravj.com/tags/accessibility/</loc>
+    <lastmod>2019-09-02T00:00:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hackpravj.com/tags/ai/</loc>
     <lastmod>2015-04-23T00:00:00+05:30</lastmod>
     <priority>0</priority>
@@ -202,6 +213,12 @@
   </url>
   
   <url>
+    <loc>https://hackpravj.com/tags/google/</loc>
+    <lastmod>2019-09-02T00:00:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hackpravj.com/tags/hack/</loc>
     <lastmod>2018-12-02T00:00:00+05:30</lastmod>
     <priority>0</priority>
@@ -228,6 +245,18 @@
   <url>
     <loc>https://hackpravj.com/tags/image/</loc>
     <lastmod>2015-03-06T00:00:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hackpravj.com/tags/india/</loc>
+    <lastmod>2019-09-02T00:00:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hackpravj.com/tags/internet/</loc>
+    <lastmod>2019-09-02T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -338,13 +367,19 @@
   
   <url>
     <loc>https://hackpravj.com/tags/</loc>
-    <lastmod>2015-04-23T00:00:00+05:30</lastmod>
+    <lastmod>2019-09-02T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hackpravj.com/tags/terminal/</loc>
     <lastmod>2015-04-23T00:00:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hackpravj.com/tags/voice/</loc>
+    <lastmod>2019-09-02T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   

@@ -6,10 +6,19 @@
     <description>Recent content in Tags on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Apr 2015 00:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 02 Sep 2019 00:00:00 +0530</lastBuildDate>
     
 	<atom:link href="https://hackpravj.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Accessibility</title>
+      <link>https://hackpravj.com/tags/accessibility/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/tags/accessibility/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Ai</title>
@@ -120,6 +129,15 @@
     </item>
     
     <item>
+      <title>Google</title>
+      <link>https://hackpravj.com/tags/google/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/tags/google/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Hack</title>
       <link>https://hackpravj.com/tags/hack/</link>
       <pubDate>Sun, 02 Dec 2018 00:00:00 +0530</pubDate>
@@ -161,6 +179,24 @@
       <pubDate>Fri, 06 Mar 2015 00:00:00 +0530</pubDate>
       
       <guid>https://hackpravj.com/tags/image/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>India</title>
+      <link>https://hackpravj.com/tags/india/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/tags/india/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Internet</title>
+      <link>https://hackpravj.com/tags/internet/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/tags/internet/</guid>
       <description></description>
     </item>
     
@@ -314,6 +350,15 @@
       <pubDate>Thu, 23 Apr 2015 00:00:00 +0530</pubDate>
       
       <guid>https://hackpravj.com/tags/terminal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Voice</title>
+      <link>https://hackpravj.com/tags/voice/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/tags/voice/</guid>
       <description></description>
     </item>
     
