@@ -13,24 +13,28 @@ nocomment = true
 
 Heya!
 
-I'm Pravendra Singh, passionate about solving real life problems.
+I'm Pravendra Singh, passionate about solving real life problems and building products having an impact on someone's daily life.
 
-I obtained my undergraduate degree from the <a href="http://www.iitr.ac.in">Indian Institute of Technology, Roorkee</a> (Computer Science and Engineering, 2016).
+I received my undergraduate degree from the <a href="http://www.iitr.ac.in">Indian Institute of Technology, Roorkee</a> (Computer Science and Engineering, 2016).
 
-My interests are Data Analysis and Visualization, Information Retrieval, Programming Languages, and Distributed Systems.
-I'm eager to work on a combination of these areas to build products having an impact on someone's daily life.
+<img src="https://openmoji.org/data/color/svg/E142.svg" height="32px" alt="" width="32px"> People say that I am good at [clicking pictures](https://instagram.com/pravj). I have won a <em>Mobile Photography Competition</em> but can't show you the certificate because I have lost it.
 
-People say that I am good at [clicking pictures](https://instagram.com/pravj). I have won a <em>Mobile Photography Competition</em> but can't show you the certificate because I have lost it.
 
-I love Pan Pizzas, Graphs, and Octocat.
+<img src="https://openmoji.org/data/color/svg/1F5BC.svg" height="32px" alt="" width="32px"> I love painting in my free time (once in a full moon every leap year), scroll below for more details.
 
-<p>If you’d like to connect, feel free to <a href="mailto:hackpravj@gmail.com">email</a> or visit my other properties on the Holy Internet.
+<img src="https://openmoji.org/data/color/svg/E040.svg" height="32px" alt="" width="32px"> If you’d like to connect, feel free to <a href="mailto:hackpravj@gmail.com">email</a>, <a href="https://twitter.com/hackpravj">DM</a> or visit my other properties on the Holy Internet.
+
+<p>
 <h1 class="social-me">
   <a title="Github" href="https://github.com/pravj"><i class="icon-github-circled"></i></a>
   <a title="Hacker News" href="https://news.ycombinator.com/user?id=pravj"><i class="icon-hacker-news"></i></a>
   <a title="Twitter" href="https://twitter.com/hackpravj"><i class="icon-twitter"></i></a> 
   <a title="LinkedIn" href="https://www.linkedin.com/in/pravj"><i class="icon-linkedin"></i></a> 
 </h1></p>
+
+### Artwork
+
+This section is intentionally left blank, everything is an art.
 
 ### Colophon
 
