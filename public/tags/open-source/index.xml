@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source on hack(pravj)</title>
+    <link>https://hackpravj.com/tags/open-source/</link>
+    <description>Recent content in Open Source on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Sep 2019 00:00:00 +0530</lastBuildDate>
+    
+	<atom:link href="https://hackpravj.com/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using GitHub to build a missing GitHub feature</title>
+      <link>https://hackpravj.com/blog/building-missing-github-feature/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/building-missing-github-feature/</guid>
+      <description>After the Microsoft acquisition, GitHub has been on a roller coaster ride. It has been winning the developer community’s affinity by launching a series of offerings, one after another, starting from the free private repositories to the GitHub Sponsors program.
+Still, there are unmatched expectations that users have from the hub of open-source. This guide is about one such expectation, a feature that is missing from GitHub and my product-first approach to building that as a side-project.</description>
+    </item>
+    
+    <item>
+      <title>Contributing to the Go programming language</title>
+      <link>https://hackpravj.com/blog/first-golang-contribution-experience/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/first-golang-contribution-experience/</guid>
+      <description>This article describes my experience contributing the first commit to the Go programming language. It might be one small step for you, but it&amp;rsquo;s one giant leap for the gopher inside me.
+ Along with my experience, I will outline the article as a (beginner&amp;rsquo;s) gopher&amp;rsquo;s guide for contributing to an open source project (the Go project in this case).
+I have started learning Go in the late 2014 and I was lucky enough to receive a healthy appreciation from the community for my very first project in the language.</description>
+    </item>
+    
+    <item>
+      <title>Information Dynamics on the GitHub Network</title>
+      <link>https://hackpravj.com/blog/information-dynamics-on-github/</link>
+      <pubDate>Wed, 08 Feb 2017 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/information-dynamics-on-github/</guid>
+      <description>Exploring the &amp;ldquo;social coding&amp;rdquo; behavior.
+ Social groups have a system of behaviors occurring within the group or between groups, called “Group dynamics”. GitHub, being a social coding network, is the host to millions of developers and software projects. This report will use openly available data to unveil such behaviors in an intellectual-focused social network.
+Social Coding The growth of GitHub has been significantly different from other OSS communities such as Alioth, Freecode, and Savannah.</description>
+    </item>
+    
+    <item>
+      <title>Open Source Presence Infographic of Indian Startups</title>
+      <link>https://hackpravj.com/blog/open-source-presence-infographic/</link>
+      <pubDate>Sat, 17 Jan 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/open-source-presence-infographic/</guid>
+      <description>Technically speaking, organizations used in this report are no more only a startup now, but I hope you people won&amp;rsquo;t mind this and aren&amp;rsquo;t gonna launch a drone on me.
+Abstract I think, something is clear from the name itself, is it? Well! it should.
+This report tries to plot all the involved organizations on the Open-Source portal. It tries to tell that, in the race to achieve their goals, what different organizations are doing there, for/in the community.</description>
+    </item>
+    
+    <item>
+      <title>geopattern : going on the Go path</title>
+      <link>https://hackpravj.com/blog/going-on-the-go-path/</link>
+      <pubDate>Sat, 01 Nov 2014 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/going-on-the-go-path/</guid>
+      <description>You should have a look at geopattern, if you haven&amp;rsquo;t yet.
+ What&amp;rsquo;s the buzz all about? This blog post is about development of geopattern library in golang.
+What do you think about this my favorite colored concentric circle pattern?
+ Concentric Circle Pattern  geopattern. What? Umm, actually I don&amp;rsquo;t know exactly why the name is geopattern but I know what it is.
+It is a golang library that generates pretty image patterns.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Geopattern on hack(pravj)</title>
+    <link>https://hackpravj.com/tags/geopattern/</link>
+    <description>Recent content in Geopattern on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Nov 2014 00:00:00 +0530</lastBuildDate>
+    
+	<atom:link href="https://hackpravj.com/tags/geopattern/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>geopattern : going on the Go path</title>
+      <link>https://hackpravj.com/blog/going-on-the-go-path/</link>
+      <pubDate>Sat, 01 Nov 2014 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/going-on-the-go-path/</guid>
+      <description>You should have a look at geopattern, if you haven&amp;rsquo;t yet.
+ What&amp;rsquo;s the buzz all about? This blog post is about development of geopattern library in golang.
+What do you think about this my favorite colored concentric circle pattern?
+ Concentric Circle Pattern  geopattern. What? Umm, actually I don&amp;rsquo;t know exactly why the name is geopattern but I know what it is.
+It is a golang library that generates pretty image patterns.</description>
+    </item>
+    
+  </channel>
+</rss>

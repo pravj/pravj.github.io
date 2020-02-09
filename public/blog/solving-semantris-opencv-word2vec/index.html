@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Solving Google Semantris using OpenCV and Word2Vec - hack(pravj) | Pravendra Singh
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
+
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="Solving Google Semantris using OpenCV and Word2Vec" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hackpravj.com/blog/solving-semantris-opencv-word2vec/" />
+<meta property="og:description" content="Semantris is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.
+ There are 2 modes available in the game.
+ARCADE Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen." />
+
+<meta property="og:image" content=" https://hackpravj.com/images/pravj-monu-art.jpg "/>
+
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="Solving Google Semantris using OpenCV and Word2Vec" />
+<meta name="twitter:description" content="Semantris is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.
+ There are 2 modes available in the game.
+ARCADE Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen." />
+
+
+<meta property="twitter:image" content=" https://hackpravj.com/images/pravj-monu-art.jpg "/>
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="https://hackpravj.com/styles.min.css">
+
+  
+
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/blog/solving-semantris-opencv-word2vec/">Solving Google Semantris using OpenCV and Word2Vec</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">December</span> 
+                <span class="post-date-day"> 2, </span>
+                <span class="post-date-year">2018</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-computer-vision" href="https://hackpravj.com/tags/computer-vision">
+                  <i class="icon-tag"></i>Computer Vision</a>
+                
+                <a class="post-tag post-tag-opencv" href="https://hackpravj.com/tags/opencv">
+                  <i class="icon-tag"></i>OpenCV</a>
+                
+                <a class="post-tag post-tag-nlp" href="https://hackpravj.com/tags/nlp">
+                  <i class="icon-tag"></i>NLP</a>
+                
+                <a class="post-tag post-tag-hack" href="https://hackpravj.com/tags/hack">
+                  <i class="icon-tag"></i>Hack</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        
+
+<blockquote>
+<p><a href="https://experiments.withgoogle.com/semantris">Semantris</a> is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.</p>
+</blockquote>
+
+<p>There are 2 modes available in the game.</p>
+
+<h4 id="arcade">ARCADE</h4>
+
+<p>Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen.</p>
+
+<figure> <img src="/images/semantris-arcade.gif">
+    <figcaption>Semantris ARCADE mode</figcaption>
+</figure>
+
+<h4 id="blocks">BLOCKS</h4>
+
+<p>Blocks is a turn-based game mode. You can take your time to come up with different types of clues and see which ones the game understands best.</p>
+
+<figure> <img src="/images/semantris-blocks.gif">
+    <figcaption>Semantris BLOCKS mode</figcaption>
+</figure>
+
+<blockquote>
+<p>After playing for a while, I realized both the game modes are using <a href="http://www.peachpit.com/articles/article.aspx?p=98123&amp;seqNum=2">pattern recognition as the main game-play mechanism</a>.
+<strong>That’s when I started thinking if the game-play can be automated.</strong></p>
+</blockquote>
+
+<h2 id="turns-out-it-can-be-automated">TURNS OUT, IT CAN BE ( automated )</h2>
+
+<p><a href="https://github.com/pravj/semantris-solver">Semantris-Solver</a> uses the following procedure to play the game:</p>
+
+<ol>
+<li><strong>Capture the current game state using computer vision techniques</strong></li>
+<li><strong>Identify the word to enter for higher-reward/longer-gameplay</strong></li>
+<li><strong>Find the associated word using word-embeddings</strong></li>
+</ol>
+
+<blockquote>
+<p>In the following sections, we are going to dive into the working of the Semantris-Solver for both the game modes.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="arcade-1">ARCADE</h2>
+
+<p>A human player will use the following moves to play the arcade mode:</p>
+
+<ol>
+<li>Find one or more highlighted words in the game</li>
+<li>Get these words in the highlighted area by entering the associated word for them</li>
+<li>Keep doing this before you run out of space on your screen for new words</li>
+</ol>
+
+<blockquote>
+<p>Also, there are three types of theme colors in arcade mode.</p>
+</blockquote>
+
+<figure> <img src="/images/semantris-arcade-theme-colors.jpg">
+    <figcaption>Semantris ARCADE theme colors</figcaption>
+</figure>
+
+<p>You will realize that the theme color isn’t playing any role here, the game playing mechanism will remain the same if we change the theme color, what changes is the definition of the highlighted word.</p>
+
+<blockquote>
+<p>A word is <strong>highlighted</strong> if it has a pointer shape left to it, &ldquo;‎▶ <strong>Ship</strong>&rdquo; in this case.</p>
+</blockquote>
+
+<h4 id="color-space-conversion">COLOR SPACE CONVERSION</h4>
+
+<p>ARCADE mode of Semantris-Solver starts with capturing the screenshot of the laptop screen and converts it into a gray-scale image, agnostic of the actual color.</p>
+
+<script src="https://gist.github.com/pravj/b4d85a59cd0e7db7892b5015b965c4f7.js"></script>
+
+<figure> <img src="/images/semantris-arcade-gray-scale.png">
+    <figcaption>Semantris ARCADE mode (gray-scale)</figcaption>
+</figure>
+
+<h4 id="template-matching">TEMPLATE MATCHING</h4>
+
+<p>Our next step will be to find the highlighted word in the captured image. OpenCV provides a method called <a href="https://docs.opencv.org/3.3.0/d4/dc6/tutorial_py_template_matching.html">Template Matching</a> for searching and finding the location of a template image in a larger image.</p>
+
+<p>We will use a cropped version of the pointer shape (▶) as a template image, to find its location in the captured screen.</p>
+
+<script src="https://gist.github.com/pravj/7a9a5da6f20f18e213313a83e0da1bf8.js"></script>
+
+<figure> <img src="/images/semantris-arcade-selected-highlighted-word.png">
+    <figcaption>Semantris ARCADE highlighted word selection</figcaption>
+</figure>
+
+<h4 id="optical-character-recognition">OPTICAL CHARACTER RECOGNITION</h4>
+
+<p>Based on the pointer’s location, a section is cropped right next to it, with the highlighted word.</p>
+
+<figure> <img src="/images/semantris-arcade-highlighted-word.png">
+    <figcaption>Semantris ARCADE highlighted word</figcaption>
+</figure>
+
+<p>The cropped image is converted into text using <a href="Tesseract OCR">Tesseract OCR</a>; in this case, it will give us the word <strong>Ship</strong>.</p>
+
+<script src="https://gist.github.com/pravj/619a228dc9036519dafd5de5d8139b18.js"></script>
+
+<blockquote>
+<p>In case of more than one highlighted words, they are entered one after another to keep the game moving.</p>
+</blockquote>
+
+<h4 id="associated-word-selection">ASSOCIATED WORD SELECTION</h4>
+
+<p><a href="Word2Vec pre-trained on Google News corpus">Word2Vec pre-trained on Google News corpus</a> is used as a word embedding model to find the <a href="https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec.most_similar">most similar</a> words (associated) for a given word.</p>
+
+<script src="https://gist.github.com/pravj/5075bd9fdd7b093ceee1b4da80b249f3.js"></script>
+
+<p>In this case, it will return <strong>vessel</strong> to enter as an associated word for <strong>ship</strong> (*after removing morphologically similar words  *). The program will enter this associated word and capture the updated game screen to continue.</p>
+
+<hr />
+
+<h2 id="blocks-1">BLOCKS</h2>
+
+<p>In this mode, there are word-blocks with four possible colors for a given theme, the word-blocks might or might not contain a word in them.</p>
+
+<p>Entering the associated word for a word-block will remove the same colored blocks connected to it, similar to the good old <strong>Tetris</strong>.</p>
+
+<p>A human player will use the following moves to play the arcade mode:</p>
+
+<ol>
+<li>Enter the associated word for a word-block, typically connected with maximum same colored word-blocks</li>
+<li>Keep doing this before you run out of space on your screen for new words</li>
+</ol>
+
+<figure> <img src="/images/semantris-blocks-game-theme.png">
+    <figcaption>Semantris BLOCKS mode captured screen</figcaption>
+</figure>
+
+<p>You will realize that the color of a word-block is playing a significant role this time. You will have to enter the associated word for a word-block connected with more same colored blocks to score higher points.</p>
+
+<blockquote>
+<p>On top of this, there are three types of theme colors in blocks mode.</p>
+</blockquote>
+
+<figure> <img src="/images/semantris-blocks-theme-colors.jpeg">
+    <figcaption>Semantris BLOCKS theme colors</figcaption>
+</figure>
+
+<h4 id="color-palette-generation">COLOR PALETTE GENERATION</h4>
+
+<p>This time we can’t convert the captured image into its gray-scale version. We need to know the color attributes to be able to distinguish between different word-blocks.</p>
+
+<p>Running <strong>K-mean clustering</strong> on the pixels of the captured screen will give us all the prominent colors in the image after excluding background colors such as white (text-color), black (background-color), and gray (text-input).</p>
+
+<script src="https://gist.github.com/pravj/5537fe59a13f6bacbe3855eced767ed9.js"></script>
+
+<figure> <img src="/images/semantris-blocks-theme-color-palette.png">
+    <figcaption>Semantris BLOCKS theme color palette</figcaption>
+</figure>
+
+<h4 id="contour-detection">CONTOUR DETECTION</h4>
+
+<p>Now that we have all the four colors in the current theme, we need to know which word-block to choose to get maximum points.</p>
+
+<p>In other words, if we calculate the area of every connected-word-block-group (<em>word-blocks of the same color connected to each other</em>) and select the one with the maximum area, we will get the desired connected-word-block-group.</p>
+
+<blockquote>
+<p><a href="https://docs.opencv.org/3.4/d4/d73/tutorial_py_contours_begin.html">Contour</a> is a curve joining all the continuous points along a boundary, having same color or intensity.</p>
+</blockquote>
+
+<p>A word-block group can be considered a contour of that color; if it’s connected to more blocks with the same color, the contour’s area will be the sum of the connected word-blocks.</p>
+
+<figure> <img src="/images/semantris-blocks-contour-image.png">
+    <figcaption>Semantris BLOCKS mode with maximum area contour highlighted</figcaption>
+</figure>
+
+<p>Contours are calculated (using OpenCV’s <a href="https://docs.opencv.org/3.3.1/d3/dc0/group__imgproc__shape.html#ga17ed9f5d79ae97bd4c7cf18403e1689a">findCountours</a> function) for all the word-block colors separately and the one with the maximum area is selected.</p>
+
+<script src="https://gist.github.com/pravj/2be7a1c308b969735c1387839503a600.js"></script>
+
+<p>We can select the maximum area contour by doing a bitwise-and operation between the captured screen and the contour mask.</p>
+
+<figure> <img src="/images/semantris-blocks-max-area-contour.png">
+    <figcaption>Semantris BLOCKS Maximum area contour</figcaption>
+</figure>
+
+<h4 id="word-detection-using-tesseract-and-word2vec">WORD DETECTION (Using Tesseract and Word2Vec)</h4>
+
+<p>The contour image is converted into text using <a href="https://github.com/tesseract-ocr/tesseract">Tesseract OCR</a>; in this case, it will give us <strong>Garden</strong>.</p>
+
+<p>Similar to the arcade mode, we will use Word2Vec to find the most similar word to it, which will be <strong>Flower beds</strong> this time.</p>
+
+<hr />
+
+<h2 id="improvements">IMPROVEMENTS</h2>
+
+<p>In certain scenarios, the current OCR process doesn’t recognize the word properly.</p>
+
+<p>For example, it would return <strong>Eloctrlclty</strong> for this contour instead of <strong>Electricity</strong>.</p>
+
+<figure> <img src="/images/semantris-blocks-failing-contour.png">
+    <figcaption>Semantris BLOCKS contour with wrong OCR results</figcaption>
+</figure>
+
+<p>Given that it’s an invalid word suggestion, the Word2Vec model will not return any similar word for it. In that case, the suggested word itself is entered as an associated word, just to keep the game moving.</p>
+
+<blockquote>
+<p>A spelling correction model can help here, correcting <strong>Eloctrlclty</strong> to <strong>Electricity</strong>.</p>
+
+<p>I have created an <a href="https://github.com/pravj/semantris-solver/issues/7">issue on the GitHub</a> repository for the same, feel free to contribute if you like. 😄</p>
+</blockquote>
+
+<hr />
+
+<h2 id="source-code">SOURCE CODE</h2>
+
+<h4 id="semantris-solver-https-github-com-pravj-semantris-solver-github"><a href="https://github.com/pravj/semantris-solver">Semantris-Solver</a> (GitHub)</h4>
+
+<p>It’s implemented as a CLI tool that allows you to switch between the game modes. You can check the <strong>IPython notebooks</strong> implementing both the modes.</p>
+
+<ol>
+<li><a href="https://github.com/pravj/semantris-solver/blob/master/notebooks/Semantris%20Arcade%20Mode.ipynb">ARCADE mode</a></li>
+<li><a href="https://github.com/pravj/semantris-solver/blob/master/notebooks/Semantris%20Block%20Mode.ipynb">BLOCKS mode</a></li>
+</ol>
+
+<h4 id="dependencies">Dependencies</h4>
+
+<p>It wasn’t possible to implement Semantris-Solver without the following software tools (any many more).</p>
+
+<ol>
+<li>OpenCV</li>
+<li>Word2Vec (gensim)</li>
+<li>pyautogui (taking the screenshot and entering associated words)</li>
+<li>Tesseract (OCR)</li>
+</ol>
+
+<hr />
+
+<p>Hope you liked my weekend hack story. Feel free to provide your feedback.</p>
+
+<p>I can be reached on <a href="https://twitter.com/hackpravj">Twitter</a> or through my personal website <a href="https://hackpravj.com">hackpravj.com</a>.</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/blog/inside-cricket/"><i class="icon-left-open"></i> Inside Cricket</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/blog/building-missing-github-feature/">Using GitHub to build a missing GitHub feature <i class="icon-right-open"></i></a>
+          </div>
+          
+
+      
+       </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://hackpravj.com/main.js"></script>
+
+
+
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+</body>
+</html>

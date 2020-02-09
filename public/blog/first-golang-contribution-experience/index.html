@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Contributing to the Go programming language - hack(pravj) | Pravendra Singh
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Pravendra Singh and I love playing with data. R(ETL)PL."/>
+<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
+<meta name="author" content="Pravendra Singh">
+<meta http-equiv="cleartype" content="on">
+
+  <meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
+<meta property="og:title" content="Contributing to the Go programming language" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hackpravj.com/blog/first-golang-contribution-experience/" />
+<meta property="og:description" content="This article describes my experience contributing the first commit to the Go programming language. It might be one small step for you, but it&rsquo;s one giant leap for the gopher inside me.
+ Along with my experience, I will outline the article as a (beginner&rsquo;s) gopher&rsquo;s guide for contributing to an open source project (the Go project in this case).
+I have started learning Go in the late 2014 and I was lucky enough to receive a healthy appreciation from the community for my very first project in the language." />
+
+<meta property="og:image" content=" https://hackpravj.com/images/pravj-monu-art.jpg "/>
+
+<meta property="article:author" content="https://www.facebook.com/hackpravj" />
+<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hackpravj">
+<meta name="twitter:creator" content="@hackpravj">
+<meta name="twitter:title" content="Contributing to the Go programming language" />
+<meta name="twitter:description" content="This article describes my experience contributing the first commit to the Go programming language. It might be one small step for you, but it&rsquo;s one giant leap for the gopher inside me.
+ Along with my experience, I will outline the article as a (beginner&rsquo;s) gopher&rsquo;s guide for contributing to an open source project (the Go project in this case).
+I have started learning Go in the late 2014 and I was lucky enough to receive a healthy appreciation from the community for my very first project in the language." />
+
+
+<meta property="twitter:image" content=" https://hackpravj.com/images/pravj-monu-art.jpg "/>
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="https://hackpravj.com/styles.min.css">
+
+  
+
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header-images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/header-images/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/images/header-images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/header-images/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/images/header-images/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="hack(pravj)" />
+
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container rrr">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">PRAVENDRA SINGH</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="icon-user"></i></a></li>
+            <li><a href="/blog" title="Articles"><i class="icon-article-alt"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="icon-github-circled"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="icon-quote-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/blog/first-golang-contribution-experience/">Contributing to the Go programming language</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="icon-calendar"></i>  
+              <span class="post-date">
+                <span class="post-date-month">June</span> 
+                <span class="post-date-day"> 15, </span>
+                <span class="post-date-year">2017</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-golang" href="https://hackpravj.com/tags/golang">
+                  <i class="icon-tag"></i>Golang</a>
+                
+                <a class="post-tag post-tag-open-source" href="https://hackpravj.com/tags/open-source">
+                  <i class="icon-tag"></i>Open Source</a>
+                
+            
+
+         </div>
+
+			
+
+      <div class="post-content">
+        
+
+<blockquote>
+<p>This article describes my experience contributing the <a href="https://github.com/golang/go/commit/538b3a5f37a5316a4ba081fd5a8eb5fb09992ba7">first commit</a> to the Go programming language. It might be one small step for you, but it&rsquo;s one giant leap for the gopher inside me.</p>
+</blockquote>
+
+<p>Along with my experience, I will outline the article as a (beginner&rsquo;s) gopher&rsquo;s guide for contributing to an open source project (the <a href="https://github.com/golang">Go project</a> in this case).</p>
+
+<p>I have started learning Go in the late 2014 and I was lucky enough to receive a healthy appreciation from the community for <a href="https://github.com/pravj/geopattern">my very first project</a> in the language. Since then, it has been one of my two goto languages (Python being the other one).</p>
+
+<p>Fixing issues and submitting pull requests is <a href="https://github.com/pravj">one of my favorite pastime</a>. And I have seen myself forking or creating more repositories in Go as compared to Python lately. I would say my love for Go has increased.</p>
+
+<h3 id="living-in-the-community">Living in the community</h3>
+
+<p>When you use a software extensively and love it, you start loving the community too. You find your own heroes, learn from them and aspire to be like them. The same happened after getting convinced that Go is my next mate.</p>
+
+<p>In my early days of learning Python, I remember reading more and more about &ldquo;Guido van Rossum&rdquo; being the &ldquo;Benevolent Dictator For Life&rdquo; and &ldquo;Kenneth Reitz&rdquo; transforming the development via &ldquo;requests&rdquo; etc.</p>
+
+<blockquote>
+<p>Who to copy is easy. You copy your heroes – the people you love, the people you’re inspired by, the people you want to be.</p>
+</blockquote>
+
+<p>As you get more and more (truly) involved, you attempt to move up the ladder in the open source hierarchy. Your self expectations want you to become a producer (maintainer / contributor) from a consumer (user).</p>
+
+<h3 id="finding-things-to-contribute">Finding things to contribute</h3>
+
+<blockquote>
+<p>There is <strong>always</strong> something to do for your experience level, you need to find it.</p>
+</blockquote>
+
+<p>As a child, I used to think that there is nothing new to create and all the possible things had been innovated already. To my surprise, I realized that my assumption was wrong when I started learning about different things.</p>
+
+<p>Similarly, if you want to contribute to a project, you need to keep using (exploring) it to its fullest. You will inevitably run into issues that require contributing back to the project.</p>
+
+<h3 id="no-contribution-is-small">No contribution is small</h3>
+
+<blockquote>
+<p>When they say that contributions are welcome, they mean it. Even if it&rsquo;s a small change in the project documentation.</p>
+</blockquote>
+
+<p>In fact, the contribution I&rsquo;m celebrating isn&rsquo;t my first to the Go project. My first contribution was to the <a href="https://github.com/golang/blog/commit/83eaf8725de030de65c4ae73d82b1e8e002901a2">Go blog</a>. It was just a simple rephrasing, updating a dead link. It turned out to be a nice excuse to get familiar with <a href="https://go-review.googlesource.com">Gerrit</a>, the review system used by Go team.</p>
+
+<h3 id="something-to-be-enthusiastic-about">Something to be enthusiastic about</h3>
+
+<p>After getting that small documentation patch merged, I was eager to see my name in the core language repository contributors.</p>
+
+<p>Also, I had another private motivation.</p>
+
+<p>Let me explain. That&rsquo;s what I saw when I opened the <a href="https://golang.org/AUTHORS">Go AUTHORS</a> file.</p>
+
+<pre><code>A Medium Corporation
+Aamir Khan &lt;syst3m.w0rm@gmail.com&gt;
+Aaron France &lt;aaron.l.france@gmail.com&gt;
+...
+</code></pre>
+
+<p>The second name <strong>Aamir Khan</strong> seemed familiar to me. He was my college senior and has been an inspiration to me. I remember that one of my very first emails to a stranger was to him when I asked him for the source code of his competition winning website.</p>
+
+<p>Now that his name was there, I wanted my name in there too. I was determined to follow the path, just like him.</p>
+
+<p>I&rsquo;m not comparing myself here, just following up on the beautiful quote by &ldquo;Pablo Picasso&rdquo;.</p>
+
+<blockquote>
+<p>Good artists copy; Great artists steal.</p>
+</blockquote>
+
+<h3 id="setting-up-the-tools">Setting up the tools</h3>
+
+<p>Once you&rsquo;ve found something to contribute, you need to <a href="https://golang.org/doc/contribute.html#auth">configure Git to use Gerrit</a>.</p>
+
+<p>The <a href="https://golang.org/doc/contribute.html">contribution guide</a> is the best (and official) place to learn about completing the <a href="https://golang.org/doc/contribute.html#cla">Contributor License Agreement</a>, <a href="https://golang.org/doc/contribute.html#git-codereview_install">installing git-codereview</a>, and <a href="https://golang.org/doc/contribute.html#git-config">setting up git aliases</a>. You should finish it to get familiar with the <strong>git-codereview</strong> workflow.</p>
+
+<h3 id="tip-and-release-versions-of-go">tip and release versions of Go</h3>
+
+<p>The <a href="https://tip.golang.org">tip version</a> of the language is same as the current master on GitHub.</p>
+
+<blockquote>
+<p>$ go version</p>
+
+<p>go version devel +03a4a5c Wed Jun 14 17:28:02 2017 +0000 darwin/amd64</p>
+</blockquote>
+
+<p>The release version is what you&rsquo;ve installed.</p>
+
+<blockquote>
+<p>$ go version</p>
+
+<p>go version go1.8.3 darwin/amd64</p>
+</blockquote>
+
+<p>You can switch to whichever (<strong>$ which go</strong>) you want during the build process by changing the location of Go in <strong>$PATH</strong>.</p>
+
+<h3 id="the-real-contribution">The real contribution</h3>
+
+<p>The <a href="https://golang.org/pkg/reflect/">reflect</a> package has a method <a href="https://golang.org/pkg/reflect/#StructOf">StructOf</a> which accepts a slice of <a href="https://golang.org/pkg/reflect/#StructField">StructField</a> (type struct) and generates a new <strong>Struct</strong> containing those fields.</p>
+
+<p>It was <a href="https://github.com/golang/go/issues/20600">reported</a> that the function is producing <strong>Structs</strong> with invalid field names <a href="https://golang.org/ref/spec#Struct_types">according to the language grammar</a>.</p>
+
+<pre><code>type S struct {
+  Field1 Type1
+  Field2 Type2
+  ...    ...
+}
+</code></pre>
+
+<hr />
+
+<p>According to the language grammar, here is the <strong>Extended Backus-Naur Form</strong> of a <a href="https://golang.org/ref/spec#Struct_types">Struct Type</a>.</p>
+
+<pre><code>StructType     = &quot;struct&quot; &quot;{&quot; { FieldDecl &quot;;&quot; } &quot;}&quot; .
+FieldDecl      = (IdentifierList Type | AnonymousField) [ Tag ] .
+IdentifierList = identifier { &quot;,&quot; identifier } .
+identifier     = letter { letter | unicode_digit } .
+letter         = unicode_letter | &quot;_&quot; .
+</code></pre>
+
+<hr />
+
+<p>It turns out that the <strong>Field Name</strong> should be an <strong>Identifier</strong>. So I implemented a function <a href="https://github.com/golang/go/commit/538b3a5f37a5316a4ba081fd5a8eb5fb09992ba7">isValidFieldName</a> with the signature <strong>(fieldName string) bool</strong> to check if a given string is a valid field name or not.</p>
+
+<h3 id="what-s-next">What&rsquo;s next?</h3>
+
+<p>It was a fun exercise overall. I have one more <a href="https://github.com/golang/lint/pull/302">pull request pending</a> in the &ldquo;golint&rdquo; repository. I hope it will be reviewed soon.</p>
+
+<blockquote>
+<p>As long as <strong>TryBots Are Happy</strong>, I look forward to more such contributions.</p>
+</blockquote>
+
+<h3 id="hire-me">Hire me!</h3>
+
+<p>For now, I&rsquo;m looking for a new role as a Software Engineer. I am good with Web Services and APIs, Data Analysis and Visualization. You can walk around to know more about my previous work. Hit me up if you have a lead, <strong>hackpravj [@] gmail [.] com</strong>.</p>
+
+      </div>
+	
+			
+		    	<div class="social-sharing">
+	<span style="display:table;margin: 0 auto;">
+		<a class="github-button" href="https://github.com/pravj" data-count-href="/pravj/followers" data-count-api="/users/pravj#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @pravj on GitHub">Follow @pravj</a>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="true">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+		
+	</span>
+</div>
+
+		    
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <a class="paging-link" href="/blog/information-dynamics-on-github/"><i class="icon-left-open"></i> Information Dynamics on the GitHub Network</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/blog/inside-cricket/">Inside Cricket <i class="icon-right-open"></i></a>
+          </div>
+          
+
+      
+       </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row" id="disqus_area">
+      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'pravj';
+
+  function loadDisqus() {
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  
+  document.getElementById('disqus_load').style.display = 'none';
+  return false;
+}
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+  </div>
+  
+
+
+	
+
+	
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	
+
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48537986-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Powered by <a href="https://gohugo.io/">Hugo</a> on <a href="https://pages.github.com/">GitHub Pages</a></p>
+</div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://hackpravj.com/main.js"></script>
+
+
+
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hack on hack(pravj)</title>
+    <link>https://hackpravj.com/tags/hack/</link>
+    <description>Recent content in Hack on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Dec 2018 00:00:00 +0530</lastBuildDate>
+    
+	<atom:link href="https://hackpravj.com/tags/hack/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Solving Google Semantris using OpenCV and Word2Vec</title>
+      <link>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</link>
+      <pubDate>Sun, 02 Dec 2018 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</guid>
+      <description>Semantris is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.
+ There are 2 modes available in the game.
+ARCADE Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen.</description>
+    </item>
+    
+    <item>
+      <title>Development story of puzzl</title>
+      <link>https://hackpravj.com/blog/development-story-of-puzzl/</link>
+      <pubDate>Thu, 23 Apr 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/development-story-of-puzzl/</guid>
+      <description>Lets start with that old promotion rant I use all the time.
+ You should have a look at puzzl, if you haven&amp;rsquo;t yet.
+ What this is all about? This post is about development of a sliding-puzzle game I made recently, named puzzl. I refer it as an intelligent version of the classical sliding puzzle game, and I&amp;rsquo;ll explain the reason behind this. Stay awake.
+ Puzzl in action  For What Joy?</description>
+    </item>
+    
+    <item>
+      <title>Holy Aesthete : painting a virtual wall</title>
+      <link>https://hackpravj.com/blog/virtual-wall/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/virtual-wall/</guid>
+      <description>Today, it&amp;rsquo;s the day of Holi, the festival of colors in India.
+Yesterday, it was the end of our midterm exams.
+Such Time. Much Rhyme.
+  Virtual Wall  During the last minutes, I decided to stop writing after matching an answer with the person sitting next to me. I was all set to run outside the hall and smell the woot! no more exams left scent in the air.</description>
+    </item>
+    
+    <item>
+      <title>Introducing Penticons : The Hash Game</title>
+      <link>https://hackpravj.com/blog/penticons-the-hash-game/</link>
+      <pubDate>Sun, 08 Feb 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/penticons-the-hash-game/</guid>
+      <description>Jennifer Lawrence fan, huh? It was The Hash Game by the way. Still in? Kewl.
+What&amp;rsquo;s the buzz all about? Unfortunately, there is no buzz. This post is about development of Penticons.
+Penticons. What? Remember those egg shaped profile pictures on Twitter? They are automaticaly linked to your profile, when you forget to upload your custom profile picture.
+Different services uses different default profile pictures. For example, Quora uses this image of their co-founder Charlie Cheever.</description>
+    </item>
+    
+    <item>
+      <title>termping : &lt;3 &#43; Node.js &#43; Streams &#43; CoffeeScript</title>
+      <link>https://hackpravj.com/blog/termping/</link>
+      <pubDate>Sun, 27 Jul 2014 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/termping/</guid>
+      <description>You should have a look at termping, if you haven&amp;rsquo;t yet.
+ What&amp;rsquo;s the fuss about This Blog is all about development of a game(kind of) termping, which is a prototype of one of the oldest video game Pong.
+ But this prototype runs in your system&amp;rsquo;s terminal
+  termping in action  Emergence  One thing that I just feel, I am getting good at is &amp;ldquo;reading and understanding other people&amp;rsquo;s code&amp;rdquo; &amp;#35;notprasingmyself</description>
+    </item>
+    
+  </channel>
+</rss>
