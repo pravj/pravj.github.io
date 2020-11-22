@@ -143,101 +143,60 @@
 			
 
       <div class="post-content">
-        
-
-<p>Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination <em>Internet Accident</em> confuse you, let me decode its meaning in the context of this post.</p>
-
+        <p>Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination <em>Internet Accident</em> confuse you, let me decode its meaning in the context of this post.</p>
 <blockquote>
 <p>Encounter with something on an edge node of the Holy Internet.</p>
 </blockquote>
-
 <p>So this post is all about my attempt to solve a question, I saw on <em>Quora</em>.</p>
-
 <blockquote>
 <p><a href="http://www.quora.com/What-good-known-project-on-GitHub-uses-the-largest-number-of-programming-languages">What good known projects on GitHub uses the largest number of programming languages?</a></p>
 </blockquote>
-
 <p>And I think that my answer is 98.76% correct, respecting the <em>No-Zero-Redundancy</em> law.</p>
-
 <p>I saw this question while jumping between my chrome tabs when I was struggling with old drafts of my blog.
 I clicked the link to give it a separate tab; <em>even questions have self respect</em>.</p>
-
 <p>I stumbled upon it as I saw that the question had a topic named <em>GitHub</em> also.</p>
-
 <p>So, to answer this, all I had to do was to find a repository which uses highest number of programming languages in it.</p>
-
 <blockquote>
 <p>Wait, the question also says a <em>&ldquo;good known project&rdquo;</em>.
 Now that&rsquo;s a plot twist.</p>
 </blockquote>
-
 <p><em>GitHub</em> provides an excellent <a href="https://developer.github.com/v3/">REST API</a>, so excellent that it powers some awesome services also, like the <a href="https://gitter.im">Gitter</a>.</p>
-
 <p>Now, to look for languages statistics of a repository you need the names of the repository and its owner. Then you can check a repo&rsquo;s languages statistics using.</p>
-
 <blockquote>
-<p><a href="https://api.github.com/repos/{owner}/{repo}/languages">https://api.github.com/repos/{owner}/{repo}/languages</a></p>
+<p><a href="https://api.github.com/repos/%7Bowner%7D/%7Brepo%7D/languages">https://api.github.com/repos/{owner}/{repo}/languages</a></p>
 </blockquote>
-
 <p><em>As far as a I know, there is not any way to do a reverse lookup, where you just provide number of programming languages and it gives you all the associated repositories.</em></p>
-
 <p>So I thought, lets give up on it and enjoy the coffee, <em>I had one on my desk</em>.</p>
-
 <p>I closed the question tab and started enjoying the coffee but then I opened it again because I felt that there may be a chance, if I use the <em>GitHub Archive</em> project.</p>
-
 <blockquote>
 <p>GitHub Archive is a project to record the public GitHub timeline, archive it, and make it easily accessible for further analysis.</p>
 </blockquote>
-
 <p>This shift in plan was also not enough as <em>GitHub Archive</em> gives only the major programming language for a project.
 Now it was the time to shift to coffee <em>full time</em> but <em>Nope! I had another idea</em>.</p>
-
 <p>The idea was to collect <em>good and known</em> projects of <em>GitHub</em> and rank them according to no. of programming languages in them. This sounds like <em>Brute Force</em> but it was the only way left.</p>
-
 <p>I headed towards the <em>GitHub API</em> for it but found that they gives you the first 1000 search results only.</p>
-
 <p>So I moved to <em>GitHub Archive</em> finally and <a href="https://github.com/pravj/Post-mortem/blob/master/bigquery.sql">downloaded a .csv file</a> of all the repositories with greater than equal to 500 stars. Now, I think it covers most of your <em>good and known projects</em>, happy now?</p>
-
 <p>I <em>Vimed</em> the .csv file and found that some URLs were missing the owner&rsquo;s name.</p>
-
-<figure> <img src="/images/vim-screenshot.png"> 
-    <figcaption>Vim Screenshot</figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <blockquote>
-<p><strong>:g/https:\/\/github.com\/\//d</strong></p>
-
+<p><strong>:g/https://github.com///d</strong></p>
 <p>I removed all the corrupted lines using this command.</p>
 </blockquote>
-
 <p>If you&rsquo;re thinking that by removing lines, we won&rsquo;t consider these repositories then take a deep breath and don&rsquo;t think so, we will consider them, keep reading.</p>
-
 <p>Then I wrote a <em>Python module</em> to interact with the <em>GitHub API</em>, named it <em><a href="https://github.com/pravj/Post-mortem/blob/master/postman.py">postman</a></em>.
 The <em>postman</em> uses <em>Authentication Token</em> from <em>GitHub</em> to prevent the <em>rate-limiting</em>.</p>
-
 <p>I don&rsquo;t know how much did <em>postman</em> take in its task as I was attending my classes then.
 But when I came back from class in the evening, I saw that <em>postman</em> was done with the task. <em>Wow, an obedient postman</em>.</p>
-
 <p><em>Right now if you search in GitHub for repositories having 500 or more stars, you will see around 7,200 results. So we have been doing this right so far as GitHub Archive <a href="http://git.io/78eKDg">don&rsquo;t have</a> all the data</em>.</p>
-
 <p>Once all the data is available, it&rsquo;s time to <em>rock &lsquo;n&rsquo; roll</em>. <a href="http://www.rstudio.com">Rstudio</a> is always there to help us.</p>
-
 <p>Plotting the stars and languages distribution over all the repositories, we get this graph.</p>
-
-<figure> <img src="/images/stars-and-languages.png"> 
-    <figcaption>Stars and Language distribution</figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <p>You can see that most of our good and known projects are in the bottom-left corner. Almost 90% of our repositories have less than 20,000 stars and 20 languages.</p>
-
 <p>There is only one repository with more than 40,000 stars, which is the <a href="https://github.com/twbs/bootstrap">twbs/bootstrap</a>.</p>
-
 <p>OK, let&rsquo;s come to the question again. I think ordering repositories according to their no. of programming languages will work.</p>
-
 <blockquote>
 <p>Top 25 projects by their no. of programming languages</p>
 </blockquote>
-
 <ul>
 <li><a href="https://github.com/leachim6/hello-world">leachim6/hello-world</a>, languages : 82</li>
 <li><a href="https://github.com/ajaxorg/ace">ajaxorg/ace</a>, languages : 58</li>
@@ -265,70 +224,52 @@ But when I came back from class in the evening, I saw that <em>postman</em> was 
 <li><a href="https://github.com/ruby/ruby">ruby/ruby</a>, languages : 21</li>
 <li><a href="https://github.com/coolwanglu/vim.js">coolwanglu/vim.js</a>, languages : 21</li>
 </ul>
-
-<hr />
-
+<hr>
 <p>So, is that all? <em>Not at all! We have a lot to talk about my friend.</em></p>
-
 <p>Lets talk about something interesting I found in the data there.</p>
-
-<p></br></p>
-
+<!-- raw HTML omitted -->
 <h3 id="1-there-were-382-repositories-without-any-programming-language">1. There were 382 repositories without any programming language.</h3>
-
 <ul>
 <li>Most of them are documentations, list of resources for a field.</li>
 <li>For example <a href="https://github.com/vhf/free-programming-books">vhf/free-programming-books</a>, List of free learning resources.</li>
 </ul>
-
-<figure> <img src="/images/zero-language-repository.png"> 
-    <figcaption>Zero Language Repositories</figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <blockquote>
 <p>Subject to the detection of language by GitHub.</p>
 </blockquote>
-
 <p><em>Along with the required dataset, I was also collecting the <a href="https://github.com/pravj/Post-mortem/blob/master/log/postman.log">logs</a> data.
 So, there is something more interesting.</em></p>
-
-<h3 id="2-the-log-file-shows-error-status-404-in-some-lines">2. The log file shows &lsquo;ERROR : status 404&rsquo; in some lines.</h3>
-
+<h3 id="2-the-log-file-shows-error--status-404-in-some-lines">2. The log file shows &lsquo;ERROR : status 404&rsquo; in some lines.</h3>
 <ul>
 <li>There are 214 such lines, it means these projects have shifted their owners as it&rsquo;s unusual to delete such popular repository.</li>
 <li>They have evolved to much larger projects and have their own organizations now. For example the projects <a href="https://github.com/homebrew/homebrew">Homebrew</a>, <a href="https://github.com/docker/docker">Docker</a> and <a href="https://github.com/jekyll/jekyll">Jekyll</a>, earlier they were <a href="https://github.com/mxcl/homebrew">mxcl/homebrew</a>, <a href="https://github.com/dotcloud/docker">dotcloud/docker</a> and <a href="https://github.com/mojombo/jekyll">mojombo/jekyll</a> respectively.</li>
 <li>The maximum-star-holder-and-ultra-awesome project <a href="https://github.com/twbs/bootstrap">twbs/bootstrap</a> was earlier at <em>Twitter</em> by the address, <a href="https://github.com/twitter/bootstrap">twitter/bootstrap</a>.</li>
 <li>The one-and-only TJ Holowaychuk have changed his username from <a href="https://github.com/visionmedia">visionmedia</a> to <a href="https://github.com/tj">tj</a>.</li>
 </ul>
-
-<h3 id="3-the-log-file-shows-error-status-403-in-some-lines">3. The log file shows &lsquo;ERROR : status 403&rsquo; in some lines.</h3>
-
+<h3 id="3-the-log-file-shows-error--status-403-in-some-lines">3. The log file shows &lsquo;ERROR : status 403&rsquo; in some lines.</h3>
 <p>Now this is weird, as status 403 denotes the Forbidden state. But underlying secrets are much more awesome here.</p>
-
 <ol>
-<li>There were two repositories, disabled due to a DMCA takedown notice.
-
+<li>There were two repositories, disabled due to a DMCA takedown notice.</li>
+</ol>
 <ul>
 <li><a href="https://github.com/popcorn-official/popcorn-app">popcorn-official/popcorn-app</a></li>
 <li><a href="https://github.com/Bukkit/CraftBukkit">Bukkit/CraftBukkit</a></li>
-</ul></li>
-<li>There was one repositories which is disabled by GitHub staff.
-
+</ul>
+<ol start="2">
+<li>There was one repositories which is disabled by GitHub staff.</li>
+</ol>
 <ul>
 <li><a href="https://github.com/mandatoryprogrammer/Octodog_Invasion">mandatoryprogrammer/Octodog_Invasion</a></li>
-</ul></li>
-<li>There was one repository which is deleted.
-
+</ul>
+<ol start="3">
+<li>There was one repository which is deleted.</li>
+</ol>
 <ul>
 <li><a href="https://github.com/NULLPointerDz/test">NULLPointerDz/test</a></li>
 <li>Don&rsquo;t know how but this repository had more than 500 stars once.</li>
-</ul></li>
-</ol>
-
-<hr />
-
+</ul>
+<hr>
 <p>The code for this report is on GitHub, <a href="https://github.com/pravj/Post-mortem">pravj/Post-mortem</a>.</p>
-
 <blockquote>
 <p>If you feel that you can do more after going through this post-mortem report, you are welcome to show your medical skills.</p>
 </blockquote>
@@ -343,13 +284,13 @@ So, there is something more interesting.</em></p>
 			
           
           <div class="six columns">
-            <a class="paging-link" href="/blog/going-on-the-go-path/"><i class="icon-left-open"></i> geopattern : going on the Go path</a>
+            <a class="paging-link" href="/blog/the-git-game-writeup/"><i class="icon-left-open"></i> The git-game Write-up</a>
           </div>
           
 
 					
           <div class="paging-newer six columns">
-            <a class="paging-link" href="/blog/the-git-game-writeup/">The git-game Write-up <i class="icon-right-open"></i></a>
+            <a class="paging-link" href="/blog/going-on-the-go-path/">geopattern : going on the Go path <i class="icon-right-open"></i></a>
           </div>
           
 

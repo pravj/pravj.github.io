@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Golang on hack(pravj)</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Golang on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Jun 2017 00:00:00 +0530</lastBuildDate>
-    
-	<atom:link href="https://hackpravj.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 15 Jun 2017 00:00:00 +0530</lastBuildDate><atom:link href="https://hackpravj.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Contributing to the Go programming language</title>
       <link>https://hackpravj.com/blog/first-golang-contribution-experience/</link>
@@ -31,7 +27,7 @@ I have started learning Go in the late 2014 and I was lucky enough to receive a 
       <description>Lets start with that old promotion rant I use all the time.
  You should have a look at puzzl, if you haven&amp;rsquo;t yet.
  What this is all about? This post is about development of a sliding-puzzle game I made recently, named puzzl. I refer it as an intelligent version of the classical sliding puzzle game, and I&amp;rsquo;ll explain the reason behind this. Stay awake.
- Puzzl in action  For What Joy?</description>
+For What Joy?  Yes, that&amp;rsquo;s the best question.</description>
     </item>
     
     <item>
@@ -41,9 +37,9 @@ I have started learning Go in the late 2014 and I was lucky enough to receive a 
       
       <guid>https://hackpravj.com/blog/virtual-wall/</guid>
       <description>Today, it&amp;rsquo;s the day of Holi, the festival of colors in India.
-Yesterday, it was the end of our midterm exams.
-Such Time. Much Rhyme.
-  Virtual Wall  During the last minutes, I decided to stop writing after matching an answer with the person sitting next to me. I was all set to run outside the hall and smell the woot! no more exams left scent in the air.</description>
+  Yesterday, it was the end of our midterm exams.
+  Such Time. Much Rhyme.
+ During the last minutes, I decided to stop writing after matching an answer with the person sitting next to me. I was all set to run outside the hall and smell the woot! no more exams left scent in the air.</description>
     </item>
     
     <item>
@@ -66,8 +62,8 @@ Different services uses different default profile pictures. For example, Quora u
       <guid>https://hackpravj.com/blog/going-on-the-go-path/</guid>
       <description>You should have a look at geopattern, if you haven&amp;rsquo;t yet.
  What&amp;rsquo;s the buzz all about? This blog post is about development of geopattern library in golang.
-What do you think about this my favorite colored concentric circle pattern?
- Concentric Circle Pattern  geopattern. What? Umm, actually I don&amp;rsquo;t know exactly why the name is geopattern but I know what it is.
+ What do you think about this my favorite colored concentric circle pattern?
+geopattern. What? Umm, actually I don&amp;rsquo;t know exactly why the name is geopattern but I know what it is.
 It is a golang library that generates pretty image patterns.</description>
     </item>
     

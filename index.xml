@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hack(pravj)</title>
@@ -6,10 +6,18 @@
     <description>Recent content on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Sep 2019 00:00:00 +0530</lastBuildDate>
-    
-	<atom:link href="https://hackpravj.com/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 22 Nov 2020 00:00:00 +0530</lastBuildDate><atom:link href="https://hackpravj.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to read Paul Graham&#39;s essays?</title>
+      <link>https://hackpravj.com/blog/how-to-read-paul-graham-essays/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0530</pubDate>
+      
+      <guid>https://hackpravj.com/blog/how-to-read-paul-graham-essays/</guid>
+      <description>Before you start reading this piece, I want to inform that the question presented here is equivalent to a mathematical problem that has multiple possible answers. The answer depends on you; how do you arrive on one of his articles, and what are you seeking.
+Sounds like a zen proverb, right?
+Yes. Take my “personal” answer/solution to this question for example.
+Looking in the past, most of the times I’ve found myself reading the essays when I’m sitting in MTR on my own trying to spend some time off, amidst the constant background noise of people ordering the same three items over and over.</description>
+    </item>
     
     <item>
       <title>Opportunities in Indian railway commute: Next Billion Users perspective</title>
@@ -18,7 +26,7 @@
       
       <guid>https://hackpravj.com/blog/indian-railways-next-billion-users/</guid>
       <description>Next billion Internet users (NBU) Nearly one in every three people had access to the Internet at the dawn of this decade, which is now accessible to every other person. The situation is different for developing countries, where a significant population is still new to the Internet. In India, for example, there is around 65% of the population without this service.
- Internet penetration in the world (source: world bank)  As the Internet has reached in most of the infrastructure-heavy parts of the world, it faces a challenging and different road ahead reaching in the developing areas (India, Indonesia, Brazil, and Mexico, etc.</description>
+As the Internet has reached in most of the infrastructure-heavy parts of the world, it faces a challenging and different road ahead reaching in the developing areas (India, Indonesia, Brazil, and Mexico, etc.</description>
     </item>
     
     <item>
@@ -70,7 +78,7 @@ I have started learning Go in the late 2014 and I was lucky enough to receive a 
       <guid>https://hackpravj.com/blog/information-dynamics-on-github/</guid>
       <description>Exploring the &amp;ldquo;social coding&amp;rdquo; behavior.
  Social groups have a system of behaviors occurring within the group or between groups, called “Group dynamics”. GitHub, being a social coding network, is the host to millions of developers and software projects. This report will use openly available data to unveil such behaviors in an intellectual-focused social network.
-Social Coding The growth of GitHub has been significantly different from other OSS communities such as Alioth, Freecode, and Savannah.</description>
+ Social Coding The growth of GitHub has been significantly different from other OSS communities such as Alioth, Freecode, and Savannah.</description>
     </item>
     
     <item>
@@ -103,7 +111,7 @@ I decided to do this report when I was in Bangalore this summer, Sillicon Valley
       <description>Lets start with that old promotion rant I use all the time.
  You should have a look at puzzl, if you haven&amp;rsquo;t yet.
  What this is all about? This post is about development of a sliding-puzzle game I made recently, named puzzl. I refer it as an intelligent version of the classical sliding puzzle game, and I&amp;rsquo;ll explain the reason behind this. Stay awake.
- Puzzl in action  For What Joy?</description>
+For What Joy?  Yes, that&amp;rsquo;s the best question.</description>
     </item>
     
     <item>
@@ -113,9 +121,9 @@ I decided to do this report when I was in Bangalore this summer, Sillicon Valley
       
       <guid>https://hackpravj.com/blog/virtual-wall/</guid>
       <description>Today, it&amp;rsquo;s the day of Holi, the festival of colors in India.
-Yesterday, it was the end of our midterm exams.
-Such Time. Much Rhyme.
-  Virtual Wall  During the last minutes, I decided to stop writing after matching an answer with the person sitting next to me. I was all set to run outside the hall and smell the woot! no more exams left scent in the air.</description>
+  Yesterday, it was the end of our midterm exams.
+  Such Time. Much Rhyme.
+ During the last minutes, I decided to stop writing after matching an answer with the person sitting next to me. I was all set to run outside the hall and smell the woot! no more exams left scent in the air.</description>
     </item>
     
     <item>
@@ -173,8 +181,8 @@ It&amp;rsquo;s a nice little complete-a-task-and-upgrade-level type of game laye
       <guid>https://hackpravj.com/blog/going-on-the-go-path/</guid>
       <description>You should have a look at geopattern, if you haven&amp;rsquo;t yet.
  What&amp;rsquo;s the buzz all about? This blog post is about development of geopattern library in golang.
-What do you think about this my favorite colored concentric circle pattern?
- Concentric Circle Pattern  geopattern. What? Umm, actually I don&amp;rsquo;t know exactly why the name is geopattern but I know what it is.
+ What do you think about this my favorite colored concentric circle pattern?
+geopattern. What? Umm, actually I don&amp;rsquo;t know exactly why the name is geopattern but I know what it is.
 It is a golang library that generates pretty image patterns.</description>
     </item>
     
@@ -187,7 +195,7 @@ It is a golang library that generates pretty image patterns.</description>
       <description>You should have a look at termping, if you haven&amp;rsquo;t yet.
  What&amp;rsquo;s the fuss about This Blog is all about development of a game(kind of) termping, which is a prototype of one of the oldest video game Pong.
  But this prototype runs in your system&amp;rsquo;s terminal
-  termping in action  Emergence  One thing that I just feel, I am getting good at is &amp;ldquo;reading and understanding other people&amp;rsquo;s code&amp;rdquo; &amp;#35;notprasingmyself</description>
+ Emergence  One thing that I just feel, I am getting good at is &amp;ldquo;reading and understanding other people&amp;rsquo;s code&amp;rdquo; #notprasingmyself</description>
     </item>
     
     <item>
@@ -198,10 +206,10 @@ It is a golang library that generates pretty image patterns.</description>
       <guid>https://hackpravj.com/blog/introduction/</guid>
       <description>Yes, you don&#39;t know me. Cool, I&#39;m telling you that.
  I am Pravendra. Developer at awesome SDSLabs.
-Also a Computer Science undergraduate student at IIT Roorkee.
-When I&amp;rsquo;m not scrolling in sublime-text or vim, I am watching Discovery Channel :bowtie:
-I am a sincere reader and It feels nice to read about other&amp;rsquo;s experiences in different fields.
-Sometimes it shows new things that you are not aware about.</description>
+  Also a Computer Science undergraduate student at IIT Roorkee.
+  When I&amp;rsquo;m not scrolling in sublime-text or vim, I am watching Discovery Channel :bowtie:
+  I am a sincere reader and It feels nice to read about other&amp;rsquo;s experiences in different fields.
+  Sometimes it shows new things that you are not aware about.</description>
     </item>
     
     <item>
@@ -282,10 +290,11 @@ Sometimes it shows new things that you are not aware about.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hackpravj.com/about/</guid>
-      <description>I am a man of vehement disposition, with violent enthusiasms, and extreme immoderation in all my passions. - Oliver Sacks  Heya!
+      <description>Heya!
 I&amp;rsquo;m Pravendra Singh, passionate about solving real life problems and building products having an impact on someone&amp;rsquo;s daily life.
-I received my undergraduate degree from the Indian Institute of Technology, Roorkee (Computer Science and Engineering, 2016).
-People say that I am good at clicking pictures. I have won a Mobile Photography Competition but can&amp;rsquo;t show you the certificate because I have lost it.</description>
+I received my undergraduate degree from the Indian Institute of Technology, Roorkee(Computer Science and Engineering, 2016).
+People say that I am good at clicking pictures. I have won a Mobile Photography Competitionbut can&amp;rsquo;t show you the certificate because I have lost it.
+I love painting in my free time (once in a full moon every leap year), scroll below for more details.</description>
     </item>
     
     <item>
@@ -294,10 +303,8 @@ People say that I am good at clicking pictures. I have won a Mobile Photography 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hackpravj.com/projects/</guid>
-      <description>Projects, out of thin air.
- I nurture my secret chores in the ~/projects/ directory. If you want to see all of my projects that managed to get out of that directory, you can head over to my GitHub.
- Jump in to ride all the Bangalore taxis, at once Data Science, Information Retrieval, Architecture
- Cab availability in Bangalore  How many UBER cars are there around you, 5 to 7?</description>
+      <description>I nurture my secret chores in the ~/projects/directory. If you want to see all of my projects that managed to get out of that directory, you can head over to my GitHub.
+&amp;lt;/div&amp;gt;  &amp;lt;p&amp;gt; Puzzl is an advance version of the classical sliding puzzle game, built with Go, to be played in terminals. If you want to read, I have also written an article about its development, &amp;lt;a target=&amp;quot;_blank&amp;quot; title=&amp;quot;puzzl story&amp;quot; href=&amp;quot;http://hackpravj.</description>
     </item>
     
   </channel>

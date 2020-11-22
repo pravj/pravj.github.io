@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Quotes on hack(pravj)</title>
     <link>https://hackpravj.com/quotes/</link>
     <description>Recent content in Quotes on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://hackpravj.com/quotes/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://hackpravj.com/quotes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       <link>https://hackpravj.com/quotes/deming/</link>

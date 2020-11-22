@@ -25,7 +25,7 @@
 <meta property="og:description" content="Lets start with that old promotion rant I use all the time.
  You should have a look at puzzl, if you haven&rsquo;t yet.
  What this is all about? This post is about development of a sliding-puzzle game I made recently, named puzzl. I refer it as an intelligent version of the classical sliding puzzle game, and I&rsquo;ll explain the reason behind this. Stay awake.
- Puzzl in action  For What Joy?" />
+For What Joy?  Yes, that&rsquo;s the best question." />
 
 <meta property="og:image" content=" https://hackpravj.com/images/pravj-monu-art.jpg "/>
 
@@ -39,7 +39,7 @@
 <meta name="twitter:description" content="Lets start with that old promotion rant I use all the time.
  You should have a look at puzzl, if you haven&rsquo;t yet.
  What this is all about? This post is about development of a sliding-puzzle game I made recently, named puzzl. I refer it as an intelligent version of the classical sliding puzzle game, and I&rsquo;ll explain the reason behind this. Stay awake.
- Puzzl in action  For What Joy?" />
+For What Joy?  Yes, that&rsquo;s the best question." />
 
 
 <meta property="twitter:image" content=" https://hackpravj.com/images/pravj-monu-art.jpg "/>
@@ -143,183 +143,101 @@
 			
 
       <div class="post-content">
-        
-
-<p>Lets start with that old promotion rant I use all the time.</p>
-
+        <p>Lets start with that old promotion rant I use all the time.</p>
 <blockquote>
 <p>You should have a look at <a href="https://github.com/pravj/puzzl">puzzl</a>, if you haven&rsquo;t yet.</p>
 </blockquote>
-
 <h3 id="what-this-is-all-about">What this is all about?</h3>
-
 <p>This post is about development of a sliding-puzzle game I made recently, named <em>puzzl</em>. I refer it as an <em>intelligent version</em> of the classical sliding puzzle game, and I&rsquo;ll explain the reason behind this. Stay awake.</p>
-
-<figure> <img src="/images/puzzl.gif"> 
-    <figcaption>Puzzl in action</figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <h3 id="for-what-joy">For What Joy?</h3>
-
 <blockquote>
 <p>Yes, that&rsquo;s the best question. Why did I do that?</p>
 </blockquote>
-
 <p>There <em>is</em> a force behind everything we do, so the same goes for any new software product we see in the jungle or a new medicine or whatever.</p>
-
 <p>They all try to solve some problems. A new version of a software has some bugs fixed from the older one and so on.</p>
-
 <blockquote>
 <p>But hey! you can develop a game without such force anytime.</p>
 </blockquote>
-
 <p>Specially, when you are supposed to study for your exams. Tested, <em>rule of thumb</em>.</p>
-
 <h3 id="exam-time-bamboozlement">Exam-time bamboozlement</h3>
-
 <blockquote>
-<p>The <em>session</em> when your mind&rsquo;s <em>stream</em> is *grep*ing too many *event*s.</p>
+<p>The <em>session</em> when your mind&rsquo;s <em>stream</em> is <em>grep</em>ing too many <em>event</em>s.</p>
 </blockquote>
-
 <p>You feel like, put this exam thing in left and consider this problem-<em>blah</em>, because the world needs you. Right now.</p>
-
 <p>It&rsquo;s gone after a nice sleep, like hangover. But it may attack you again on the next exam day, depending on your performance in last exam.</p>
-
 <p>You think about too many things, however some are out of your domain though.</p>
-
 <p>For example, <em>A bicycle for old aged people</em>. I found it an actual problem by the way, as I often see them having trouble riding the native big bicycles.</p>
-
 <p>Then you think that it should run on its own, so you draw a sketch and invest your time in adding solar panels at proper orientation, so that charging is not something to worry about, no matter where the sun is.</p>
-
 <p>Then you suddenly realize that you&rsquo;re about to transform into <em>Tony Stark</em>. You&rsquo;re working on a problem which comes under <em>Mechanical Engineering</em>. And there is no chance you can complete this without either having a degree in it or a girlfriend from that stream. By the way, both the solutions are difficult.</p>
-
 <blockquote>
 <p>A similar bamboozlement was the reason behind the game <em>puzzl</em>.</p>
 </blockquote>
-
 <p>I was setting up my camp for the mid-term exam of <em>Artificial Intelligence</em> course. And then I stumbled upon this <em>sliding-puzzle</em> game thing in book.</p>
-
 <p>Then I thought, what about a sliding-puzzle game for terminals?</p>
-
 <p>That&rsquo;s it. I was done with further preparation. I even spent the entire exam time divising the <em>scoring mechanism</em> and <em>logo</em> for the game. The last page of the solution paper and my low score is the proof.</p>
-
 <h3 id="the-problem-statement">The problem statement</h3>
-
 <p><em>Sliding-puzzle</em> games have many variants. I decided to move ahead with the one having a 3x3 board, the <em>8-puzzle</em>. 8 out of 9 tiles have some numbers on them, one tile is blank.</p>
-
 <p>All you have to do is, arrange all tiles in a particular order. Lets say, in increasing order with the blank tile being the last one.</p>
-
-<figure> <img src="/images/states.jpg"> 
-    <figcaption>8 puzzle game states</figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <p>This sounds a little easy, taking user inputs, moving the tiles accordingly and checking that whether we are done with the game or not. So, I decided to enhance both the development and playing processes.</p>
-
 <p>To solve the game in background and track user moves accordingly or give them hints. Poor humans.</p>
-
 <h3 id="the-solution">The solution</h3>
-
 <p>The solution is pretty simple actually. There is a blank tile in the game board and you can reach to a different configuration by moving that blank tile in atmost 4 directions, according to its current position.</p>
-
 <p>Now, how do you make a computer solve this, efficiently?</p>
-
 <p>This can be reduced to a problem where any game board configuration is a <em>node</em> and you can reach to a <em>node</em> from its <em>parent node</em> by applying a <em>successor function</em>, which is the movement of the blank tile in this case.</p>
-
 <p>So, this is a <em>graph search problem</em> now. You have a <em>start state</em> and you have to reach at a <em>goal state</em> in minimum steps.</p>
-
 <p>In <em>puzzl</em>, the algoirthm which solves this <em>graph search problem</em> is <a href="http://en.wikipedia.org/wiki/A*_search_algorithm">A* algorithm</a>. As of now, it uses the easiest <em>Heuristic Function</em>, <a href="http://en.wikipedia.org/wiki/Heuristic_function">Misplaced Tiles Count</a>.</p>
-
 <p>The auto solving part sounds pretty easy, right? Like a walk while eating a cake.</p>
-
 <blockquote>
 <p>But there were some other interesting challenges.</p>
 </blockquote>
-
 <h3 id="primary-language">Primary Language</h3>
-
 <p>I opted for Golang as the primary language of <em>puzzl</em>, just because <em>I&rsquo;m loving it</em> and I wanted it to takeoff comparatively faster than other solutions, let&rsquo;s say Python.</p>
-
 <p>After some work, I started getting ideas of other features and I was happy with my language choice, as Go is the best solution I can think of for them. I&rsquo;ll talk about those features in a while.</p>
-
 <h3 id="solvability-of-the-problem">Solvability of the problem</h3>
-
 <p>This is one of those interesting parts I faced while making it.</p>
-
 <blockquote>
 <p>Not all 8- puzzle game configurations are solvable.</p>
 </blockquote>
-
 <p>Yes, for a 3x3 game board, there are a total of 362880 configurations possible(9!), but only half of them are actually solvable.</p>
-
 <p>Initially it took me a while to get it that why only some of them are solvable? But after going through &ldquo;<em>Notes on the 15 puzzle</em>&rdquo; paper by <em>Wm. Woolsey Johnson and William E. Story</em> it was clear to me.</p>
-
 <p>Using the <em>Mathematical Induction</em> on what it was there in the paper, I have a sample game for you. You can spend rest of your life solving this, if you want to.</p>
-
-<figure> <img src="/images/unsolvable-game.jpg"> 
-    <figcaption>Unsolvable sliding puzzle</figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <p>Then I added a package named <a href="https://github.com/pravj/puzzl/blob/master/scanner/scanner.go">scanner</a> in the game, with the help of &ldquo;<em>Analysis of the Sixteen Puzzle</em>&rdquo;. It makes sure that any game configuration we are using, is really solvable. It uses another for the game, if one is not actually solvable.</p>
-
 <h3 id="notification-system">Notification System</h3>
-
 <p>And this was the most interesting part. Developing a <em>Real time Notification System</em> according to the game state.</p>
-
 <p>When I was done with writing the auto-solving background process for the game, I noticed that sometimes it takes a while to solve from the initial game configuration.</p>
-
 <p>For example, the hardest game configuration is solvable in 31 moves. So, when the game is solving it, it doesn&rsquo;t properly respond to user inputs.</p>
-
 <p>It won&rsquo;t respond in this way because the control flow architecture is <em>Synchronous</em> now. It means that firstoff the game will solve itself in background and then stars accepting user inputs.</p>
-
 <p>And this goes worse when the game is solving itself on each move because user input was wrong. A serious problem it was.</p>
-
 <blockquote>
 <p>Here comes the concurrency primitives of Golang.</p>
 </blockquote>
-
 <p>Concurrent programming is the beauty in Go. The language comes with built-in weapons, <em>goroutines</em> and <em>channels</em>.</p>
-
 <p>The solution works like this, we have to change the control flow architecture into <em>Asynchronous</em> mode. Where the game would be notifying us that <em>OK, now I&rsquo;m done with solving and you can give any input</em>, and avoiding all user inputs gracefully till then without a crash.</p>
-
 <p>And this can be used in many other aspects, notifying on a particular internal event. Like <em>the game is complete</em>, <em>you just did a right/wrong move</em>, <em>there are no hints left</em> etc.</p>
-
 <p>There are two <em>goroutines</em>, one for <a href="https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417">handling the notification events</a> and another for <a href="https://github.com/pravj/puzzl/blob/master/surface/surface.go#L406-L417">solving the game in background</a>, both are non-blocking in nature to other routines like <em>user inputs</em>, <em>game display</em> etc. A <em>channel</em> named <a href="https://github.com/pravj/puzzl/blob/master/notification/notification.go#L19">Tunnel</a> was the messenger for these <em>goroutines</em>.</p>
-
-<figure> <img src="/images/architecture.jpg"> 
-    <figcaption>Asynchronous Gouroutines Architecture</figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <p>This is like feeding each other. Best friends forever.</p>
-
 <h3 id="game-interface">Game Interface</h3>
-
 <p>Thanks to <a href="http://en.wikipedia.org/wiki/Box-drawing_character">Box-drawing characters</a>, the best old way to develop text based user interfaces. And thanks to <a href="https://github.com/nsf/termbox-go">termbox-go</a>, an awesome library for such interface development in Golang.</p>
-
 <h3 id="arxiv-submission">arXiv submission</h3>
-
 <p>I loved working on it so much that I even framed its development in shape of a research paper, sort of. It&rsquo;s available on the arXiv digital library, here <a href="http://arxiv.org/abs/1503.08345">arxiv-1503.08345</a>.</p>
-
 <p><em>Implementing an intelligent version of the classical sliding-puzzle game for unix terminals using Golang&rsquo;s concurrency primitives.</em></p>
-
 <p>It&rsquo;s not in LaTeX, so the arXiv stamp is absent in PDF format there. They replied that they don&rsquo;t have any technique yet to stamp other formats. I&rsquo;ll probably port it in LaTeX one day.</p>
-
 <h3 id="reference">Reference</h3>
-
 <ol>
 <li><a href="http://www.jstor.org/stable/pdf/2369492.pdf?acceptTC=true">Notes on the 15 puzzle</a></li>
 <li><a href="http://kevingong.com/Math/SixteenPuzzle.html">Analysis of the Sixteen Puzzle</a></li>
 <li><a href="http://ai-php.com/wp-content/uploads/2013/12/AI8pzzle.jpg">ai-php.com</a> for the 8-puzzle game states image</li>
 <li><a href="https://captnemo.in/">Abhay Rana</a> for teaching me what <em>For What Joy</em> is. #FWJ?</li>
 </ol>
-
 <h3 id="behind-the-scene">Behind the scene</h3>
-
 <p>I framed all this story for you, the truth is something else.</p>
-
 <blockquote>
 <p>Guess what? It&rsquo;s my exam-time again that made me write this.</p>
 </blockquote>
-
 <p>The source code for <em>puzzl</em> is on <a href="https://github.com/pravj/puzzl">GitHub</a>. Do whatever you want, just respect licensing and other respectful things.</p>
 
       </div>
@@ -341,13 +259,13 @@
 			
           
           <div class="six columns">
-            <a class="paging-link" href="/blog/virtual-wall/"><i class="icon-left-open"></i> Holy Aesthete : painting a virtual wall</a>
+            <a class="paging-link" href="/blog/bangalore-taxis/"><i class="icon-left-open"></i> Jump in to ride all the Bangalore taxis, at once</a>
           </div>
           
 
 					
           <div class="paging-newer six columns">
-            <a class="paging-link" href="/blog/bangalore-taxis/">Jump in to ride all the Bangalore taxis, at once <i class="icon-right-open"></i></a>
+            <a class="paging-link" href="/blog/virtual-wall/">Holy Aesthete : painting a virtual wall <i class="icon-right-open"></i></a>
           </div>
           
 

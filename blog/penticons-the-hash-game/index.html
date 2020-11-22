@@ -143,119 +143,62 @@ Different services uses different default profile pictures. For example, Quora u
 			
 
       <div class="post-content">
-        
-
-<p>Jennifer Lawrence fan, huh? It was <em>The Hash Game</em> by the way. Still in? Kewl.</p>
-
-<h3 id="what-s-the-buzz-all-about">What&rsquo;s the buzz all about?</h3>
-
+        <p>Jennifer Lawrence fan, huh? It was <em>The Hash Game</em> by the way. Still in? Kewl.</p>
+<h3 id="whats-the-buzz-all-about">What&rsquo;s the buzz all about?</h3>
 <p>Unfortunately, there is no buzz. This post is about development of <a href="https://github.com/penticons">Penticons</a>.</p>
-
 <h3 id="penticons-what">Penticons. What?</h3>
-
 <p>Remember those <a href="http://a0.twimg.com/sticky/default_profile_images/default_profile_6_normal.png">egg shaped profile pictures</a> on Twitter? They are automaticaly linked to your profile, when you forget to upload your custom profile picture.</p>
-
 <p>Different services uses different default profile pictures. For example, Quora uses <a href="http://qph.is.quoracdn.net/main-qimg-caf2e843c5e4c9dfec11bf60f9e82ccb?convert_to_webp=true">this image</a> of their co-founder Charlie Cheever.</p>
-
 <p>In Internet&rsquo;s language, these profile pictures are called <em>Avatars</em>. They represents a particular user or object on the Internet.</p>
-
 <p>As we have seen, Quora provides a single image as the default avatar. What if, you want to distinguish between users on the basis of their <em>avatars</em>?</p>
-
 <p>This particular problem to recognize users or objects according to their <em>avatar</em> images was the main force behind the invention of <a href="http://en.wikipedia.org/wiki/Identicon">Identicons</a>.</p>
-
 <blockquote>
 <p>An Identicon is a visual representation of a <strong>hash value</strong>, uniquely* mapped to any object on the internet.</p>
 </blockquote>
-
 <p><em>Penticons</em> are just another implementation of identicons. But it tries to solve a key problem with available identicons. Let&rsquo;s see how.</p>
-
 <h3 id="hash-value-what">Hash value. What?</h3>
-
 <p>Let&rsquo;s put this identicon thingy in the left and talk on something interesting.</p>
-
 <p>Do you know, How do they store your password in the Facebook? Obviously you do, but in case you don&rsquo;t, let me confess something.</p>
-
 <p>They have some guys sitting there, they remember all your passwords and match it to your input whenever you log in to the service. That simple it is.</p>
-
 <p>Facebook also keeps a <em>hashed</em> version of your passwords, in case all those smart guys are on leave, they just <em>hash</em> your input again to match with their stored value. They log you in, if both of the values are same.</p>
-
 <p>In case you are thinking, why do they <em>hash</em> your passwords? They do it to make sure that nobody really knows your passwords except those <em>smart and loyal</em> guys.</p>
-
 <h3 id="hash-hash-what-the-hash">Hash.. Hash.. What the Hash?</h3>
-
 <p>Let&rsquo;s fly back to the junior mathematics class and consider this tiny function.</p>
-
-<p><img src="/images/function.png"/></p>
-
+<!-- raw HTML omitted -->
 <p>Now, if I ask, what is the value of x when the value of function is 0? You can answer this easily by solving this simple quadratic equation. The values will be 2 and 1.</p>
-
 <p>What if I change the function to a bit more horrible one. For example, take this.</p>
-
-<p><img src="/images/hard-function.png"/></p>
-
+<!-- raw HTML omitted -->
 <p>Feeling cold, huh? Well! you can still find the roots but with a bit more effort. One simple effort you can do is to <em>google</em> this equation and you&rsquo;ll find it on the very first result page.</p>
-
 <p>The <em>Hash Function</em> we were talking about is one similar function that takes a value and returns the mapped value.</p>
-
 <p>But in case of the <em>Cryptographic Hash Functions</em>, it&rsquo;s pretty hard to get back the <em>pre-image</em> of a function value, somewhat like the second function above.</p>
-
 <p>Additionally, these <em>Hash Functions</em> are supposed to be <em>injective</em> in nature. Unlike the first function above, which has two roots 2 and 1. In reality they are not totally injetive, though.</p>
-
 <p><a href="http://en.wikipedia.org/wiki/MD5">MD5</a> and <a href="http://en.wikipedia.org/wiki/SHA-1">SHA-1</a> are two such <em>Cryptographic Hash Functions</em>.</p>
-
 <h3 id="any-wrong-with-these-hash-functions">Any wrong with these Hash Functions?</h3>
-
 <p>Yeah! Let&rsquo;s consider the MD5 hash function.</p>
-
 <p>It generates a 128 bit hash-value for any argument. In the text format, it&rsquo;s written as a 32 digit hexadecimal number.</p>
-
 <p>For example, the word &ldquo;alpha&rdquo; results in, <em>2c1743a391305fbf367df8e4f069f9f9</em></p>
-
 <p>Can you guess, what is the maximum possible hash count MD5 can generate?</p>
-
-<p><img src="/images/md5-count.png"/></p>
-
+<!-- raw HTML omitted -->
 <p>So if you have more elements than this count to hash, MD5 would be producing similar hashes for all the extra elements.</p>
-
 <p>This is the case when MD5 is pure as hell, but it&rsquo;s not actually.</p>
-
 <p>There are many reports showing cryptographic weakness of MD5. For example, consider <a href="http://www.mathstat.dal.ca/~selinger/md5collision/">this report</a>.</p>
-
 <h3 id="why-penticons">Why Penticons?</h3>
-
 <p><em>Penticons tries to solve one key problem with available identicons.</em> Let me explain.</p>
-
 <p>They are developed on top of the identicons that <a href="https://github.com/blog/1586-identicons">GitHub provides</a>. There are <a href="https://github.com/search?utf8=%E2%9C%93&amp;q=identicon">many other</a> similar identicon implementations available on GitHub.</p>
-
 <p>Let&rsquo;s take an inside on How these identicons works.</p>
-
 <p>They generates a 5x5 pixel sprites, where they choose to color some of the pixel and left rest pixels as blank, according to the hash of user&rsquo;s handle. They also have a vertical axis of symmetry, so the identicon is similar from left to right. Finally they color non-blank pixels with a color.</p>
-
 <p>Now, what is the maximum number of identicons generated this way?</p>
-
 <p>Suppose they are using 20 colors to fill in the non-blank pixels, they are <a href="https://github.com/cupcake/sigil/blob/6bf9722f2ae82f58a0c7d48daeb40ec844b78eae/server.go#L20-L29">not using</a> this much colors, though. Then total possible identicon count will be :</p>
-
-<p><img src="/images/total-identicon.png"/></p>
-
+<!-- raw HTML omitted -->
 <p>On the other hand, <em>Penticons</em> uses <a href="https://github.com/penticons/penticons.go/blob/master/utils/utils.go#L21-L25">5 colors</a> only, from GitHub&rsquo;s contribution calendar. They also have a vertical axis of symmetry.</p>
-
 <p>But instead of using a fix color to fill in, it uses any one of the 5, according to the hash value. This way, total number of identicons will be the following.</p>
-
-<p><img src="/images/total-penticons.png"/></p>
-
+<!-- raw HTML omitted -->
 <p>Which is way more than other implementations, so the rate of collision is also less here.</p>
-
 <h3 id="now-what">Now what?</h3>
-
 <p>I made an organization for <a href="https://github.com/penticons">Penticons</a>; just to look cool, though. I think so.</p>
-
 <p>Last night, I wrote the <a href="https://github.com/penticons/penticons.go">golang implementation</a> for <em>Penticons</em>. My friend <a href="https://github.com/nkman">Nairitya</a> will be writing some more very soon, at-least he promised me. Let&rsquo;s see.</p>
-
 <p><em>Avatar</em> for the organization is a penticon itself, of the word &ldquo;Penticons&rdquo;.</p>
-
-<figure> <img src="/images/avatar.png"> 
-    <figcaption>Penticon Avatar for the word "Penticons"</figcaption>
-</figure>
+<!-- raw HTML omitted -->
 
       </div>
 	
@@ -267,13 +210,13 @@ Different services uses different default profile pictures. For example, Quora u
 			
           
           <div class="six columns">
-            <a class="paging-link" href="/blog/open-source-presence-infographic/"><i class="icon-left-open"></i> Open Source Presence Infographic of Indian Startups</a>
+            <a class="paging-link" href="/blog/virtual-wall/"><i class="icon-left-open"></i> Holy Aesthete : painting a virtual wall</a>
           </div>
           
 
 					
           <div class="paging-newer six columns">
-            <a class="paging-link" href="/blog/virtual-wall/">Holy Aesthete : painting a virtual wall <i class="icon-right-open"></i></a>
+            <a class="paging-link" href="/blog/open-source-presence-infographic/">Open Source Presence Infographic of Indian Startups <i class="icon-right-open"></i></a>
           </div>
           
 

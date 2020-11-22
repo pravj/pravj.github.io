@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Google on hack(pravj)</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Google on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Sep 2019 00:00:00 +0530</lastBuildDate>
-    
-	<atom:link href="https://hackpravj.com/tags/google/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 02 Sep 2019 00:00:00 +0530</lastBuildDate><atom:link href="https://hackpravj.com/tags/google/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Opportunities in Indian railway commute: Next Billion Users perspective</title>
       <link>https://hackpravj.com/blog/indian-railways-next-billion-users/</link>
@@ -18,7 +14,7 @@
       
       <guid>https://hackpravj.com/blog/indian-railways-next-billion-users/</guid>
       <description>Next billion Internet users (NBU) Nearly one in every three people had access to the Internet at the dawn of this decade, which is now accessible to every other person. The situation is different for developing countries, where a significant population is still new to the Internet. In India, for example, there is around 65% of the population without this service.
- Internet penetration in the world (source: world bank)  As the Internet has reached in most of the infrastructure-heavy parts of the world, it faces a challenging and different road ahead reaching in the developing areas (India, Indonesia, Brazil, and Mexico, etc.</description>
+As the Internet has reached in most of the infrastructure-heavy parts of the world, it faces a challenging and different road ahead reaching in the developing areas (India, Indonesia, Brazil, and Mexico, etc.</description>
     </item>
     
   </channel>

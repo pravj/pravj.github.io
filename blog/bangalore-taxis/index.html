@@ -136,239 +136,121 @@ I decided to do this report when I was in Bangalore this summer, Sillicon Valley
 			
 
       <div class="post-content">
-        
-
-<p>All right, just imagine that you have popcorn with you, because I know that you don&rsquo;t have.</p>
-
+        <p>All right, just imagine that you have popcorn with you, because I know that you don&rsquo;t have.</p>
 <p>I decided to do this report when I was in Bangalore this summer, <em>Sillicon Valley of India</em>. You can observe a gob of information flowing through in such metropolitan population. People ordering/delivering meal, groceries or literally everything by online orders, people booking a vehicle and riding in no time, people booking a seat for dinner/movie and many more thing to generate the logs. Which is fascinating.</p>
-
 <p>One day while riding a cab, I got this plan to go into the rectangle map the app was showing, and run around. Just like what <a href="https://www.youtube.com/watch?v=oKCIMX2dsEc">Joey did in an episode of Friends</a>.</p>
-
 <p>To execute this all, I had to collect the relavent information and work on the possible outcomes of the collected information.</p>
-
 <p>Here in this post I have written the procedure I followed, things I have feared of, interesting results I saw and count of tea cups I have sipped.</p>
-
 <h3 id="the-brick-wall">The brick wall</h3>
-
 <p>A little more theory and then we will get right to the practicals.</p>
-
 <p>While setting up the collection infrastucture, I realised that I might be under the <em>terms and services</em> monster. This suspicion helped me lading in the depression zone where I wasn&rsquo;t sure if the work I have done so far was worth doing or not.</p>
-
 <p>I thought about asking the respective organization for a permission but I was too afraid to hear a negative reply. So I went ahead and ignored this. Because this report does not publicize any private property like vehicle numbers, mobile numbers and all. Even I wasn&rsquo;t able to access such private properties.</p>
-
 <p>The major reason was, I have already bunked too many classes for this, so terminating the work wasn&rsquo;t an option.</p>
-
 <p>I&rsquo;m aware that it&rsquo;s a wrong act but I couldn&rsquo;t stop the <em>David McCandless</em> inside me from doing this. I hope I&rsquo;m not getting sued for this.</p>
-
 <blockquote>
 <p>This report is based on the data from a particular taxi service in a single day&rsquo;s time span, so it may be a little baised.</p>
 </blockquote>
-
 <h3 id="information-retrieval">Information Retrieval</h3>
-
 <p>Collecting the right information was the foundation for the whole game. Possibility of getting blocked was also there, once you come under the <em>Night&rsquo;s watch</em>.</p>
-
 <p>The task reduces to finding <em>how many taxis are there in the city</em> (at a time), <em>where they are</em> and then keep doing this all the day <em>without getting caught</em>. Easy Peasy?</p>
-
 <p>I came up with the solution to find places in the city which are equally seperated and then drawing circles on those points would cover the entire city. A fake <em>cab search request</em> would return us the status of cabs around that place.</p>
-
 <p>For that I planned to start from the center of the city, iterate this on adjacent places using a <a href="https://en.wikipedia.org/wiki/Finite-state_machine">Finite State Machine</a> to stay aware of the ending state (when we are done with all such place-combinations) and state changes (when we are out of the city&rsquo;s boundary in a particular direction).</p>
-
 <p>While writing the FSM, I found an efficient alternative to iterate over all the equally separated places which comes under the <a href="https://en.wikipedia.org/wiki/Minimum_bounding_rectangle">Minimum Bounding Rectangle</a> of Bangalore, and check if the cab service is available in that area or not.</p>
-
 <p>Equally spacing those spots minimizes the total number of requests made, which descreases the chances of getting blocked, <em>if there is such service on the other side</em>.</p>
-
-<figure> <img src="/images/point-net.png"> 
-    <figcaption>Equally separated places</figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <p>Once all those places were spotted, I made a <em>cab search request</em> on all those spots every 15 minutes. I think it&rsquo;s a bit more time than the <em>average trip duration</em>.</p>
-
 <p>Later I realised a mistake that I have forgot to count the time making requests to all the places, so the separation went up to almost 19 minutes.</p>
-
 <p>I continuously pumped all those responses to a <a href="http://www.iron.io/mq/">IronMQ</a> powered message queue and then imported all the data into a local <a href="http://rethinkdb.com/">RethinkDB</a> instance.</p>
-
 <blockquote>
 <p>One should try not to hit the source at a constant timeperiod (like 15 minutes in this case), because that&rsquo;s the basic heuristic for smart <em>bot detection</em> systems. I had to do that because it was needed.</p>
 </blockquote>
-
 <h3 id="service-availability">Service Availability</h3>
-
 <p>In the <em>Minimum Bounding Rectangle</em>, I found a total of 272 spots but only 96 of them have the cab service available. The distance between adjacent places is 2 Mile (3.2186 KM.), which is almost same as the equivalent area we see while booking a cab on mobile applications (on default zoom level).</p>
-
-<div id='availability-map' style="height:400px;"></div>
-
+<!-- raw HTML omitted -->
 <p>Although this is biased because it represent only a single day of activity but it gives us a little overview of the situation. I&rsquo;m not that familier with the places in the bangalore but I found an interesting thing, maybe a native resident can confirm this.</p>
-
 <p>See those two circles at the top of the rectangle, they are too far from the main localities but we have the service there. Those circles contains places like <em>Rajanukunte</em>, <em>Doddajala</em>, <em>Chikkajala</em> etc. On googling their name, you will get comparatively more listings about property/real-estate business compared to other areas in the city.</p>
-
 <p>It&rsquo;s like the scenario we had with <em>Delhi - Gurgaon</em> some time back, those places are under <em>Industrialization</em>. Which makes it a good reason to have the taxi services availability, no matter some famous places around the city doesn&rsquo;t have this cab service, like the <em>Bannerghatta National Park</em>.</p>
-
 <h3 id="guardians-vehicles">Guardians (Vehicles)</h3>
-
 <p>During the day, the system spotted a total of 897 different cabs, with 4 different types.</p>
-
 <blockquote>
 <p><em>RethinkDB query</em> to count different type of cabs.</p>
 </blockquote>
-
 <pre><code>r.db('taxis').table('datacenter')
 	.filter({available: true})
 	.pluck('type', 'cab_id')
 	.distinct()
 	.group('type')
 	.count()
-</code></pre>
-
-<div class="row">
-    <div class="col s12 m6 l3 center-align" style="color:#DDD;background:#00648C;">
-      <h4>#Hatchback 525</h4>
-    </div>
-    <div class="col s12 m6 l3 center-align" style="color:#DDD;background:#10698C;">
-      <h4>#Sedan 324</h4>
-    </div>
-    <div class="col s12 m6 l3 center-align" style="color:#DDD;background:#4F7B8C;">
-      <h4>#Nano 46</h4>
-    </div>
-    <div class="col s12 m6 l3 center-align" style="color:#DDD;background:#7497A5;">
-      <h4>#SUV 2</h4>
-    </div>
-</div>
-
+</code></pre><!-- raw HTML omitted -->
 <h3 id="cab-availability-according-to-time">Cab Availability (according to time)</h3>
-
 <p>What do you think about the number of cabs available at 8:30 AM and 8:30 PM? You will see that the number is more in the morning.</p>
-
 <p>There is a theory, <em>Utilitarianism</em>. Which states that everyone wants to maximize their utility. Take the example of E-commerce. Between so many brands, sellers and customers, everyone wants to increase their benefits. For e-sellers, scheduling an online sell is just like a game of chess. Each team want to win it. (Quoted by a good person)</p>
-
 <p>Here is how the cab availability distribution over time looks like.</p>
-
-<figure> <img src="/images/distribution.png"> 
-    <figcaption>Cab availability distribution over time</figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <p>I think it goes like, the probability of a taxi being hired is high during the morning when people are going to the office/college, then it decreases during the noon-time, increases again during the 4 PM - 6 PM window when people are going back home or going out for their evening gig, and decreses in the night.</p>
-
 <p>This is how drivers play their part as per <em>Utilitarianism</em>, which reflects in the number of available taxis.</p>
-
 <h3 id="rise-of-the-guardians-vehicles">Rise of the Guardians (Vehicles)</h3>
-
 <p>In the responses I got for the cab search requests, there was a field representing a timestamp, constant for a particular cab. Initially when I saw that, I thought it&rsquo;s the last time a cab was booked but it wasn&rsquo;t.</p>
-
 <p>5 out of the 897 total cabs have that field equal to 1, which translates to January 1, 1970. This indicates that initially the field wasn&rsquo;t part of their architecture, but later they adopted it.</p>
-
 <p>The uniqueness and time range of all those fields strongly supports that it was the time when a cab got associated with the organization.</p>
-
-<figure> <img src="/images/cab-timeline.png"> 
-    <figcaption>Cab timeline</figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <p>Horizontal scale for this graph is cropped because almost 85+ % events belongs to the year 2015 itself. Which seems a bit weird, but it&rsquo;s what it&rsquo;s.</p>
-
 <h3 id="cabs-around-the-city-throughout-the-day">Cabs around the city throughout the day</h3>
-
-<div id='map' style="height:400px;">
-    <span id='info' class='info' style='padding:10px;background:#fff;position:relative;top:17px;right:-50px;z-index:100;'></span>
-</div>
-
+<!-- raw HTML omitted -->
 <p>This particular map represents the geographic view of the <em>cab availability</em> (according to time) diagram. Where total cabs at a time are distributed accross the city according to their actual positions.</p>
-
 <p>Now if you are thinking about the places where most of the cabs are, I have created another map for that, scroll down.</p>
-
 <h3 id="cab-availability-index">Cab Availability Index</h3>
-
 <p>This map is somewhat inspired from the Housing&rsquo;s <a href="https://housing.com/blog/2013/11/14/launching-child-friendliness-index-heat-maps/">Child Friendly Index</a>.</p>
-
 <p>It uses those equally seperated circles to count total cabs in them throughout the day, and uses the relative percentage as the opacity of each circle.</p>
-
 <blockquote>
 <p><em>RethinkDB query</em> that counts the cabs which are in a 2 mile circle centered at &lsquo;centerPoint&rsquo;.</p>
 </blockquote>
-
-<pre><code class="language-javascript">r.db('taxis').table('datacenter')
-	.filter({available: true})
-	.pluck('cab_lat', 'cab_lng')
-	.distinct()
-	.map(function(instance) {
-		return r.circle(centerPoint, 2, {unit: 'mi'})
-			.includes(r.point(instance('cab_lat'), instance('cab_lat')))
-	})
-	.count(true)
-</code></pre>
-
-<div id='dmap' style='height:400px;'>
-</div>
-
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">r</span><span class="p">.</span><span class="nx">db</span><span class="p">(</span><span class="s1">&#39;taxis&#39;</span><span class="p">).</span><span class="nx">table</span><span class="p">(</span><span class="s1">&#39;datacenter&#39;</span><span class="p">)</span>
+	<span class="p">.</span><span class="nx">filter</span><span class="p">({</span><span class="nx">available</span><span class="o">:</span> <span class="kc">true</span><span class="p">})</span>
+	<span class="p">.</span><span class="nx">pluck</span><span class="p">(</span><span class="s1">&#39;cab_lat&#39;</span><span class="p">,</span> <span class="s1">&#39;cab_lng&#39;</span><span class="p">)</span>
+	<span class="p">.</span><span class="nx">distinct</span><span class="p">()</span>
+	<span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="nx">centerPoint</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="nx">unit</span><span class="o">:</span> <span class="s1">&#39;mi&#39;</span><span class="p">})</span>
+			<span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">point</span><span class="p">(</span><span class="nx">instance</span><span class="p">(</span><span class="s1">&#39;cab_lat&#39;</span><span class="p">),</span> <span class="nx">instance</span><span class="p">(</span><span class="s1">&#39;cab_lat&#39;</span><span class="p">)))</span>
+	<span class="p">})</span>
+	<span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</code></pre></div><!-- raw HTML omitted -->
 <p>Neighbourhoods having maximum availability index are mostly in the <em>northern-western</em> and a little <em>central</em> part of the bangalore. Which consists of some big educational institutes as <em>Indian Institute of Science</em>, <em>Bangalore University</em>, <em>R.V. College of Engineering</em>, some famous tourist spots as <em>Lalbagh Botanical Garden</em> to contribute to the higher availability density.</p>
-
-<p>Along with that, reports shows that <em>northern-western</em> bangalore has maximum population density in the city. Check out these images (<a href="http://wgbis.ces.iisc.ernet.in/biodiversity/pubs/ETR/ETR55/Population%20Density.jpg" target="_blank">latest</a> and <a href="http://wgbis.ces.iisc.ernet.in/biodiversity/pubs/ces_tr/TR118_SPoonancha/Index1_clip_image002_0000.jpg" target="_blank">old</a>) from <em>Centre for Ecological Sciences, IISc</em> for the reference.</p>
-
+<p>Along with that, reports shows that <em>northern-western</em> bangalore has maximum population density in the city. Check out these images (<!-- raw HTML omitted -->latest<!-- raw HTML omitted --> and <!-- raw HTML omitted -->old<!-- raw HTML omitted -->) from <em>Centre for Ecological Sciences, IISc</em> for the reference.</p>
 <h3 id="cab-that-travelled-the-most">Cab that travelled the most</h3>
-
 <p>As I have told you that initially I&rsquo;d misread a timestamp field as the time when a cab was last hired. Writing a precise (almost) algorithm to find the path travelled by cab using current/past location and the last booking time would have been easy that way.</p>
-
 <p>In the currecnt implementation, I have used the locations between adjacent appearances of a cab to find the approximate distance travelled by the vehicle. It assumes that the cab travelled from position A to position B despite being sufficient time difference between both appearances.</p>
-
 <blockquote>
 <p><em>RethinkDB query</em> that collects the chronological appearances of each taxi.</p>
 </blockquote>
-
-<pre><code class="language-javascript">r.db('taxis').table('datacenter')
-	.filter({available: true})
-	.without('id', 'place_lat', 'place_lng', 'duration', 'distance')
-	.group('cab_id')
-	.pluck('cab_lat', 'cab_lng', 'index', 'timestamp')
-	.orderBy('index')
-</code></pre>
-
-<p>To watch the jounrney <em>time-lapse</em> of the cab who travelled the most, press the <em>play button</em> below.</p>
-
-<div id='cmap' style='height:400px;'>
-</div>
-
-<div style='width:60px;margin: 0 auto;'>
-    <h2 id="replay-btn" style='position:relative;top:-100px;padding-left:15px;color:#343434;background-color:rgba(255, 255, 255, 0.8);width:60px;height:50px;cursor:pointer;'>
-        <span class='ion-play'></span>
-    </h2>
-</div>
-
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">r</span><span class="p">.</span><span class="nx">db</span><span class="p">(</span><span class="s1">&#39;taxis&#39;</span><span class="p">).</span><span class="nx">table</span><span class="p">(</span><span class="s1">&#39;datacenter&#39;</span><span class="p">)</span>
+	<span class="p">.</span><span class="nx">filter</span><span class="p">({</span><span class="nx">available</span><span class="o">:</span> <span class="kc">true</span><span class="p">})</span>
+	<span class="p">.</span><span class="nx">without</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;place_lat&#39;</span><span class="p">,</span> <span class="s1">&#39;place_lng&#39;</span><span class="p">,</span> <span class="s1">&#39;duration&#39;</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span><span class="p">)</span>
+	<span class="p">.</span><span class="nx">group</span><span class="p">(</span><span class="s1">&#39;cab_id&#39;</span><span class="p">)</span>
+	<span class="p">.</span><span class="nx">pluck</span><span class="p">(</span><span class="s1">&#39;cab_lat&#39;</span><span class="p">,</span> <span class="s1">&#39;cab_lng&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">)</span>
+	<span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+</code></pre></div><p>To watch the jounrney <em>time-lapse</em> of the cab who travelled the most, press the <em>play button</em> below.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h3 id="is-this-all-fake-just-like-uber-illusion">Is this all fake, just like Uber illusion?</h3>
-
 <p>Do you remember those <em>phantom car</em> stories of Uber?</p>
-
 <p>There was a research which revealed that Uber shows a mirage of tiny black cabs moving around you, when you do a cab search. Just to convince you that a cab is there for you. Study concluded that the cab network you see around, is not real-time.</p>
-
 <p>I wanted to analyse the <em>traffic status</em> using the response data I had. My objective was to find the regression in the <em>cab response time</em> (time taken by a cab to reach you) and <em>time of the day</em>. Because the sixth sense says that the <em>cab response time</em> should be high when there is <em>high traffic</em> in some areas of the city, likely in those peek hours (morning and evening time).</p>
-
 <p>The <em>cab response time</em> seems to be dependant on the distance only, which looks like a <em>step function</em>.</p>
-
-<figure> <img src="/images/restime.png"> 
-    <figcaption>Cab Response Time</figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <p>I realised that there wasn&rsquo;t any fluctuation in the <em>response time</em>, it was same for a particular distance between the cab and the user (simulated), all the day.</p>
-
 <blockquote>
 <p>Which implies that similar to Uber, this cab network isn&rsquo;t real-time.</p>
 </blockquote>
-
 <p>A nice explanation of the <em>phantom cars</em> is available <a href="http://motherboard.vice.com/read/Ubers-phantom-cabs?update">here</a>.</p>
-
-<h3 id="people-don-t-solve-a-problem-until-they-get-one">People don&rsquo;t solve a problem until they get one</h3>
-
+<h3 id="people-dont-solve-a-problem-until-they-get-one">People don&rsquo;t solve a problem until they get one</h3>
 <p>This simulated user interaction is wrong to the system. Can be easily converted into a <em>service denial</em>.</p>
-
 <p>In my case, I was changing the user(simulated) location frequently, so fast that a human can&rsquo;t reach there in a fraction of second (traversing whole Bangalore in 3 minutes).</p>
-
 <p>If the service allows a user to book a cab for someone else (who is far away from where the real user is), the monitoring system should take care of the conversion rates. Someone trying to book a cab for someone else this fast, then not booking a single cab, and then repeating this every 15 minute all the day is a plain pattern to detect. Which should be detected. I hope somebody will fix this.</p>
-
-<hr />
-
+<hr>
 <p>That&rsquo;s it, get out of the cab now.</p>
-
 <p>I have decided not to release the collected data and code for the data retrieval. Everything else including the data processing part can be found at <a href="https://github.com/pravj">pravj/bangalore-taxis</a> repository. Thanks to <em>RethinkDB</em> and <em>Mapbox</em>, you guys are really amazing.</p>
-
-<script src='https://cdn.rawgit.com/pravj/pravj.github.io/8d913abaf8bbe8dab7d05a1a918760af6ac423df/public/lib/taxis.js'></script>
+<!-- raw HTML omitted -->
 
       </div>
 	
@@ -380,13 +262,13 @@ I decided to do this report when I was in Bangalore this summer, Sillicon Valley
 			
           
           <div class="six columns">
-            <a class="paging-link" href="/blog/development-story-of-puzzl/"><i class="icon-left-open"></i> Development story of puzzl</a>
+            <a class="paging-link" href="/blog/indian-ecommerce/"><i class="icon-left-open"></i> Breaking into the Indian E-commerce</a>
           </div>
           
 
 					
           <div class="paging-newer six columns">
-            <a class="paging-link" href="/blog/indian-ecommerce/">Breaking into the Indian E-commerce <i class="icon-right-open"></i></a>
+            <a class="paging-link" href="/blog/development-story-of-puzzl/">Development story of puzzl <i class="icon-right-open"></i></a>
           </div>
           
 

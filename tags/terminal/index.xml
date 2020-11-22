@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Terminal on hack(pravj)</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Terminal on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Apr 2015 00:00:00 +0530</lastBuildDate>
-    
-	<atom:link href="https://hackpravj.com/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 23 Apr 2015 00:00:00 +0530</lastBuildDate><atom:link href="https://hackpravj.com/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Development story of puzzl</title>
       <link>https://hackpravj.com/blog/development-story-of-puzzl/</link>
@@ -20,7 +16,7 @@
       <description>Lets start with that old promotion rant I use all the time.
  You should have a look at puzzl, if you haven&amp;rsquo;t yet.
  What this is all about? This post is about development of a sliding-puzzle game I made recently, named puzzl. I refer it as an intelligent version of the classical sliding puzzle game, and I&amp;rsquo;ll explain the reason behind this. Stay awake.
- Puzzl in action  For What Joy?</description>
+For What Joy?  Yes, that&amp;rsquo;s the best question.</description>
     </item>
     
     <item>
@@ -32,7 +28,7 @@
       <description>You should have a look at termping, if you haven&amp;rsquo;t yet.
  What&amp;rsquo;s the fuss about This Blog is all about development of a game(kind of) termping, which is a prototype of one of the oldest video game Pong.
  But this prototype runs in your system&amp;rsquo;s terminal
-  termping in action  Emergence  One thing that I just feel, I am getting good at is &amp;ldquo;reading and understanding other people&amp;rsquo;s code&amp;rdquo; &amp;#35;notprasingmyself</description>
+ Emergence  One thing that I just feel, I am getting good at is &amp;ldquo;reading and understanding other people&amp;rsquo;s code&amp;rdquo; #notprasingmyself</description>
     </item>
     
   </channel>
