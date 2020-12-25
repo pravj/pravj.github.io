@@ -6,210 +6,14 @@
     <description>Recent content on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Nov 2020 00:00:00 +0530</lastBuildDate><atom:link href="https://hackpravj.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Nov 2020 18:30:00 +0000</lastBuildDate><atom:link href="https://hackpravj.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to read Paul Graham&#39;s essays?</title>
-      <link>https://hackpravj.com/blog/how-to-read-paul-graham-essays/</link>
-      <pubDate>Sun, 22 Nov 2020 00:00:00 +0530</pubDate>
+      <link>https://hackpravj.com/blog/how-to-read-paul-graham-s-essays/</link>
+      <pubDate>Sat, 21 Nov 2020 18:30:00 +0000</pubDate>
       
-      <guid>https://hackpravj.com/blog/how-to-read-paul-graham-essays/</guid>
-      <description>Before you start reading this piece, I want to inform that the question presented here is equivalent to a mathematical problem that has multiple possible answers. The answer depends on you; how do you arrive on one of his articles, and what are you seeking.
-Sounds like a zen proverb, right?
-Yes. Take my “personal” answer/solution to this question for example.
-Looking in the past, most of the times I’ve found myself reading the essays when I’m sitting in MTR on my own trying to spend some time off, amidst the constant background noise of people ordering the same three items over and over.</description>
-    </item>
-    
-    <item>
-      <title>Opportunities in Indian railway commute: Next Billion Users perspective</title>
-      <link>https://hackpravj.com/blog/indian-railways-next-billion-users/</link>
-      <pubDate>Mon, 02 Sep 2019 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/indian-railways-next-billion-users/</guid>
-      <description>Next billion Internet users (NBU) Nearly one in every three people had access to the Internet at the dawn of this decade, which is now accessible to every other person. The situation is different for developing countries, where a significant population is still new to the Internet. In India, for example, there is around 65% of the population without this service.
-As the Internet has reached in most of the infrastructure-heavy parts of the world, it faces a challenging and different road ahead reaching in the developing areas (India, Indonesia, Brazil, and Mexico, etc.</description>
-    </item>
-    
-    <item>
-      <title>Using GitHub to build a missing GitHub feature</title>
-      <link>https://hackpravj.com/blog/building-missing-github-feature/</link>
-      <pubDate>Mon, 02 Sep 2019 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/building-missing-github-feature/</guid>
-      <description>After the Microsoft acquisition, GitHub has been on a roller coaster ride. It has been winning the developer community’s affinity by launching a series of offerings, one after another, starting from the free private repositories to the GitHub Sponsors program.
-Still, there are unmatched expectations that users have from the hub of open-source. This guide is about one such expectation, a feature that is missing from GitHub and my product-first approach to building that as a side-project.</description>
-    </item>
-    
-    <item>
-      <title>Solving Google Semantris using OpenCV and Word2Vec</title>
-      <link>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</link>
-      <pubDate>Sun, 02 Dec 2018 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</guid>
-      <description>Semantris is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.
- There are 2 modes available in the game.
-ARCADE Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen.</description>
-    </item>
-    
-    <item>
-      <title>Inside Cricket</title>
-      <link>https://hackpravj.com/blog/inside-cricket/</link>
-      <pubDate>Sun, 15 Apr 2018 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/inside-cricket/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Contributing to the Go programming language</title>
-      <link>https://hackpravj.com/blog/first-golang-contribution-experience/</link>
-      <pubDate>Thu, 15 Jun 2017 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/first-golang-contribution-experience/</guid>
-      <description>This article describes my experience contributing the first commit to the Go programming language. It might be one small step for you, but it&amp;rsquo;s one giant leap for the gopher inside me.
- Along with my experience, I will outline the article as a (beginner&amp;rsquo;s) gopher&amp;rsquo;s guide for contributing to an open source project (the Go project in this case).
-I have started learning Go in the late 2014 and I was lucky enough to receive a healthy appreciation from the community for my very first project in the language.</description>
-    </item>
-    
-    <item>
-      <title>Information Dynamics on the GitHub Network</title>
-      <link>https://hackpravj.com/blog/information-dynamics-on-github/</link>
-      <pubDate>Wed, 08 Feb 2017 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/information-dynamics-on-github/</guid>
-      <description>Exploring the &amp;ldquo;social coding&amp;rdquo; behavior.
- Social groups have a system of behaviors occurring within the group or between groups, called “Group dynamics”. GitHub, being a social coding network, is the host to millions of developers and software projects. This report will use openly available data to unveil such behaviors in an intellectual-focused social network.
- Social Coding The growth of GitHub has been significantly different from other OSS communities such as Alioth, Freecode, and Savannah.</description>
-    </item>
-    
-    <item>
-      <title>Breaking into the Indian E-commerce</title>
-      <link>https://hackpravj.com/blog/indian-ecommerce/</link>
-      <pubDate>Fri, 11 Dec 2015 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/indian-ecommerce/</guid>
-      <description>Before I start telling you the story, I&amp;rsquo;m going to do an experiment. I&amp;rsquo;ll write the summary of this post first, just to stick you around, in case you are one among the people who don&amp;rsquo;t read to the end.
-tl;dr Myntra is India&amp;rsquo;s largest online fashion and lifestyle store, as they say. Which is owned by Flipkart, one of the big players in Indian E-commerce.
-I found a little opening in the flow of their online movement and used it to collect some information(not private though).</description>
-    </item>
-    
-    <item>
-      <title>Jump in to ride all the Bangalore taxis, at once</title>
-      <link>https://hackpravj.com/blog/bangalore-taxis/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/bangalore-taxis/</guid>
-      <description>All right, just imagine that you have popcorn with you, because I know that you don&amp;rsquo;t have.
-I decided to do this report when I was in Bangalore this summer, Sillicon Valley of India. You can observe a gob of information flowing through in such metropolitan population. People ordering/delivering meal, groceries or literally everything by online orders, people booking a vehicle and riding in no time, people booking a seat for dinner/movie and many more thing to generate the logs.</description>
-    </item>
-    
-    <item>
-      <title>Development story of puzzl</title>
-      <link>https://hackpravj.com/blog/development-story-of-puzzl/</link>
-      <pubDate>Thu, 23 Apr 2015 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/development-story-of-puzzl/</guid>
-      <description>Lets start with that old promotion rant I use all the time.
- You should have a look at puzzl, if you haven&amp;rsquo;t yet.
- What this is all about? This post is about development of a sliding-puzzle game I made recently, named puzzl. I refer it as an intelligent version of the classical sliding puzzle game, and I&amp;rsquo;ll explain the reason behind this. Stay awake.
-For What Joy?  Yes, that&amp;rsquo;s the best question.</description>
-    </item>
-    
-    <item>
-      <title>Holy Aesthete : painting a virtual wall</title>
-      <link>https://hackpravj.com/blog/virtual-wall/</link>
-      <pubDate>Fri, 06 Mar 2015 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/virtual-wall/</guid>
-      <description>Today, it&amp;rsquo;s the day of Holi, the festival of colors in India.
-  Yesterday, it was the end of our midterm exams.
-  Such Time. Much Rhyme.
- During the last minutes, I decided to stop writing after matching an answer with the person sitting next to me. I was all set to run outside the hall and smell the woot! no more exams left scent in the air.</description>
-    </item>
-    
-    <item>
-      <title>Introducing Penticons : The Hash Game</title>
-      <link>https://hackpravj.com/blog/penticons-the-hash-game/</link>
-      <pubDate>Sun, 08 Feb 2015 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/penticons-the-hash-game/</guid>
-      <description>Jennifer Lawrence fan, huh? It was The Hash Game by the way. Still in? Kewl.
-What&amp;rsquo;s the buzz all about? Unfortunately, there is no buzz. This post is about development of Penticons.
-Penticons. What? Remember those egg shaped profile pictures on Twitter? They are automaticaly linked to your profile, when you forget to upload your custom profile picture.
-Different services uses different default profile pictures. For example, Quora uses this image of their co-founder Charlie Cheever.</description>
-    </item>
-    
-    <item>
-      <title>Open Source Presence Infographic of Indian Startups</title>
-      <link>https://hackpravj.com/blog/open-source-presence-infographic/</link>
-      <pubDate>Sat, 17 Jan 2015 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/open-source-presence-infographic/</guid>
-      <description>Technically speaking, organizations used in this report are no more only a startup now, but I hope you people won&amp;rsquo;t mind this and aren&amp;rsquo;t gonna launch a drone on me.
-Abstract I think, something is clear from the name itself, is it? Well! it should.
-This report tries to plot all the involved organizations on the Open-Source portal. It tries to tell that, in the race to achieve their goals, what different organizations are doing there, for/in the community.</description>
-    </item>
-    
-    <item>
-      <title>The git-game Write-up</title>
-      <link>https://hackpravj.com/blog/the-git-game-writeup/</link>
-      <pubDate>Thu, 15 Jan 2015 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/the-git-game-writeup/</guid>
-      <description>Spoiler Alert
-You should go and check this out, git-game.
-It&amp;rsquo;s a nice little complete-a-task-and-upgrade-level type of game layered on top of Git.
- It is a terminal game designed to test your knowledge of git commands. Each level in the game is a task to perform on this repo. Once you perform that task, you will be given your next task. There are a total of ten levels, each one harder than last!</description>
-    </item>
-    
-    <item>
-      <title>Post-mortem of an Internet Accident</title>
-      <link>https://hackpravj.com/blog/post-mortem-of-an-internet-accident/</link>
-      <pubDate>Sun, 11 Jan 2015 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/post-mortem-of-an-internet-accident/</guid>
-      <description>Hi scout, thanks for visiting this node of the Holy Internet Graph; Before the combination Internet Accident confuse you, let me decode its meaning in the context of this post.
- Encounter with something on an edge node of the Holy Internet.
- So this post is all about my attempt to solve a question, I saw on Quora.
- What good known projects on GitHub uses the largest number of programming languages?</description>
-    </item>
-    
-    <item>
-      <title>geopattern : going on the Go path</title>
-      <link>https://hackpravj.com/blog/going-on-the-go-path/</link>
-      <pubDate>Sat, 01 Nov 2014 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/going-on-the-go-path/</guid>
-      <description>You should have a look at geopattern, if you haven&amp;rsquo;t yet.
- What&amp;rsquo;s the buzz all about? This blog post is about development of geopattern library in golang.
- What do you think about this my favorite colored concentric circle pattern?
-geopattern. What? Umm, actually I don&amp;rsquo;t know exactly why the name is geopattern but I know what it is.
-It is a golang library that generates pretty image patterns.</description>
-    </item>
-    
-    <item>
-      <title>termping : &lt;3 &#43; Node.js &#43; Streams &#43; CoffeeScript</title>
-      <link>https://hackpravj.com/blog/termping/</link>
-      <pubDate>Sun, 27 Jul 2014 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/termping/</guid>
-      <description>You should have a look at termping, if you haven&amp;rsquo;t yet.
- What&amp;rsquo;s the fuss about This Blog is all about development of a game(kind of) termping, which is a prototype of one of the oldest video game Pong.
- But this prototype runs in your system&amp;rsquo;s terminal
- Emergence  One thing that I just feel, I am getting good at is &amp;ldquo;reading and understanding other people&amp;rsquo;s code&amp;rdquo; #notprasingmyself</description>
-    </item>
-    
-    <item>
-      <title>Introducing modified-lanyon, Harry, and me</title>
-      <link>https://hackpravj.com/blog/introduction/</link>
-      <pubDate>Fri, 23 May 2014 00:00:00 +0530</pubDate>
-      
-      <guid>https://hackpravj.com/blog/introduction/</guid>
-      <description>Yes, you don&#39;t know me. Cool, I&#39;m telling you that.
- I am Pravendra. Developer at awesome SDSLabs.
-  Also a Computer Science undergraduate student at IIT Roorkee.
-  When I&amp;rsquo;m not scrolling in sublime-text or vim, I am watching Discovery Channel :bowtie:
-  I am a sincere reader and It feels nice to read about other&amp;rsquo;s experiences in different fields.
-  Sometimes it shows new things that you are not aware about.</description>
+      <guid>https://hackpravj.com/blog/how-to-read-paul-graham-s-essays/</guid>
+      <description>Before you start reading this piece, I want to inform that the question presented here is equivalent to a mathematical problem that has multiple possible answers. The answer depends on you; how do you arrive on one of his articles, and what are you seeking. Sounds like a zen proverb, right? Yes. Take my “personal” answer/solution to this question for example. Looking in the past, most of the times I’ve found myself reading the essays when I’m sitting in MTR on my own trying to spend some time off, amidst the constant background noise of people ordering the same three items over and over.</description>
     </item>
     
     <item>
@@ -303,8 +107,8 @@ I love painting in my free time (once in a full moon every leap year), scroll be
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hackpravj.com/projects/</guid>
-      <description>I nurture my secret chores in the ~/projects/directory. If you want to see all of my projects that managed to get out of that directory, you can head over to my GitHub.
-&amp;lt;/div&amp;gt;  &amp;lt;p&amp;gt; Puzzl is an advance version of the classical sliding puzzle game, built with Go, to be played in terminals. If you want to read, I have also written an article about its development, &amp;lt;a target=&amp;quot;_blank&amp;quot; title=&amp;quot;puzzl story&amp;quot; href=&amp;quot;http://hackpravj.</description>
+      <description>I used to maintain a list of my active/in-active projects here.
+The type (of projects) and the frequency of doing them has changed now. I plan to revive the list here, not certain of the timeline yet.</description>
     </item>
     
   </channel>
