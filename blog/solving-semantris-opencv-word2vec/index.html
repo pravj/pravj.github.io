@@ -137,7 +137,7 @@ Arcade mode requires the player to come up with associated words for certain wor
 <p>There are 2 modes available in the game.</p>
 <p><strong>ARCADE</strong></p>
 <p>Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen.</p>
-<p><img src="../../semantris-arcade.gif" alt=""></p>
+<p><img src="../../images/semantris-arcade.gif" alt=""></p>
 <p><strong>BLOCKS</strong></p>
 <p>Blocks is a turn-based game mode. You can take your time to come up with different types of clues and see which ones the game understands best.</p>
 <p><img src="../../images/semantris-blocks.gif" alt=""></p>
@@ -165,6 +165,7 @@ Arcade mode requires the player to come up with associated words for certain wor
 <blockquote>
 <p>Also, there are three types of theme colors in arcade mode.</p>
 </blockquote>
+<p><img src="../../images/semantris-arcade-theme-colors.jpg" alt=""></p>
 <p>You will realize that the theme color isn’t playing any role here, the game playing mechanism will remain the same if we change the theme color, what changes is the definition of the highlighted word.</p>
 <blockquote>
 <p>A word is <strong>highlighted</strong> if it has a pointer shape left to it, “‎▶ <strong>Ship</strong>” in this case.</p>
@@ -172,9 +173,11 @@ Arcade mode requires the player to come up with associated words for certain wor
 <h5 id="heading-1"></h5>
 <p>COLOR SPACE CONVERSION</p>
 <p>ARCADE mode of Semantris-Solver starts with capturing the screenshot of the laptop screen and converts it into a gray-scale image, agnostic of the actual color.</p>
+<p><img src="../../images/semantris-arcade-gray-scale.png" alt=""></p>
 <h5 id="template-matching">TEMPLATE MATCHING</h5>
 <p>Our next step will be to find the highlighted word in the captured image. OpenCV provides a method called <a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.3.0/d4/dc6/tutorial_py_template_matching.html">Template Matching</a> for searching and finding the location of a template image in a larger image.</p>
 <p>We will use a cropped version of the pointer shape (▶) as a template image, to find its location in the captured screen.</p>
+<p><img src="../../images/semantris-arcade-selected-highlighted-word.png" alt=""></p>
 <h5 id="optical-character-recognition">OPTICAL CHARACTER RECOGNITION</h5>
 <p>Based on the pointer’s location, a section is cropped right next to it, with the highlighted word.</p>
 <p>The cropped image is converted into text using <a href="https://web.archive.org/web/20201111220617/https://hackpravj.com/blog/solving-semantris-opencv-word2vec/Tesseract%20OCR">Tesseract OCR</a>; in this case, it will give us the word <strong>Ship</strong>.</p>
