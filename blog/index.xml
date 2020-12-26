@@ -19,5 +19,18 @@ Yes. Take my “personal” answer/solution to this question for example.
 Looking in the past, most of the time I’ve found myself reading the essays when I’m sitting in MTR on my own trying to spend some time off, amidst the constant background noise of people ordering the same three items over and over.</description>
     </item>
     
+    <item>
+      <title>Solving Google Semantris using OpenCV and Word2Vec</title>
+      <link>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</link>
+      <pubDate>Sat, 01 Dec 2018 18:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</guid>
+      <description>Hmm. Looks like you&amp;rsquo;ve played enough Semantris to reach here.
+ Semantris is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.
+ There are 2 modes available in the game.
+ARCADE
+Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen.</description>
+    </item>
+    
   </channel>
 </rss>
