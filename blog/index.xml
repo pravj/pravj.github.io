@@ -52,5 +52,15 @@ ARCADE
 Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen.</description>
     </item>
     
+    <item>
+      <title>Contributing to the Go programming language</title>
+      <link>https://hackpravj.com/blog/first-golang-contribution-experience/</link>
+      <pubDate>Wed, 14 Jun 2017 18:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/blog/first-golang-contribution-experience/</guid>
+      <description> This article is being updated. Thank you for your patience.
+ </description>
+    </item>
+    
   </channel>
 </rss>

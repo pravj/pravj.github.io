@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Open-Source on hack(pravj)</title>
+    <title>Open Source on hack(pravj)</title>
     <link>https://hackpravj.com/tags/open-source/</link>
-    <description>Recent content in Open-Source on hack(pravj)</description>
+    <description>Recent content in Open Source on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Sep 2019 18:30:00 +0000</lastBuildDate><atom:link href="https://hackpravj.com/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
@@ -13,6 +13,16 @@
       <pubDate>Sun, 01 Sep 2019 18:30:00 +0000</pubDate>
       
       <guid>https://hackpravj.com/blog/building-missing-github-feature/</guid>
+      <description> This article is being updated. Thank you for your patience.
+ </description>
+    </item>
+    
+    <item>
+      <title>Contributing to the Go programming language</title>
+      <link>https://hackpravj.com/blog/first-golang-contribution-experience/</link>
+      <pubDate>Wed, 14 Jun 2017 18:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/blog/first-golang-contribution-experience/</guid>
       <description> This article is being updated. Thank you for your patience.
  </description>
     </item>
