@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bangalore on hack(pravj)</title>
+    <link>https://hackpravj.com/tags/bangalore/</link>
+    <description>Recent content in Bangalore on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 31 Aug 2015 18:30:00 +0000</lastBuildDate><atom:link href="https://hackpravj.com/tags/bangalore/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jump in to ride all the Bangalore taxis, at once</title>
+      <link>https://hackpravj.com/blog/bangalore-taxis/</link>
+      <pubDate>Mon, 31 Aug 2015 18:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/blog/bangalore-taxis/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

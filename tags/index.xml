@@ -205,5 +205,32 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Bangalore</title>
+      <link>https://hackpravj.com/tags/bangalore/</link>
+      <pubDate>Mon, 31 Aug 2015 18:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/tags/bangalore/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mapbox</title>
+      <link>https://hackpravj.com/tags/mapbox/</link>
+      <pubDate>Mon, 31 Aug 2015 18:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/tags/mapbox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ride sharing</title>
+      <link>https://hackpravj.com/tags/ride-sharing/</link>
+      <pubDate>Mon, 31 Aug 2015 18:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/tags/ride-sharing/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
