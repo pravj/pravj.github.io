@@ -232,5 +232,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Game</title>
+      <link>https://hackpravj.com/tags/game/</link>
+      <pubDate>Wed, 22 Apr 2015 18:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/tags/game/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://hackpravj.com/tags/git/</link>
+      <pubDate>Wed, 14 Jan 2015 18:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/tags/git/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
