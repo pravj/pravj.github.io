@@ -178,5 +178,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Data</title>
+      <link>https://hackpravj.com/tags/data/</link>
+      <pubDate>Tue, 07 Feb 2017 18:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/tags/data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hacker News</title>
+      <link>https://hackpravj.com/tags/hacker-news/</link>
+      <pubDate>Tue, 07 Feb 2017 18:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/tags/hacker-news/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
