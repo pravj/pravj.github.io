@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>framework on hack(pravj)</title>
+    <link>https://hackpravj.com/tags/framework/</link>
+    <description>Recent content in framework on hack(pravj)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Jan 2021 15:30:00 +0000</lastBuildDate><atom:link href="https://hackpravj.com/tags/framework/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A framework for using automation in product design</title>
+      <link>https://hackpravj.com/blog/automation-product-design-framework/</link>
+      <pubDate>Sun, 17 Jan 2021 15:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/blog/automation-product-design-framework/</guid>
+      <description>This article is an attempt to dissect and explain automation, and to provide a framework on how to use automation during product design.
+It&amp;rsquo;s based on the paper titled, &amp;ldquo;A Model for Types and Levels of Human Interaction with Automation,&amp;rdquo; by R Parasuraman et al.
+Disagreement with the definition
+There are many opinions on automation and its potential negative effects on society, without understanding it fully.
+Even the dictionary gets it wrong perceiving it as a binary mode of operation (either 0 or full human replacement).</description>
+    </item>
+    
+  </channel>
+</rss>
