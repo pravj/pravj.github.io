@@ -6,7 +6,28 @@
     <description>Recent content in Blogs on hack(pravj)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Jan 2021 15:30:00 +0000</lastBuildDate><atom:link href="https://hackpravj.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Mar 2021 04:30:00 +0000</lastBuildDate><atom:link href="https://hackpravj.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Anatomy of a Finshots story: Art of Effective Storytelling</title>
+      <link>https://hackpravj.com/blog/finshots-storytelling-product-teardown/</link>
+      <pubDate>Mon, 15 Mar 2021 04:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/blog/finshots-storytelling-product-teardown/</guid>
+      <description>Finshots is an India-focused daily newsletter explaining the important financial news in a simplified language.
+The application has nailed the financial-education category and was a winner of Google Play’s Best of 2020 award. 🏆
+It has a 4.9/5 rating on the Play Store and has 100K+ downloads. On top of everything else, it has true fans loving the product and spreading the word around.
+This article is a product-teardown with an objective to understand what sets the application apart from existing players.</description>
+    </item>
+    
+    <item>
+      <title>Anatomy of a Finshots story: Art of Effective Storytelling</title>
+      <link>https://hackpravj.com/blog/finshots-story-anatomy-product-teardown/</link>
+      <pubDate>Mon, 15 Mar 2021 03:30:00 +0000</pubDate>
+      
+      <guid>https://hackpravj.com/blog/finshots-story-anatomy-product-teardown/</guid>
+      <description>This is a sample post</description>
+    </item>
+    
     <item>
       <title>A framework for using automation in product design</title>
       <link>https://hackpravj.com/blog/automation-product-design-framework/</link>

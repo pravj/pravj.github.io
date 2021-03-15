@@ -2,10 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hackpravj.com/blog/automation-product-design-framework/</loc>
-    <lastmod>2021-01-17T15:30:00+00:00</lastmod>
+    <loc>https://hackpravj.com/blog/finshots-storytelling-product-teardown/</loc>
+    <lastmod>2021-03-15T04:30:00+00:00</lastmod>
   </url><url>
     <loc>https://hackpravj.com/blog/</loc>
+    <lastmod>2021-03-15T04:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hackpravj.com/</loc>
+    <lastmod>2021-03-15T04:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hackpravj.com/tags/product/</loc>
+    <lastmod>2021-03-15T04:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hackpravj.com/tags/product-teardown/</loc>
+    <lastmod>2021-03-15T04:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hackpravj.com/tags/storytelling/</loc>
+    <lastmod>2021-03-15T04:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hackpravj.com/tags/</loc>
+    <lastmod>2021-03-15T04:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hackpravj.com/blog/finshots-story-anatomy-product-teardown/</loc>
+    <lastmod>2021-03-15T03:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hackpravj.com/blog/automation-product-design-framework/</loc>
     <lastmod>2021-01-17T15:30:00+00:00</lastmod>
   </url><url>
     <loc>https://hackpravj.com/tags/design/</loc>
@@ -14,16 +35,7 @@
     <loc>https://hackpravj.com/tags/framework/</loc>
     <lastmod>2021-01-17T15:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/</loc>
-    <lastmod>2021-01-17T15:30:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hackpravj.com/tags/product/</loc>
-    <lastmod>2021-01-17T15:30:00+00:00</lastmod>
-  </url><url>
     <loc>https://hackpravj.com/tags/research/</loc>
-    <lastmod>2021-01-17T15:30:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hackpravj.com/tags/</loc>
     <lastmod>2021-01-17T15:30:00+00:00</lastmod>
   </url><url>
     <loc>https://hackpravj.com/tags/ux/</loc>
