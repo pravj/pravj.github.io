@@ -263,7 +263,8 @@ I love painting in my free time (once in a full moon every leap year), scroll be
       <guid>https://hackpravj.com/projects/</guid>
       <description>Hey! Have you read the book &#34;The Knowing-Doing Gap&#34; by Robert I. Sutton?
  I used to maintain a list of my active/in-active projects here.
-The type (of projects) and the frequency of doing them has changed now. I plan to revive the list here, not certain of the timeline yet.</description>
+The type (of projects) and the frequency of doing them has changed now. I plan to revive the list here, not certain of the timeline yet.
+ &amp;lt;!-- Show static HTML/CSS as a placeholder in case js is not enabled - javascript include will override this if things work --&amp;gt; &amp;lt;style type=&amp;quot;text/css&amp;quot; media=&amp;quot;screen&amp;quot;&amp;gt;  .</description>
     </item>
     
   </channel>
