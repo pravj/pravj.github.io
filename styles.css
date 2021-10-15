@@ -65,6 +65,7 @@
 .icon-twitter:before { content: '\e808'; } /* '' */
 .icon-hacker-news:before { content: '\e809'; } /* '' */
 .icon-linkedin:before { content: '\e80a'; } /* '' */
+.icon-book:before { content: '\0x1f4d5'; } /* '' */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
