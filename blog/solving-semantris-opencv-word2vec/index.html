@@ -149,10 +149,10 @@
 <p>There are 2 modes available in the game.</p>
 <p><strong>ARCADE</strong></p>
 <p>Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen.</p>
-<p><img src="/images/semantris-arcade.gif" alt=""></p>
+<p><img src="/photos/semantris-arcade.gif" alt=""></p>
 <p><strong>BLOCKS</strong></p>
 <p>Blocks is a turn-based game mode. You can take your time to come up with different types of clues and see which ones the game understands best.</p>
-<p><img src="/images/semantris-blocks.gif" alt=""></p>
+<p><img src="/photos/semantris-blocks.gif" alt=""></p>
 <blockquote>
 <p>After playing for a while, I realized both the game modes are using <a href="https://web.archive.org/web/20201111220617/http://www.peachpit.com/articles/article.aspx?p=98123&amp;seqNum=2">pattern recognition as the main game-play mechanism</a>. And that’s when I started thinking if the game-play can be automated.</p></blockquote>
 <p><strong>TURNS OUT, IT CAN BE AUTOMATED</strong></p>
@@ -198,7 +198,7 @@
 </ol>
 <blockquote>
 <p>Also, there are three types of theme colors in arcade mode.</p></blockquote>
-<p><img src="/images/semantris-arcade-theme-colors.jpg" alt=""></p>
+<p><img src="/photos/semantris-arcade-theme-colors.jpg" alt=""></p>
 <p>You will realize that the theme color isn’t playing any role here, the game playing mechanism will remain the same if we change the theme color, what changes is the definition of the highlighted word.</p>
 <blockquote>
 <p>A word is <strong>highlighted</strong> if it has a pointer shape left to it, “‎▶ <strong>Ship</strong>” in this case.</p></blockquote>
@@ -229,7 +229,7 @@
 </h6>
 <p>COLOR SPACE CONVERSION</p>
 <p>ARCADE mode of Semantris-Solver starts with capturing the screenshot of the laptop screen and converts it into a gray-scale image, agnostic of the actual color.</p>
-<p><img src="/images/semantris-arcade-gray-scale.png" alt=""></p>
+<p><img src="/photos/semantris-arcade-gray-scale.png" alt=""></p>
 <h6 id="template-matching" class="scroll-mt-8 group">
   TEMPLATE MATCHING
   
@@ -257,7 +257,7 @@
 </h6>
 <p>Our next step will be to find the highlighted word in the captured image. OpenCV provides a method called <a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.3.0/d4/dc6/tutorial_py_template_matching.html">Template Matching</a> for searching and finding the location of a template image in a larger image.</p>
 <p>We will use a cropped version of the pointer shape (▶) as a template image, to find its location in the captured screen.</p>
-<p><img src="/images/semantris-arcade-selected-highlighted-word.png" alt=""></p>
+<p><img src="/photos/semantris-arcade-selected-highlighted-word.png" alt=""></p>
 <h6 id="optical-character-recognition" class="scroll-mt-8 group">
   OPTICAL CHARACTER RECOGNITION
   

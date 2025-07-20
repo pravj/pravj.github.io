@@ -1,0 +1,206 @@
+/* Photos List Page Styles */
+.project-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.project-grid h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.project-card {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card h2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Single Project Page Styles */
+.project-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+.project-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.project-description {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.project-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.project-meta strong {
+  color: #333;
+}
+
+.hero-image {
+  margin: 3rem 0;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.02);
+}
+
+.gallery-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.gallery-row.full .gallery-img {
+  flex: 1 1 100%;
+}
+
+.gallery-row.halves .gallery-img {
+  flex: 1 1 calc(50% - 0.5rem);
+}
+
+.gallery-row.thirds .gallery-img {
+  flex: 1 1 calc(33.333% - 0.7rem);
+}
+
+.gallery-img {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-img img:hover {
+  transform: scale(1.05);
+}
+
+.caption {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.project-footer {
+  padding-top: 3rem;
+  border-top: 1px solid #eee;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.project-footer a {
+  color: #007acc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.project-footer a:hover {
+  color: #005999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-container {
+    padding: 1rem;
+  }
+  
+  .project-header h1 {
+    font-size: 2rem;
+  }
+  
+  .project-meta {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .gallery-row.halves .gallery-img,
+  .gallery-row.thirds .gallery-img {
+    flex: 1 1 100%;
+  }
+  
+  .project-grid {
+    padding: 1rem;
+  }
+  
+  .project-grid h1 {
+    font-size: 2rem;
+  }
+}
