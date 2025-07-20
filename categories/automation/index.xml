@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Automation on Pravendra Singh</title>
+    <link>https://hackpravj.com/categories/automation/</link>
+    <description>Recent content in Automation on Pravendra Singh</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Pravendra Singh</copyright>
+    <lastBuildDate>Sun, 17 Jan 2021 15:30:00 +0000</lastBuildDate>
+    <atom:link href="https://hackpravj.com/categories/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Framework for Using Automation in Product Design</title>
+      <link>https://hackpravj.com/blog/automation-product-design-framework/</link>
+      <pubDate>Sun, 17 Jan 2021 15:30:00 +0000</pubDate>
+      <guid>https://hackpravj.com/blog/automation-product-design-framework/</guid>
+      <description>A basic primer on automation and how it can be used in product design.</description>
+    </item>
+  </channel>
+</rss>

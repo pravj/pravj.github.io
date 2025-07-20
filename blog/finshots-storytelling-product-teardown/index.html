@@ -1,166 +1,320 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<head>
-  <title>
-    Anatomy of a Finshots story: Art of Effective Storytelling - hack(pravj) | Pravendra Singh
-  </title>
-
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="copyright" content="&copy; Copyright 2012 to Present"/>
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Here I write about my encounters on startups, product management, books, artificial intelligence, and other random observations."/>
-<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, product, ai, pm, product manager, startup, startups, product management, ml, machine learning, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
-<meta name="author" content="Pravendra Singh">
-<meta http-equiv="cleartype" content="on">
-
-  <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
-<meta property="og:title" content="Anatomy of a Finshots story: Art of Effective Storytelling" />
-<meta property="og:type" content="article" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:url" content="https://hackpravj.com/blog/finshots-storytelling-product-teardown/" />
-<meta property="og:description" content="Finshots is on the mission to simplify financial news. This article is a product-teardown with an objective to understand what sets the application apart from existing players." />
-<meta property="og:image" content="https://hackpravj.com/images/pageimage-finshots-storytelling-product-teardown.png"/>
-<meta property="article:author" content="https://www.facebook.com/hackpravj" />
-<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
-
-  <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@hackpravj">
-<meta name="twitter:creator" content="@hackpravj">
-<meta name="twitter:title" content="Anatomy of a Finshots story: Art of Effective Storytelling" />
-<meta name="twitter:description" content="Finshots is on the mission to simplify financial news. This article is a product-teardown with an objective to understand what sets the application apart from existing players." />
-<meta name="twitter:image" content="https://hackpravj.com/images/pageimage-finshots-storytelling-product-teardown.png"/>
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head>
+    <meta charset="utf-8" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width" />
+<title>
+    Anatomy of a Finshots story: Art of Effective Storytelling | Pravendra Singh
+</title>
+  <meta name="description" content="Finshots product-teardown with an objective to understand what sets them apart." />
+<meta property="og:url" content="https://hackpravj.com/blog/finshots-storytelling-product-teardown/">
+  <meta property="og:site_name" content="Pravendra Singh">
+  <meta property="og:title" content="Anatomy of a Finshots story: Art of Effective Storytelling">
+  <meta property="og:description" content="Finshots product-teardown with an objective to understand what sets them apart.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-03-15T04:30:00+00:00">
+    <meta property="article:modified_time" content="2021-03-15T04:30:00+00:00">
 
 
-  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <meta itemprop="name" content="Anatomy of a Finshots story: Art of Effective Storytelling">
+  <meta itemprop="description" content="Finshots product-teardown with an objective to understand what sets them apart.">
+  <meta itemprop="datePublished" content="2021-03-15T04:30:00+00:00">
+  <meta itemprop="dateModified" content="2021-03-15T04:30:00+00:00">
+  <meta itemprop="wordCount" content="659">
+  <meta itemprop="keywords" content="Storytelling,Writing,Product">
 
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Anatomy of a Finshots story: Art of Effective Storytelling">
+  <meta name="twitter:description" content="Finshots product-teardown with an objective to understand what sets them apart.">
+
+<link rel="canonical" href="https://hackpravj.com/blog/finshots-storytelling-product-teardown/" />
+
+      <link
+        rel="stylesheet"
+        href="/css/index.min.f8a65cc8c325821f285bc0748829de9cda4cfcba962787612f5d731e4c2c3bc6.css"
+        integrity="sha256-&#43;KZcyMMlgh8oW8B0iCnenNpM/LqWJ4dhL11zHkwsO8Y="
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="/css/photos.min.7d68a8afb4856793c9fb78ed546d63b89e9809a88cafdbc4922681cfed23cc34.css"
+        integrity="sha256-fWior7SFZ5PJ&#43;3jtVG1juJ6YCaiMr9vEkiaBz&#43;0jzDQ="
+        crossorigin="anonymous"
+      />
+
+
+      <script
+        src="/js/main.768afc34ae241ed1446e295008ccc9d01abdcb1bf1fcade9c31a828a02d31b1c.js"
+        integrity="sha256-dor8NK4kHtFEbilQCMzJ0Bq9yxvx/K3pwxqCigLTGxw="
+        crossorigin="anonymous"
+        defer
+      ></script>
   
-  <link rel="stylesheet" href="../../styles.min.css">
-  
-  <style>
-    div.post-content img {max-width:100%;max-height:100%;}
-  </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@id": "https://hackpravj.com/blog/finshots-storytelling-product-teardown/",
+  "@type": "BlogPosting",
+  "articleSection": [
+    "Storytelling",
+    "Writing",
+    "Product"
+  ],
+  "copyrightNotice": "Pravendra Singh",
+  "datePublished": "2021-03-15",
+  "description": "Finshots product-teardown with an objective to understand what sets them apart.",
+  "headline": "Anatomy of a Finshots Story: Art of Effective Storytelling",
+  "isPartOf": {
+    "@id": "https://hackpravj.com/blog/",
+    "@type": "Blog",
+    "name": "Posts"
+  },
+  "mainEntityOfPage": "https://hackpravj.com/blog/finshots-storytelling-product-teardown/",
+  "name": "Anatomy of a Finshots Story: Art of Effective Storytelling",
+  "timeRequired": "PT4M",
+  "url": "https://hackpravj.com/blog/finshots-storytelling-product-teardown/",
+  "wordCount": 659
+}
+</script>
+
+
     
+  </head>
+  <body>
+    
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        
+
+<header class="flex flex-col items-start sm:items-center space-y-4 mt-4">
+  <a id="skip-nav" class="sr-only" href="#maincontent">Skip to main content</a>
   
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="../../favicon.png">
-
+  <a class="text-xl font-semibold tracking-tight whitespace-nowrap" href="/">Pravendra Singh</a>
   
-</head>
+  <nav>
+    <ul class="flex flex-wrap justify-start sm:justify-center space-x-4 pt-1">
+        <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/about/">About</a>
+        </li>
+        <li>
+          <a aria-current="true" class="pb-1 border-b-2 transition border-transparent hover:border-slate-300 border-blue-500" href="/blog/">Posts</a>
+        </li>
+        <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/books/">Reading</a>
+        </li>
+        <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/photos/">Photos</a>
+        </li>
+    </ul>
+  </nav>
 
 
-<body>
-      <div class="post-header">
-  <div class="container">
-    <div class="row">
-      <div class="six columns">
-        <h4><a href="../../">PRAVENDRA SINGH</a></h4>
-      </div>
-      <div class="six columns">
-        <nav>
-          <ul class="nav-list">
-            <li><a href="../../about" title="About Me"><span style="font-size:14px;">About</span></a></li>
-            <li><a href="../../blog" title="Articles"><span style="font-size:14px;">Articles</span></a></li>
-            <li><a href="../../books" title="Books"><span style="font-size:14px;">Books</span></a></li>
-            
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
-</div>
+</header>
 
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        <article class="main">
+    <header>
+      <h1 class="!mb-1">Anatomy of a Finshots Story: Art of Effective Storytelling</h1><div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="2021-03-15T04:30:00&#43;00:00"
+            >March 15, 2021</time
+          >
+        </div>
+    </header>
 
-  <div class="container">
-    <div class="row">
-
-      <section>
-            <h1 class="post-title">
-              <a href="../../blog/finshots-storytelling-product-teardown/">Anatomy of a Finshots story: Art of Effective Storytelling</a>
-            </h1>
-
-          <div class="post-content-meta">
-
-            
-              <i class="icon-calendar"></i>  
-              <span class="post-date">
-                <span class="post-date-month">March</span> 
-                <span class="post-date-day"> 15, </span>
-                <span class="post-date-year">2021</span>
-              </span> 
-            
-
-            
-            
-                <span class="post-tag"> in </span>
-                
-                <a class="post-tag post-tag-storytelling" href="https://hackpravj.com/tags/storytelling">
-                  <i class="icon-tag"></i>Storytelling</a>
-                
-                <a class="post-tag post-tag-product" href="https://hackpravj.com/tags/product">
-                  <i class="icon-tag"></i>Product</a>
-                
-                <a class="post-tag post-tag-product-teardown" href="https://hackpravj.com/tags/product-teardown">
-                  <i class="icon-tag"></i>Product-Teardown</a>
-                
-            
-
-         </div>
-
-			
-
-
-			
-
-      <div class="post-content">
-        <p><a href="https://finshots.in/" title="Finshots">Finshots</a> is an India-focused daily newsletter explaining the important financial news in a simplified language.</p>
+    <p><a href="https://finshots.in/" title="Finshots">Finshots</a> is an India-focused daily newsletter explaining the important financial news in a simplified language.</p>
 <p>The application has nailed the financial-education category and was a winner of Google Play’s Best of 2020 award. 🏆</p>
 <p>It has a 4.9/5 rating on the Play Store and has 100K+ downloads. On top of everything else, it has true fans loving the product and spreading the word around.</p>
-<p><img src="../../images/finshots-storytelling-product-teardown-appreciation.png" alt="Finshots: Social Media Appreciation" title="Finshots: Social Media Appreciation"></p>
+<p><img src="/images/finshots-storytelling-product-teardown-appreciation.png" alt="Finshots: Social Media Appreciation" title="Finshots: Social Media Appreciation"></p>
 <p>This article is a product-teardown with an objective to understand what sets the application apart from existing players. Taking off my daily reader’s hat, I tried to understand what is their secret sauce.</p>
 <blockquote>
-<p>To sum it up, the secret sauce is a well-crafted storytelling structure.</p>
-</blockquote>
-<h3 id="story-artwork">Story artwork</h3>
+<p>To sum it up, the secret sauce is a well-crafted storytelling structure.</p></blockquote>
+<h4 id="story-artwork" class="scroll-mt-8 group">
+  Story artwork
+  
+    <a href="#story-artwork"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
 <p>As a reader, a preview card is the first thing you see about a story and the card has everything to get you hooked.</p>
 <p>It starts with the story’s artwork that is contextual to each story.</p>
-<p><img src="../../images/finshots-storytelling-product-teardown-story-artwork.png" alt="Anatomy of a Finshots story: Story Artwork" title="Anatomy of a Finshots story: Story Artwork"></p>
+<p><img src="/images/finshots-storytelling-product-teardown-story-artwork.png" alt="Anatomy of a Finshots story: Story Artwork" title="Anatomy of a Finshots story: Story Artwork"></p>
 <p>Now compare it to other channels where a stock photo would be used for a similar topic.The quality is at par, and you can feel the effort invested as soon as you see the image.</p>
 <p>The objective here is to connect the readers with the story before they start reading it.</p>
-<h3 id="the-big-question">The Big-Question</h3>
+<h4 id="the-big-question" class="scroll-mt-8 group">
+  The Big-Question
+  
+    <a href="#the-big-question"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
 <p>After the artwork, comes the &ldquo;Big Question.&rdquo;</p>
 <p>It is a question placed in either the story’s title or the description and does two things well.</p>
-<p><img src="../../images/finshots-storytelling-product-teardown-big-question.png" alt="Anatomy of a Finshots story: The Big Question" title="Anatomy of a Finshots story: The Big Question"></p>
+<p><img src="/images/finshots-storytelling-product-teardown-big-question.png" alt="Anatomy of a Finshots story: The Big Question" title="Anatomy of a Finshots story: The Big Question"></p>
 <p>First, it puts a question in the reader&rsquo;s mind as a trigger (following classical conditioning). A question crafted so beautifully that the mind can’t resist thinking about it.</p>
 <p>Second, it informs what exactly will the reader get out of the story once finished.</p>
-<h3 id="content-selection">Content selection</h3>
+<h4 id="content-selection" class="scroll-mt-8 group">
+  Content selection
+  
+    <a href="#content-selection"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
 <p>It&rsquo;s no secret that how you present an idea (storytelling) matters, but the content selection isn&rsquo;t an afterthought too.</p>
 <p>Finshots tend to hit when the topic is hot, knowing that the readers will exhibit a factor called Recency-bias, preferring the recent trends/topics over any historic topic.</p>
-<p><img src="../../images/finshots-storytelling-product-teardown-content-selection.png" alt="Anatomy of a Finshots story: Content Selection" title="Anatomy of a Finshots story: Content Selection"></p>
+<p><img src="/images/finshots-storytelling-product-teardown-content-selection.png" alt="Anatomy of a Finshots story: Content Selection" title="Anatomy of a Finshots story: Content Selection"></p>
 <p>And these are topics that other outlets would typically publish in a laggard style, more to prevent FOMO rather than to educate their readers.</p>
-<h3 id="story-summary-the-final-hook">Story summary: The final hook</h3>
+<h4 id="story-summary-the-final-hook" class="scroll-mt-8 group">
+  Story summary: The final hook
+  
+    <a href="#story-summary-the-final-hook"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
 <p>Humans have a need to complete, we don’t like to leave things incomplete.</p>
 <p>Building on the same phenomenon, additional information (summary) is provided at the top of the story.</p>
 <blockquote>
-<p>You clicked on the story card, saw the summary, and now you’re hooked.</p>
-</blockquote>
-<p><img src="../../images/finshots-storytelling-product-teardown-story-summary-hook.png" alt="Anatomy of a Finshots story: Story Summary" title="Anatomy of a Finshots story: Story Summary"></p>
-<h3 id="the-personality-of-the-story">The personality of the story</h3>
+<p>You clicked on the story card, saw the summary, and now you’re hooked.</p></blockquote>
+<p><img src="/images/finshots-storytelling-product-teardown-story-summary-hook.png" alt="Anatomy of a Finshots story: Story Summary" title="Anatomy of a Finshots story: Story Summary"></p>
+<h4 id="the-personality-of-the-story" class="scroll-mt-8 group">
+  The personality of the story
+  
+    <a href="#the-personality-of-the-story"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
 <p>Paul Graham has an essay titled <a href="http://www.paulgraham.com/talk.html" title="Write Like You Talk">Write Like You Talk</a>, suggesting exactly what the title says.</p>
 <blockquote>
-<p>Here&rsquo;s a simple trick for getting more people to read what you write: write in spoken language.</p>
-</blockquote>
+<p>Here&rsquo;s a simple trick for getting more people to read what you write: write in spoken language.</p></blockquote>
 <p>Finshots&rsquo;s articles follow a similar structure, where it feels like reading the transcription of someone speaking and explaining the topic to the reader.</p>
 <p>The story talks back to you, using witty lines at times. Such lines are used to change the topic OR connect with the next part of the story.</p>
-<p><img src="../../images/finshots-storytelling-product-teardown-story-funny-language.png" alt=""></p>
+<p><img src="/images/finshots-storytelling-product-teardown-story-funny-language.png" alt=""></p>
 <p>Last I checked, not every other news outlet was using a witty personality in their stories.</p>
 <p>Another news outlet pulling this off in a completely unique manner is The Ken, where they have a story-specific introductory email hitting your inbox every morning.</p>
 <p>Equally similar, just that the author is more explicit and isn&rsquo;t hidden.</p>
-<p><img src="../../images/finshots-storytelling-product-teardown-the-ken-email.png" alt="Anatomy of a Finshots story: The Ken Reference" title="Anatomy of a Finshots story: The Ken Reference"></p>
-<h3 id="the-story-engine">The story engine</h3>
+<p><img src="/images/finshots-storytelling-product-teardown-the-ken-email.png" alt="Anatomy of a Finshots story: The Ken Reference" title="Anatomy of a Finshots story: The Ken Reference"></p>
+<h4 id="the-story-engine" class="scroll-mt-8 group">
+  The story engine
+  
+    <a href="#the-story-engine"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
 <p>Overall, their structured execution is a case-study in itself.</p>
 <p>They&rsquo;ve created a well-oiled engine that consistently generates simple/to-the-point stories for their readers.</p>
 <p>It would be interesting to learn more about the behind-the-scene of the engine. Pretty sure there will be so many Quality-Check/Control lessons to learn about.</p>
@@ -175,89 +329,70 @@
 <li>How do they evaluate if the final content is &ldquo;Finshot worthy&rdquo;?</li>
 </ol>
 <blockquote>
-<p>If you&rsquo;ve found this article helpful, what do you think about sharing it with someone?</p>
-</blockquote>
+<p>If you&rsquo;ve found this article helpful, what do you think about sharing it with someone?</p></blockquote>
 <blockquote>
-<p>Meanwhile, I&rsquo;m available at <a href="https://twitter.com/hackpravj" title="Pravendra's Twitter: @hackpravj">@hackpravj</a> if you want to know 🖖🏻 whenever  🖖🏻 I write another such article.</p>
-</blockquote>
+<p>Meanwhile, I&rsquo;m available at <a href="https://twitter.com/hackpravj" title="Pravendra's Twitter: @hackpravj">@hackpravj</a> if you want to know 🖖🏻 whenever  🖖🏻 I write another such article.</p></blockquote>
 
-      </div>
-	
-			
+  </article>
+    <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-shapes h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"
+  />
+  <rect width="7" height="7" x="3" y="14" rx="1" />
+  <circle cx="17.5" cy="17.5" r="3.5" />
+</svg>
 
-      </div>
+        <span>Categories</span>
+      </h2>
 
-      <div class="row paging">
-			
-          
-          <div class="six columns">
-            <a class="paging-link" href="../../blog/how-will-drone-deliver-food-order/"><i class="icon-left-open"></i> How will a drone deliver your food?</a>
-          </div>
-          
-
-					
-          <div class="paging-newer six columns">
-            <a class="paging-link" href="../../blog/automation-product-design-framework/">A framework for using automation in product design <i class="icon-right-open"></i></a>
-          </div>
-          
-
-      
-       </div>
-
-
-    </div>
-  </div>
-
-  
-  <div class="container">
-    <div class="row" id="disqus_area">
-      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
-<div id="disqus_thread"></div>
-
-<script type="text/javascript">
-  var disqus_shortname = 'pravj';
-
-  function loadDisqus() {
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-
-  
-  document.getElementById('disqus_load').style.display = 'none';
-  return false;
-}
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-    </div>
-  </div>
-  
+      <ul class="ml-6 flex flex-row flex-wrap items-center space-x-2">
+          <li>
+            <a href="/categories/storytelling/" class="taxonomy category">Storytelling</a>
+          </li>
+          <li>
+            <a href="/categories/writing/" class="taxonomy category">Writing</a>
+          </li>
+          <li>
+            <a href="/categories/product/" class="taxonomy category">Product</a>
+          </li>
+      </ul>
+    </section>
+</aside>
 
 
-	
-
-	
-
-    <script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-48537986-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-    </div>
-      <div class="footer">
-	<hr class="thin" />
-  <p><a href="../../about#colophon:6083a88ee3411b0d17ce02d738f69d47"></a>Pravendra Singh</p>
-</div>
+      </main>
+    
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        <section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+      <p>Copyright &copy; 2025, Pravendra Singh.</p>
 
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="../../main.js"></script>
+    <div>
+      <a
+        href="https://github.com/michenriksen/hugo-theme-til"
+        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="0.6.0"
+        >theme: til</a
+      >
+    </div>
+</section>
 
-</body>
+      </footer>
+    </div>
+    
+  </body>
 </html>

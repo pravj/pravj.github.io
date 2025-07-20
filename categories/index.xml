@@ -1,10 +1,118 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on hack(pravj)</title>
+    <title>Categories on Pravendra Singh</title>
     <link>https://hackpravj.com/categories/</link>
-    <description>Recent content in Categories on hack(pravj)</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://hackpravj.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Categories on Pravendra Singh</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Pravendra Singh</copyright>
+    <lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0530</lastBuildDate>
+    <atom:link href="https://hackpravj.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Culture</title>
+      <link>https://hackpravj.com/categories/culture/</link>
+      <pubDate>Sun, 20 Mar 2022 00:00:00 +0530</pubDate>
+      <guid>https://hackpravj.com/categories/culture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Framework</title>
+      <link>https://hackpravj.com/categories/framework/</link>
+      <pubDate>Sun, 20 Mar 2022 00:00:00 +0530</pubDate>
+      <guid>https://hackpravj.com/categories/framework/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Startup</title>
+      <link>https://hackpravj.com/categories/startup/</link>
+      <pubDate>Sun, 20 Mar 2022 00:00:00 +0530</pubDate>
+      <guid>https://hackpravj.com/categories/startup/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Design</title>
+      <link>https://hackpravj.com/categories/design/</link>
+      <pubDate>Sun, 10 Oct 2021 11:30:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Product</title>
+      <link>https://hackpravj.com/categories/product/</link>
+      <pubDate>Sun, 10 Oct 2021 11:30:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/product/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UX</title>
+      <link>https://hackpravj.com/categories/ux/</link>
+      <pubDate>Sun, 10 Oct 2021 11:30:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/ux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Storytelling</title>
+      <link>https://hackpravj.com/categories/storytelling/</link>
+      <pubDate>Mon, 15 Mar 2021 04:30:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/storytelling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Writing</title>
+      <link>https://hackpravj.com/categories/writing/</link>
+      <pubDate>Mon, 15 Mar 2021 04:30:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/writing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automation</title>
+      <link>https://hackpravj.com/categories/automation/</link>
+      <pubDate>Sun, 17 Jan 2021 15:30:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Habit</title>
+      <link>https://hackpravj.com/categories/habit/</link>
+      <pubDate>Sat, 02 Jan 2021 12:50:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/habit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OKR</title>
+      <link>https://hackpravj.com/categories/okr/</link>
+      <pubDate>Sat, 02 Jan 2021 12:50:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/okr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Essays</title>
+      <link>https://hackpravj.com/categories/essays/</link>
+      <pubDate>Sat, 21 Nov 2020 18:30:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/essays/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Experiment</title>
+      <link>https://hackpravj.com/categories/experiment/</link>
+      <pubDate>Sat, 01 Dec 2018 18:30:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/experiment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ML</title>
+      <link>https://hackpravj.com/categories/ml/</link>
+      <pubDate>Sat, 01 Dec 2018 18:30:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/ml/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vision</title>
+      <link>https://hackpravj.com/categories/vision/</link>
+      <pubDate>Sat, 01 Dec 2018 18:30:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/vision/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

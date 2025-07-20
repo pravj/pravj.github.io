@@ -1,139 +1,193 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<head>
-  <title>
-    A framework for using automation in product design - hack(pravj) | Pravendra Singh
-  </title>
-
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="copyright" content="&copy; Copyright 2012 to Present"/>
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Here I write about my encounters on startups, product management, books, artificial intelligence, and other random observations."/>
-<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, product, ai, pm, product manager, startup, startups, product management, ml, machine learning, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
-<meta name="author" content="Pravendra Singh">
-<meta http-equiv="cleartype" content="on">
-
-  <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
-<meta property="og:title" content="A framework for using automation in product design" />
-<meta property="og:type" content="article" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:url" content="https://hackpravj.com/blog/automation-product-design-framework/" />
-<meta property="og:description" content="A basic primer on what is automation and how can automation be used in product design." />
-<meta property="og:image" content="https://hackpravj.com/images/"/>
-<meta property="article:author" content="https://www.facebook.com/hackpravj" />
-<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
-
-  <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@hackpravj">
-<meta name="twitter:creator" content="@hackpravj">
-<meta name="twitter:title" content="A framework for using automation in product design" />
-<meta name="twitter:description" content="A basic primer on what is automation and how can automation be used in product design." />
-<meta name="twitter:image" content="https://hackpravj.com/images/"/>
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head>
+    <meta charset="utf-8" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width" />
+<title>
+    A Framework for Using Automation in Product Design | Pravendra Singh
+</title>
+  <meta name="description" content="A basic primer on automation and how it can be used in product design." />
+<meta property="og:url" content="https://hackpravj.com/blog/automation-product-design-framework/">
+  <meta property="og:site_name" content="Pravendra Singh">
+  <meta property="og:title" content="A Framework for Using Automation in Product Design">
+  <meta property="og:description" content="A basic primer on automation and how it can be used in product design.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-01-17T15:30:00+00:00">
+    <meta property="article:modified_time" content="2021-01-17T15:30:00+00:00">
 
 
-  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <meta itemprop="name" content="A Framework for Using Automation in Product Design">
+  <meta itemprop="description" content="A basic primer on automation and how it can be used in product design.">
+  <meta itemprop="datePublished" content="2021-01-17T15:30:00+00:00">
+  <meta itemprop="dateModified" content="2021-01-17T15:30:00+00:00">
+  <meta itemprop="wordCount" content="813">
+  <meta itemprop="keywords" content="Design,UX,Automation">
 
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Framework for Using Automation in Product Design">
+  <meta name="twitter:description" content="A basic primer on automation and how it can be used in product design.">
+
+<link rel="canonical" href="https://hackpravj.com/blog/automation-product-design-framework/" />
+
+      <link
+        rel="stylesheet"
+        href="/css/index.min.f8a65cc8c325821f285bc0748829de9cda4cfcba962787612f5d731e4c2c3bc6.css"
+        integrity="sha256-&#43;KZcyMMlgh8oW8B0iCnenNpM/LqWJ4dhL11zHkwsO8Y="
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="/css/photos.min.7d68a8afb4856793c9fb78ed546d63b89e9809a88cafdbc4922681cfed23cc34.css"
+        integrity="sha256-fWior7SFZ5PJ&#43;3jtVG1juJ6YCaiMr9vEkiaBz&#43;0jzDQ="
+        crossorigin="anonymous"
+      />
+
+
+      <script
+        src="/js/main.768afc34ae241ed1446e295008ccc9d01abdcb1bf1fcade9c31a828a02d31b1c.js"
+        integrity="sha256-dor8NK4kHtFEbilQCMzJ0Bq9yxvx/K3pwxqCigLTGxw="
+        crossorigin="anonymous"
+        defer
+      ></script>
   
-  <link rel="stylesheet" href="../../styles.min.css">
-  
-  <style>
-    div.post-content img {max-width:100%;max-height:100%;}
-  </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@id": "https://hackpravj.com/blog/automation-product-design-framework/",
+  "@type": "BlogPosting",
+  "articleSection": [
+    "Design",
+    "UX",
+    "Automation"
+  ],
+  "copyrightNotice": "Pravendra Singh",
+  "datePublished": "2021-01-17",
+  "description": "A basic primer on automation and how it can be used in product design.",
+  "headline": "A Framework for Using Automation in Product Design",
+  "isPartOf": {
+    "@id": "https://hackpravj.com/blog/",
+    "@type": "Blog",
+    "name": "Posts"
+  },
+  "mainEntityOfPage": "https://hackpravj.com/blog/automation-product-design-framework/",
+  "name": "A Framework for Using Automation in Product Design",
+  "timeRequired": "PT4M",
+  "url": "https://hackpravj.com/blog/automation-product-design-framework/",
+  "wordCount": 813
+}
+</script>
+
+
     
+  </head>
+  <body>
+    
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        
+
+<header class="flex flex-col items-start sm:items-center space-y-4 mt-4">
+  <a id="skip-nav" class="sr-only" href="#maincontent">Skip to main content</a>
   
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="../../favicon.png">
-
+  <a class="text-xl font-semibold tracking-tight whitespace-nowrap" href="/">Pravendra Singh</a>
   
-</head>
+  <nav>
+    <ul class="flex flex-wrap justify-start sm:justify-center space-x-4 pt-1">
+        <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/about/">About</a>
+        </li>
+        <li>
+          <a aria-current="true" class="pb-1 border-b-2 transition border-transparent hover:border-slate-300 border-blue-500" href="/blog/">Posts</a>
+        </li>
+        <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/books/">Reading</a>
+        </li>
+        <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/photos/">Photos</a>
+        </li>
+    </ul>
+  </nav>
 
 
-<body>
-      <div class="post-header">
-  <div class="container">
-    <div class="row">
-      <div class="six columns">
-        <h4><a href="../../">PRAVENDRA SINGH</a></h4>
-      </div>
-      <div class="six columns">
-        <nav>
-          <ul class="nav-list">
-            <li><a href="../../about" title="About Me"><span style="font-size:14px;">About</span></a></li>
-            <li><a href="../../blog" title="Articles"><span style="font-size:14px;">Articles</span></a></li>
-            <li><a href="../../books" title="Books"><span style="font-size:14px;">Books</span></a></li>
-            
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
-</div>
+</header>
 
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        <article class="main">
+    <header>
+      <h1 class="!mb-1">A Framework for Using Automation in Product Design</h1><div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="2021-01-17T15:30:00&#43;00:00"
+            >January 17, 2021</time
+          >
+        </div>
+    </header>
 
-  <div class="container">
-    <div class="row">
-
-      <section>
-            <h1 class="post-title">
-              <a href="../../blog/automation-product-design-framework/">A framework for using automation in product design</a>
-            </h1>
-
-          <div class="post-content-meta">
-
-            
-              <i class="icon-calendar"></i>  
-              <span class="post-date">
-                <span class="post-date-month">January</span> 
-                <span class="post-date-day"> 17, </span>
-                <span class="post-date-year">2021</span>
-              </span> 
-            
-
-            
-            
-                <span class="post-tag"> in </span>
-                
-                <a class="post-tag post-tag-product" href="https://hackpravj.com/tags/product">
-                  <i class="icon-tag"></i>product</a>
-                
-                <a class="post-tag post-tag-design" href="https://hackpravj.com/tags/design">
-                  <i class="icon-tag"></i>design</a>
-                
-                <a class="post-tag post-tag-ux" href="https://hackpravj.com/tags/ux">
-                  <i class="icon-tag"></i>ux</a>
-                
-                <a class="post-tag post-tag-framework" href="https://hackpravj.com/tags/framework">
-                  <i class="icon-tag"></i>framework</a>
-                
-                <a class="post-tag post-tag-research" href="https://hackpravj.com/tags/research">
-                  <i class="icon-tag"></i>research</a>
-                
-            
-
-         </div>
-
-			
-
-
-			
-
-      <div class="post-content">
-        <p>This article is an attempt to <strong>dissect and explain automation</strong>, and to <strong>provide a framework on how to use automation during product design</strong>.</p>
+    <p>This article is an attempt to <strong>dissect and explain automation</strong>, and to <strong>provide a framework on how to use automation during product design</strong>.</p>
 <p>It&rsquo;s based on the paper titled, &ldquo;<a href="https://ieeexplore.ieee.org/document/844354" title="A model for types and levels of human interaction with automation">A Model for Types and Levels of Human Interaction with Automation</a>,&rdquo; by <em>R Parasuraman</em> et al.</p>
-<h3 id="disagreement-with-the-definition">Disagreement with the definition</h3>
+<h4 id="disagreement-with-the-definition" class="scroll-mt-8 group">
+  Disagreement with the definition
+  
+    <a href="#disagreement-with-the-definition"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
 <p>There are many opinions on automation without understanding it fully.</p>
 <p>Even the dictionary gets it wrong perceiving it as a binary mode of operation (either 0 or full human replacement).</p>
-<p><img src="../../images/automation-product-design-framework-automation-definition.png" alt="Dictionary definition: Automation" title="Dictionary definition: Automation"></p>
+<p><img src="/images/automation-product-design-framework-automation-definition.png" alt="Dictionary definition: Automation" title="Dictionary definition: Automation"></p>
 <blockquote>
-<p>A basic but apt definition for automation is, performing a process or procedure with minimal human assistance.</p>
-</blockquote>
+<p>A basic but apt definition for automation is, performing a process or procedure with minimal human assistance.</p></blockquote>
 <p>From this perspective, even a partial contribution from a system (computer) for a procedure that was done earlier by humans, is also called automation.</p>
 <p>It’s just automation at a different scale, as explained in the latter part of this article.</p>
-<h3 id="anatomy-of-a-procedure"><strong>Anatomy of a procedure</strong></h3>
+<h4 id="anatomy-of-a-procedure" class="scroll-mt-8 group">
+  <strong>Anatomy of a procedure</strong>
+  
+    <a href="#anatomy-of-a-procedure"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
 <p>Let&rsquo;s understand how humans perform a procedure before we move to the automation levels (scale).</p>
 <p>There are three states in doing a procedure.</p>
 <ol>
@@ -148,66 +202,131 @@
 <li><strong>ACT</strong>: Taking the appropriate action</li>
 </ol>
 <blockquote>
-<p>The only difference is, a system might take a gradual operating approach in each state.</p>
-</blockquote>
-<h3 id="automation-levels"><strong>Automation levels</strong></h3>
+<p>The only difference is, a system might take a gradual operating approach in each state.</p></blockquote>
+<h4 id="automation-levels" class="scroll-mt-8 group">
+  <strong>Automation levels</strong>
+  
+    <a href="#automation-levels"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
 <p>Here is a 10-point scale, on how a system might operate on each of the states (SENSE -&gt; DECIDE -&gt; ACT).</p>
-<p><img src="../../images/automation-product-design-framework-automation-levels.png" alt=""></p>
-<h3 id="systems-and-their-automation-levels"><strong>Systems and their automation levels</strong></h3>
+<p><img src="/images/automation-product-design-framework-automation-levels.png" alt=""></p>
+<h4 id="systems-and-their-automation-levels" class="scroll-mt-8 group">
+  <strong>Systems and their automation levels</strong>
+  
+    <a href="#systems-and-their-automation-levels"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
 <p>Let&rsquo;s take the example of some products (systems) solving for different jobs-to-be-done (JTBD), operating on different scales for each state.</p>
 <p><strong>HAL 9000 (2001: A Space Odyssey)</strong></p>
 <blockquote>
-<p>Below is the image from the scene where it decides to rank 10, leveling up from the typical rank of 9 for each state, for the Job of assisting the crew.</p>
-</blockquote>
+<p>Below is the image from the scene where it decides to rank 10, leveling up from the typical rank of 9 for each state, for the Job of assisting the crew.</p></blockquote>
 <p>From a smart assistant that can do almost everything, it goes on to deny opening the hatch door for Dave who is outside.</p>
-<p><img src="../../images/automation-product-design-framework-hal-9000.png" alt="HAL 9000 denying access to Dave" title="HAL 9000 denying access to Dave"></p>
+<p><img src="/images/automation-product-design-framework-hal-9000.png" alt="HAL 9000 denying access to Dave" title="HAL 9000 denying access to Dave"></p>
 <p><strong>Amazon Dash button</strong></p>
 <blockquote>
-<p>Let&rsquo;s understand it for the Amazon Dash button for the Job of ordering a kitchen item.</p>
-</blockquote>
+<p>Let&rsquo;s understand it for the Amazon Dash button for the Job of ordering a kitchen item.</p></blockquote>
 <ol>
 <li><strong>SENSE</strong> (0/10, customer needs to give input by pressing a button)</li>
 <li><strong>DECIDE</strong> (0/10, customer sets up the configuration on what to order when it’s pressed)</li>
 <li><strong>ACT</strong> (7/10, places the order, informs the customer)</li>
 </ol>
-<p><img src="../../images/automation-product-design-framework-amazon-dash.jpg" alt="Amazon&amp;rsquo;s dash button" title="Amazon's dash button"></p>
+<p><img src="/images/automation-product-design-framework-amazon-dash.jpg" alt="Amazon&rsquo;s dash button" title="Amazon's dash button"></p>
 <p><strong>Gmail&rsquo;s smart-compose</strong></p>
 <blockquote>
-<p>Let&rsquo;s review Gmail&rsquo;s smart-compose feature for the Job of writing an email (response).</p>
-</blockquote>
+<p>Let&rsquo;s review Gmail&rsquo;s smart-compose feature for the Job of writing an email (response).</p></blockquote>
 <ol>
 <li><strong>SENSE</strong> (10/10, automatically goes through the email content)</li>
 <li><strong>DECIDE</strong> (10/10, automatically makes a decision for the suggestion)</li>
 <li><strong>ACT</strong> (0/10, the user needs to accept the suggested words)</li>
 </ol>
-<p><img src="../../images/automation-product-design-framework-smart-compose.gif" alt="Gmail&amp;rsquo;s smart-compose" title="Gmail's smart-compose"></p>
+<p><img src="/images/automation-product-design-framework-smart-compose.gif" alt="Gmail&rsquo;s smart-compose" title="Gmail's smart-compose"></p>
 <p><strong>Google Maps</strong></p>
 <blockquote>
-<p>Let&rsquo;s consider Google Maps for the Job of finding the shortest path from A to B.</p>
-</blockquote>
+<p>Let&rsquo;s consider Google Maps for the Job of finding the shortest path from A to B.</p></blockquote>
 <ol>
 <li><strong>SENSE</strong> (10 when auto-detecting the location, 0 when the user sets up the location)</li>
 <li><strong>DECIDE</strong> (3/10, calculates a few routes based on traffic, transport availability, etc)</li>
 <li><strong>ACT</strong> (10/10, shows selected routes)</li>
 </ol>
-<p><img src="../../images/automation-product-design-framework-google-maps.png" alt="Google Maps, directions between two places" title="Google Maps, directions between two places"></p>
-<h3 id="application-in-product-design"><strong>Application in product design</strong></h3>
+<p><img src="/images/automation-product-design-framework-google-maps.png" alt="Google Maps, directions between two places" title="Google Maps, directions between two places"></p>
+<h4 id="application-in-product-design" class="scroll-mt-8 group">
+  <strong>Application in product design</strong>
+  
+    <a href="#application-in-product-design"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
 <p>Using this framework to design or improve an existing product for a given job-to-be-done, starts with asking the question.</p>
 <blockquote>
-<p>“Where is the current experience on the scale presented here, for each of the states?”</p>
-</blockquote>
+<p>“Where is the current experience on the scale presented here, for each of the states?”</p></blockquote>
 <p>And then striving for an experience that is more assistive than the current standards.</p>
 <hr>
 <blockquote>
-<p>Let’s take the job of “Acting on important emails on time when starting the work” and evaluate plain Gmail for it.</p>
-</blockquote>
+<p>Let’s take the job of “Acting on important emails on time when starting the work” and evaluate plain Gmail for it.</p></blockquote>
 <p>Here is how the current process looks like.</p>
 <ol>
 <li><strong>SENSE</strong>: Go through new emails (0/10)</li>
 <li><strong>DECIDE</strong>: Identify important emails (0/10)</li>
 <li><strong>ACT</strong>: Respond or create tasks/events from the important emails (0/10)</li>
 </ol>
-<p><img src="../../images/automation-product-design-framework-gmail-current-procedure.png" alt="Acting on important emails in Gmail" title="Acting on important emails in Gmail"></p>
+<p><img src="/images/automation-product-design-framework-gmail-current-procedure.png" alt="Acting on important emails in Gmail" title="Acting on important emails in Gmail"></p>
 <p>Now let’s try to reimagine the experience for the same job.</p>
 <p><strong>For the SENSE state</strong></p>
 <ul>
@@ -222,9 +341,33 @@
 <ul>
 <li>Making Gmail suggest one action for each important email, to be executed with a click. For example, create a new meeting/todo, send an acknowledgment message, etc.</li>
 </ul>
-<p><img src="../../images/automation-product-design-framework-reimagined-gmail.png" alt="Applying the framework on Gmail" title="Applying the framework on Gmail"></p>
+<p><img src="/images/automation-product-design-framework-reimagined-gmail.png" alt="Applying the framework on Gmail" title="Applying the framework on Gmail"></p>
 <hr>
-<h3 id="summary">Summary</h3>
+<h4 id="summary" class="scroll-mt-8 group">
+  Summary
+  
+    <a href="#summary"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
 <p>The framework presented here is taken from the paper titled, &ldquo;<a href="https://ieeexplore.ieee.org/document/844354" title="A model for types and levels of human interaction with automation">A Model for Types and Levels of Human Interaction with Automation</a>.&rdquo;</p>
 <p>It provides a 10-point scale for automation-levels of different stages, and breaks down each system&rsquo;s work into three states:</p>
 <ol>
@@ -236,83 +379,66 @@
 <hr>
 <p>If you want to discuss more, or in case of any feedback, please reach out to me at <a href="https://twitter.com/hackpravj">@hackpravj</a></p>
 
-      </div>
-	
-			
+  </article>
+    <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-shapes h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"
+  />
+  <rect width="7" height="7" x="3" y="14" rx="1" />
+  <circle cx="17.5" cy="17.5" r="3.5" />
+</svg>
 
-      </div>
+        <span>Categories</span>
+      </h2>
 
-      <div class="row paging">
-			
-          
-          <div class="six columns">
-            <a class="paging-link" href="../../blog/finshots-storytelling-product-teardown/"><i class="icon-left-open"></i> Anatomy of a Finshots story: Art of Effective Storytelling</a>
-          </div>
-          
-
-					
-          <div class="paging-newer six columns">
-            <a class="paging-link" href="../../blog/personal-okr-2021-plan/">Setting up personal OKR [JFM-2021] <i class="icon-right-open"></i></a>
-          </div>
-          
-
-      
-       </div>
-
-
-    </div>
-  </div>
-
-  
-  <div class="container">
-    <div class="row" id="disqus_area">
-      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
-<div id="disqus_thread"></div>
-
-<script type="text/javascript">
-  var disqus_shortname = 'pravj';
-
-  function loadDisqus() {
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-
-  
-  document.getElementById('disqus_load').style.display = 'none';
-  return false;
-}
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-    </div>
-  </div>
-  
+      <ul class="ml-6 flex flex-row flex-wrap items-center space-x-2">
+          <li>
+            <a href="/categories/design/" class="taxonomy category">Design</a>
+          </li>
+          <li>
+            <a href="/categories/ux/" class="taxonomy category">UX</a>
+          </li>
+          <li>
+            <a href="/categories/automation/" class="taxonomy category">Automation</a>
+          </li>
+      </ul>
+    </section>
+</aside>
 
 
-	
-
-	
-
-    <script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-48537986-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-    </div>
-      <div class="footer">
-	<hr class="thin" />
-  <p><a href="../../about#colophon:6083a88ee3411b0d17ce02d738f69d47"></a>Pravendra Singh</p>
-</div>
+      </main>
+    
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        <section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+      <p>Copyright &copy; 2025, Pravendra Singh.</p>
 
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="../../main.js"></script>
+    <div>
+      <a
+        href="https://github.com/michenriksen/hugo-theme-til"
+        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="0.6.0"
+        >theme: til</a
+      >
+    </div>
+</section>
 
-</body>
+      </footer>
+    </div>
+    
+  </body>
 </html>

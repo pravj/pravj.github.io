@@ -1,141 +1,146 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<head>
-  <title>
-    Solving Google Semantris using OpenCV and Word2Vec - hack(pravj) | Pravendra Singh
-  </title>
-
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="copyright" content="&copy; Copyright 2012 to Present"/>
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Here I write about my encounters on startups, product management, books, artificial intelligence, and other random observations."/>
-<meta name="keywords" content="blog, web, data, data visualization, golang, programming, python, product, ai, pm, product manager, startup, startups, product management, ml, machine learning, Pravendra Singh, Pravendra, pravj, IIT, IIT Roorkee">
-<meta name="author" content="Pravendra Singh">
-<meta http-equiv="cleartype" content="on">
-
-  <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="Pravendra Singh - Falling Leaves">
-<meta property="og:title" content="Solving Google Semantris using OpenCV and Word2Vec" />
-<meta property="og:type" content="article" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:url" content="https://hackpravj.com/blog/solving-semantris-opencv-word2vec/" />
-<meta property="og:description" content="Semantris is a set of word association games powered by machine-learned, natural language understanding technology. This articles talks about a cheat code approach to solving the game using OpenCV and Machine-Learning hack." />
-<meta property="og:image" content="https://hackpravj.com/images/"/>
-<meta property="article:author" content="https://www.facebook.com/hackpravj" />
-<meta property="article:publisher" content="https://www.facebook.com/hackpravj" />
-
-  <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@hackpravj">
-<meta name="twitter:creator" content="@hackpravj">
-<meta name="twitter:title" content="Solving Google Semantris using OpenCV and Word2Vec" />
-<meta name="twitter:description" content="Semantris is a set of word association games powered by machine-learned, natural language understanding technology. This articles talks about a cheat code approach to solving the game using OpenCV and Machine-Learning hack." />
-<meta name="twitter:image" content="https://hackpravj.com/images/"/>
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head>
+    <meta charset="utf-8" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width" />
+<title>
+    Solving Google Semantris using OpenCV and Word2Vec | Pravendra Singh
+</title>
+  <meta name="description" content="A cheat code approach to solving Google Semantris using Computer Vision and ML." />
+<meta property="og:url" content="https://hackpravj.com/blog/solving-semantris-opencv-word2vec/">
+  <meta property="og:site_name" content="Pravendra Singh">
+  <meta property="og:title" content="Solving Google Semantris using OpenCV and Word2Vec">
+  <meta property="og:description" content="A cheat code approach to solving Google Semantris using Computer Vision and ML.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2018-12-01T18:30:00+00:00">
+    <meta property="article:modified_time" content="2018-12-01T18:30:00+00:00">
 
 
-  <link href='https://fonts.googleapis.com/css?family=Raleway:400|Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <meta itemprop="name" content="Solving Google Semantris using OpenCV and Word2Vec">
+  <meta itemprop="description" content="A cheat code approach to solving Google Semantris using Computer Vision and ML.">
+  <meta itemprop="datePublished" content="2018-12-01T18:30:00+00:00">
+  <meta itemprop="dateModified" content="2018-12-01T18:30:00+00:00">
+  <meta itemprop="wordCount" content="1108">
+  <meta itemprop="keywords" content="Experiment,Vision,ML">
 
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Solving Google Semantris using OpenCV and Word2Vec">
+  <meta name="twitter:description" content="A cheat code approach to solving Google Semantris using Computer Vision and ML.">
+
+<link rel="canonical" href="https://hackpravj.com/blog/solving-semantris-opencv-word2vec/" />
+
+      <link
+        rel="stylesheet"
+        href="/css/index.min.f8a65cc8c325821f285bc0748829de9cda4cfcba962787612f5d731e4c2c3bc6.css"
+        integrity="sha256-&#43;KZcyMMlgh8oW8B0iCnenNpM/LqWJ4dhL11zHkwsO8Y="
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="/css/photos.min.7d68a8afb4856793c9fb78ed546d63b89e9809a88cafdbc4922681cfed23cc34.css"
+        integrity="sha256-fWior7SFZ5PJ&#43;3jtVG1juJ6YCaiMr9vEkiaBz&#43;0jzDQ="
+        crossorigin="anonymous"
+      />
+
+
+      <script
+        src="/js/main.768afc34ae241ed1446e295008ccc9d01abdcb1bf1fcade9c31a828a02d31b1c.js"
+        integrity="sha256-dor8NK4kHtFEbilQCMzJ0Bq9yxvx/K3pwxqCigLTGxw="
+        crossorigin="anonymous"
+        defer
+      ></script>
   
-  <link rel="stylesheet" href="../../styles.min.css">
-  
-  <style>
-    div.post-content img {max-width:100%;max-height:100%;}
-  </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@id": "https://hackpravj.com/blog/solving-semantris-opencv-word2vec/",
+  "@type": "BlogPosting",
+  "articleSection": [
+    "Experiment",
+    "Vision",
+    "ML"
+  ],
+  "copyrightNotice": "Pravendra Singh",
+  "datePublished": "2018-12-01",
+  "description": "A cheat code approach to solving Google Semantris using Computer Vision and ML.",
+  "headline": "Solving Google Semantris Using OpenCV and Word2Vec",
+  "isPartOf": {
+    "@id": "https://hackpravj.com/blog/",
+    "@type": "Blog",
+    "name": "Posts"
+  },
+  "mainEntityOfPage": "https://hackpravj.com/blog/solving-semantris-opencv-word2vec/",
+  "name": "Solving Google Semantris Using OpenCV and Word2Vec",
+  "timeRequired": "PT6M",
+  "url": "https://hackpravj.com/blog/solving-semantris-opencv-word2vec/",
+  "wordCount": 1108
+}
+</script>
+
+
     
+  </head>
+  <body>
+    
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        
+
+<header class="flex flex-col items-start sm:items-center space-y-4 mt-4">
+  <a id="skip-nav" class="sr-only" href="#maincontent">Skip to main content</a>
   
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="../../favicon.png">
-
+  <a class="text-xl font-semibold tracking-tight whitespace-nowrap" href="/">Pravendra Singh</a>
   
-</head>
+  <nav>
+    <ul class="flex flex-wrap justify-start sm:justify-center space-x-4 pt-1">
+        <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/about/">About</a>
+        </li>
+        <li>
+          <a aria-current="true" class="pb-1 border-b-2 transition border-transparent hover:border-slate-300 border-blue-500" href="/blog/">Posts</a>
+        </li>
+        <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/books/">Reading</a>
+        </li>
+        <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/photos/">Photos</a>
+        </li>
+    </ul>
+  </nav>
 
 
-<body>
-      <div class="post-header">
-  <div class="container">
-    <div class="row">
-      <div class="six columns">
-        <h4><a href="../../">PRAVENDRA SINGH</a></h4>
-      </div>
-      <div class="six columns">
-        <nav>
-          <ul class="nav-list">
-            <li><a href="../../about" title="About Me"><span style="font-size:14px;">About</span></a></li>
-            <li><a href="../../blog" title="Articles"><span style="font-size:14px;">Articles</span></a></li>
-            <li><a href="../../books" title="Books"><span style="font-size:14px;">Books</span></a></li>
-            
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
-</div>
+</header>
 
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        <article class="main">
+    <header>
+      <h1 class="!mb-1">Solving Google Semantris Using OpenCV and Word2Vec</h1><div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="2018-12-01T18:30:00&#43;00:00"
+            >December 1, 2018</time
+          >
+        </div>
+    </header>
 
-  <div class="container">
-    <div class="row">
-
-      <section>
-            <h1 class="post-title">
-              <a href="../../blog/solving-semantris-opencv-word2vec/">Solving Google Semantris using OpenCV and Word2Vec</a>
-            </h1>
-
-          <div class="post-content-meta">
-
-            
-              <i class="icon-calendar"></i>  
-              <span class="post-date">
-                <span class="post-date-month">December</span> 
-                <span class="post-date-day"> 1, </span>
-                <span class="post-date-year">2018</span>
-              </span> 
-            
-
-            
-            
-                <span class="post-tag"> in </span>
-                
-                <a class="post-tag post-tag-computer-vision" href="https://hackpravj.com/tags/computer-vision">
-                  <i class="icon-tag"></i>Computer Vision</a>
-                
-                <a class="post-tag post-tag-hack" href="https://hackpravj.com/tags/hack">
-                  <i class="icon-tag"></i>Hack</a>
-                
-                <a class="post-tag post-tag-nlp" href="https://hackpravj.com/tags/nlp">
-                  <i class="icon-tag"></i>NLP</a>
-                
-                <a class="post-tag post-tag-ml" href="https://hackpravj.com/tags/ml">
-                  <i class="icon-tag"></i>ML</a>
-                
-                <a class="post-tag post-tag-opencv" href="https://hackpravj.com/tags/opencv">
-                  <i class="icon-tag"></i>OpenCV</a>
-                
-            
-
-         </div>
-
-			
-
-
-			
-
-      <div class="post-content">
-        <p>Hmm. Looks like you&rsquo;ve played enough Semantris to reach here.</p>
+    <p>Hmm. Looks like you&rsquo;ve played enough Semantris to reach here.</p>
 <blockquote>
-<p><a href="https://web.archive.org/web/20201111220617/https://experiments.withgoogle.com/semantris">Semantris</a> is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.</p>
-</blockquote>
+<p><a href="https://web.archive.org/web/20201111220617/https://experiments.withgoogle.com/semantris">Semantris</a> is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.</p></blockquote>
 <p>There are 2 modes available in the game.</p>
 <p><strong>ARCADE</strong></p>
 <p>Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen.</p>
-<p><img src="../../images/semantris-arcade.gif" alt=""></p>
+<p><img src="/images/semantris-arcade.gif" alt=""></p>
 <p><strong>BLOCKS</strong></p>
 <p>Blocks is a turn-based game mode. You can take your time to come up with different types of clues and see which ones the game understands best.</p>
-<p><img src="../../images/semantris-blocks.gif" alt=""></p>
+<p><img src="/images/semantris-blocks.gif" alt=""></p>
 <blockquote>
-<p>After playing for a while, I realized both the game modes are using <a href="https://web.archive.org/web/20201111220617/http://www.peachpit.com/articles/article.aspx?p=98123&amp;seqNum=2">pattern recognition as the main game-play mechanism</a>. And that’s when I started thinking if the game-play can be automated.</p>
-</blockquote>
+<p>After playing for a while, I realized both the game modes are using <a href="https://web.archive.org/web/20201111220617/http://www.peachpit.com/articles/article.aspx?p=98123&amp;seqNum=2">pattern recognition as the main game-play mechanism</a>. And that’s when I started thinking if the game-play can be automated.</p></blockquote>
 <p><strong>TURNS OUT, IT CAN BE AUTOMATED</strong></p>
 <p><a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver">Semantris-Solver</a> uses the following procedure to play the game:</p>
 <ol>
@@ -144,9 +149,32 @@
 <li>Find the associated word using word-embeddings</li>
 </ol>
 <blockquote>
-<p>In the following sections, we are going to dive into the working of the Semantris-Solver for both the game modes.</p>
-</blockquote>
-<h4 id="heading"></h4>
+<p>In the following sections, we are going to dive into the working of the Semantris-Solver for both the game modes.</p></blockquote>
+<h5 id="" class="scroll-mt-8 group">
+  
+  
+    <a href="#"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h5>
 <p>ARCADE</p>
 <p>A human player will use the following moves to play the arcade mode:</p>
 <ol>
@@ -155,31 +183,148 @@
 <li>Keep doing this before you run out of space on your screen for new words</li>
 </ol>
 <blockquote>
-<p>Also, there are three types of theme colors in arcade mode.</p>
-</blockquote>
-<p><img src="../../images/semantris-arcade-theme-colors.jpg" alt=""></p>
+<p>Also, there are three types of theme colors in arcade mode.</p></blockquote>
+<p><img src="/images/semantris-arcade-theme-colors.jpg" alt=""></p>
 <p>You will realize that the theme color isn’t playing any role here, the game playing mechanism will remain the same if we change the theme color, what changes is the definition of the highlighted word.</p>
 <blockquote>
-<p>A word is <strong>highlighted</strong> if it has a pointer shape left to it, “‎▶ <strong>Ship</strong>” in this case.</p>
-</blockquote>
-<h5 id="heading-1"></h5>
+<p>A word is <strong>highlighted</strong> if it has a pointer shape left to it, “‎▶ <strong>Ship</strong>” in this case.</p></blockquote>
+<h6 id="" class="scroll-mt-8 group">
+  
+  
+    <a href="#"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h6>
 <p>COLOR SPACE CONVERSION</p>
 <p>ARCADE mode of Semantris-Solver starts with capturing the screenshot of the laptop screen and converts it into a gray-scale image, agnostic of the actual color.</p>
-<p><img src="../../images/semantris-arcade-gray-scale.png" alt=""></p>
-<h5 id="template-matching">TEMPLATE MATCHING</h5>
+<p><img src="/images/semantris-arcade-gray-scale.png" alt=""></p>
+<h6 id="template-matching" class="scroll-mt-8 group">
+  TEMPLATE MATCHING
+  
+    <a href="#template-matching"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h6>
 <p>Our next step will be to find the highlighted word in the captured image. OpenCV provides a method called <a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.3.0/d4/dc6/tutorial_py_template_matching.html">Template Matching</a> for searching and finding the location of a template image in a larger image.</p>
 <p>We will use a cropped version of the pointer shape (▶) as a template image, to find its location in the captured screen.</p>
-<p><img src="../../images/semantris-arcade-selected-highlighted-word.png" alt=""></p>
-<h5 id="optical-character-recognition">OPTICAL CHARACTER RECOGNITION</h5>
+<p><img src="/images/semantris-arcade-selected-highlighted-word.png" alt=""></p>
+<h6 id="optical-character-recognition" class="scroll-mt-8 group">
+  OPTICAL CHARACTER RECOGNITION
+  
+    <a href="#optical-character-recognition"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h6>
 <p>Based on the pointer’s location, a section is cropped right next to it, with the highlighted word.</p>
 <p>The cropped image is converted into text using <a href="https://web.archive.org/web/20201111220617/https://hackpravj.com/blog/solving-semantris-opencv-word2vec/Tesseract%20OCR">Tesseract OCR</a>; in this case, it will give us the word <strong>Ship</strong>.</p>
 <blockquote>
-<p>In the case of more than one highlighted word, they are entered one after another to keep the game moving.</p>
-</blockquote>
-<h5 id="associated-word-selection">ASSOCIATED WORD SELECTION</h5>
+<p>In the case of more than one highlighted word, they are entered one after another to keep the game moving.</p></blockquote>
+<h6 id="associated-word-selection" class="scroll-mt-8 group">
+  ASSOCIATED WORD SELECTION
+  
+    <a href="#associated-word-selection"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h6>
 <p><a href="https://web.archive.org/web/20201111220617/https://hackpravj.com/blog/solving-semantris-opencv-word2vec/Word2Vec%20pre-trained%20on%20Google%20News%20corpus">Word2Vec pre-trained on Google News corpus</a> is used as a word embedding model to find the <a href="https://web.archive.org/web/20201111220617/https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec.most_similar">most similar</a> words (associated) for a given word.</p>
 <p>In this case, it will return the <strong>vessel</strong> to enter as an associated word for the <strong>ship</strong> (<em>after removing morphologically similar words</em>). The program will enter this associated word and capture the updated game screen to continue.</p>
-<h4 id="blocks">BLOCKS</h4>
+<h5 id="blocks" class="scroll-mt-8 group">
+  BLOCKS
+  
+    <a href="#blocks"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h5>
 <p>In this mode, there are word-blocks with four possible colors for a given theme, the word-blocks might or might not contain a word in them.</p>
 <p>Entering the associated word for a word-block will remove the same colored blocks connected to it, similar to the good old <strong>Tetris</strong>.</p>
 <p>A human player will use the following moves to play the arcade mode:</p>
@@ -189,42 +334,207 @@
 </ol>
 <p>You will realize that the color of a word-block is playing a significant role this time. You will have to enter the associated word for a word-block connected with more same colored blocks to score higher points.</p>
 <blockquote>
-<p>On top of this, there are three types of theme colors in blocks mode.</p>
-</blockquote>
-<h5 id="heading-2"></h5>
+<p>On top of this, there are three types of theme colors in blocks mode.</p></blockquote>
+<h6 id="" class="scroll-mt-8 group">
+  
+  
+    <a href="#"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h6>
 <p>COLOR PALETTE GENERATION</p>
 <p>This time we can’t convert the captured image into its gray-scale version. We need to know the color attributes to be able to distinguish between different word-blocks.</p>
 <p>Running <strong>K-mean clustering</strong> on the pixels of the captured screen will give us all the prominent colors in the image after excluding background colors such as white (text-color), black (background-color), and gray (text-input).</p>
-<h5 id="contour-detection">CONTOUR DETECTION</h5>
+<h6 id="contour-detection" class="scroll-mt-8 group">
+  CONTOUR DETECTION
+  
+    <a href="#contour-detection"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h6>
 <p>Now that we have all the four colors in the current theme, we need to know which word-block to choose to get maximum points.</p>
 <p>In other words, if we calculate the area of every connected-word-block-group (<em>word-blocks of the same color connected to each other</em>) and select the one with the maximum area, we will get the desired connected-word-block-group.</p>
 <blockquote>
-<p><a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.4/d4/d73/tutorial_py_contours_begin.html">Contour</a> is a curve joining all the continuous points along a boundary, having same color or intensity.</p>
-</blockquote>
+<p><a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.4/d4/d73/tutorial_py_contours_begin.html">Contour</a> is a curve joining all the continuous points along a boundary, having same color or intensity.</p></blockquote>
 <p>A word-block group can be considered a contour of that color; if it’s connected to more blocks with the same color, the contour’s area will be the sum of the connected word-blocks.</p>
 <p>Contours are calculated (using OpenCV’s <a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.3.1/d3/dc0/group__imgproc__shape.html#ga17ed9f5d79ae97bd4c7cf18403e1689a">findCountours</a> function) for all the word-block colors separately and the one with the maximum area is selected.</p>
 <p>We can select the maximum area contour by doing a bitwise-and operation between the captured screen and the contour mask.</p>
-<h5 id="heading-3"></h5>
+<h6 id="" class="scroll-mt-8 group">
+  
+  
+    <a href="#"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h6>
 <p>WORD DETECTION (Using Tesseract and Word2Vec)</p>
 <p>The contour image is converted into text using <a href="https://web.archive.org/web/20201111220617/https://github.com/tesseract-ocr/tesseract">Tesseract OCR</a>; in this case, it will give us <strong>Garden</strong>.</p>
 <p>Similar to the arcade mode, we will use Word2Vec to find the most similar word to it, which will be <strong>Flower beds</strong> this time.</p>
-<h4 id="improvements">IMPROVEMENTS</h4>
+<h5 id="improvements" class="scroll-mt-8 group">
+  IMPROVEMENTS
+  
+    <a href="#improvements"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h5>
 <p>In certain scenarios, the current OCR process doesn’t recognize the word properly.</p>
 <p>For example, it would return <strong>Eloctrlclty</strong> for this contour instead of <strong>Electricity</strong>.</p>
 <p>Given that it’s an invalid word suggestion, the Word2Vec model will not return any similar word for it. In that case, the suggested word itself is entered as an associated word, just to keep the game moving.</p>
 <blockquote>
 <p>A spelling correction model can help here, correcting <strong>Eloctrlclty</strong> to <strong>Electricity</strong>.</p>
-<p>I have created an <a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/issues/7">issue on the GitHub</a> repository for the same, feel free to contribute if you like. 😄</p>
-</blockquote>
-<h4 id="heading-4"></h4>
+<p>I have created an <a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/issues/7">issue on the GitHub</a> repository for the same, feel free to contribute if you like. 😄</p></blockquote>
+<h5 id="" class="scroll-mt-8 group">
+  
+  
+    <a href="#"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h5>
 <p>SOURCE CODE</p>
-<h5 id="semantris-solverhttpswebarchiveorgweb20201111220617httpsgithubcompravjsemantris-solver-github"><a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver">Semantris-Solver</a> (GitHub)</h5>
+<h6 id="semantris-solver-github" class="scroll-mt-8 group">
+  <a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver">Semantris-Solver</a> (GitHub)
+  
+    <a href="#semantris-solver-github"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h6>
 <p>It’s implemented as a CLI tool that allows you to switch between the game modes. You can check the <strong>IPython notebooks</strong> implementing both the modes.</p>
 <ol>
 <li><a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/blob/master/notebooks/Semantris%20Arcade%20Mode.ipynb">ARCADE mode</a></li>
 <li><a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/blob/master/notebooks/Semantris%20Block%20Mode.ipynb">BLOCKS mode</a></li>
 </ol>
-<h5 id="dependencies">Dependencies</h5>
+<h6 id="dependencies" class="scroll-mt-8 group">
+  Dependencies
+  
+    <a href="#dependencies"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h6>
 <p>It wasn’t possible to implement Semantris-Solver without the following software tools (any many more).</p>
 <ol>
 <li>OpenCV</li>
@@ -235,83 +545,66 @@
 <p>Hope you liked my weekend hack story. Feel free to provide your feedback.</p>
 <p>I can be reached on <a href="https://web.archive.org/web/20201111220617/https://twitter.com/hackpravj">Twitter</a> or through my personal website <a href="https://web.archive.org/web/20201111220617/https://hackpravj.com/">hackpravj.com</a>.</p>
 
-      </div>
-	
-			
+  </article>
+    <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-shapes h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"
+  />
+  <rect width="7" height="7" x="3" y="14" rx="1" />
+  <circle cx="17.5" cy="17.5" r="3.5" />
+</svg>
 
-      </div>
+        <span>Categories</span>
+      </h2>
 
-      <div class="row paging">
-			
-          
-          <div class="six columns">
-            <a class="paging-link" href="../../blog/building-missing-github-feature/"><i class="icon-left-open"></i> Using GitHub to build a missing GitHub feature</a>
-          </div>
-          
-
-					
-          <div class="paging-newer six columns">
-            <a class="paging-link" href="../../blog/first-golang-contribution-experience/">Contributing to the Go programming language <i class="icon-right-open"></i></a>
-          </div>
-          
-
-      
-       </div>
-
-
-    </div>
-  </div>
-
-  
-  <div class="container">
-    <div class="row" id="disqus_area">
-      <a href="#" id="disqus_load" onclick="return loadDisqus()">Add / View Comments</a>
-<div id="disqus_thread"></div>
-
-<script type="text/javascript">
-  var disqus_shortname = 'pravj';
-
-  function loadDisqus() {
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-
-  
-  document.getElementById('disqus_load').style.display = 'none';
-  return false;
-}
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-    </div>
-  </div>
-  
+      <ul class="ml-6 flex flex-row flex-wrap items-center space-x-2">
+          <li>
+            <a href="/categories/experiment/" class="taxonomy category">Experiment</a>
+          </li>
+          <li>
+            <a href="/categories/vision/" class="taxonomy category">Vision</a>
+          </li>
+          <li>
+            <a href="/categories/ml/" class="taxonomy category">ML</a>
+          </li>
+      </ul>
+    </section>
+</aside>
 
 
-	
-
-	
-
-    <script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-48537986-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-    </div>
-      <div class="footer">
-	<hr class="thin" />
-  <p><a href="../../about#colophon:6083a88ee3411b0d17ce02d738f69d47"></a>Pravendra Singh</p>
-</div>
+      </main>
+    
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        <section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+      <p>Copyright &copy; 2025, Pravendra Singh.</p>
 
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="../../main.js"></script>
+    <div>
+      <a
+        href="https://github.com/michenriksen/hugo-theme-til"
+        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="0.6.0"
+        >theme: til</a
+      >
+    </div>
+</section>
 
-</body>
+      </footer>
+    </div>
+    
+  </body>
 </html>

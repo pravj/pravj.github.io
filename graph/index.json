@@ -1,0 +1,69 @@
+{
+  "graph": {
+    "/blog/automation-product-design-framework/": {
+      "in": [],
+      "out": []
+    },
+    "/blog/finshots-storytelling-product-teardown/": {
+      "in": [],
+      "out": []
+    },
+    "/blog/how-to-read-paul-graham-essays/": {
+      "in": [],
+      "out": []
+    },
+    "/blog/how-will-drone-deliver-food-order/": {
+      "in": [],
+      "out": []
+    },
+    "/blog/on-effective-reviews-that-improve-quality-of-work/": {
+      "in": [],
+      "out": []
+    },
+    "/blog/personal-okr-2021-plan/": {
+      "in": [],
+      "out": []
+    },
+    "/blog/solving-semantris-opencv-word2vec/": {
+      "in": [],
+      "out": []
+    }
+  },
+  "pages": {
+    "/blog/automation-product-design-framework/": {
+      "permalink": "/blog/automation-product-design-framework/",
+      "section": "posts",
+      "title": "A Framework for Using Automation in Product Design"
+    },
+    "/blog/finshots-storytelling-product-teardown/": {
+      "permalink": "/blog/finshots-storytelling-product-teardown/",
+      "section": "posts",
+      "title": "Anatomy of a Finshots Story: Art of Effective Storytelling"
+    },
+    "/blog/how-to-read-paul-graham-essays/": {
+      "permalink": "/blog/how-to-read-paul-graham-essays/",
+      "section": "posts",
+      "title": "How to Read Paul Graham's Essays?"
+    },
+    "/blog/how-will-drone-deliver-food-order/": {
+      "permalink": "/blog/how-will-drone-deliver-food-order/",
+      "section": "posts",
+      "title": "How Will a Drone Deliver Your Food?"
+    },
+    "/blog/on-effective-reviews-that-improve-quality-of-work/": {
+      "permalink": "/blog/on-effective-reviews-that-improve-quality-of-work/",
+      "section": "posts",
+      "title": "On Effective Reviews That Improve Quality of Work"
+    },
+    "/blog/personal-okr-2021-plan/": {
+      "permalink": "/blog/personal-okr-2021-plan/",
+      "section": "posts",
+      "title": "Setting Up Personal OKR [JFM-2021]"
+    },
+    "/blog/solving-semantris-opencv-word2vec/": {
+      "permalink": "/blog/solving-semantris-opencv-word2vec/",
+      "section": "posts",
+      "title": "Solving Google Semantris Using OpenCV and Word2Vec"
+    }
+  }
+}

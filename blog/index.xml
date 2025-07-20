@@ -1,187 +1,62 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on hack(pravj)</title>
+    <title>Posts on Pravendra Singh</title>
     <link>https://hackpravj.com/blog/</link>
-    <description>Recent content in Blogs on hack(pravj)</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Posts on Pravendra Singh</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Mar 2022 15:30:00 +0000</lastBuildDate><atom:link href="https://hackpravj.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Pravendra Singh</copyright>
+    <lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0530</lastBuildDate>
+    <atom:link href="https://hackpravj.com/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Draft] On Effective Reviews that Improve Quality of Work</title>
+      <title>On Effective Reviews That Improve Quality of Work</title>
       <link>https://hackpravj.com/blog/on-effective-reviews-that-improve-quality-of-work/</link>
-      <pubDate>Sun, 20 Mar 2022 15:30:00 +0000</pubDate>
-      
+      <pubDate>Sun, 20 Mar 2022 00:00:00 +0530</pubDate>
       <guid>https://hackpravj.com/blog/on-effective-reviews-that-improve-quality-of-work/</guid>
-      <description>FYI, this is a draft post; published for review purposes.
-If you found this via Skit Slack, leave your feedback/comments in the thread&amp;hellip;
- There is a new (2022) Netflix documentary on Boeing, &amp;ldquo;Downfall: The Case Against Boeing,&amp;rdquo; have you seen it?
-It looks into the events throughout the history of the company that led to the two crashes of 737 MAX aircraft, occurring within a short time span.</description>
+      <description>A framework I&amp;rsquo;m practising to make work reviews more effective.</description>
     </item>
-    
     <item>
-      <title>How will a drone deliver your food?</title>
+      <title>How Will a Drone Deliver Your Food?</title>
       <link>https://hackpravj.com/blog/how-will-drone-deliver-food-order/</link>
       <pubDate>Sun, 10 Oct 2021 11:30:00 +0000</pubDate>
-      
       <guid>https://hackpravj.com/blog/how-will-drone-deliver-food-order/</guid>
-      <description>The title looks like a good interview question. So here is the right follow-up question, Why?
-Let’s list down the contributing factors and follow up from there.
-Have you ever been in a situation when you’re (hungry) about to place a food order and the application is showing you 40+ minutes to deliver? It’s a complete turn-off.
- You start to think of some other food item that will be delivered early.</description>
+      <description>&lt;p&gt;A thought experiment: drone food delivery and associated operational details.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Anatomy of a Finshots story: Art of Effective Storytelling</title>
       <link>https://hackpravj.com/blog/finshots-storytelling-product-teardown/</link>
       <pubDate>Mon, 15 Mar 2021 04:30:00 +0000</pubDate>
-      
       <guid>https://hackpravj.com/blog/finshots-storytelling-product-teardown/</guid>
-      <description>Finshots is an India-focused daily newsletter explaining the important financial news in a simplified language.
-The application has nailed the financial-education category and was a winner of Google Play’s Best of 2020 award. 🏆
-It has a 4.9/5 rating on the Play Store and has 100K+ downloads. On top of everything else, it has true fans loving the product and spreading the word around.
-This article is a product-teardown with an objective to understand what sets the application apart from existing players.</description>
+      <description>Finshots product-teardown with an objective to understand what sets them apart.</description>
     </item>
-    
     <item>
-      <title>A framework for using automation in product design</title>
+      <title>A Framework for Using Automation in Product Design</title>
       <link>https://hackpravj.com/blog/automation-product-design-framework/</link>
       <pubDate>Sun, 17 Jan 2021 15:30:00 +0000</pubDate>
-      
       <guid>https://hackpravj.com/blog/automation-product-design-framework/</guid>
-      <description>This article is an attempt to dissect and explain automation, and to provide a framework on how to use automation during product design.
-It&amp;rsquo;s based on the paper titled, &amp;ldquo;A Model for Types and Levels of Human Interaction with Automation,&amp;rdquo; by R Parasuraman et al.
-Disagreement with the definition There are many opinions on automation without understanding it fully.
-Even the dictionary gets it wrong perceiving it as a binary mode of operation (either 0 or full human replacement).</description>
+      <description>A basic primer on automation and how it can be used in product design.</description>
     </item>
-    
     <item>
       <title>Setting up personal OKR [JFM-2021]</title>
       <link>https://hackpravj.com/blog/personal-okr-2021-plan/</link>
       <pubDate>Sat, 02 Jan 2021 12:50:00 +0000</pubDate>
-      
       <guid>https://hackpravj.com/blog/personal-okr-2021-plan/</guid>
-      <description>This article describes the approach I&amp;rsquo;m following to set personal goals for myself, in the form of Objectives and Key-results (OKR).
- If you are new to OKR, scroll down to the Resources section for more details.
-  A publically available worksheet for my personal OKRs for January-February-March 2021 is available here.
- I&amp;rsquo;ve worked them out in order to:
- Get a better grip on the concept by implementing them in a relatively newer setting/environment outside of the work Effectively set goals in the personal life where it&amp;rsquo;s easy to measure progress and find out weeker/strong areas to work on  I will continue updating this article and the attached document in case of any changes or updates.</description>
+      <description>My approach to creating OKR for the personal life.</description>
     </item>
-    
     <item>
-      <title>How to read Paul Graham&#39;s essays?</title>
+      <title>How to Read Paul Graham&#39;s Essays?</title>
       <link>https://hackpravj.com/blog/how-to-read-paul-graham-essays/</link>
       <pubDate>Sat, 21 Nov 2020 18:30:00 +0000</pubDate>
-      
       <guid>https://hackpravj.com/blog/how-to-read-paul-graham-essays/</guid>
-      <description>Before you start reading this piece, I want to inform you that the question presented here is equivalent to a mathematical problem that has multiple possible answers. The answer depends on you; how do you arrive at one of his articles, and what are you seeking.
-Sounds like a zen proverb, right?
-Yes. Take my “personal” answer/solution to this question for example.
-Looking in the past, most of the time I’ve found myself reading the essays when I’m sitting in MTR on my own trying to spend some time off, amidst the constant background noise of people ordering the same three items over and over.</description>
+      <description>Paul Graham&amp;rsquo;s essays categorized by different parameters to help you find what to read.</description>
     </item>
-    
-    <item>
-      <title>Opportunities in Indian railway commute: Next Billion Users perspective</title>
-      <link>https://hackpravj.com/blog/indian-railways-next-billion-users/</link>
-      <pubDate>Sun, 01 Sep 2019 18:30:00 +0000</pubDate>
-      
-      <guid>https://hackpravj.com/blog/indian-railways-next-billion-users/</guid>
-      <description> This article is being updated. Thank you for your patience.
- </description>
-    </item>
-    
-    <item>
-      <title>Using GitHub to build a missing GitHub feature</title>
-      <link>https://hackpravj.com/blog/building-missing-github-feature/</link>
-      <pubDate>Sun, 01 Sep 2019 18:30:00 +0000</pubDate>
-      
-      <guid>https://hackpravj.com/blog/building-missing-github-feature/</guid>
-      <description> This article is being updated. Thank you for your patience.
- </description>
-    </item>
-    
     <item>
       <title>Solving Google Semantris using OpenCV and Word2Vec</title>
       <link>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</link>
       <pubDate>Sat, 01 Dec 2018 18:30:00 +0000</pubDate>
-      
       <guid>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</guid>
-      <description>Hmm. Looks like you&amp;rsquo;ve played enough Semantris to reach here.
- Semantris is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.
- There are 2 modes available in the game.
-ARCADE
-Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen.</description>
+      <description>A cheat code approach to solving Google Semantris using Computer Vision and ML.</description>
     </item>
-    
-    <item>
-      <title>Contributing to the Go programming language</title>
-      <link>https://hackpravj.com/blog/first-golang-contribution-experience/</link>
-      <pubDate>Wed, 14 Jun 2017 18:30:00 +0000</pubDate>
-      
-      <guid>https://hackpravj.com/blog/first-golang-contribution-experience/</guid>
-      <description> This article is being updated. Thank you for your patience.
- </description>
-    </item>
-    
-    <item>
-      <title>Information Dynamics on the GitHub Network</title>
-      <link>https://hackpravj.com/blog/information-dynamics-on-github/</link>
-      <pubDate>Tue, 07 Feb 2017 18:30:00 +0000</pubDate>
-      
-      <guid>https://hackpravj.com/blog/information-dynamics-on-github/</guid>
-      <description> This article is being updated. Thank you for your patience.
- </description>
-    </item>
-    
-    <item>
-      <title>Breaking into the Indian E-commerce</title>
-      <link>https://hackpravj.com/blog/indian-ecommerce/</link>
-      <pubDate>Thu, 10 Dec 2015 18:30:00 +0000</pubDate>
-      
-      <guid>https://hackpravj.com/blog/indian-ecommerce/</guid>
-      <description> This article is being updated. Thank you for your patience.
- </description>
-    </item>
-    
-    <item>
-      <title>Jump in to ride all the Bangalore taxis, at once</title>
-      <link>https://hackpravj.com/blog/bangalore-taxis/</link>
-      <pubDate>Mon, 31 Aug 2015 18:30:00 +0000</pubDate>
-      
-      <guid>https://hackpravj.com/blog/bangalore-taxis/</guid>
-      <description> This article is being updated. Thank you for your patience.
- </description>
-    </item>
-    
-    <item>
-      <title>Development story of puzzl</title>
-      <link>https://hackpravj.com/blog/development-story-of-puzzl/</link>
-      <pubDate>Wed, 22 Apr 2015 18:30:00 +0000</pubDate>
-      
-      <guid>https://hackpravj.com/blog/development-story-of-puzzl/</guid>
-      <description> This article is being update. Thanks for your patience.
- </description>
-    </item>
-    
-    <item>
-      <title>Open Source Presence Infographic of Indian Startups</title>
-      <link>https://hackpravj.com/blog/open-source-presence-infographic/</link>
-      <pubDate>Fri, 16 Jan 2015 18:30:00 +0000</pubDate>
-      
-      <guid>https://hackpravj.com/blog/open-source-presence-infographic/</guid>
-      <description> This article is being updated. Thank you for your patience.
- </description>
-    </item>
-    
-    <item>
-      <title>The git-game Write-up</title>
-      <link>https://hackpravj.com/blog/the-git-game-writeup/</link>
-      <pubDate>Wed, 14 Jan 2015 18:30:00 +0000</pubDate>
-      
-      <guid>https://hackpravj.com/blog/the-git-game-writeup/</guid>
-      <description> This article is being updated. Thank you for your patience.
- </description>
-    </item>
-    
   </channel>
 </rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ML on Pravendra Singh</title>
+    <link>https://hackpravj.com/categories/ml/</link>
+    <description>Recent content in ML on Pravendra Singh</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Pravendra Singh</copyright>
+    <lastBuildDate>Sat, 01 Dec 2018 18:30:00 +0000</lastBuildDate>
+    <atom:link href="https://hackpravj.com/categories/ml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solving Google Semantris using OpenCV and Word2Vec</title>
+      <link>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</link>
+      <pubDate>Sat, 01 Dec 2018 18:30:00 +0000</pubDate>
+      <guid>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</guid>
+      <description>A cheat code approach to solving Google Semantris using Computer Vision and ML.</description>
+    </item>
+  </channel>
+</rss>
