@@ -2,60 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Pravendra Singh</title>
-    <link>https://hackpravj.com/blog/</link>
+    <link>http://localhost:1313/blog/</link>
     <description>Recent content in Posts on Pravendra Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Pravendra Singh</copyright>
-    <lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0530</lastBuildDate>
-    <atom:link href="https://hackpravj.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Sep 2025 00:00:00 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How Not to Use AI? (At work)</title>
+      <link>http://localhost:1313/blog/how-not-to-use-ai-at-work/</link>
+      <pubDate>Sun, 14 Sep 2025 00:00:00 +0530</pubDate>
+      <guid>http://localhost:1313/blog/how-not-to-use-ai-at-work/</guid>
+      <description>A framework to avoid net negative contribution when using AI at work.</description>
+    </item>
     <item>
       <title>On Effective Reviews That Improve Quality of Work</title>
-      <link>https://hackpravj.com/blog/on-effective-reviews-that-improve-quality-of-work/</link>
+      <link>http://localhost:1313/blog/on-effective-reviews-that-improve-quality-of-work/</link>
       <pubDate>Sun, 20 Mar 2022 00:00:00 +0530</pubDate>
-      <guid>https://hackpravj.com/blog/on-effective-reviews-that-improve-quality-of-work/</guid>
+      <guid>http://localhost:1313/blog/on-effective-reviews-that-improve-quality-of-work/</guid>
       <description>A framework I&amp;rsquo;m practising to make work reviews more effective.</description>
     </item>
     <item>
       <title>How Will a Drone Deliver Your Food?</title>
-      <link>https://hackpravj.com/blog/how-will-drone-deliver-food-order/</link>
+      <link>http://localhost:1313/blog/how-will-drone-deliver-food-order/</link>
       <pubDate>Sun, 10 Oct 2021 11:30:00 +0000</pubDate>
-      <guid>https://hackpravj.com/blog/how-will-drone-deliver-food-order/</guid>
+      <guid>http://localhost:1313/blog/how-will-drone-deliver-food-order/</guid>
       <description>&lt;p&gt;A thought experiment: drone food delivery and associated operational details.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Anatomy of a Finshots story: Art of Effective Storytelling</title>
-      <link>https://hackpravj.com/blog/finshots-storytelling-product-teardown/</link>
+      <link>http://localhost:1313/blog/finshots-storytelling-product-teardown/</link>
       <pubDate>Mon, 15 Mar 2021 04:30:00 +0000</pubDate>
-      <guid>https://hackpravj.com/blog/finshots-storytelling-product-teardown/</guid>
+      <guid>http://localhost:1313/blog/finshots-storytelling-product-teardown/</guid>
       <description>Finshots product-teardown with an objective to understand what sets them apart.</description>
     </item>
     <item>
       <title>A Framework for Using Automation in Product Design</title>
-      <link>https://hackpravj.com/blog/automation-product-design-framework/</link>
+      <link>http://localhost:1313/blog/automation-product-design-framework/</link>
       <pubDate>Sun, 17 Jan 2021 15:30:00 +0000</pubDate>
-      <guid>https://hackpravj.com/blog/automation-product-design-framework/</guid>
+      <guid>http://localhost:1313/blog/automation-product-design-framework/</guid>
       <description>A basic primer on automation and how it can be used in product design.</description>
     </item>
     <item>
       <title>Setting up personal OKR [JFM-2021]</title>
-      <link>https://hackpravj.com/blog/personal-okr-2021-plan/</link>
+      <link>http://localhost:1313/blog/personal-okr-2021-plan/</link>
       <pubDate>Sat, 02 Jan 2021 12:50:00 +0000</pubDate>
-      <guid>https://hackpravj.com/blog/personal-okr-2021-plan/</guid>
+      <guid>http://localhost:1313/blog/personal-okr-2021-plan/</guid>
       <description>My approach to creating OKR for the personal life.</description>
     </item>
     <item>
       <title>How to Read Paul Graham&#39;s Essays?</title>
-      <link>https://hackpravj.com/blog/how-to-read-paul-graham-essays/</link>
+      <link>http://localhost:1313/blog/how-to-read-paul-graham-essays/</link>
       <pubDate>Sat, 21 Nov 2020 18:30:00 +0000</pubDate>
-      <guid>https://hackpravj.com/blog/how-to-read-paul-graham-essays/</guid>
+      <guid>http://localhost:1313/blog/how-to-read-paul-graham-essays/</guid>
       <description>Paul Graham&amp;rsquo;s essays categorized by different parameters to help you find what to read.</description>
     </item>
     <item>
       <title>Solving Google Semantris using OpenCV and Word2Vec</title>
-      <link>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</link>
+      <link>http://localhost:1313/blog/solving-semantris-opencv-word2vec/</link>
       <pubDate>Sat, 01 Dec 2018 18:30:00 +0000</pubDate>
-      <guid>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</guid>
+      <guid>http://localhost:1313/blog/solving-semantris-opencv-word2vec/</guid>
       <description>A cheat code approach to solving Google Semantris using Computer Vision and ML.</description>
     </item>
   </channel>

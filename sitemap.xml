@@ -2,96 +2,120 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hackpravj.com/</loc>
+    <loc>http://localhost:1313/categories/ai/</loc>
+    <lastmod>2025-09-14T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-09-14T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/framework/</loc>
+    <lastmod>2025-09-14T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-09-14T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/how-not-to-use-ai-at-work/</loc>
+    <lastmod>2025-09-14T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/management/</loc>
+    <lastmod>2025-09-14T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/</loc>
+    <lastmod>2025-09-14T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/meta/</loc>
     <lastmod>2025-06-15T12:21:30+05:30</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/notes/</loc>
+    <loc>http://localhost:1313/notes/my-second-note/</loc>
     <lastmod>2025-06-15T12:21:30+05:30</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/</loc>
+    <loc>http://localhost:1313/notes/</loc>
+    <lastmod>2025-06-15T12:21:30+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/second/</loc>
+    <lastmod>2025-06-15T12:21:30+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/test/</loc>
+    <lastmod>2025-06-15T12:21:30+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notes/my-first-note/</loc>
+    <lastmod>2025-06-15T11:54:22+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/culture/</loc>
     <lastmod>2022-03-20T00:00:00+05:30</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/culture/</loc>
+    <loc>http://localhost:1313/blog/on-effective-reviews-that-improve-quality-of-work/</loc>
     <lastmod>2022-03-20T00:00:00+05:30</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/framework/</loc>
+    <loc>http://localhost:1313/categories/startup/</loc>
     <lastmod>2022-03-20T00:00:00+05:30</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/blog/on-effective-reviews-that-improve-quality-of-work/</loc>
-    <lastmod>2022-03-20T00:00:00+05:30</lastmod>
-  </url><url>
-    <loc>https://hackpravj.com/blog/</loc>
-    <lastmod>2022-03-20T00:00:00+05:30</lastmod>
-  </url><url>
-    <loc>https://hackpravj.com/categories/startup/</loc>
-    <lastmod>2022-03-20T00:00:00+05:30</lastmod>
-  </url><url>
-    <loc>https://hackpravj.com/categories/design/</loc>
+    <loc>http://localhost:1313/categories/design/</loc>
     <lastmod>2021-10-10T11:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/blog/how-will-drone-deliver-food-order/</loc>
+    <loc>http://localhost:1313/blog/how-will-drone-deliver-food-order/</loc>
     <lastmod>2021-10-10T11:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/product/</loc>
+    <loc>http://localhost:1313/categories/product/</loc>
     <lastmod>2021-10-10T11:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/ux/</loc>
+    <loc>http://localhost:1313/categories/ux/</loc>
     <lastmod>2021-10-10T11:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/blog/finshots-storytelling-product-teardown/</loc>
+    <loc>http://localhost:1313/blog/finshots-storytelling-product-teardown/</loc>
     <lastmod>2021-03-15T04:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/storytelling/</loc>
+    <loc>http://localhost:1313/categories/storytelling/</loc>
     <lastmod>2021-03-15T04:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/writing/</loc>
+    <loc>http://localhost:1313/categories/writing/</loc>
     <lastmod>2021-03-15T04:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/blog/automation-product-design-framework/</loc>
+    <loc>http://localhost:1313/blog/automation-product-design-framework/</loc>
     <lastmod>2021-01-17T15:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/automation/</loc>
+    <loc>http://localhost:1313/categories/automation/</loc>
     <lastmod>2021-01-17T15:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/habit/</loc>
+    <loc>http://localhost:1313/categories/habit/</loc>
     <lastmod>2021-01-02T12:50:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/okr/</loc>
+    <loc>http://localhost:1313/categories/okr/</loc>
     <lastmod>2021-01-02T12:50:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/blog/personal-okr-2021-plan/</loc>
+    <loc>http://localhost:1313/blog/personal-okr-2021-plan/</loc>
     <lastmod>2021-01-02T12:50:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/essays/</loc>
+    <loc>http://localhost:1313/categories/essays/</loc>
     <lastmod>2020-11-21T18:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/blog/how-to-read-paul-graham-essays/</loc>
+    <loc>http://localhost:1313/blog/how-to-read-paul-graham-essays/</loc>
     <lastmod>2020-11-21T18:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/experiment/</loc>
+    <loc>http://localhost:1313/categories/experiment/</loc>
     <lastmod>2018-12-01T18:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/ml/</loc>
+    <loc>http://localhost:1313/categories/ml/</loc>
     <lastmod>2018-12-01T18:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</loc>
+    <loc>http://localhost:1313/blog/solving-semantris-opencv-word2vec/</loc>
     <lastmod>2018-12-01T18:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/categories/vision/</loc>
+    <loc>http://localhost:1313/categories/vision/</loc>
     <lastmod>2018-12-01T18:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://hackpravj.com/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
   </url><url>
-    <loc>https://hackpravj.com/graph/</loc>
+    <loc>http://localhost:1313/graph/</loc>
   </url><url>
-    <loc>https://hackpravj.com/photos/new-york-city-2025/</loc>
+    <loc>http://localhost:1313/photos/new-york-city-2025/</loc>
   </url><url>
-    <loc>https://hackpravj.com/photos/</loc>
+    <loc>http://localhost:1313/photos/</loc>
   </url><url>
-    <loc>https://hackpravj.com/photos/pondicherry-2021/</loc>
+    <loc>http://localhost:1313/photos/pondicherry-2021/</loc>
   </url><url>
-    <loc>https://hackpravj.com/books/</loc>
+    <loc>http://localhost:1313/books/</loc>
   </url><url>
-    <loc>https://hackpravj.com/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>

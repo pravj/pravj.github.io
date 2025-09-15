@@ -8,6 +8,10 @@
       "in": [],
       "out": []
     },
+    "/blog/how-not-to-use-ai-at-work/": {
+      "in": [],
+      "out": []
+    },
     "/blog/how-to-read-paul-graham-essays/": {
       "in": [],
       "out": []
@@ -27,6 +31,14 @@
     "/blog/solving-semantris-opencv-word2vec/": {
       "in": [],
       "out": []
+    },
+    "/notes/my-first-note/": {
+      "in": [],
+      "out": []
+    },
+    "/notes/my-second-note/": {
+      "in": [],
+      "out": []
     }
   },
   "pages": {
@@ -39,6 +51,11 @@
       "permalink": "/blog/finshots-storytelling-product-teardown/",
       "section": "posts",
       "title": "Anatomy of a Finshots Story: Art of Effective Storytelling"
+    },
+    "/blog/how-not-to-use-ai-at-work/": {
+      "permalink": "/blog/how-not-to-use-ai-at-work/",
+      "section": "posts",
+      "title": "How Not to Use AI? (At Work)"
     },
     "/blog/how-to-read-paul-graham-essays/": {
       "permalink": "/blog/how-to-read-paul-graham-essays/",
@@ -64,6 +81,16 @@
       "permalink": "/blog/solving-semantris-opencv-word2vec/",
       "section": "posts",
       "title": "Solving Google Semantris Using OpenCV and Word2Vec"
+    },
+    "/notes/my-first-note/": {
+      "permalink": "/notes/my-first-note/",
+      "section": "notes",
+      "title": "My First Note"
+    },
+    "/notes/my-second-note/": {
+      "permalink": "/notes/my-second-note/",
+      "section": "notes",
+      "title": "My Second Note"
     }
   }
 }
