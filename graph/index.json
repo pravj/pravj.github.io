@@ -31,14 +31,6 @@
     "/blog/solving-semantris-opencv-word2vec/": {
       "in": [],
       "out": []
-    },
-    "/notes/my-first-note/": {
-      "in": [],
-      "out": []
-    },
-    "/notes/my-second-note/": {
-      "in": [],
-      "out": []
     }
   },
   "pages": {
@@ -81,16 +73,6 @@
       "permalink": "/blog/solving-semantris-opencv-word2vec/",
       "section": "posts",
       "title": "Solving Google Semantris Using OpenCV and Word2Vec"
-    },
-    "/notes/my-first-note/": {
-      "permalink": "/notes/my-first-note/",
-      "section": "notes",
-      "title": "My First Note"
-    },
-    "/notes/my-second-note/": {
-      "permalink": "/notes/my-second-note/",
-      "section": "notes",
-      "title": "My Second Note"
     }
   }
 }

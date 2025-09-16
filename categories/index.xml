@@ -31,27 +31,6 @@
       <description></description>
     </item>
     <item>
-      <title>Meta</title>
-      <link>http://localhost:1313/categories/meta/</link>
-      <pubDate>Sun, 15 Jun 2025 12:21:30 +0530</pubDate>
-      <guid>http://localhost:1313/categories/meta/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Second</title>
-      <link>http://localhost:1313/categories/second/</link>
-      <pubDate>Sun, 15 Jun 2025 12:21:30 +0530</pubDate>
-      <guid>http://localhost:1313/categories/second/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Test</title>
-      <link>http://localhost:1313/categories/test/</link>
-      <pubDate>Sun, 15 Jun 2025 12:21:30 +0530</pubDate>
-      <guid>http://localhost:1313/categories/test/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Culture</title>
       <link>http://localhost:1313/categories/culture/</link>
       <pubDate>Sun, 20 Mar 2022 00:00:00 +0530</pubDate>
