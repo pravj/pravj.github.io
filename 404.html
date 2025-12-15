@@ -27,8 +27,8 @@
 
       <link
         rel="stylesheet"
-        href="/css/index.min.7dc5bce5e48ff3fe71c582eac851646db39f1a70e9dc6198c199a3189731869e.css"
-        integrity="sha256-fcW85eSP8/5xxYLqyFFkbbOfGnDp3GGYwZmjGJcxhp4="
+        href="/css/index.min.02cc00ef9b3ae458f5cb05c0f4ea7f39d3f3212262170558d138610de894495a.css"
+        integrity="sha256-AswA75s65Fj1ywXA9Op/OdPzISJiFwVY0ThhDeiUSVo="
         crossorigin="anonymous"
       />
       <link
@@ -94,6 +94,9 @@
           <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/blog/">Posts</a>
         </li>
         <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/projects/">Projects</a>
+        </li>
+        <li>
           <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/books/">Reading</a>
         </li>
         <li>
@@ -116,16 +119,30 @@
     <p class="font-bold">Here are a few things you can do:</p>
 
     <ul>
-      <li>Return to the <a href="/">home page</a>.</li>
       <li>
-        <a href="https://web.archive.org/web/*/https//hackpravj.com/404.html"
-          >See if the Internet Archive has a copy</a
-        >
+        <a href="#" id="archive-link">See if the Internet Archive has a copy</a>
         if you believe this page once existed.
       </li>
         <li>Check out my <a href="/posts">recent blog posts</a>.</li>
+      <li>Return to the <a href="/">home page</a>.</li>
     </ul>
+
+    <hr style="margin: 2rem 0; border: 0; border-top: 1px solid #e5e7eb;" />
+
+    <div style="margin-top: 2rem;">
+      <p style="margin-bottom: 1rem;">While you're here, check out my Mac app: <a href="https://plugthat.in" target="_blank" rel="noopener">Plug That In</a></p>
+      <a href="https://apps.apple.com/us/app/plug-that-in-battery-monitor/id6753146215" target="_blank" rel="noopener" style="display: block; max-width: 600px;">
+        <img src="/photos/plug-that-in-link-card-preview-blue.png" alt="Plug That In Battery Monitor - Download on the App Store" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
+      </a>
+    </div>
   </article>
+
+  <script>
+    
+    const archiveLink = document.getElementById('archive-link');
+    const requestedUrl = window.location.href;
+    archiveLink.href = `https://web.archive.org/web/*/${requestedUrl}`;
+  </script>
 
       </main>
     

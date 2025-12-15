@@ -37,8 +37,8 @@
 
       <link
         rel="stylesheet"
-        href="/css/index.min.7dc5bce5e48ff3fe71c582eac851646db39f1a70e9dc6198c199a3189731869e.css"
-        integrity="sha256-fcW85eSP8/5xxYLqyFFkbbOfGnDp3GGYwZmjGJcxhp4="
+        href="/css/index.min.02cc00ef9b3ae458f5cb05c0f4ea7f39d3f3212262170558d138610de894495a.css"
+        integrity="sha256-AswA75s65Fj1ywXA9Op/OdPzISJiFwVY0ThhDeiUSVo="
         crossorigin="anonymous"
       />
       <link
@@ -121,6 +121,9 @@
           <a aria-current="true" class="pb-1 border-b-2 transition border-transparent hover:border-slate-300 border-blue-500" href="/blog/">Posts</a>
         </li>
         <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/projects/">Projects</a>
+        </li>
+        <li>
           <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/books/">Reading</a>
         </li>
         <li>
@@ -145,7 +148,8 @@
 
     <p>Hmm. Looks like you&rsquo;ve played enough Semantris to reach here.</p>
 <blockquote>
-<p><a href="https://web.archive.org/web/20201111220617/https://experiments.withgoogle.com/semantris">Semantris</a> is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.</p></blockquote>
+<p><a href="https://web.archive.org/web/20201111220617/https://experiments.withgoogle.com/semantris">Semantris</a> is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.</p>
+</blockquote>
 <p>There are 2 modes available in the game.</p>
 <p><strong>ARCADE</strong></p>
 <p>Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen.</p>
@@ -154,7 +158,8 @@
 <p>Blocks is a turn-based game mode. You can take your time to come up with different types of clues and see which ones the game understands best.</p>
 <p><img src="/photos/semantris-blocks.gif" alt=""></p>
 <blockquote>
-<p>After playing for a while, I realized both the game modes are using <a href="https://web.archive.org/web/20201111220617/http://www.peachpit.com/articles/article.aspx?p=98123&amp;seqNum=2">pattern recognition as the main game-play mechanism</a>. And that’s when I started thinking if the game-play can be automated.</p></blockquote>
+<p>After playing for a while, I realized both the game modes are using <a href="https://web.archive.org/web/20201111220617/http://www.peachpit.com/articles/article.aspx?p=98123&amp;seqNum=2">pattern recognition as the main game-play mechanism</a>. And that’s when I started thinking if the game-play can be automated.</p>
+</blockquote>
 <p><strong>TURNS OUT, IT CAN BE AUTOMATED</strong></p>
 <p><a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver">Semantris-Solver</a> uses the following procedure to play the game:</p>
 <ol>
@@ -163,7 +168,8 @@
 <li>Find the associated word using word-embeddings</li>
 </ol>
 <blockquote>
-<p>In the following sections, we are going to dive into the working of the Semantris-Solver for both the game modes.</p></blockquote>
+<p>In the following sections, we are going to dive into the working of the Semantris-Solver for both the game modes.</p>
+</blockquote>
 <h5 id="" class="scroll-mt-8 group">
   
   
@@ -197,11 +203,13 @@
 <li>Keep doing this before you run out of space on your screen for new words</li>
 </ol>
 <blockquote>
-<p>Also, there are three types of theme colors in arcade mode.</p></blockquote>
+<p>Also, there are three types of theme colors in arcade mode.</p>
+</blockquote>
 <p><img src="/photos/semantris-arcade-theme-colors.jpg" alt=""></p>
 <p>You will realize that the theme color isn’t playing any role here, the game playing mechanism will remain the same if we change the theme color, what changes is the definition of the highlighted word.</p>
 <blockquote>
-<p>A word is <strong>highlighted</strong> if it has a pointer shape left to it, “‎▶ <strong>Ship</strong>” in this case.</p></blockquote>
+<p>A word is <strong>highlighted</strong> if it has a pointer shape left to it, “‎▶ <strong>Ship</strong>” in this case.</p>
+</blockquote>
 <h6 id="" class="scroll-mt-8 group">
   
   
@@ -286,7 +294,8 @@
 <p>Based on the pointer’s location, a section is cropped right next to it, with the highlighted word.</p>
 <p>The cropped image is converted into text using <a href="https://web.archive.org/web/20201111220617/https://hackpravj.com/blog/solving-semantris-opencv-word2vec/Tesseract%20OCR">Tesseract OCR</a>; in this case, it will give us the word <strong>Ship</strong>.</p>
 <blockquote>
-<p>In the case of more than one highlighted word, they are entered one after another to keep the game moving.</p></blockquote>
+<p>In the case of more than one highlighted word, they are entered one after another to keep the game moving.</p>
+</blockquote>
 <h6 id="associated-word-selection" class="scroll-mt-8 group">
   ASSOCIATED WORD SELECTION
   
@@ -348,7 +357,8 @@
 </ol>
 <p>You will realize that the color of a word-block is playing a significant role this time. You will have to enter the associated word for a word-block connected with more same colored blocks to score higher points.</p>
 <blockquote>
-<p>On top of this, there are three types of theme colors in blocks mode.</p></blockquote>
+<p>On top of this, there are three types of theme colors in blocks mode.</p>
+</blockquote>
 <h6 id="" class="scroll-mt-8 group">
   
   
@@ -405,7 +415,8 @@
 <p>Now that we have all the four colors in the current theme, we need to know which word-block to choose to get maximum points.</p>
 <p>In other words, if we calculate the area of every connected-word-block-group (<em>word-blocks of the same color connected to each other</em>) and select the one with the maximum area, we will get the desired connected-word-block-group.</p>
 <blockquote>
-<p><a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.4/d4/d73/tutorial_py_contours_begin.html">Contour</a> is a curve joining all the continuous points along a boundary, having same color or intensity.</p></blockquote>
+<p><a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.4/d4/d73/tutorial_py_contours_begin.html">Contour</a> is a curve joining all the continuous points along a boundary, having same color or intensity.</p>
+</blockquote>
 <p>A word-block group can be considered a contour of that color; if it’s connected to more blocks with the same color, the contour’s area will be the sum of the connected word-blocks.</p>
 <p>Contours are calculated (using OpenCV’s <a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.3.1/d3/dc0/group__imgproc__shape.html#ga17ed9f5d79ae97bd4c7cf18403e1689a">findCountours</a> function) for all the word-block colors separately and the one with the maximum area is selected.</p>
 <p>We can select the maximum area contour by doing a bitwise-and operation between the captured screen and the contour mask.</p>
@@ -467,7 +478,8 @@
 <p>Given that it’s an invalid word suggestion, the Word2Vec model will not return any similar word for it. In that case, the suggested word itself is entered as an associated word, just to keep the game moving.</p>
 <blockquote>
 <p>A spelling correction model can help here, correcting <strong>Eloctrlclty</strong> to <strong>Electricity</strong>.</p>
-<p>I have created an <a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/issues/7">issue on the GitHub</a> repository for the same, feel free to contribute if you like. 😄</p></blockquote>
+<p>I have created an <a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/issues/7">issue on the GitHub</a> repository for the same, feel free to contribute if you like. 😄</p>
+</blockquote>
 <h5 id="" class="scroll-mt-8 group">
   
   
