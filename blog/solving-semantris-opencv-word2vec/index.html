@@ -26,7 +26,7 @@
   <meta itemprop="description" content="A cheat code approach to solving Google Semantris using Computer Vision and ML.">
   <meta itemprop="datePublished" content="2018-12-01T18:30:00+00:00">
   <meta itemprop="dateModified" content="2018-12-01T18:30:00+00:00">
-  <meta itemprop="wordCount" content="1108">
+  <meta itemprop="wordCount" content="1110">
   <meta itemprop="keywords" content="Experiment,Vision,ML">
 
   <meta name="twitter:card" content="summary">
@@ -94,7 +94,7 @@
   "name": "Solving Google Semantris Using OpenCV and Word2Vec",
   "timeRequired": "PT6M",
   "url": "https://hackpravj.com/blog/solving-semantris-opencv-word2vec/",
-  "wordCount": 1108
+  "wordCount": 1110
 }
 </script>
 
@@ -121,7 +121,7 @@
           <a aria-current="true" class="pb-1 border-b-2 transition border-transparent hover:border-slate-300 border-blue-500" href="/blog/">Posts</a>
         </li>
         <li>
-          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/projects/">Projects</a>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/labs/">Labs</a>
         </li>
         <li>
           <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/books/">Reading</a>
@@ -150,6 +150,31 @@
 <blockquote>
 <p><a href="https://web.archive.org/web/20201111220617/https://experiments.withgoogle.com/semantris">Semantris</a> is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.</p>
 </blockquote>
+<h3 id="understanding-semantris" class="scroll-mt-8 group">
+  Understanding Semantris
+  
+    <a href="#understanding-semantris"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
 <p>There are 2 modes available in the game.</p>
 <p><strong>ARCADE</strong></p>
 <p>Arcade mode requires the player to come up with associated words for certain words. You are supposed to think and enter as fast as you can before an increasing list of words fills your screen.</p>
@@ -170,10 +195,10 @@
 <blockquote>
 <p>In the following sections, we are going to dive into the working of the Semantris-Solver for both the game modes.</p>
 </blockquote>
-<h5 id="" class="scroll-mt-8 group">
+<h3 id="automating-arcade-mode" class="scroll-mt-8 group">
+  Automating Arcade Mode
   
-  
-    <a href="#"
+    <a href="#automating-arcade-mode"
         class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
         aria-hidden="true" title="Link to this heading" tabindex="-1">
         <svg
@@ -194,8 +219,7 @@
 
     </a>
   
-</h5>
-<p>ARCADE</p>
+</h3>
 <p>A human player will use the following moves to play the arcade mode:</p>
 <ol>
 <li>Find one or more highlighted words in the game</li>
@@ -210,10 +234,10 @@
 <blockquote>
 <p>A word is <strong>highlighted</strong> if it has a pointer shape left to it, “‎▶ <strong>Ship</strong>” in this case.</p>
 </blockquote>
-<h6 id="" class="scroll-mt-8 group">
+<h4 id="color-space-conversion" class="scroll-mt-8 group">
+  Color Space Conversion
   
-  
-    <a href="#"
+    <a href="#color-space-conversion"
         class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
         aria-hidden="true" title="Link to this heading" tabindex="-1">
         <svg
@@ -234,12 +258,11 @@
 
     </a>
   
-</h6>
-<p>COLOR SPACE CONVERSION</p>
+</h4>
 <p>ARCADE mode of Semantris-Solver starts with capturing the screenshot of the laptop screen and converts it into a gray-scale image, agnostic of the actual color.</p>
 <p><img src="/photos/semantris-arcade-gray-scale.png" alt=""></p>
-<h6 id="template-matching" class="scroll-mt-8 group">
-  TEMPLATE MATCHING
+<h4 id="template-matching" class="scroll-mt-8 group">
+  Template Matching
   
     <a href="#template-matching"
         class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
@@ -262,12 +285,12 @@
 
     </a>
   
-</h6>
+</h4>
 <p>Our next step will be to find the highlighted word in the captured image. OpenCV provides a method called <a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.3.0/d4/dc6/tutorial_py_template_matching.html">Template Matching</a> for searching and finding the location of a template image in a larger image.</p>
 <p>We will use a cropped version of the pointer shape (▶) as a template image, to find its location in the captured screen.</p>
 <p><img src="/photos/semantris-arcade-selected-highlighted-word.png" alt=""></p>
-<h6 id="optical-character-recognition" class="scroll-mt-8 group">
-  OPTICAL CHARACTER RECOGNITION
+<h4 id="optical-character-recognition" class="scroll-mt-8 group">
+  Optical Character Recognition
   
     <a href="#optical-character-recognition"
         class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
@@ -290,14 +313,14 @@
 
     </a>
   
-</h6>
-<p>Based on the pointer’s location, a section is cropped right next to it, with the highlighted word.</p>
+</h4>
+<p>Based on the pointer&rsquo;s location, a section is cropped right next to it, with the highlighted word.</p>
 <p>The cropped image is converted into text using <a href="https://web.archive.org/web/20201111220617/https://hackpravj.com/blog/solving-semantris-opencv-word2vec/Tesseract%20OCR">Tesseract OCR</a>; in this case, it will give us the word <strong>Ship</strong>.</p>
 <blockquote>
 <p>In the case of more than one highlighted word, they are entered one after another to keep the game moving.</p>
 </blockquote>
-<h6 id="associated-word-selection" class="scroll-mt-8 group">
-  ASSOCIATED WORD SELECTION
+<h4 id="associated-word-selection" class="scroll-mt-8 group">
+  Associated Word Selection
   
     <a href="#associated-word-selection"
         class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
@@ -320,13 +343,13 @@
 
     </a>
   
-</h6>
+</h4>
 <p><a href="https://web.archive.org/web/20201111220617/https://hackpravj.com/blog/solving-semantris-opencv-word2vec/Word2Vec%20pre-trained%20on%20Google%20News%20corpus">Word2Vec pre-trained on Google News corpus</a> is used as a word embedding model to find the <a href="https://web.archive.org/web/20201111220617/https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec.most_similar">most similar</a> words (associated) for a given word.</p>
 <p>In this case, it will return the <strong>vessel</strong> to enter as an associated word for the <strong>ship</strong> (<em>after removing morphologically similar words</em>). The program will enter this associated word and capture the updated game screen to continue.</p>
-<h5 id="blocks" class="scroll-mt-8 group">
-  BLOCKS
+<h3 id="automating-blocks-mode" class="scroll-mt-8 group">
+  Automating Blocks Mode
   
-    <a href="#blocks"
+    <a href="#automating-blocks-mode"
         class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
         aria-hidden="true" title="Link to this heading" tabindex="-1">
         <svg
@@ -347,7 +370,7 @@
 
     </a>
   
-</h5>
+</h3>
 <p>In this mode, there are word-blocks with four possible colors for a given theme, the word-blocks might or might not contain a word in them.</p>
 <p>Entering the associated word for a word-block will remove the same colored blocks connected to it, similar to the good old <strong>Tetris</strong>.</p>
 <p>A human player will use the following moves to play the arcade mode:</p>
@@ -359,10 +382,10 @@
 <blockquote>
 <p>On top of this, there are three types of theme colors in blocks mode.</p>
 </blockquote>
-<h6 id="" class="scroll-mt-8 group">
+<h4 id="color-palette-generation" class="scroll-mt-8 group">
+  Color Palette Generation
   
-  
-    <a href="#"
+    <a href="#color-palette-generation"
         class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
         aria-hidden="true" title="Link to this heading" tabindex="-1">
         <svg
@@ -383,12 +406,11 @@
 
     </a>
   
-</h6>
-<p>COLOR PALETTE GENERATION</p>
+</h4>
 <p>This time we can’t convert the captured image into its gray-scale version. We need to know the color attributes to be able to distinguish between different word-blocks.</p>
 <p>Running <strong>K-mean clustering</strong> on the pixels of the captured screen will give us all the prominent colors in the image after excluding background colors such as white (text-color), black (background-color), and gray (text-input).</p>
-<h6 id="contour-detection" class="scroll-mt-8 group">
-  CONTOUR DETECTION
+<h4 id="contour-detection" class="scroll-mt-8 group">
+  Contour Detection
   
     <a href="#contour-detection"
         class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
@@ -411,7 +433,7 @@
 
     </a>
   
-</h6>
+</h4>
 <p>Now that we have all the four colors in the current theme, we need to know which word-block to choose to get maximum points.</p>
 <p>In other words, if we calculate the area of every connected-word-block-group (<em>word-blocks of the same color connected to each other</em>) and select the one with the maximum area, we will get the desired connected-word-block-group.</p>
 <blockquote>
@@ -420,10 +442,10 @@
 <p>A word-block group can be considered a contour of that color; if it’s connected to more blocks with the same color, the contour’s area will be the sum of the connected word-blocks.</p>
 <p>Contours are calculated (using OpenCV’s <a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.3.1/d3/dc0/group__imgproc__shape.html#ga17ed9f5d79ae97bd4c7cf18403e1689a">findCountours</a> function) for all the word-block colors separately and the one with the maximum area is selected.</p>
 <p>We can select the maximum area contour by doing a bitwise-and operation between the captured screen and the contour mask.</p>
-<h6 id="" class="scroll-mt-8 group">
+<h4 id="word-detection" class="scroll-mt-8 group">
+  Word Detection
   
-  
-    <a href="#"
+    <a href="#word-detection"
         class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
         aria-hidden="true" title="Link to this heading" tabindex="-1">
         <svg
@@ -444,12 +466,11 @@
 
     </a>
   
-</h6>
-<p>WORD DETECTION (Using Tesseract and Word2Vec)</p>
+</h4>
 <p>The contour image is converted into text using <a href="https://web.archive.org/web/20201111220617/https://github.com/tesseract-ocr/tesseract">Tesseract OCR</a>; in this case, it will give us <strong>Garden</strong>.</p>
 <p>Similar to the arcade mode, we will use Word2Vec to find the most similar word to it, which will be <strong>Flower beds</strong> this time.</p>
-<h5 id="improvements" class="scroll-mt-8 group">
-  IMPROVEMENTS
+<h3 id="improvements" class="scroll-mt-8 group">
+  Improvements
   
     <a href="#improvements"
         class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
@@ -472,7 +493,7 @@
 
     </a>
   
-</h5>
+</h3>
 <p>In certain scenarios, the current OCR process doesn’t recognize the word properly.</p>
 <p>For example, it would return <strong>Eloctrlclty</strong> for this contour instead of <strong>Electricity</strong>.</p>
 <p>Given that it’s an invalid word suggestion, the Word2Vec model will not return any similar word for it. In that case, the suggested word itself is entered as an associated word, just to keep the game moving.</p>
@@ -480,10 +501,10 @@
 <p>A spelling correction model can help here, correcting <strong>Eloctrlclty</strong> to <strong>Electricity</strong>.</p>
 <p>I have created an <a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/issues/7">issue on the GitHub</a> repository for the same, feel free to contribute if you like. 😄</p>
 </blockquote>
-<h5 id="" class="scroll-mt-8 group">
+<h3 id="source-code" class="scroll-mt-8 group">
+  Source Code
   
-  
-    <a href="#"
+    <a href="#source-code"
         class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
         aria-hidden="true" title="Link to this heading" tabindex="-1">
         <svg
@@ -504,9 +525,8 @@
 
     </a>
   
-</h5>
-<p>SOURCE CODE</p>
-<h6 id="semantris-solver-github" class="scroll-mt-8 group">
+</h3>
+<h4 id="semantris-solver-github" class="scroll-mt-8 group">
   <a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver">Semantris-Solver</a> (GitHub)
   
     <a href="#semantris-solver-github"
@@ -530,13 +550,13 @@
 
     </a>
   
-</h6>
+</h4>
 <p>It’s implemented as a CLI tool that allows you to switch between the game modes. You can check the <strong>IPython notebooks</strong> implementing both the modes.</p>
 <ol>
 <li><a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/blob/master/notebooks/Semantris%20Arcade%20Mode.ipynb">ARCADE mode</a></li>
 <li><a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/blob/master/notebooks/Semantris%20Block%20Mode.ipynb">BLOCKS mode</a></li>
 </ol>
-<h6 id="dependencies" class="scroll-mt-8 group">
+<h4 id="dependencies" class="scroll-mt-8 group">
   Dependencies
   
     <a href="#dependencies"
@@ -560,8 +580,8 @@
 
     </a>
   
-</h6>
-<p>It wasn’t possible to implement Semantris-Solver without the following software tools (any many more).</p>
+</h4>
+<p>It wasn&rsquo;t possible to implement Semantris-Solver without the following software tools (any many more).</p>
 <ol>
 <li>OpenCV</li>
 <li>Word2Vec (gensim)</li>
@@ -610,6 +630,197 @@
     </section>
 </aside>
 
+
+  
+  
+  <style>
+    #toc-toggle {
+      display: flex;
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      background-color: #1e293b;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+    }
+    #toc-toggle:hover { background-color: #334155; }
+    #toc-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    #toc-drawer.open {
+      visibility: visible;
+      pointer-events: auto;
+    }
+    #toc-backdrop {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0);
+      transition: background-color 0.3s ease;
+    }
+    #toc-drawer.open #toc-backdrop {
+      background-color: rgba(0,0,0,0.5);
+    }
+    #toc-drawer-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 1rem 1rem 0 0;
+      max-height: 70vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 -10px 25px -5px rgba(0,0,0,0.1);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    #toc-drawer.open #toc-drawer-content {
+      transform: translateY(0);
+    }
+    #toc-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    #toc-drawer-header h3 {
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0;
+    }
+    #toc-close {
+      padding: 0.25rem;
+      color: #64748b;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    #toc-close:hover { color: #334155; }
+    #toc-content {
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    #toc-content nav ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    #toc-content nav ul ul {
+      padding-left: 1rem;
+    }
+    #toc-content nav a {
+      display: block;
+      padding: 0.5rem 0;
+      color: #475569;
+      text-decoration: none;
+    }
+    #toc-content nav a:hover { color: #1e293b; }
+  </style>
+  <button id="toc-toggle" aria-label="Toggle table of contents">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="8" y1="6" x2="21" y2="6"></line>
+      <line x1="8" y1="12" x2="21" y2="12"></line>
+      <line x1="8" y1="18" x2="21" y2="18"></line>
+      <line x1="3" y1="6" x2="3.01" y2="6"></line>
+      <line x1="3" y1="12" x2="3.01" y2="12"></line>
+      <line x1="3" y1="18" x2="3.01" y2="18"></line>
+    </svg>
+    On this page
+  </button>
+
+  
+  <div id="toc-drawer">
+    <div id="toc-backdrop"></div>
+    <div id="toc-drawer-content">
+      <div id="toc-drawer-header">
+        <h3>On this page</h3>
+        <button id="toc-close" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div id="toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#understanding-semantris">Understanding Semantris</a></li>
+        <li><a href="#automating-arcade-mode">Automating Arcade Mode</a>
+          <ul>
+            <li><a href="#color-space-conversion">Color Space Conversion</a></li>
+            <li><a href="#template-matching">Template Matching</a></li>
+            <li><a href="#optical-character-recognition">Optical Character Recognition</a></li>
+            <li><a href="#associated-word-selection">Associated Word Selection</a></li>
+          </ul>
+        </li>
+        <li><a href="#automating-blocks-mode">Automating Blocks Mode</a>
+          <ul>
+            <li><a href="#color-palette-generation">Color Palette Generation</a></li>
+            <li><a href="#contour-detection">Contour Detection</a></li>
+            <li><a href="#word-detection">Word Detection</a></li>
+          </ul>
+        </li>
+        <li><a href="#improvements">Improvements</a></li>
+        <li><a href="#source-code">Source Code</a>
+          <ul>
+            <li><a href="#semantris-solver-github">Semantris-Solver (GitHub)</a></li>
+            <li><a href="#dependencies">Dependencies</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const toggle = document.getElementById('toc-toggle');
+      const drawer = document.getElementById('toc-drawer');
+      const backdrop = document.getElementById('toc-backdrop');
+      const closeBtn = document.getElementById('toc-close');
+      const tocContent = document.getElementById('toc-content');
+
+      function openDrawer() {
+        drawer.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      toggle.addEventListener('click', openDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+
+      
+      tocContent.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeDrawer);
+      });
+    })();
+  </script>
 
       </main>
     

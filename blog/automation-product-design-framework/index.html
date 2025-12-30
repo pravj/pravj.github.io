@@ -121,7 +121,7 @@
           <a aria-current="true" class="pb-1 border-b-2 transition border-transparent hover:border-slate-300 border-blue-500" href="/blog/">Posts</a>
         </li>
         <li>
-          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/projects/">Projects</a>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/labs/">Labs</a>
         </li>
         <li>
           <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/books/">Reading</a>
@@ -443,6 +443,184 @@
     </section>
 </aside>
 
+
+  
+  
+  <style>
+    #toc-toggle {
+      display: flex;
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      background-color: #1e293b;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+    }
+    #toc-toggle:hover { background-color: #334155; }
+    #toc-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    #toc-drawer.open {
+      visibility: visible;
+      pointer-events: auto;
+    }
+    #toc-backdrop {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0);
+      transition: background-color 0.3s ease;
+    }
+    #toc-drawer.open #toc-backdrop {
+      background-color: rgba(0,0,0,0.5);
+    }
+    #toc-drawer-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 1rem 1rem 0 0;
+      max-height: 70vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 -10px 25px -5px rgba(0,0,0,0.1);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    #toc-drawer.open #toc-drawer-content {
+      transform: translateY(0);
+    }
+    #toc-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    #toc-drawer-header h3 {
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0;
+    }
+    #toc-close {
+      padding: 0.25rem;
+      color: #64748b;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    #toc-close:hover { color: #334155; }
+    #toc-content {
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    #toc-content nav ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    #toc-content nav ul ul {
+      padding-left: 1rem;
+    }
+    #toc-content nav a {
+      display: block;
+      padding: 0.5rem 0;
+      color: #475569;
+      text-decoration: none;
+    }
+    #toc-content nav a:hover { color: #1e293b; }
+  </style>
+  <button id="toc-toggle" aria-label="Toggle table of contents">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="8" y1="6" x2="21" y2="6"></line>
+      <line x1="8" y1="12" x2="21" y2="12"></line>
+      <line x1="8" y1="18" x2="21" y2="18"></line>
+      <line x1="3" y1="6" x2="3.01" y2="6"></line>
+      <line x1="3" y1="12" x2="3.01" y2="12"></line>
+      <line x1="3" y1="18" x2="3.01" y2="18"></line>
+    </svg>
+    On this page
+  </button>
+
+  
+  <div id="toc-drawer">
+    <div id="toc-backdrop"></div>
+    <div id="toc-drawer-content">
+      <div id="toc-drawer-header">
+        <h3>On this page</h3>
+        <button id="toc-close" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div id="toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#disagreement-with-the-definition">Disagreement with the definition</a></li>
+            <li><a href="#anatomy-of-a-procedure"><strong>Anatomy of a procedure</strong></a></li>
+            <li><a href="#automation-levels"><strong>Automation levels</strong></a></li>
+            <li><a href="#systems-and-their-automation-levels"><strong>Systems and their automation levels</strong></a></li>
+            <li><a href="#application-in-product-design"><strong>Application in product design</strong></a></li>
+            <li><a href="#summary">Summary</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const toggle = document.getElementById('toc-toggle');
+      const drawer = document.getElementById('toc-drawer');
+      const backdrop = document.getElementById('toc-backdrop');
+      const closeBtn = document.getElementById('toc-close');
+      const tocContent = document.getElementById('toc-content');
+
+      function openDrawer() {
+        drawer.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      toggle.addEventListener('click', openDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+
+      
+      tocContent.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeDrawer);
+      });
+    })();
+  </script>
 
       </main>
     
