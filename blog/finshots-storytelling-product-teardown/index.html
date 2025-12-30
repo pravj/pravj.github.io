@@ -411,13 +411,38 @@
       border-radius: 9999px;
       box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
       align-items: center;
-      gap: 0.5rem;
+      justify-content: space-between;
+      min-width: 180px;
       font-size: 0.875rem;
       font-weight: 500;
       border: none;
       cursor: pointer;
     }
     #toc-toggle:hover { background-color: #334155; }
+    #toc-toggle-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    #reading-progress {
+      width: 24px;
+      height: 24px;
+      transform: rotate(-90deg);
+    }
+    #reading-progress-bg {
+      fill: none;
+      stroke: rgba(255,255,255,0.2);
+      stroke-width: 2;
+    }
+    #reading-progress-bar {
+      fill: none;
+      stroke: white;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 54;
+      stroke-dashoffset: 54;
+      transition: stroke-dashoffset 0.1s ease;
+    }
     #toc-drawer {
       position: fixed;
       inset: 0;
@@ -497,15 +522,21 @@
     #toc-content nav a:hover { color: #1e293b; }
   </style>
   <button id="toc-toggle" aria-label="Toggle table of contents">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="8" y1="6" x2="21" y2="6"></line>
-      <line x1="8" y1="12" x2="21" y2="12"></line>
-      <line x1="8" y1="18" x2="21" y2="18"></line>
-      <line x1="3" y1="6" x2="3.01" y2="6"></line>
-      <line x1="3" y1="12" x2="3.01" y2="12"></line>
-      <line x1="3" y1="18" x2="3.01" y2="18"></line>
+    <span id="toc-toggle-left">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="8" y1="6" x2="21" y2="6"></line>
+        <line x1="8" y1="12" x2="21" y2="12"></line>
+        <line x1="8" y1="18" x2="21" y2="18"></line>
+        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+      </svg>
+      On this page
+    </span>
+    <svg id="reading-progress" viewBox="0 0 20 20">
+      <circle id="reading-progress-bg" cx="10" cy="10" r="8.5"></circle>
+      <circle id="reading-progress-bar" cx="10" cy="10" r="8.5"></circle>
     </svg>
-    On this page
   </button>
 
   
@@ -570,6 +601,31 @@
       tocContent.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', closeDrawer);
       });
+
+      
+      const progressBar = document.getElementById('reading-progress-bar');
+      const circumference = 2 * Math.PI * 8.5; 
+
+      function updateProgress() {
+        const article = document.querySelector('article.main');
+        if (!article) return;
+
+        const articleTop = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+
+        
+        const start = articleTop;
+        const end = articleTop + articleHeight - windowHeight;
+        const progress = Math.min(Math.max((scrollY - start) / (end - start), 0), 1);
+
+        const offset = circumference - (progress * circumference);
+        progressBar.style.strokeDashoffset = offset;
+      }
+
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
     })();
   </script>
 
