@@ -26,7 +26,7 @@
   <meta itemprop="description" content="A cheat code approach to solving Google Semantris using Computer Vision and ML.">
   <meta itemprop="datePublished" content="2018-12-01T18:30:00+00:00">
   <meta itemprop="dateModified" content="2018-12-01T18:30:00+00:00">
-  <meta itemprop="wordCount" content="1110">
+  <meta itemprop="wordCount" content="1114">
   <meta itemprop="keywords" content="Experiment,Vision,ML">
 
   <meta name="twitter:card" content="summary">
@@ -37,8 +37,8 @@
 
       <link
         rel="stylesheet"
-        href="/css/index.min.02cc00ef9b3ae458f5cb05c0f4ea7f39d3f3212262170558d138610de894495a.css"
-        integrity="sha256-AswA75s65Fj1ywXA9Op/OdPzISJiFwVY0ThhDeiUSVo="
+        href="/css/index.min.da7528d261c11374c5f4bec688e3aedf3965d92868c8b577cad9e18fe3f54759.css"
+        integrity="sha256-2nUo0mHBE3TF9L7GiOOu3zll2ShoyLV3ytnhj&#43;P1R1k="
         crossorigin="anonymous"
       />
       <link
@@ -94,7 +94,7 @@
   "name": "Solving Google Semantris Using OpenCV and Word2Vec",
   "timeRequired": "PT6M",
   "url": "https://hackpravj.com/blog/solving-semantris-opencv-word2vec/",
-  "wordCount": 1110
+  "wordCount": 1114
 }
 </script>
 
@@ -148,7 +148,8 @@
 
     <p>Hmm. Looks like you&rsquo;ve played enough Semantris to reach here.</p>
 <blockquote>
-<p><a href="https://web.archive.org/web/20201111220617/https://experiments.withgoogle.com/semantris">Semantris</a> is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.</p>
+<p><a href="https://web.archive.org/web/20201111220617/https://experiments.withgoogle.com/semantris" target="_blank" rel="noopener">Semantris</a>
+ is a set of word association games by Google that use semantic search to predict a relevant word in the game based on the player’s input.</p>
 </blockquote>
 <h3 id="understanding-semantris" class="scroll-mt-8 group">
   Understanding Semantris
@@ -183,10 +184,12 @@
 <p>Blocks is a turn-based game mode. You can take your time to come up with different types of clues and see which ones the game understands best.</p>
 <p><img src="/photos/semantris-blocks.gif" alt=""></p>
 <blockquote>
-<p>After playing for a while, I realized both the game modes are using <a href="https://web.archive.org/web/20201111220617/http://www.peachpit.com/articles/article.aspx?p=98123&amp;seqNum=2">pattern recognition as the main game-play mechanism</a>. And that’s when I started thinking if the game-play can be automated.</p>
+<p>After playing for a while, I realized both the game modes are using <a href="https://web.archive.org/web/20201111220617/http://www.peachpit.com/articles/article.aspx?p=98123&amp;seqNum=2" target="_blank" rel="noopener">pattern recognition as the main game-play mechanism</a>
+. And that’s when I started thinking if the game-play can be automated.</p>
 </blockquote>
 <p><strong>TURNS OUT, IT CAN BE AUTOMATED</strong></p>
-<p><a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver">Semantris-Solver</a> uses the following procedure to play the game:</p>
+<p><a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver" target="_blank" rel="noopener">Semantris-Solver</a>
+ uses the following procedure to play the game:</p>
 <ol>
 <li>Capture the current game state using computer vision techniques</li>
 <li>Identify the word to enter for higher-reward/longer-gameplay</li>
@@ -286,7 +289,8 @@
     </a>
   
 </h4>
-<p>Our next step will be to find the highlighted word in the captured image. OpenCV provides a method called <a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.3.0/d4/dc6/tutorial_py_template_matching.html">Template Matching</a> for searching and finding the location of a template image in a larger image.</p>
+<p>Our next step will be to find the highlighted word in the captured image. OpenCV provides a method called <a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.3.0/d4/dc6/tutorial_py_template_matching.html" target="_blank" rel="noopener">Template Matching</a>
+ for searching and finding the location of a template image in a larger image.</p>
 <p>We will use a cropped version of the pointer shape (▶) as a template image, to find its location in the captured screen.</p>
 <p><img src="/photos/semantris-arcade-selected-highlighted-word.png" alt=""></p>
 <h4 id="optical-character-recognition" class="scroll-mt-8 group">
@@ -315,7 +319,8 @@
   
 </h4>
 <p>Based on the pointer&rsquo;s location, a section is cropped right next to it, with the highlighted word.</p>
-<p>The cropped image is converted into text using <a href="https://web.archive.org/web/20201111220617/https://hackpravj.com/blog/solving-semantris-opencv-word2vec/Tesseract%20OCR">Tesseract OCR</a>; in this case, it will give us the word <strong>Ship</strong>.</p>
+<p>The cropped image is converted into text using <a href="https://web.archive.org/web/20201111220617/https://hackpravj.com/blog/solving-semantris-opencv-word2vec/Tesseract%20OCR" target="_blank" rel="noopener">Tesseract OCR</a>
+; in this case, it will give us the word <strong>Ship</strong>.</p>
 <blockquote>
 <p>In the case of more than one highlighted word, they are entered one after another to keep the game moving.</p>
 </blockquote>
@@ -344,7 +349,9 @@
     </a>
   
 </h4>
-<p><a href="https://web.archive.org/web/20201111220617/https://hackpravj.com/blog/solving-semantris-opencv-word2vec/Word2Vec%20pre-trained%20on%20Google%20News%20corpus">Word2Vec pre-trained on Google News corpus</a> is used as a word embedding model to find the <a href="https://web.archive.org/web/20201111220617/https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec.most_similar">most similar</a> words (associated) for a given word.</p>
+<p><a href="https://web.archive.org/web/20201111220617/https://hackpravj.com/blog/solving-semantris-opencv-word2vec/Word2Vec%20pre-trained%20on%20Google%20News%20corpus" target="_blank" rel="noopener">Word2Vec pre-trained on Google News corpus</a>
+ is used as a word embedding model to find the <a href="https://web.archive.org/web/20201111220617/https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec.most_similar" target="_blank" rel="noopener">most similar</a>
+ words (associated) for a given word.</p>
 <p>In this case, it will return the <strong>vessel</strong> to enter as an associated word for the <strong>ship</strong> (<em>after removing morphologically similar words</em>). The program will enter this associated word and capture the updated game screen to continue.</p>
 <h3 id="automating-blocks-mode" class="scroll-mt-8 group">
   Automating Blocks Mode
@@ -437,10 +444,12 @@
 <p>Now that we have all the four colors in the current theme, we need to know which word-block to choose to get maximum points.</p>
 <p>In other words, if we calculate the area of every connected-word-block-group (<em>word-blocks of the same color connected to each other</em>) and select the one with the maximum area, we will get the desired connected-word-block-group.</p>
 <blockquote>
-<p><a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.4/d4/d73/tutorial_py_contours_begin.html">Contour</a> is a curve joining all the continuous points along a boundary, having same color or intensity.</p>
+<p><a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.4/d4/d73/tutorial_py_contours_begin.html" target="_blank" rel="noopener">Contour</a>
+ is a curve joining all the continuous points along a boundary, having same color or intensity.</p>
 </blockquote>
 <p>A word-block group can be considered a contour of that color; if it’s connected to more blocks with the same color, the contour’s area will be the sum of the connected word-blocks.</p>
-<p>Contours are calculated (using OpenCV’s <a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.3.1/d3/dc0/group__imgproc__shape.html#ga17ed9f5d79ae97bd4c7cf18403e1689a">findCountours</a> function) for all the word-block colors separately and the one with the maximum area is selected.</p>
+<p>Contours are calculated (using OpenCV’s <a href="https://web.archive.org/web/20201111220617/https://docs.opencv.org/3.3.1/d3/dc0/group__imgproc__shape.html#ga17ed9f5d79ae97bd4c7cf18403e1689a" target="_blank" rel="noopener">findCountours</a>
+ function) for all the word-block colors separately and the one with the maximum area is selected.</p>
 <p>We can select the maximum area contour by doing a bitwise-and operation between the captured screen and the contour mask.</p>
 <h4 id="word-detection" class="scroll-mt-8 group">
   Word Detection
@@ -467,7 +476,8 @@
     </a>
   
 </h4>
-<p>The contour image is converted into text using <a href="https://web.archive.org/web/20201111220617/https://github.com/tesseract-ocr/tesseract">Tesseract OCR</a>; in this case, it will give us <strong>Garden</strong>.</p>
+<p>The contour image is converted into text using <a href="https://web.archive.org/web/20201111220617/https://github.com/tesseract-ocr/tesseract" target="_blank" rel="noopener">Tesseract OCR</a>
+; in this case, it will give us <strong>Garden</strong>.</p>
 <p>Similar to the arcade mode, we will use Word2Vec to find the most similar word to it, which will be <strong>Flower beds</strong> this time.</p>
 <h3 id="improvements" class="scroll-mt-8 group">
   Improvements
@@ -499,7 +509,8 @@
 <p>Given that it’s an invalid word suggestion, the Word2Vec model will not return any similar word for it. In that case, the suggested word itself is entered as an associated word, just to keep the game moving.</p>
 <blockquote>
 <p>A spelling correction model can help here, correcting <strong>Eloctrlclty</strong> to <strong>Electricity</strong>.</p>
-<p>I have created an <a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/issues/7">issue on the GitHub</a> repository for the same, feel free to contribute if you like. 😄</p>
+<p>I have created an <a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/issues/7" target="_blank" rel="noopener">issue on the GitHub</a>
+ repository for the same, feel free to contribute if you like. 😄</p>
 </blockquote>
 <h3 id="source-code" class="scroll-mt-8 group">
   Source Code
@@ -527,7 +538,8 @@
   
 </h3>
 <h4 id="semantris-solver-github" class="scroll-mt-8 group">
-  <a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver">Semantris-Solver</a> (GitHub)
+  <a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver" target="_blank" rel="noopener">Semantris-Solver</a>
+ (GitHub)
   
     <a href="#semantris-solver-github"
         class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
@@ -553,8 +565,10 @@
 </h4>
 <p>It’s implemented as a CLI tool that allows you to switch between the game modes. You can check the <strong>IPython notebooks</strong> implementing both the modes.</p>
 <ol>
-<li><a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/blob/master/notebooks/Semantris%20Arcade%20Mode.ipynb">ARCADE mode</a></li>
-<li><a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/blob/master/notebooks/Semantris%20Block%20Mode.ipynb">BLOCKS mode</a></li>
+<li><a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/blob/master/notebooks/Semantris%20Arcade%20Mode.ipynb" target="_blank" rel="noopener">ARCADE mode</a>
+</li>
+<li><a href="https://web.archive.org/web/20201111220617/https://github.com/pravj/semantris-solver/blob/master/notebooks/Semantris%20Block%20Mode.ipynb" target="_blank" rel="noopener">BLOCKS mode</a>
+</li>
 </ol>
 <h4 id="dependencies" class="scroll-mt-8 group">
   Dependencies
@@ -589,7 +603,9 @@
 <li>Tesseract (OCR)</li>
 </ol>
 <p>Hope you liked my weekend hack story. Feel free to provide your feedback.</p>
-<p>I can be reached on <a href="https://web.archive.org/web/20201111220617/https://twitter.com/hackpravj">Twitter</a> or through my personal website <a href="https://web.archive.org/web/20201111220617/https://hackpravj.com/">hackpravj.com</a>.</p>
+<p>I can be reached on <a href="https://web.archive.org/web/20201111220617/https://twitter.com/hackpravj" target="_blank" rel="noopener">Twitter</a>
+ or through my personal website <a href="https://web.archive.org/web/20201111220617/https://hackpravj.com/" target="_blank" rel="noopener">hackpravj.com</a>
+.</p>
 
   </article>
     <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
