@@ -1609,8 +1609,12 @@ footer a:hover {
 
 .prose :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-links);
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: 500;
+  background: linear-gradient(to top, #fef5a7 50%, transparent 50%);
+}
+.prose :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)):hover {
+  background: linear-gradient(to top, #fde047 50%, transparent 50%);
 }
 
 .prose :where(strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
