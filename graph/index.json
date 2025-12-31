@@ -31,6 +31,10 @@
     "/blog/solving-semantris-opencv-word2vec/": {
       "in": [],
       "out": []
+    },
+    "/blog/the-year-i-started-writing-code-again/": {
+      "in": [],
+      "out": []
     }
   },
   "pages": {
@@ -73,6 +77,11 @@
       "permalink": "/blog/solving-semantris-opencv-word2vec/",
       "section": "posts",
       "title": "Solving Google Semantris Using OpenCV and Word2Vec"
+    },
+    "/blog/the-year-i-started-writing-code-again/": {
+      "permalink": "/blog/the-year-i-started-writing-code-again/",
+      "section": "posts",
+      "title": "The Year I Started Writing Code, Again."
     }
   }
 }

@@ -7,13 +7,34 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Pravendra Singh</copyright>
-    <lastBuildDate>Sun, 14 Sep 2025 00:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 31 Dec 2025 00:00:00 +0530</lastBuildDate>
     <atom:link href="https://hackpravj.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI</title>
       <link>https://hackpravj.com/categories/ai/</link>
-      <pubDate>Sun, 14 Sep 2025 00:00:00 +0530</pubDate>
+      <pubDate>Wed, 31 Dec 2025 00:00:00 +0530</pubDate>
       <guid>https://hackpravj.com/categories/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Experiment</title>
+      <link>https://hackpravj.com/categories/experiment/</link>
+      <pubDate>Wed, 31 Dec 2025 00:00:00 +0530</pubDate>
+      <guid>https://hackpravj.com/categories/experiment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UX</title>
+      <link>https://hackpravj.com/categories/ux/</link>
+      <pubDate>Wed, 31 Dec 2025 00:00:00 +0530</pubDate>
+      <guid>https://hackpravj.com/categories/ux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Writing</title>
+      <link>https://hackpravj.com/categories/writing/</link>
+      <pubDate>Wed, 31 Dec 2025 00:00:00 +0530</pubDate>
+      <guid>https://hackpravj.com/categories/writing/</guid>
       <description></description>
     </item>
     <item>
@@ -59,24 +80,10 @@
       <description></description>
     </item>
     <item>
-      <title>UX</title>
-      <link>https://hackpravj.com/categories/ux/</link>
-      <pubDate>Sun, 10 Oct 2021 11:30:00 +0000</pubDate>
-      <guid>https://hackpravj.com/categories/ux/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Storytelling</title>
       <link>https://hackpravj.com/categories/storytelling/</link>
       <pubDate>Mon, 15 Mar 2021 04:30:00 +0000</pubDate>
       <guid>https://hackpravj.com/categories/storytelling/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Writing</title>
-      <link>https://hackpravj.com/categories/writing/</link>
-      <pubDate>Mon, 15 Mar 2021 04:30:00 +0000</pubDate>
-      <guid>https://hackpravj.com/categories/writing/</guid>
       <description></description>
     </item>
     <item>
@@ -105,13 +112,6 @@
       <link>https://hackpravj.com/categories/essays/</link>
       <pubDate>Sat, 21 Nov 2020 18:30:00 +0000</pubDate>
       <guid>https://hackpravj.com/categories/essays/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Experiment</title>
-      <link>https://hackpravj.com/categories/experiment/</link>
-      <pubDate>Sat, 01 Dec 2018 18:30:00 +0000</pubDate>
-      <guid>https://hackpravj.com/categories/experiment/</guid>
       <description></description>
     </item>
     <item>
