@@ -4,7 +4,15 @@
       "in": [],
       "out": []
     },
+    "/blog/building-missing-github-feature/": {
+      "in": [],
+      "out": []
+    },
     "/blog/finshots-storytelling-product-teardown/": {
+      "in": [],
+      "out": []
+    },
+    "/blog/first-golang-contribution-experience/": {
       "in": [],
       "out": []
     },
@@ -17,6 +25,10 @@
       "out": []
     },
     "/blog/how-will-drone-deliver-food-order/": {
+      "in": [],
+      "out": []
+    },
+    "/blog/indian-railways-next-billion-users/": {
       "in": [],
       "out": []
     },
@@ -43,10 +55,20 @@
       "section": "posts",
       "title": "A Framework for Using Automation in Product Design"
     },
+    "/blog/building-missing-github-feature/": {
+      "permalink": "/blog/building-missing-github-feature/",
+      "section": "posts",
+      "title": "Using GitHub to Build a Missing GitHub Feature"
+    },
     "/blog/finshots-storytelling-product-teardown/": {
       "permalink": "/blog/finshots-storytelling-product-teardown/",
       "section": "posts",
       "title": "Anatomy of a Finshots Story: Art of Effective Storytelling"
+    },
+    "/blog/first-golang-contribution-experience/": {
+      "permalink": "/blog/first-golang-contribution-experience/",
+      "section": "posts",
+      "title": "Contributing to the Go Programming Language"
     },
     "/blog/how-not-to-use-ai-at-work/": {
       "permalink": "/blog/how-not-to-use-ai-at-work/",
@@ -62,6 +84,11 @@
       "permalink": "/blog/how-will-drone-deliver-food-order/",
       "section": "posts",
       "title": "How Will a Drone Deliver Your Food?"
+    },
+    "/blog/indian-railways-next-billion-users/": {
+      "permalink": "/blog/indian-railways-next-billion-users/",
+      "section": "posts",
+      "title": "Opportunities in Indian Railway Commute: Next Billion Users Perspective"
     },
     "/blog/on-effective-reviews-that-improve-quality-of-work/": {
       "permalink": "/blog/on-effective-reviews-that-improve-quality-of-work/",

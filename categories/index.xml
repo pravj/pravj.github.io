@@ -115,6 +115,62 @@
       <description></description>
     </item>
     <item>
+      <title>Accessibility</title>
+      <link>https://hackpravj.com/categories/accessibility/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/accessibility/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GitHub</title>
+      <link>https://hackpravj.com/categories/github/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/github/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Google</title>
+      <link>https://hackpravj.com/categories/google/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/google/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>India</title>
+      <link>https://hackpravj.com/categories/india/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/india/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Internet</title>
+      <link>https://hackpravj.com/categories/internet/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/internet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Open Source</title>
+      <link>https://hackpravj.com/categories/open-source/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/open-source/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Side Project</title>
+      <link>https://hackpravj.com/categories/side-project/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/side-project/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Voice</title>
+      <link>https://hackpravj.com/categories/voice/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/voice/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>ML</title>
       <link>https://hackpravj.com/categories/ml/</link>
       <pubDate>Sat, 01 Dec 2018 18:30:00 +0000</pubDate>
@@ -126,6 +182,13 @@
       <link>https://hackpravj.com/categories/vision/</link>
       <pubDate>Sat, 01 Dec 2018 18:30:00 +0000</pubDate>
       <guid>https://hackpravj.com/categories/vision/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Golang</title>
+      <link>https://hackpravj.com/categories/golang/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://hackpravj.com/categories/golang/</guid>
       <description></description>
     </item>
   </channel>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on Pravendra Singh</title>
+    <link>https://hackpravj.com/categories/golang/</link>
+    <description>Recent content in Golang on Pravendra Singh</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Pravendra Singh</copyright>
+    <lastBuildDate>Thu, 15 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://hackpravj.com/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Contributing to the Go Programming Language</title>
+      <link>https://hackpravj.com/blog/first-golang-contribution-experience/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://hackpravj.com/blog/first-golang-contribution-experience/</guid>
+      <description>My experience contributing the first commit to the Go programming language.</description>
+    </item>
+  </channel>
+</rss>

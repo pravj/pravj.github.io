@@ -1,0 +1,793 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head>
+    <meta charset="utf-8" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width" />
+<title>
+    Using GitHub to Build a Missing GitHub Feature | Pravendra Singh
+</title>
+  <meta name="description" content="A product-first approach to building a missing GitHub feature as a side-project." />
+<meta property="og:url" content="https://hackpravj.com/blog/building-missing-github-feature/">
+  <meta property="og:site_name" content="Pravendra Singh">
+  <meta property="og:title" content="Using GitHub to Build a Missing GitHub Feature">
+  <meta property="og:description" content="A product-first approach to building a missing GitHub feature as a side-project.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2019-09-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2019-09-02T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="Using GitHub to Build a Missing GitHub Feature">
+  <meta itemprop="description" content="A product-first approach to building a missing GitHub feature as a side-project.">
+  <meta itemprop="datePublished" content="2019-09-02T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2019-09-02T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1466">
+  <meta itemprop="keywords" content="GitHub,Product,Open Source,Side Project">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Using GitHub to Build a Missing GitHub Feature">
+  <meta name="twitter:description" content="A product-first approach to building a missing GitHub feature as a side-project.">
+
+<link rel="canonical" href="https://hackpravj.com/blog/building-missing-github-feature/" />
+
+      <link
+        rel="stylesheet"
+        href="/css/index.min.39cfcdb9677a950173548d811c0afd850cc03f2ae25f30bde0bc1220b404d42e.css"
+        integrity="sha256-Oc/NuWd6lQFzVI2BHAr9hQzAPyriXzC94LwSILQE1C4="
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="/css/photos.min.7d68a8afb4856793c9fb78ed546d63b89e9809a88cafdbc4922681cfed23cc34.css"
+        integrity="sha256-fWior7SFZ5PJ&#43;3jtVG1juJ6YCaiMr9vEkiaBz&#43;0jzDQ="
+        crossorigin="anonymous"
+      />
+
+
+      <script
+        src="/js/main.61a9a853dc759e130a9ca54dc5aaed035fe530ec58fb87687412148ab1fa770b.js"
+        integrity="sha256-YamoU9x1nhMKnKVNxartA1/lMOxY&#43;4dodBIUirH6dws="
+        crossorigin="anonymous"
+        defer
+      ></script>
+  
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-0Z41JVBMSB"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-0Z41JVBMSB');
+        }
+      </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@id": "https://hackpravj.com/blog/building-missing-github-feature/",
+  "@type": "BlogPosting",
+  "articleSection": [
+    "GitHub",
+    "Product",
+    "Open Source",
+    "Side Project"
+  ],
+  "copyrightNotice": "Pravendra Singh",
+  "datePublished": "2019-09-02",
+  "description": "A product-first approach to building a missing GitHub feature as a side-project.",
+  "headline": "Using GitHub to Build a Missing GitHub Feature",
+  "isPartOf": {
+    "@id": "https://hackpravj.com/blog/",
+    "@type": "Blog",
+    "name": "Posts"
+  },
+  "mainEntityOfPage": "https://hackpravj.com/blog/building-missing-github-feature/",
+  "name": "Using GitHub to Build a Missing GitHub Feature",
+  "timeRequired": "PT7M",
+  "url": "https://hackpravj.com/blog/building-missing-github-feature/",
+  "wordCount": 1466
+}
+</script>
+
+
+    
+  </head>
+  <body>
+    
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        
+
+<header class="flex flex-col items-start sm:items-center space-y-4 mt-4">
+  <a id="skip-nav" class="sr-only" href="#maincontent">Skip to main content</a>
+  
+  <a class="text-xl font-semibold tracking-tight whitespace-nowrap" href="/">Pravendra Singh</a>
+  
+  <nav>
+    <ul class="flex flex-wrap justify-start sm:justify-center space-x-4 pt-1">
+        <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/about/">About</a>
+        </li>
+        <li>
+          <a aria-current="true" class="pb-1 border-b-2 transition border-transparent hover:border-slate-300 border-blue-500" href="/blog/">Posts</a>
+        </li>
+        <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/labs/">Labs</a>
+        </li>
+        <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/books/">Reading</a>
+        </li>
+        <li>
+          <a class="pb-1 border-b-2 transition border-transparent hover:border-slate-300" href="/photos/">Photos</a>
+        </li>
+    </ul>
+  </nav>
+
+
+</header>
+
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        <article class="main">
+    <header>
+      <h1 class="!mb-1">Using GitHub to Build a Missing GitHub Feature</h1><div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="2019-09-02T00:00:00&#43;00:00"
+            >September 2, 2019</time
+          >
+        </div>
+        <p class="text-base opacity-70 mt-2 mb-0">A product-first approach to building a missing GitHub feature as a side-project.</p>
+    </header>
+
+    <figure
+  role="note"
+  id="admonition-00"
+  aria-labelledby="admonition-caption-00"
+  class="admonition note  not-prose"
+>
+  <div class="flex items-center space-x-2 pb-2 font-semibold">
+      <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-info block"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="M12 16v-4M12 8h.01" />
+</svg>
+
+    <figcaption id="admonition-caption-00">
+        Update
+    </figcaption>
+  </div>
+
+  <div class="prose pl-8 text-inherit marker:text-inherit">
+    This was later released as a feature by GitHub. Years later, the Paddle account shows $30 in sales, which I will never be able to recover because of a minimum $100 limit. ¯\_(ツ)_/¯
+  </div>
+</figure>
+
+<p>After the Microsoft acquisition, GitHub has been on a roller coaster ride. It has been winning the developer community&rsquo;s affinity by launching a series of offerings, one after another, starting from the free private repositories to the GitHub Sponsors program.</p>
+<p>Still, there are unmatched expectations that users have from the hub of open-source. This guide is about one such expectation, a feature that is missing from GitHub and my product-first approach to building that as a side-project.</p>
+<p><img src="/photos/building-missing-github-feature-birds.jpeg" alt="Can you listen to the birds chirping in the background?" title="Can you listen to the birds chirping in the background?"></p>
+<h3 id="all-that-is-missing" class="scroll-mt-8 group">
+  All That Is Missing
+  
+    <a href="#all-that-is-missing"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>Started as a code hosting platform for the Git version control system, GitHub has evolved into a complete software development platform. It fits perfectly in the software development lifecycle that people have started using it in multiple ways (<em>blog for some other day on the wild network effects of GitHub and its use of social incentives</em>).</p>
+<p><a href="https://github.com/isaacs/github/issues" target="_blank" rel="noopener">Isaac&rsquo;s repository</a>
+ is one such corner of the platform where people come to request new features, they create an issue for what they want and thumbs up each other&rsquo;s comments, hoping that GitHub will listen to their requests. It does. Support for reactions is my favorite feature that was implemented after getting noticed from here.</p>
+<p><img src="/photos/building-missing-github-feature-isaac-readme.png" alt="Snippet from the README document for Isaac&rsquo;s repository" title="Snippet from the README document for Isaac's repository"></p>
+<h3 id="finding-what-to-work-on" class="scroll-mt-8 group">
+  Finding What to Work On
+  
+    <a href="#finding-what-to-work-on"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<blockquote>
+<p>Know your customers wherever they are.</p>
+</blockquote>
+<p><em>Want to know what&rsquo;s wrong with a product, head straight to the user forums or customer feedback channels, and you will get the answer.</em></p>
+<p>More than a year ago when I was looking for a side project to work on, this repository was the correct place to find out the missing pieces related to GitHub.</p>
+<p>Now comes the much anticipated missing feature, <em>the ability to follow an organization</em>. Yes, you can&rsquo;t follow an organization like following a normal user account to receive user-activities. It&rsquo;s the most-commented issue on Issac&rsquo;s repository.</p>
+<p><img src="/photos/building-missing-github-feature-issue.png" alt="Issue requesting feature to add ability to follow organizations" title="Issue requesting feature to add ability to follow organizations"></p>
+<p>GitHub shows you user-generated activities (creating, starring, and forking repositories, etc.) in your main feed, which allows people to discover new things (read my other blog <a href="https://hackpravj.com/blog/information-dynamics-github-network/" target="_blank" rel="noopener">Information dynamics on the GitHub network</a>
+ for details). But there is no way to subscribe to an organization and receive events when something happens in it (for example, when a new repository is created).</p>
+<h3 id="are-you-bored-right-now" class="scroll-mt-8 group">
+  Are You Bored Right Now?
+  
+    <a href="#are-you-bored-right-now"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>If you don&rsquo;t care to read more about the development process, you can skip this and check out <a href="https://followgithub.org" target="_blank" rel="noopener">followgithub.org</a>
+, browser extension that allows you to follow a GitHub organization. It&rsquo;s <a href="https://github.com/follow-github-organisation/fghx" target="_blank" rel="noopener">open-source</a>
+ as well, feel free to hack on it during weekends.</p>
+<p><img src="/photos/building-missing-github-feature-followgithub.png" alt="followgithub.org" title="followgithub.org"></p>
+<h3 id="the-real-mvp" class="scroll-mt-8 group">
+  The Real MVP
+  
+    <a href="#the-real-mvp"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>Once the idea was shortlisted, it was time to work out a plan to manage risk by prototyping early and cheaply, the risk of shipping the wrong stuff that nobody wanted in the first place.</p>
+<p>Given the motive, I aimed to spend as little time as possible on the implementation to get the initial version to validate the hypothesis. One, there weren&rsquo;t enough resources to pull this off as I was working on it on Sundays, that too sporadically. Another, Steve Blank wouldn&rsquo;t agree.</p>
+<blockquote>
+<p>Think about cheap hacks to test the goal, keep the eyes on the prize.</p>
+</blockquote>
+<p>I found that the solution will involve activity-checker polling for new events at its core, but notifying the users about an event is going to be the major deal.</p>
+<p>I was fiddling with some typical and atypical distribution channels such as Email alerts (<em>where the events are being sent to a verified email address</em>) and Twitter bot (<em>to keep updating a thread for an organization OR responding to tagged questions</em>). But none of them was a convincing idea because it would bound the solution in one particular way before even getting buy-in from the potential users.</p>
+<p>That&rsquo;s when I realized that I was looking outside, but the real distribution channel was in front of my eyes, GitHub. It&rsquo;s a place to position your product for the right people in itself. It has a social pull that brings a community closer, generating value for each other; for example, <a href="https://github.com/sindresorhus/awesome" target="_blank" rel="noopener">awesome-lists</a>
+.</p>
+<p>And here comes the MVP, a <a href="https://github.com/follow-github-organisation/fghx" target="_blank" rel="noopener">GitHub repository</a>
+ acting as a user forum.</p>
+<p><img src="/photos/building-missing-github-feature-mvp.jpg" alt="Using GitHub as the distribution channel for followgithub.org MVP" title="Using GitHub as the distribution channel for followgithub.org MVP"></p>
+<p>This saved me from investing in email notification services or choosing a channel where none of the potential users are (Twitter).</p>
+<p>It was <a href="https://news.ycombinator.com/item?id=19261376" target="_blank" rel="noopener">shared on Hacker News</a>
+ by my friend Amit, leading to some early adoption.</p>
+<h3 id="tweak-it" class="scroll-mt-8 group">
+  Tweak It
+  
+    <a href="#tweak-it"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>After a few days, I started interacting with people using the setup for the next iteration. About both the good and the bad parts; how they are excited to follow an organization, and how the issue thread is adding duplicate comments or missing beats.</p>
+<p>For this, I prepared a series of questions aligned with The Mom Test by Rob Fitzpatrick.</p>
+<ul>
+<li>Open-ended questions, what has changed because of this setup</li>
+<li>Daily habits, how exactly do they use GitHub in life</li>
+<li>Specifics from the past, how did they find their (recent) favorite GitHub repository</li>
+</ul>
+<p>I realized the current setup was doing a bad job at user experience. Neither the notification delivery (for a new repository) system was providing a native GitHub experience aligned to their browsing habits. It required you to take multiple actions to follow an organization.</p>
+<ul>
+<li>Find if there exists an issue for the organization you want to follow</li>
+<li>Create an issue with adding the link for the organization in the comment</li>
+</ul>
+<p>Then one day a friend pointed me out to <em>refined-github</em> during a discussion, a famous browser extension that simplifies the GitHub interface and adds useful features. And that&rsquo;s when I found the real distribution channel resonating with all the requirements.</p>
+<p>A browser extension that allows you to follow GitHub organizations in your sleep.</p>
+<p><img src="/photos/building-missing-github-feature-follow-button.gif" alt="Just follow an organization by clicking the follow button, what else?" title="Just follow an organization by clicking the follow button, what else?"></p>
+<p><img src="/photos/building-missing-github-feature-feed.png" alt="A new repository in the organization will be added to your main GitHub feed" title="A new repository in the organization will be added to your main GitHub feed"></p>
+<h3 id="extensions-and-skepticism" class="scroll-mt-8 group">
+  Extensions and Skepticism
+  
+    <a href="#extensions-and-skepticism"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>During my interaction with potential and existing users, I observed that not everyone has a virtuous view of browser extensions. Some of the users have strong opinions against them because of potential security risks.</p>
+<p>That&rsquo;s why I decided to <a href="https://github.com/follow-github-organisation/fghx" target="_blank" rel="noopener">open-source</a>
+ the extension and it&rsquo;s being built out in the open.</p>
+<h3 id="path-to-ramen-success" class="scroll-mt-8 group">
+  Path to Ramen Success
+  
+    <a href="#path-to-ramen-success"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>As mentioned by <a href="https://www.mikeperham.com/" target="_blank" rel="noopener">Mike Perham</a>
+, people start something valuable with enthusiasm and give it for free, only to get overwhelmed by support requests and burn out of the project.</p>
+<p>I realized that it&rsquo;s the right time to put a price tag on all the time spent on the development, at least to pay the server bills. I will consider this a ramen sustainable success in two possible scenarios:</p>
+<ul>
+<li>GitHub builds this feature</li>
+<li>I stop investing on the product from my own pocket to sustain it</li>
+</ul>
+<h3 id="putting-the-right-price-tag" class="scroll-mt-8 group">
+  Putting the Right Price Tag
+  
+    <a href="#putting-the-right-price-tag"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>After deciding the path for ramen success, it was time to put the right price tag. I was reading about different pricing mechanisms (The anatomy of SaaS pricing strategy) and found every coin has two sides to it.</p>
+<ul>
+<li><strong>Cost-plus pricing:</strong> isn&rsquo;t a calculated decision if the product depends on external factors. Also, your customers don&rsquo;t care about your costs.</li>
+<li><strong>Value-based pricing:</strong> isn&rsquo;t easy all the times to quantify the value being generated by your product. But it validates their willingness to pay, if there is a value in it.</li>
+</ul>
+<p>Logically, I decided to go ahead with the value-based freemium pricing structure as it felt like the right move in the given context. But this required me to come up with metrics to define the value generated by users.</p>
+<p>In this case, the total number of organizations followed was the fitting value metric. I have kept the bar at 10 organizations in the &ldquo;adopter&rdquo; version for the following reasons:</p>
+<ul>
+<li>You should not give up too many things for free</li>
+<li>It was close to the following count of some new users (in a small sample set)</li>
+</ul>
+<p><img src="/photos/building-missing-github-feature-pricing.png" alt="Pricing model for followgithub.org" title="Pricing model for followgithub.org"></p>
+<h3 id="incentive-flywheel" class="scroll-mt-8 group">
+  Incentive Flywheel
+  
+    <a href="#incentive-flywheel"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>Everyone has their own strategy to get the first 10 or 100 customers, different for the kind of product you are building, this is mine.</p>
+<p>Given GitHub has a strong social-capital game in place (<em>might not apply to all the GitHub users</em>), one would want to generate value by creating or contributing to an existing repository, in return for a special status in the topology. Encouraging more members to join the value-generation efforts in the connected network, and bringing more members into the userbase.</p>
+<p>And for that, I&rsquo;ve kept an incentive for contributions to the extension. A free supporter license key for <a href="https://github.com/follow-github-organisation/fghx" target="_blank" rel="noopener">any legit contribution</a>
+ you make to it.</p>
+<p><img src="/photos/building-missing-github-feature-contribute.png" alt="Contribute to the extension and win a supporter license key" title="Contribute to the extension and win a supporter license key"></p>
+<p>All kinds of contributions are welcome as long as it&rsquo;s beneficial for the end users.</p>
+<hr>
+<p>That&rsquo;s it, please let me know what do you think of the extension.</p>
+<p>Reach out to me at <a href="https://twitter.com/hackpravj" target="_blank" rel="noopener">@hackpravj</a>
+ (<a href="https://twitter.com/followgithuborg" target="_blank" rel="noopener">@followgithuborg</a>
+) or followgithuborg@gmail if you come across any issue or suggestion for the tool. I would love to make it better for you.</p>
+<p>If you want to win the supporter license key, head straight to the <a href="https://github.com/follow-github-organisation/fghx" target="_blank" rel="noopener">repository</a>
+.</p>
+
+  </article>
+    <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-shapes h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"
+  />
+  <rect width="7" height="7" x="3" y="14" rx="1" />
+  <circle cx="17.5" cy="17.5" r="3.5" />
+</svg>
+
+        <span>Categories</span>
+      </h2>
+
+      <ul class="ml-6 flex flex-row flex-wrap items-center space-x-2">
+          <li>
+            <a href="/categories/github/" class="taxonomy category">GitHub</a>
+          </li>
+          <li>
+            <a href="/categories/product/" class="taxonomy category">Product</a>
+          </li>
+          <li>
+            <a href="/categories/open-source/" class="taxonomy category">Open Source</a>
+          </li>
+          <li>
+            <a href="/categories/side-project/" class="taxonomy category">Side Project</a>
+          </li>
+      </ul>
+    </section>
+</aside>
+
+
+  
+  
+  <style>
+    #toc-toggle {
+      display: flex;
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      background-color: #1e293b;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+      align-items: center;
+      justify-content: space-between;
+      min-width: 180px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+    }
+    #toc-toggle:hover { background-color: #334155; }
+    #toc-toggle-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    #reading-progress {
+      width: 24px;
+      height: 24px;
+      transform: rotate(-90deg);
+    }
+    #reading-progress-bg {
+      fill: none;
+      stroke: rgba(255,255,255,0.2);
+      stroke-width: 2;
+    }
+    #reading-progress-bar {
+      fill: none;
+      stroke: white;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 54;
+      stroke-dashoffset: 54;
+      transition: stroke-dashoffset 0.1s ease;
+    }
+    #toc-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    #toc-drawer.open {
+      visibility: visible;
+      pointer-events: auto;
+    }
+    #toc-backdrop {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0);
+      transition: background-color 0.3s ease;
+    }
+    #toc-drawer.open #toc-backdrop {
+      background-color: rgba(0,0,0,0.5);
+    }
+    #toc-drawer-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 1rem 1rem 0 0;
+      max-height: 70vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 -10px 25px -5px rgba(0,0,0,0.1);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    #toc-drawer.open #toc-drawer-content {
+      transform: translateY(0);
+    }
+    #toc-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    #toc-drawer-header h3 {
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0;
+    }
+    #toc-close {
+      padding: 0.25rem;
+      color: #64748b;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    #toc-close:hover { color: #334155; }
+    #toc-content {
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    #toc-content nav ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    #toc-content nav ul ul {
+      padding-left: 1rem;
+    }
+    #toc-content nav a {
+      display: block;
+      padding: 0.5rem 0;
+      color: #475569;
+      text-decoration: none;
+    }
+    #toc-content nav a:hover { color: #1e293b; }
+  </style>
+  <button id="toc-toggle" aria-label="Toggle table of contents">
+    <span id="toc-toggle-left">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="8" y1="6" x2="21" y2="6"></line>
+        <line x1="8" y1="12" x2="21" y2="12"></line>
+        <line x1="8" y1="18" x2="21" y2="18"></line>
+        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+      </svg>
+      On this page
+    </span>
+    <svg id="reading-progress" viewBox="0 0 20 20">
+      <circle id="reading-progress-bg" cx="10" cy="10" r="8.5"></circle>
+      <circle id="reading-progress-bar" cx="10" cy="10" r="8.5"></circle>
+    </svg>
+  </button>
+
+  
+  <div id="toc-drawer">
+    <div id="toc-backdrop"></div>
+    <div id="toc-drawer-content">
+      <div id="toc-drawer-header">
+        <h3>On this page</h3>
+        <button id="toc-close" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div id="toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#all-that-is-missing">All That Is Missing</a></li>
+        <li><a href="#finding-what-to-work-on">Finding What to Work On</a></li>
+        <li><a href="#are-you-bored-right-now">Are You Bored Right Now?</a></li>
+        <li><a href="#the-real-mvp">The Real MVP</a></li>
+        <li><a href="#tweak-it">Tweak It</a></li>
+        <li><a href="#extensions-and-skepticism">Extensions and Skepticism</a></li>
+        <li><a href="#path-to-ramen-success">Path to Ramen Success</a></li>
+        <li><a href="#putting-the-right-price-tag">Putting the Right Price Tag</a></li>
+        <li><a href="#incentive-flywheel">Incentive Flywheel</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const toggle = document.getElementById('toc-toggle');
+      const drawer = document.getElementById('toc-drawer');
+      const backdrop = document.getElementById('toc-backdrop');
+      const closeBtn = document.getElementById('toc-close');
+      const tocContent = document.getElementById('toc-content');
+
+      function openDrawer() {
+        drawer.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      toggle.addEventListener('click', openDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+
+      
+      tocContent.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeDrawer);
+      });
+
+      
+      const progressBar = document.getElementById('reading-progress-bar');
+      const circumference = 2 * Math.PI * 8.5; 
+
+      function updateProgress() {
+        const article = document.querySelector('article.main');
+        if (!article) return;
+
+        const articleTop = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+
+        
+        const start = articleTop;
+        const end = articleTop + articleHeight - windowHeight;
+        const progress = Math.min(Math.max((scrollY - start) / (end - start), 0), 1);
+
+        const offset = circumference - (progress * circumference);
+        progressBar.style.strokeDashoffset = offset;
+      }
+
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+    })();
+  </script>
+
+      </main>
+    
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        <section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+      <p>Copyright &copy; 2026, Pravendra Singh.</p>
+
+  </div>
+    <div>
+      <a
+        href="https://github.com/michenriksen/hugo-theme-til"
+        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="0.6.0"
+        >theme: til</a
+      >
+    </div>
+</section>
+
+      </footer>
+    </div>
+    
+  </body>
+</html>

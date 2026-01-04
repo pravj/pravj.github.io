@@ -35,7 +35,7 @@
       <link>https://hackpravj.com/blog/how-will-drone-deliver-food-order/</link>
       <pubDate>Sun, 10 Oct 2021 11:30:00 +0000</pubDate>
       <guid>https://hackpravj.com/blog/how-will-drone-deliver-food-order/</guid>
-      <description>&lt;p&gt;A thought experiment: drone food delivery and associated operational details.&lt;/p&gt;</description>
+      <description>A thought experiment: drone food delivery and associated operational details.</description>
     </item>
     <item>
       <title>Anatomy of a Finshots story: Art of Effective Storytelling</title>
@@ -66,11 +66,32 @@
       <description>Paul Graham&amp;rsquo;s essays categorized by different parameters to help you find what to read.</description>
     </item>
     <item>
+      <title>Opportunities in Indian Railway Commute: Next Billion Users Perspective</title>
+      <link>https://hackpravj.com/blog/indian-railways-next-billion-users/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://hackpravj.com/blog/indian-railways-next-billion-users/</guid>
+      <description>Exploring opportunities in the Indian railway ecosystem from a Next Billion Users perspective.</description>
+    </item>
+    <item>
+      <title>Using GitHub to Build a Missing GitHub Feature</title>
+      <link>https://hackpravj.com/blog/building-missing-github-feature/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://hackpravj.com/blog/building-missing-github-feature/</guid>
+      <description>A product-first approach to building a missing GitHub feature as a side-project.</description>
+    </item>
+    <item>
       <title>Solving Google Semantris using OpenCV and Word2Vec</title>
       <link>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</link>
       <pubDate>Sat, 01 Dec 2018 18:30:00 +0000</pubDate>
       <guid>https://hackpravj.com/blog/solving-semantris-opencv-word2vec/</guid>
       <description>A cheat code approach to solving Google Semantris using Computer Vision and ML.</description>
+    </item>
+    <item>
+      <title>Contributing to the Go Programming Language</title>
+      <link>https://hackpravj.com/blog/first-golang-contribution-experience/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://hackpravj.com/blog/first-golang-contribution-experience/</guid>
+      <description>My experience contributing the first commit to the Go programming language.</description>
     </item>
   </channel>
 </rss>
