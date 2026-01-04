@@ -2,130 +2,130 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Pravendra Singh</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://hackpravj.com/categories/</link>
     <description>Recent content in Categories on Pravendra Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Pravendra Singh</copyright>
     <lastBuildDate>Wed, 31 Dec 2025 00:00:00 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hackpravj.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI</title>
-      <link>http://localhost:1313/categories/ai/</link>
+      <link>https://hackpravj.com/categories/ai/</link>
       <pubDate>Wed, 31 Dec 2025 00:00:00 +0530</pubDate>
-      <guid>http://localhost:1313/categories/ai/</guid>
+      <guid>https://hackpravj.com/categories/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Experiment</title>
-      <link>http://localhost:1313/categories/experiment/</link>
+      <link>https://hackpravj.com/categories/experiment/</link>
       <pubDate>Wed, 31 Dec 2025 00:00:00 +0530</pubDate>
-      <guid>http://localhost:1313/categories/experiment/</guid>
+      <guid>https://hackpravj.com/categories/experiment/</guid>
       <description></description>
     </item>
     <item>
       <title>UX</title>
-      <link>http://localhost:1313/categories/ux/</link>
+      <link>https://hackpravj.com/categories/ux/</link>
       <pubDate>Wed, 31 Dec 2025 00:00:00 +0530</pubDate>
-      <guid>http://localhost:1313/categories/ux/</guid>
+      <guid>https://hackpravj.com/categories/ux/</guid>
       <description></description>
     </item>
     <item>
       <title>Writing</title>
-      <link>http://localhost:1313/categories/writing/</link>
+      <link>https://hackpravj.com/categories/writing/</link>
       <pubDate>Wed, 31 Dec 2025 00:00:00 +0530</pubDate>
-      <guid>http://localhost:1313/categories/writing/</guid>
+      <guid>https://hackpravj.com/categories/writing/</guid>
       <description></description>
     </item>
     <item>
       <title>Framework</title>
-      <link>http://localhost:1313/categories/framework/</link>
+      <link>https://hackpravj.com/categories/framework/</link>
       <pubDate>Sun, 14 Sep 2025 00:00:00 +0530</pubDate>
-      <guid>http://localhost:1313/categories/framework/</guid>
+      <guid>https://hackpravj.com/categories/framework/</guid>
       <description></description>
     </item>
     <item>
       <title>Management</title>
-      <link>http://localhost:1313/categories/management/</link>
+      <link>https://hackpravj.com/categories/management/</link>
       <pubDate>Sun, 14 Sep 2025 00:00:00 +0530</pubDate>
-      <guid>http://localhost:1313/categories/management/</guid>
+      <guid>https://hackpravj.com/categories/management/</guid>
       <description></description>
     </item>
     <item>
       <title>Culture</title>
-      <link>http://localhost:1313/categories/culture/</link>
+      <link>https://hackpravj.com/categories/culture/</link>
       <pubDate>Sun, 20 Mar 2022 00:00:00 +0530</pubDate>
-      <guid>http://localhost:1313/categories/culture/</guid>
+      <guid>https://hackpravj.com/categories/culture/</guid>
       <description></description>
     </item>
     <item>
       <title>Startup</title>
-      <link>http://localhost:1313/categories/startup/</link>
+      <link>https://hackpravj.com/categories/startup/</link>
       <pubDate>Sun, 20 Mar 2022 00:00:00 +0530</pubDate>
-      <guid>http://localhost:1313/categories/startup/</guid>
+      <guid>https://hackpravj.com/categories/startup/</guid>
       <description></description>
     </item>
     <item>
       <title>Design</title>
-      <link>http://localhost:1313/categories/design/</link>
+      <link>https://hackpravj.com/categories/design/</link>
       <pubDate>Sun, 10 Oct 2021 11:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/design/</guid>
+      <guid>https://hackpravj.com/categories/design/</guid>
       <description></description>
     </item>
     <item>
       <title>Product</title>
-      <link>http://localhost:1313/categories/product/</link>
+      <link>https://hackpravj.com/categories/product/</link>
       <pubDate>Sun, 10 Oct 2021 11:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/product/</guid>
+      <guid>https://hackpravj.com/categories/product/</guid>
       <description></description>
     </item>
     <item>
       <title>Storytelling</title>
-      <link>http://localhost:1313/categories/storytelling/</link>
+      <link>https://hackpravj.com/categories/storytelling/</link>
       <pubDate>Mon, 15 Mar 2021 04:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/storytelling/</guid>
+      <guid>https://hackpravj.com/categories/storytelling/</guid>
       <description></description>
     </item>
     <item>
       <title>Automation</title>
-      <link>http://localhost:1313/categories/automation/</link>
+      <link>https://hackpravj.com/categories/automation/</link>
       <pubDate>Sun, 17 Jan 2021 15:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/automation/</guid>
+      <guid>https://hackpravj.com/categories/automation/</guid>
       <description></description>
     </item>
     <item>
       <title>Habit</title>
-      <link>http://localhost:1313/categories/habit/</link>
+      <link>https://hackpravj.com/categories/habit/</link>
       <pubDate>Sat, 02 Jan 2021 12:50:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/habit/</guid>
+      <guid>https://hackpravj.com/categories/habit/</guid>
       <description></description>
     </item>
     <item>
       <title>OKR</title>
-      <link>http://localhost:1313/categories/okr/</link>
+      <link>https://hackpravj.com/categories/okr/</link>
       <pubDate>Sat, 02 Jan 2021 12:50:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/okr/</guid>
+      <guid>https://hackpravj.com/categories/okr/</guid>
       <description></description>
     </item>
     <item>
       <title>Essays</title>
-      <link>http://localhost:1313/categories/essays/</link>
+      <link>https://hackpravj.com/categories/essays/</link>
       <pubDate>Sat, 21 Nov 2020 18:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/essays/</guid>
+      <guid>https://hackpravj.com/categories/essays/</guid>
       <description></description>
     </item>
     <item>
       <title>ML</title>
-      <link>http://localhost:1313/categories/ml/</link>
+      <link>https://hackpravj.com/categories/ml/</link>
       <pubDate>Sat, 01 Dec 2018 18:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/ml/</guid>
+      <guid>https://hackpravj.com/categories/ml/</guid>
       <description></description>
     </item>
     <item>
       <title>Vision</title>
-      <link>http://localhost:1313/categories/vision/</link>
+      <link>https://hackpravj.com/categories/vision/</link>
       <pubDate>Sat, 01 Dec 2018 18:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/vision/</guid>
+      <guid>https://hackpravj.com/categories/vision/</guid>
       <description></description>
     </item>
   </channel>

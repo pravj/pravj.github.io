@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Writing on Pravendra Singh</title>
-    <link>http://localhost:1313/categories/writing/</link>
+    <link>https://hackpravj.com/categories/writing/</link>
     <description>Recent content in Writing on Pravendra Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Pravendra Singh</copyright>
     <lastBuildDate>Wed, 31 Dec 2025 00:00:00 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/writing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hackpravj.com/categories/writing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The year I started writing code, again.</title>
-      <link>http://localhost:1313/blog/the-year-i-started-writing-code-again/</link>
+      <link>https://hackpravj.com/blog/the-year-i-started-writing-code-again/</link>
       <pubDate>Wed, 31 Dec 2025 00:00:00 +0530</pubDate>
-      <guid>http://localhost:1313/blog/the-year-i-started-writing-code-again/</guid>
+      <guid>https://hackpravj.com/blog/the-year-i-started-writing-code-again/</guid>
       <description>Rediscovering the joy of coding after five years, thanks to Claude Code.</description>
     </item>
     <item>
       <title>Anatomy of a Finshots story: Art of Effective Storytelling</title>
-      <link>http://localhost:1313/blog/finshots-storytelling-product-teardown/</link>
+      <link>https://hackpravj.com/blog/finshots-storytelling-product-teardown/</link>
       <pubDate>Mon, 15 Mar 2021 04:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/finshots-storytelling-product-teardown/</guid>
+      <guid>https://hackpravj.com/blog/finshots-storytelling-product-teardown/</guid>
       <description>Finshots product-teardown with an objective to understand what sets them apart.</description>
     </item>
     <item>
       <title>How to Read Paul Graham&#39;s Essays?</title>
-      <link>http://localhost:1313/blog/how-to-read-paul-graham-essays/</link>
+      <link>https://hackpravj.com/blog/how-to-read-paul-graham-essays/</link>
       <pubDate>Sat, 21 Nov 2020 18:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/how-to-read-paul-graham-essays/</guid>
+      <guid>https://hackpravj.com/blog/how-to-read-paul-graham-essays/</guid>
       <description>Paul Graham&amp;rsquo;s essays categorized by different parameters to help you find what to read.</description>
     </item>
   </channel>
