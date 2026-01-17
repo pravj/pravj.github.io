@@ -282,11 +282,17 @@
   <span style="background-color: #fce7f3; padding: 0.1em 0.2em;">Photography</span> has been a constant companion since I got my first ever phone. <span id="photo-stack" style="display: inline-block; vertical-align: middle; position: relative; margin: 0 5px; cursor: pointer; transition: transform 0.3s ease;"><img class="stack-card" src="/photos/moments/friends-skating.jpeg" alt="" style="display: block; width: 56px; height: 56px; object-fit: cover; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.5s ease; position: relative; z-index: 3; transform: rotate(-3deg);"><img class="stack-card" src="/photos/moments/midtown-bridge.jpeg" alt="" style="position: absolute; top: 0; left: 0; width: 56px; height: 56px; object-fit: cover; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.5s ease; z-index: 2; transform: rotate(2deg) translate(3px, 2px);"><img class="stack-card" src="/photos/moments/people-crossing.jpeg" alt="" style="position: absolute; top: 0; left: 0; width: 56px; height: 56px; object-fit: cover; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.5s ease; z-index: 1; transform: rotate(-1deg) translate(-2px, 3px);"></span>
 </span>
 <span style="text-align: justify;">
-  Recently, I upgraded to my first proper camera — <span style="background-color: #dbeafe; padding: 0.1em 0.2em;">Canon R100</span> — though I suppose that depends on whether you count point-and-shoot cameras as 'proper.' (Check <a href="/photos">Photos</a> or <span id="board-hover-trigger" style="border-bottom: 1px dashed #666; cursor: pointer; position: relative;">hover here<span id="board-preview" style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); transform-origin: top center; margin-top: 8px; z-index: 100; pointer-events: none; animation: swing 3s ease-in-out infinite;"><img src="/photos/photo-board-preview.png" alt="Photo Board Preview" style="width: 300px; max-width: none; border-radius: 8px; box-shadow: 0 15px 30px rgba(0,0,0,0.25), 0 8px 15px rgba(0,0,0,0.15);"></span></span>)
+  Recently, I upgraded to my first proper camera — <span style="background-color: #dbeafe; padding: 0.1em 0.2em;">Canon R100</span> — though I suppose that depends on whether you count point-and-shoot cameras as 'proper.' (Check <a href="/photos">Photos</a> or <span id="board-hover-trigger" style="border-bottom: 1px dashed #666; cursor: pointer; position: relative;"><span class="hover-text">hover</span><span class="click-text">click</span> here<span id="board-preview" style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); transform-origin: top center; margin-top: 8px; z-index: 100; pointer-events: none; animation: swing 3s ease-in-out infinite;"><img src="/photos/photo-board-preview.png" alt="Photo Board Preview" style="width: 300px; max-width: none; border-radius: 8px; box-shadow: 0 15px 30px rgba(0,0,0,0.25), 0 8px 15px rgba(0,0,0,0.15);"></span></span>)
 <style>
 @keyframes swing {
   0%, 100% { transform: translateX(-50%) rotate(-2deg); }
   50% { transform: translateX(-50%) rotate(2deg); }
+}
+.hover-text { display: inline; }
+.click-text { display: none; }
+@media (max-width: 640px) {
+  .hover-text { display: none; }
+  .click-text { display: inline; }
 }
 </style>
 </span>
