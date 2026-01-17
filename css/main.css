@@ -1,0 +1,375 @@
+@import 'chroma.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'LatoLatinWebBlack';
+  src:
+    url('../fonts/LatoLatin-Black.woff2') format('woff2'),
+    url('../fonts/LatoLatin-Black.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWebBlack';
+  src:
+    url('../fonts/LatoLatin-BlackItalic.woff2') format('woff2'),
+    url('../fonts/LatoLatin-BlackItalic.woff') format('woff');
+  font-style: italic;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWeb';
+  src:
+    url('../fonts/LatoLatin-Bold.woff2') format('woff2'),
+    url('../fonts/LatoLatin-Bold.woff') format('woff');
+  font-style: normal;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWeb';
+  src:
+    url('../fonts/LatoLatin-BoldItalic.woff2') format('woff2'),
+    url('../fonts/LatoLatin-BoldItalic.woff') format('woff');
+  font-style: italic;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWebHairline';
+  src:
+    url('../fonts/LatoLatin-Hairline.woff2') format('woff2'),
+    url('../fonts/LatoLatin-Hairline.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWebHairline';
+  src:
+    url('../fonts/LatoLatin-HairlineItalic.woff2') format('woff2'),
+    url('../fonts/LatoLatin-HairlineItalic.woff') format('woff');
+  font-style: italic;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWebHeavy';
+  src:
+    url('../fonts/LatoLatin-Heavy.woff2') format('woff2'),
+    url('../fonts/LatoLatin-Heavy.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWebHeavy';
+  src:
+    url('../fonts/LatoLatin-HeavyItalic.woff2') format('woff2'),
+    url('../fonts/LatoLatin-HeavyItalic.woff') format('woff');
+  font-style: italic;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWeb';
+  src:
+    url('../fonts/LatoLatin-Italic.woff2') format('woff2'),
+    url('../fonts/LatoLatin-Italic.woff') format('woff');
+  font-style: italic;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWebLight';
+  src:
+    url('../fonts/LatoLatin-Light.woff2') format('woff2'),
+    url('../fonts/LatoLatin-Light.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWebLight';
+  src:
+    url('../fonts/LatoLatin-LightItalic.woff2') format('woff2'),
+    url('../fonts/LatoLatin-LightItalic.woff') format('woff');
+  font-style: italic;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWebMedium';
+  src:
+    url('../fonts/LatoLatin-Medium.woff2') format('woff2'),
+    url('../fonts/LatoLatin-Medium.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWeb';
+  src:
+    url('../fonts/LatoLatin-Regular.woff2') format('woff2'),
+    url('../fonts/LatoLatin-Regular.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWebSemibold';
+  src:
+    url('../fonts/LatoLatin-Semibold.woff2') format('woff2'),
+    url('../fonts/LatoLatin-Semibold.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWebSemibold';
+  src:
+    url('../fonts/LatoLatin-SemiboldItalic.woff2') format('woff2'),
+    url('../fonts/LatoLatin-SemiboldItalic.woff') format('woff');
+  font-style: italic;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWebThin';
+  src:
+    url('../fonts/LatoLatin-Thin.woff2') format('woff2'),
+    url('../fonts/LatoLatin-Thin.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'LatoLatinWebThin';
+  src:
+    url('../fonts/LatoLatin-ThinItalic.woff2') format('woff2'),
+    url('../fonts/LatoLatin-ThinItalic.woff') format('woff');
+  font-style: italic;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@layer base {
+  body {
+    font-family: 'LatoLatinWeb', sans-serif;
+    counter-reset: sidenote-counter;
+  }
+
+  nav a:hover {
+    @apply underline decoration-slate-300 decoration-2 underline-offset-4;
+  }
+
+  nav a.active,
+  nav a.ancestor {
+    @apply underline decoration-2 underline-offset-4;
+  }
+
+  nav a.ancestor {
+    @apply decoration-slate-300;
+  }
+
+  article.main a {
+    @apply !text-blue-800 hover:decoration-2 hover:underline-offset-2;
+  }
+
+  article.main .codeblock-meta a {
+    @apply !text-white/70 hover:!text-sky-400;
+  }
+
+  article.main figure {
+    img {
+      @apply mb-0 border p-1;
+    }
+
+    figcaption {
+      @apply mt-1 text-center;
+
+      h4 {
+        @apply mt-0;
+      }
+
+      p {
+        @apply mt-1 italic;
+      }
+    }
+  }
+
+  a.taxonomy {
+    @apply whitespace-nowrap rounded-sm border border-slate-200 bg-slate-100 p-1 text-sm font-semibold lowercase no-underline;
+  }
+
+  a.taxonomy:hover {
+    @apply border-slate-300 bg-slate-200;
+  }
+
+  a.taxonomy .count {
+    @apply relative -top-px rounded bg-slate-300 px-[3px] py-[1px] text-[10px] font-normal tabular-nums text-slate-500;
+  }
+
+  a.taxonomy:hover .count {
+    @apply bg-slate-400 text-slate-600;
+  }
+
+  .pagination {
+    @apply mt-10 flex flex-row items-center justify-center space-x-4;
+  }
+
+  .pagination .active a {
+    @apply font-semibold underline decoration-2 underline-offset-4;
+  }
+
+  .pagination .disabled a {
+    @apply cursor-not-allowed opacity-50;
+  }
+
+  .sidenote {
+    @apply inline;
+    counter-increment: sidenote-counter;
+  }
+
+  .sidenote-checkbox ~ .sidenote-content {
+    @apply max-lg:sr-only;
+  }
+
+  .sidenote-checkbox:checked {
+    & ~ .sidenote-content {
+      @apply max-lg:not-sr-only max-lg:left-auto max-lg:float-left max-lg:my-2 max-lg:block max-lg:min-w-full max-lg:pl-4 max-lg:text-sky-600;
+    }
+
+    & ~ .sidenote-mark {
+      @apply no-underline max-lg:text-sky-600;
+    }
+  }
+
+  .sidenote:active,
+  .sidenote:active .sidenote-content {
+    @apply text-sky-600;
+  }
+
+  .sidenote:hover .sidenote-mark::after,
+  .sidenote:hover .sidenote-content::before {
+    @apply text-sky-600;
+  }
+
+  .sidenote-mark {
+    &::after {
+      @apply inline align-super text-xs font-semibold max-lg:hidden;
+      content: counter(sidenote-counter);
+    }
+
+    @apply motion-safe:transition-all max-lg:cursor-pointer max-lg:underline max-lg:decoration-sky-600 max-lg:decoration-dotted max-lg:decoration-2 max-lg:underline-offset-4;
+  }
+
+  .sidenote-content {
+    &::before {
+      @apply absolute -left-16 bottom-0 top-0 flex w-14 items-start justify-end text-sm font-semibold max-lg:hidden;
+      content: counter(sidenote-counter) '.';
+    }
+
+    @apply motion-safe:transition-all lg:absolute lg:right-0 lg:w-48 lg:cursor-default;
+
+    @media screen(lg) {
+      margin-right: calc(-1 * theme(width.48) - 1 * theme(margin.16));
+    }
+  }
+
+  .footnote-ref {
+    @apply align-super text-xs font-semibold motion-safe:transition-all max-lg:cursor-pointer max-lg:underline max-lg:decoration-sky-600 max-lg:decoration-dotted max-lg:decoration-2 max-lg:underline-offset-4;
+
+    &:hover {
+      @apply max-lg:underline-offset-4;
+    }
+  }
+
+  .admonition {
+    @apply my-6 rounded border bg-slate-100 py-4 pl-2 pr-4 text-slate-800 shadow-sm;
+
+    svg {
+      @apply relative -top-[2px];
+    }
+
+    a {
+      @apply underline decoration-1;
+    }
+  }
+
+  .admonition.tip {
+    @apply border-indigo-200 bg-indigo-100 text-indigo-800;
+
+    a {
+      @apply !text-indigo-900;
+    }
+  }
+
+  .admonition.warning {
+    @apply border-orange-200 bg-orange-100 text-orange-800;
+
+    a {
+      @apply !text-orange-900;
+    }
+  }
+
+  .admonition.danger {
+    @apply border-red-200 bg-red-100 text-red-800;
+
+    a {
+      @apply !text-red-900;
+    }
+  }
+
+  .codeblock pre {
+    @apply overflow-x-scroll rounded p-2 text-sm;
+    color: #c0caf5;
+    background-color: #1a1b26;
+  }
+
+  .codeblock div.chroma,
+  pre code {
+    @apply overflow-x-scroll;
+  }
+
+  .codeblock .hl {
+    @apply bg-[#2f3248];
+  }
+
+  article.main .diagram-meta a {
+    @apply !text-gray-500 transition-colors hover:!text-sky-400;
+  }
+
+  footer a {
+    @apply underline hover:decoration-2;
+  }
+
+  .network-chart .node {
+    @apply hidden;
+  }
+
+  .network-chart .edge {
+    @apply hidden;
+  }
+}
