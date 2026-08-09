@@ -47,6 +47,10 @@
     "/blog/the-year-i-started-writing-code-again/": {
       "in": [],
       "out": []
+    },
+    "/blog/woodworking-has-been-achieved-internally/": {
+      "in": [],
+      "out": []
     }
   },
   "pages": {
@@ -109,6 +113,11 @@
       "permalink": "/blog/the-year-i-started-writing-code-again/",
       "section": "posts",
       "title": "The Year I Started Writing Code, Again."
+    },
+    "/blog/woodworking-has-been-achieved-internally/": {
+      "permalink": "/blog/woodworking-has-been-achieved-internally/",
+      "section": "posts",
+      "title": "Woodworking Has Been Achieved Internally"
     }
   }
 }
